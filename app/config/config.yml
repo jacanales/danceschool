@@ -2,7 +2,8 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: easyadmin.yml }
+    - { resource: extra/easyadmin.yml }
+    - { resource: extra/user.yml }
 
 framework:
     #esi:             ~
