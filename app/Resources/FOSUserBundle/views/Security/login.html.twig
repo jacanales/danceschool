@@ -5,7 +5,7 @@
 {% block head_style %}
     {{ parent() }}
     <!-- Bootstrap core CSS -->
-    {% stylesheets filter='?yui_css'
+    {% stylesheets filter='cssrewrite,?yui_css'
     '@MopaBootstrapBundle/Resources/public/bootstrap/dist/css/bootstrap.css'
     %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet"
