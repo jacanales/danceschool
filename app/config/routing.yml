@@ -2,6 +2,9 @@
 #    path:     /
 #    defaults: { _controller: FOSUserBundle:Profile:show }
 
+MopaBootstrapSandbox:
+    resource: "@MopaBootstrapSandboxBundle/Resources/config/routing.yml"
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
