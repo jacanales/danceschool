@@ -1,6 +1,6 @@
-#_welcome:
-#    path:     /
-#    defaults: { _controller: FOSUserBundle:Profile:show }
+_welcome:
+    path:     /
+    defaults: { _controller: AcmeDemoBundle:Welcome:index }
 
 MopaBootstrapSandbox:
     resource: "@MopaBootstrapSandboxBundle/Resources/config/routing.yml"

@@ -3,6 +3,7 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block head_style %}
+    {{ parent() }}
     <!-- Bootstrap core CSS -->
     {% stylesheets filter='?yui_css'
     '@MopaBootstrapBundle/Resources/public/bootstrap/dist/css/bootstrap.css'
