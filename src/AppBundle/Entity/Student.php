@@ -24,74 +24,12 @@ class Student
     protected $id;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(type="string")
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    protected $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string")
-     */
-    protected $surname;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(type="boolean", options={comment:"0: Man, 1: Woman"})
-     */
-    protected $gender;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=15)
-     */
-    protected $phone;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string")
-     */
-    protected $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", nullable=true)
-     */
-    protected $address;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=45, nullable=true)
-     */
-    protected $city;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", columnDefinition="CHAR(2) NOT NULL")
-     */
-    protected $country;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=15, nullable=true)
-     */
-    protected $postal_code;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", unique=true, nullable=true)
-     */
-    protected $identity_number;
+    protected $user;
 
     /**
      * @ORM\Column(type="smallint", nullable=true)
@@ -101,21 +39,35 @@ class Student
     /**
      * @var boolean
      *
-     * @ORM\Column(type="boolean", nullable=true, options={"default":false})
+     * @ORM\Column(type="boolean", nullable=false, options={"default":false})
      */
     protected $member;
 
     /**
-     * @var integer
+     * @var \DateTime
      *
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="datetime", columnDefinition="DATETIME", nullable=true, options={"default":null})
      */
     protected $contract_expiration;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="clob")
+     * @ORM\Column(type="text", nullable=true)
      */
-    protected $remark;
+    protected $comment;
+
+    /**
+     * @var integer
+     *
+     * @ORM\OneToMany(targetEntity="GroupStudent", mappedBy="student")
+     */
+    protected $groupStudent;
+
+    /**
+     * @var integer
+     *
+     * @ORM\OneToMany(targetEntity="StudentAnnotation", mappedBy="student")
+     */
+    protected $annotations;
 }
