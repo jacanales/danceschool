@@ -1,0 +1,6 @@
+#layout.logout: __layout.logout
+#security.login.username: __security.login.username
+#security.login.password: __security.login.password
+#security.login.submit: __security.login.submit
+#layout.logged_in_as: __layout.logged_in_as
+#layout.login: __layout.login
