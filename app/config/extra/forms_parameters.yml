@@ -1,2 +1,2 @@
 parameters:
-    fos_user.profile.form.name: "Información de usuario"
+    fos_user.profile.form.name: "Editar_usuario"

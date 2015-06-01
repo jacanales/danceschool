@@ -3,6 +3,7 @@
 namespace AppBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
+use Knp\Menu\ItemInterface;
 
 class Builder
 {
@@ -16,21 +17,25 @@ class Builder
         // Add a regular child with an icon, icon- is prepended automatically
         $menu->addChild('Home', array(
             'icon' => 'home',
-            'route' => '_homepage',
+            'route' => 'homepage',
         ));
 
+        $this->addRoomMenu($menu);
+
+        return $menu;
+    }
+
+    private function addRoomMenu(ItemInterface &$menu)
+    {
         // Create a dropdown with a caret
-        $user = $menu->addChild('User', array(
+        $room = $menu->addChild('Room', array(
             'dropdown' => true,
             'caret' => true,
         ));
 
         // Create a dropdown header
-        $user->addChild('Profile', array('dropdown-header' => true));
-        $user->addChild('Show profile', array('route' => 'fos_user_profile_show', 'dropdown-header' => false));
-        $user->addChild('Edit profile', array('route' => 'fos_user_profile_edit', 'dropdown-header' => false));
-
-        return $menu;
+        $room->addChild('View', array('dropdown-header' => true));
+        $room->addChild('View rooms', array('route' => 'mayimbe_room_index', 'dropdown-header' => false));
     }
 
     public function invalidMethod(FactoryInterface $factory)
