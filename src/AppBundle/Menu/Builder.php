@@ -16,7 +16,7 @@ class Builder
         // Add a regular child with an icon, icon- is prepended automatically
         $menu->addChild('Home', array(
             'icon' => 'home',
-            'route' => '_welcome',
+            'route' => '_homepage',
         ));
 
         // Create a dropdown with a caret

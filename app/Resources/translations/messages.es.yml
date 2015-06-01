@@ -1,0 +1,6 @@
+menu.option.show_profile: "Ver perfil"
+menu.option.edit_profile: "Editar perfil"
+menu.option.logout: "Cerrar sesión"
+
+form.login.placeholder.username: 'Nombre de usuario'
+form.login.placeholder.password: Contraseña

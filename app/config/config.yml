@@ -18,6 +18,11 @@ framework:
     templating:
         engines: ['twig']
         assets_version: 1.0
+#        assets_base_url:
+#            http:
+#                - "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+#                - "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+
     default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
@@ -38,7 +43,6 @@ assetic:
     use_controller: false
     bundles:
         - MopaBootstrapBundle
-        - MopaBootstrapSandboxBundle
         - FOSUserBundle
     #java: /usr/bin/java
     filters:

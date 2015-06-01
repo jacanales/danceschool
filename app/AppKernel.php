@@ -35,13 +35,9 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
 
-            $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
-
             # Third-party bundles
             $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
             $bundles[] = new Egulias\ListenersDebugCommandBundle\EguliasListenersDebugCommandBundle();
-
-            $bundles[] = new Mopa\Bundle\BootstrapSandboxBundle\MopaBootstrapSandboxBundle();
         }
 
         return $bundles;

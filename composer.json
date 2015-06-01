@@ -43,11 +43,8 @@
     "require-dev": {
         "twbs/bootstrap": "~3.3",
         "sensio/generator-bundle": "~2.3",
-        "mopa/bootstrap-sandbox-bundle": "dev-master",
         "raulfraile/ladybug-bundle": "~1.0",
-        "egulias/listeners-debug-command-bundle": "*",
-
-        "braincrafted/bootstrap-bundle": "~2.1"
+        "egulias/listeners-debug-command-bundle": "*"
     },
     "scripts": {
         "post-root-package-install": [

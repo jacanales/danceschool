@@ -2,9 +2,6 @@ _homepage:
     path:     /
     defaults: { _controller: AppBundle:Default:index }
 
-MopaBootstrapSandbox:
-    resource: "@MopaBootstrapSandboxBundle/Resources/config/routing.yml"
-
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
