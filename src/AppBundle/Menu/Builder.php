@@ -34,8 +34,9 @@ class Builder
         ));
 
         // Create a dropdown header
-        $room->addChild('View', array('dropdown-header' => true));
+        $room->addChild('Rooms', array('dropdown-header' => true));
         $room->addChild('View rooms', array('route' => 'mayimbe_room_index', 'dropdown-header' => false));
+        $room->addChild('Add room', array('route' => 'mayimbe_room_add', 'dropdown-header' => false));
     }
 
     public function invalidMethod(FactoryInterface $factory)

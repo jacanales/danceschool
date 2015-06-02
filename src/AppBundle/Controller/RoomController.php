@@ -2,8 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Room;
+use AppBundle\Form\Type\RoomType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Route preffix affects only new (not overloaded) actions or if route name matches
@@ -21,10 +24,29 @@ class RoomController extends Controller
 
     /**
      * @Route("/add", name="mayimbe_room_add")
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function addAction()
+    public function addAction(Request $request)
     {
-        return $this->render('default/index.html.twig');
+        $form = $this->createForm(new RoomType(), new Room());
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($form->getData());
+            $em->flush();
+
+            return $this->redirectToRoute('mayimbe_room_index');
+        }
+
+        return $this->render(
+            'AppBundle:Room:add.html.twig',
+            array(
+                'form' => $form->createView()
+            )
+        );
     }
 
     /**
