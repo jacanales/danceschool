@@ -11,12 +11,12 @@ class RoomType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('description', 'text')
-            ->add('price', 'text')
-            ->add('address', 'text')
-            ->add('city', 'text')
-            ->add('postal_code', 'text')
-            ->add('phone', 'text')
+            ->add('description')
+            ->add('price')
+            ->add('address')
+            ->add('city')
+            ->add('postal_code')
+            ->add('phone')
             ->add('save', 'submit', array('label' => 'Create Room'))
             ->getForm();
     }

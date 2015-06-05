@@ -21,6 +21,7 @@ class Builder
         ));
 
         $this->addRoomMenu($menu);
+        $this->addCourseMenu($menu);
 
         return $menu;
     }
@@ -37,6 +38,20 @@ class Builder
         $room->addChild('Rooms', array('dropdown-header' => true));
         $room->addChild('View rooms', array('route' => 'mayimbe_room_index', 'dropdown-header' => false));
         $room->addChild('Add room', array('route' => 'mayimbe_room_add', 'dropdown-header' => false));
+    }
+
+    private function addCourseMenu(ItemInterface &$menu)
+    {
+        // Create a dropdown with a caret
+        $room = $menu->addChild('Course', array(
+            'dropdown' => true,
+            'caret' => true,
+        ));
+
+        // Create a dropdown header
+        $room->addChild('Course', array('dropdown-header' => true));
+        $room->addChild('View courses', array('route' => 'mayimbe_course_index', 'dropdown-header' => false));
+        $room->addChild('Add course', array('route' => 'mayimbe_course_add', 'dropdown-header' => false));
     }
 
     public function invalidMethod(FactoryInterface $factory)
