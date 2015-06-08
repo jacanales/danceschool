@@ -11,8 +11,9 @@ class RoomType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('id', 'hidden')
             ->add('description')
-            ->add('price')
+            ->add('price', 'text')
             ->add('address')
             ->add('city')
             ->add('postal_code')

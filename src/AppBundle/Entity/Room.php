@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -73,6 +74,14 @@ class Room
     protected $groups;
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->groups = new ArrayCollection();
+    }
+
+    /**
      * @return int
      */
     public function getId()
@@ -82,10 +91,14 @@ class Room
 
     /**
      * @param int $id
+     *
+     * @return Room
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -98,10 +111,14 @@ class Room
 
     /**
      * @param string $description
+     *
+     * @return Room
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
+        return $this;
     }
 
     /**
@@ -114,10 +131,14 @@ class Room
 
     /**
      * @param float $price
+     *
+     * @return Room
      */
     public function setPrice($price)
     {
         $this->price = $price;
+
+        return $this;
     }
 
     /**
@@ -130,10 +151,14 @@ class Room
 
     /**
      * @param string $address
+     *
+     * @return Room
      */
     public function setAddress($address)
     {
         $this->address = $address;
+
+        return $this;
     }
 
     /**
@@ -146,10 +171,14 @@ class Room
 
     /**
      * @param string $city
+     *
+     * @return Room
      */
     public function setCity($city)
     {
         $this->city = $city;
+
+        return $this;
     }
 
     /**
@@ -162,10 +191,14 @@ class Room
 
     /**
      * @param string $postal_code
+     *
+     * @return Room
      */
     public function setPostalCode($postal_code)
     {
         $this->postal_code = $postal_code;
+
+        return $this;
     }
 
     /**
@@ -178,10 +211,14 @@ class Room
 
     /**
      * @param string $phone
+     *
+     * @return Room
      */
     public function setPhone($phone)
     {
         $this->phone = $phone;
+
+        return $this;
     }
 
     /**
@@ -194,11 +231,37 @@ class Room
 
     /**
      * @param int $groups
+     *
+     * @return Room
      */
     public function setGroups($groups)
     {
         $this->groups = $groups;
+
+        return $this;
     }
 
+    /**
+     * Add group
+     *
+     * @param Group $group
+     *
+     * @return Room
+     */
+    public function addGroup(Group $group)
+    {
+        $this->groups[] = $group;
 
+        return $this;
+    }
+
+    /**
+     * Remove group
+     *
+     * @param Group $group
+     */
+    public function removeGroup(Group $group)
+    {
+        $this->groups->removeElement($group);
+    }
 }
