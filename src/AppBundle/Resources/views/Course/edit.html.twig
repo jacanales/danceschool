@@ -1,12 +1,12 @@
 {% extends "::layout.html.twig" %}
 
 {% block headline %}
-    Edit Room
+    Edit Course
 {% endblock %}
 
 {% block content %}
 <div class="col-lg-9">
-    {{ form_start(form, {'action': path('mayimbe_room_edit', {'id': room.getId() })}) }}
+    {{ form_start(form, {'action': path('mayimbe_course_edit', {'id': course.getId() })}) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}
 </div>

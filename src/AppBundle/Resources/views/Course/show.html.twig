@@ -1,0 +1,24 @@
+{% extends "::layout.html.twig" %}
+
+{% block headline %}
+    View course
+{% endblock %}
+
+{% block content %}
+<div class="col-lg-9">
+    <dl class="dl-horizontal">
+        <dt>ID</dt>
+        <dd>{{ course.getId() }}</dd>
+
+        <dt>Description</dt>
+        <dd>{{ course.getDescription() }}</dd>
+
+        <dt>Price</dt>
+        <dd>{{ course.getPrice() }}</dd>
+    </dl>
+
+    <a href="{{ path('mayimbe_course_index') }}" class="btn btn-primary btn-sm" role="button">Go to Index</a>
+    <a href="{{ path('mayimbe_course_edit', {'id': course.id }) }}" class="btn btn-default btn-sm" role="button">Edit room</a>
+    <a href="{{ path('mayimbe_course_remove', {'id': course.id }) }}" class="btn btn-danger btn-sm" role="button">Delete room</a>
+</div>
+{% endblock %}

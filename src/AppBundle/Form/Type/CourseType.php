@@ -16,7 +16,7 @@ class CourseType extends AbstractType
     {
         $builder
             ->add('description')
-            ->add('price')
+            ->add('price', 'text')
             ->add('save', 'submit', array('label' => 'Create Course'))
         ;
     }

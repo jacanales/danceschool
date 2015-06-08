@@ -33,6 +33,32 @@ class RoomController extends Controller
     }
 
     /**
+     * @Route("/show/{id}", name="mayimbe_room_show")
+     *
+     * @param integer $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function showAction($id)
+    {
+        $room = $this->getDoctrine()
+                     ->getRepository('AppBundle:Room')
+                     ->find($id);
+
+        if (!$room) {
+            throw $this->createNotFoundException(
+                'No room found for id ' . $id
+            );
+        }
+
+        return $this->render(
+            'AppBundle:Room:show.html.twig',
+            array(
+                'room' => $room,
+            )
+        );
+    }
+
+    /**
      * @Route("/add", name="mayimbe_room_add")
      *
      * @param Request $request
@@ -56,30 +82,6 @@ class RoomController extends Controller
             array(
                 'form' => $form->createView()
             )
-        );
-    }
-
-    /**
-     * @Route("/show/{id}", name="mayimbe_room_show")
-     *
-     * @param integer $id
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function showAction($id)
-    {
-        $room = $this->getDoctrine()
-            ->getRepository('AppBundle:Room')
-            ->find($id);
-
-        if (!$room) {
-            throw $this->createNotFoundException(
-                'No room found for id ' . $id
-            );
-        }
-
-        return $this->render(
-            'AppBundle:Room:show.html.twig',
-            array()
         );
     }
 
@@ -116,7 +118,6 @@ class RoomController extends Controller
             array(
                 'form' => $form->createView(),
                 'room' => $room,
-                'id' => $id
             )
         );
     }
