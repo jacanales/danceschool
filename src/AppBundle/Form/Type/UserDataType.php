@@ -27,7 +27,6 @@ class UserDataType extends AbstractType
             ->add('identity_number')
             ->add('created')
             ->add('modified')
-            ->add('user')
         ;
     }
     

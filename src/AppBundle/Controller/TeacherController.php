@@ -19,7 +19,43 @@ class TeacherController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig');
+        /**
+         * @var \Doctrine\ORM\EntityManager
+         */
+        $teachers = $this->getDoctrine()
+                      ->getRepository('AppBundle:Teacher')
+                      ->findAll();
+
+        return $this->render(
+            'AppBundle:teacher:index.html.twig',
+            array('teachers' => $teachers)
+        );
+    }
+
+    /**
+     * @Route("/show/{id}", name="mayimbe_teacher_show")
+     *
+     * @param integer $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function showAction($id)
+    {
+        $room = $this->getDoctrine()
+                     ->getRepository('AppBundle:Teacher')
+                     ->find($id);
+
+        if (!$room) {
+            throw $this->createNotFoundException(
+                'No room found for id ' . $id
+            );
+        }
+
+        return $this->render(
+            'AppBundle:Teacher:show.html.twig',
+            array(
+                'teacher' => $room,
+            )
+        );
     }
 
     /**

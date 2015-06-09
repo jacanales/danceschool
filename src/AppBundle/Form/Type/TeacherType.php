@@ -2,8 +2,6 @@
 
 namespace AppBundle\Form\Type;
 
-use AppBundle\Entity\User;
-use FOS\UserBundle\Form\Type\RegistrationFormType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -17,9 +15,9 @@ class TeacherType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('User', new UserType('AppBundle\Entity\User'))
             ->add('wage')
             ->add('comment')
-            ->add('User', new RegistrationFormType('AppBundle\Entity\User'))
             ->add('save', 'submit', array('label' => 'Create Room'))
             ->getForm();
         ;
