@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form\Type;
 
+use AppBundle\Entity\User;
+use FOS\UserBundle\Form\Type\RegistrationFormType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -17,7 +19,9 @@ class TeacherType extends AbstractType
         $builder
             ->add('wage')
             ->add('comment')
-            ->add('user')
+            ->add('User', new RegistrationFormType('AppBundle\Entity\User'))
+            ->add('save', 'submit', array('label' => 'Create Room'))
+            ->getForm();
         ;
     }
     
@@ -30,6 +34,11 @@ class TeacherType extends AbstractType
             'data_class' => 'AppBundle\Entity\Teacher'
         ));
     }
+
+//    public function getParent()
+//    {
+//        return 'text';
+//    }
 
     /**
      * @return string

@@ -10,6 +10,18 @@ class UserType extends AbstractType
 {
 
     /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('username')
+            ->add('comment')
+        ;
+    }
+
+    /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)

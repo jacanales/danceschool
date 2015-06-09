@@ -22,6 +22,7 @@ class Builder
 
         $this->addRoomMenu($menu);
         $this->addCourseMenu($menu);
+        $this->addTeacherMenu($menu);
 
         return $menu;
     }
@@ -43,15 +44,29 @@ class Builder
     private function addCourseMenu(ItemInterface &$menu)
     {
         // Create a dropdown with a caret
-        $room = $menu->addChild('Course', array(
+        $course = $menu->addChild('Course', array(
             'dropdown' => true,
             'caret' => true,
         ));
 
         // Create a dropdown header
-        $room->addChild('Course', array('dropdown-header' => true));
-        $room->addChild('View courses', array('route' => 'mayimbe_course_index', 'dropdown-header' => false));
-        $room->addChild('Add course', array('route' => 'mayimbe_course_add', 'dropdown-header' => false));
+        $course->addChild('Course', array('dropdown-header' => true));
+        $course->addChild('View courses', array('route' => 'mayimbe_course_index', 'dropdown-header' => false));
+        $course->addChild('Add course', array('route' => 'mayimbe_course_add', 'dropdown-header' => false));
+    }
+
+    private function addTeacherMenu(ItemInterface &$menu)
+    {
+        // Create a dropdown with a caret
+        $teacher = $menu->addChild('Teacher', array(
+            'dropdown' => true,
+            'caret' => true,
+        ));
+
+        // Create a dropdown header
+        $teacher->addChild('Teacher', array('dropdown-header' => true));
+        $teacher->addChild('View teachers', array('route' => 'mayimbe_teacher_index', 'dropdown-header' => false));
+        $teacher->addChild('Add teachers', array('route' => 'mayimbe_teacher_add', 'dropdown-header' => false));
     }
 
     public function invalidMethod(FactoryInterface $factory)
