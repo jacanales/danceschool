@@ -48,7 +48,7 @@ class UserData
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     protected $birthday;
 

@@ -18,7 +18,10 @@ class UserDataType extends AbstractType
             ->add('name')
             ->add('surname')
             ->add('gender')
-            ->add('birthday')
+            ->add('birthday', 'date', array(
+                'input' => 'timestamp',
+                'widget' => 'choice'
+            ))
             ->add('phone')
             ->add('address')
             ->add('city')
