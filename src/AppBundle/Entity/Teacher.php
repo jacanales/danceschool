@@ -148,7 +148,7 @@ class Teacher
      *
      * @return Teacher
      */
-    public function addClassGroup(\AppBundle\Entity\ClassGroup $group)
+    public function addClassGroup(\AppBundle\Entity\Group $group)
     {
         $this->groups[] = $group;
 
@@ -160,7 +160,7 @@ class Teacher
      *
      * @param \AppBundle\Entity\Group $group
      */
-    public function removeClassGroup(\AppBundle\Entity\ClassGroup $group)
+    public function removeClassGroup(\AppBundle\Entity\Group $group)
     {
         $this->groups->removeElement($group);
     }

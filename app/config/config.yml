@@ -96,11 +96,6 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-raul_fraile_ladybug:
-    theme: modern # select the theme: base, modern or custom themes
-    expanded: true # true to expand all the variables tree by default
-    silenced: false # true to ignore all ladybug calls
-
 mopa_bootstrap:
     form:
         show_legend: true # default is true
