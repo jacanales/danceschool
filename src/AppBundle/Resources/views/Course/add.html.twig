@@ -1,9 +1,7 @@
 {% extends "::layout.html.twig" %}
 
-{% block content %}
-    <div class="col-lg-9 col-lg-offset-3 center-block" style="float: none">
-        {{ form_start(form, {'action': path('mayimbe_course_add')}) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
-    </div>
+{% block content_content %}
+    {{ form_start(form, {'action': path('mayimbe_course_add')}) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
 {% endblock %}

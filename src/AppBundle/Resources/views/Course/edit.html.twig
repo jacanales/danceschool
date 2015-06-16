@@ -4,10 +4,8 @@
     Edit Course
 {% endblock %}
 
-{% block content %}
-<div class="col-lg-9">
+{% block content_content %}
     {{ form_start(form, {'action': path('mayimbe_course_edit', {'id': course.getId() })}) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}
-</div>
 {% endblock %}

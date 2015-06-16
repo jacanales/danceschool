@@ -4,10 +4,8 @@
     Edit Room
 {% endblock %}
 
-{% block content %}
-<div class="col-lg-9">
+{% block content_content %}
     {{ form_start(form, {'action': path('mayimbe_room_edit', {'id': room.getId() })}) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}
-</div>
 {% endblock %}

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,7 +28,7 @@ class Teacher
      * @var integer
      *
      * @ORM\OneToOne(targetEntity="User", cascade={"persist"})
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $user;
 
@@ -56,7 +57,7 @@ class Teacher
      */
     public function __construct()
     {
-        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->groups = new ArrayCollection();
     }
 
     /**
@@ -120,11 +121,11 @@ class Teacher
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param User $user
      *
      * @return Teacher
      */
-    public function setUser(\AppBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 
@@ -134,7 +135,7 @@ class Teacher
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\User
+     * @return User
      */
     public function getUser()
     {
@@ -144,11 +145,11 @@ class Teacher
     /**
      * Add group
      *
-     * @param \AppBundle\Entity\Group $group
+     * @param Group $group
      *
      * @return Teacher
      */
-    public function addClassGroup(\AppBundle\Entity\Group $group)
+    public function addClassGroup(Group $group)
     {
         $this->groups[] = $group;
 
@@ -158,9 +159,9 @@ class Teacher
     /**
      * Remove group
      *
-     * @param \AppBundle\Entity\Group $group
+     * @param Group $group
      */
-    public function removeClassGroup(\AppBundle\Entity\Group $group)
+    public function removeClassGroup(Group $group)
     {
         $this->groups->removeElement($group);
     }

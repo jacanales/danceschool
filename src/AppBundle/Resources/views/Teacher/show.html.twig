@@ -10,14 +10,40 @@
         <dt>ID</dt>
         <dd>{{ teacher.id }}</dd>
 
+        <dt>Name</dt>
+        <dd>{{ teacher.User.name }}</dd>
+        <dt>Surname</dt>
+        <dd>{{ teacher.User.surname }}</dd>
+        <dt>Email</dt>
+        <dd>{{ teacher.User.email }}</dd>
         <dt>Username</dt>
         <dd>{{ teacher.user.username }}</dd>
+        <dt>Gender</dt>
+        <dd>{{ teacher.User.gender }}</dd>
+        <dt>Identity number</dt>
+        <dd>{{ teacher.User.identityNumber }}</dd>
+        <dt>Birthday</dt>
+        <dd>{{ teacher.User.birthday|date("d/m/Y") }}</dd>
+        <dt>Phone</dt>
+        <dd>{{ teacher.User.phone }}</dd>
+        <dt>Address</dt>
+        <dd>{{ teacher.User.address }}</dd>
+        <dt>City</dt>
+        <dd>{{ teacher.User.city }}</dd>
+        <dt>Country</dt>
+        <dd>{{ teacher.User.country }}</dd>
+        <dt>Postal Code</dt>
+        <dd>{{ teacher.User.postalCode }}</dd>
+
 
         <dt>Wage</dt>
         <dd>{{ teacher.wage }}</dd>
-
         <dt>Comment</dt>
         <dd>{{ teacher.comment }}</dd>
+        <dt>Created</dt>
+        <dd>{{ teacher.User.created|date("d/m/Y H:i:s") }}</dd>
+        <dt>Modified</dt>
+        <dd>{{ teacher.User.modified|date("d/m/Y H:i:s") }}</dd>
     </dl>
 
     <a href="{{ path('mayimbe_teacher_index') }}" class="btn btn-primary btn-sm" role="button">Go to Index</a>

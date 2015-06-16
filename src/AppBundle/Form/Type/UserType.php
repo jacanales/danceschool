@@ -24,8 +24,10 @@ class UserType extends AbstractType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+            ->add('name')
+            ->add('surname')
             ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
+            ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
             ->add('plainPassword', 'repeated', array(
                 'type' => 'password',
                 'options' => array('translation_domain' => 'FOSUserBundle'),
@@ -33,7 +35,14 @@ class UserType extends AbstractType
                 'second_options' => array('label' => 'form.password_confirmation'),
                 'invalid_message' => 'fos_user.password.mismatch',
             ))
-            ->add('UserData', new UserDataType())
+            ->add('gender', 'gender', array('placeholder' => 'Choose a gender'))
+            ->add('birthday', 'birthday', array('format' => 'yyyy-MM-dd'))
+            ->add('phone')
+            ->add('address')
+            ->add('city')
+            ->add('country')
+            ->add('postal_code')
+            ->add('identity_number')
         ;
     }
 
