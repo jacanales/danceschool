@@ -69,7 +69,7 @@ class Room
     /**
      * @var integer
      *
-     * @ORM\OneToMany(targetEntity="Group", mappedBy="course")
+     * @ORM\OneToMany(targetEntity="Group", mappedBy="rooms")
      */
     protected $groups;
 

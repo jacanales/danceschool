@@ -39,9 +39,9 @@ class UserData
     protected $surname;
 
     /**
-     * @var boolean
+     * @var char
      *
-     * @ORM\Column(type="boolean", options={"comment":"0: Man, 1: Woman"})
+     * @ORM\Column(type="string", length=1, options={"comment":"m: Male, f: female"})
      */
     protected $gender;
 
@@ -97,14 +97,14 @@ class UserData
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="number", nullable=false, options={"default":"CURRENT_TIMESTAMP"})
+     * @ORM\Column(type="datetime", nullable=false, options={"default":"CURRENT_TIMESTAMP"})
      */
     protected $created;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="number", nullable=false, options={"default":"CURRENT_TIMESTAMP"})
+     * @ORM\Column(type="datetime", nullable=false, options={"default":"CURRENT_TIMESTAMP"})
      */
     protected $modified;
 
@@ -359,11 +359,11 @@ class UserData
     /**
      * Set created
      *
-     * @param \number $created
+     * @param \DateTime $created
      *
      * @return UserData
      */
-    public function setCreated(\number $created)
+    public function setCreated(\DateTime $created)
     {
         $this->created = $created;
 
@@ -373,7 +373,7 @@ class UserData
     /**
      * Get created
      *
-     * @return \number
+     * @return \DateTime
      */
     public function getCreated()
     {
@@ -383,11 +383,11 @@ class UserData
     /**
      * Set modified
      *
-     * @param \number $modified
+     * @param \DateTime $modified
      *
      * @return UserData
      */
-    public function setModified(\number $modified)
+    public function setModified(\DateTime $modified)
     {
         $this->modified = $modified;
 
@@ -397,7 +397,7 @@ class UserData
     /**
      * Get modified
      *
-     * @return \number
+     * @return \DateTime
      */
     public function getModified()
     {
@@ -407,11 +407,11 @@ class UserData
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param User $user
      *
      * @return UserData
      */
-    public function setUser(\AppBundle\Entity\User $user)
+    public function setUser(User $user)
     {
         $this->user = $user;
 
@@ -421,7 +421,7 @@ class UserData
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\User
+     * @return User
      */
     public function getUser()
     {

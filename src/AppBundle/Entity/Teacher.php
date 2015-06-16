@@ -48,7 +48,7 @@ class Teacher
     /**
      * @var integer
      *
-     * @ORM\OneToMany(targetEntity="Group", mappedBy="course")
+     * @ORM\OneToMany(targetEntity="Group", mappedBy="teacher")
      */
     protected $groups;
     /**

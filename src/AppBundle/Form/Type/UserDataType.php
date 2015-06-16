@@ -3,6 +3,7 @@
 namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
@@ -14,22 +15,19 @@ class UserDataType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        parent::buildForm($builder, $options);
+
         $builder
             ->add('name')
             ->add('surname')
-            ->add('gender')
-            ->add('birthday', 'date', array(
-                'input' => 'timestamp',
-                'widget' => 'choice'
-            ))
+            ->add('gender', 'gender', array('placeholder' => 'Choose a gender'))
+            ->add('birthday', 'birthday')
             ->add('phone')
             ->add('address')
             ->add('city')
             ->add('country')
             ->add('postal_code')
             ->add('identity_number')
-            ->add('created')
-            ->add('modified')
         ;
     }
     

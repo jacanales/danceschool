@@ -16,6 +16,9 @@ framework:
     csrf_protection: ~
     validation:      { enable_annotations: true }
     templating:
+        form:
+            resources:
+                - 'AppBundle:Form'
         engines: ['twig']
         assets_version: 1.0
 #        assets_base_url:
@@ -36,6 +39,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - 'AppBundle:Form:gender.html.twig'
 
 # Assetic Configuration
 assetic:

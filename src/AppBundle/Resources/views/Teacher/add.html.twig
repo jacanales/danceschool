@@ -6,8 +6,24 @@
 
 {% block content %}
 <div class="col-lg-9">
-    {{ form_start(form, {'action': path('mayimbe_teacher_add')}) }}
-    {{ form_widget(form) }}
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+    
+        {{ form_row(form.User.username) }}
+        {{ form_row(form.User.plainPassword) }}
+        {{ form_row(form.User.email) }}
+        {{ form_row(form.User.UserData.name) }}
+        {{ form_row(form.User.UserData.surname) }}
+        {{ form_row(form.User.UserData.gender) }}
+        {{ form_row(form.User.UserData.birthday) }}
+        {{ form_row(form.User.UserData.phone) }}
+        {{ form_row(form.User.UserData.address) }}
+        {{ form_row(form.User.UserData.city) }}
+        {{ form_row(form.User.UserData.country) }}
+        {{ form_row(form.User.UserData.postal_code) }}
+        {{ form_row(form.User.UserData.identity_number) }}
+        {{ form_row(form.wage) }}
+        {{ form_row(form.comment) }}
     {{ form_end(form) }}
 </div>
 {% endblock %}

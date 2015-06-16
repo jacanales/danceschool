@@ -23,12 +23,46 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="UserData", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="UserData", mappedBy="user")
      */
     protected $data;
 
     public function __construct()
     {
         parent::__construct();
+    }
+
+    /**
+     * Add datum
+     *
+     * @param \AppBundle\Entity\UserData $datum
+     *
+     * @return User
+     */
+    public function addDatum(\AppBundle\Entity\UserData $datum)
+    {
+        $this->data[] = $datum;
+
+        return $this;
+    }
+
+    /**
+     * Remove datum
+     *
+     * @param \AppBundle\Entity\UserData $datum
+     */
+    public function removeDatum(\AppBundle\Entity\UserData $datum)
+    {
+        $this->data->removeElement($datum);
+    }
+
+    /**
+     * Get data
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getData()
+    {
+        return $this->data;
     }
 }
