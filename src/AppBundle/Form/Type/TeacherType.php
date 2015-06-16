@@ -8,6 +8,17 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class TeacherType extends AbstractType
 {
+    private $edit;
+
+    /**
+     * @param string $class The User class name
+     * @param bool $edit
+     */
+    public function __construct($edit = false)
+    {
+        $this->edit = $edit;
+    }
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -15,7 +26,7 @@ class TeacherType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('User', new UserType('AppBundle\Entity\User'), array())
+            ->add('User', new UserType('AppBundle\Entity\User', $this->edit), array())
             ->add('wage')
             ->add('comment')
             ->add('save', 'submit', array('label' => 'Create Room'))

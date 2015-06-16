@@ -80,24 +80,61 @@ class TeacherController extends Controller
         return $this->render(
             'AppBundle:Teacher:add.html.twig',
             array(
-                'form' => $form->createView()
+                'form' => $form->createView(),
             )
         );
     }
 
     /**
-     * @Route("/edit", name="mayimbe_teacher_edit")
+     * @Route("/edit/{id}", name="mayimbe_teacher_edit")
      */
-    public function editAction()
+    public function editAction(Request $request, $id)
     {
-        return $this->render('default/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $teacher = $em->getRepository('AppBundle:Teacher')->find($id);
+
+        $form = $this->createForm(new TeacherType(true), $teacher);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            if (!$teacher) {
+                throw $this->createNotFoundException(
+                    'No product found for id '.$id
+                );
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('mayimbe_teacher_index');
+        }
+
+        return $this->render(
+            'AppBundle:Teacher:edit.html.twig',
+            array(
+                'form' => $form->createView(),
+                'teacher' => $teacher,
+            )
+        );
     }
 
     /**
-     * @Route("/remove", name="mayimbe_teacher_remove")
+     * @Route("/remove/{id}", name="mayimbe_teacher_remove")
      */
-    public function removeAction()
+    public function removeAction($id)
     {
-        return $this->render('default/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $teacher = $em->getRepository('AppBundle:Teacher')->find($id);
+
+        if (!$teacher) {
+            throw $this->createNotFoundException(
+                'No product found for id ' . $id
+            );
+        }
+
+        $em->remove($teacher);
+        $em->flush();
+
+        return $this->redirectToRoute('mayimbe_teacher_index');
     }
 }

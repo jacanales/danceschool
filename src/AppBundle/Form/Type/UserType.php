@@ -11,12 +11,16 @@ class UserType extends AbstractType
 {
     private $class;
 
+    private $edit;
+
     /**
      * @param string $class The User class name
+     * @param bool $edit
      */
-    public function __construct($class)
+    public function __construct($class, $edit = false)
     {
         $this->class = $class;
+        $this->edit = $edit;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -28,13 +32,6 @@ class UserType extends AbstractType
             ->add('surname')
             ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
             ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-            ->add('plainPassword', 'repeated', array(
-                'type' => 'password',
-                'options' => array('translation_domain' => 'FOSUserBundle'),
-                'first_options' => array('label' => 'form.password'),
-                'second_options' => array('label' => 'form.password_confirmation'),
-                'invalid_message' => 'fos_user.password.mismatch',
-            ))
             ->add('gender', 'gender', array('placeholder' => 'Choose a gender'))
             ->add('birthday', 'birthday', array('format' => 'yyyy-MM-dd'))
             ->add('phone')
@@ -44,6 +41,17 @@ class UserType extends AbstractType
             ->add('postal_code')
             ->add('identity_number')
         ;
+
+        if (!$this->edit) {
+            $builder
+                ->add('plainPassword', 'repeated', array(
+                    'type' => 'password',
+                    'options' => array('translation_domain' => 'FOSUserBundle'),
+                    'first_options' => array('label' => 'form.password'),
+                    'second_options' => array('label' => 'form.password_confirmation'),
+                    'invalid_message' => 'fos_user.password.mismatch',
+                ));
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver)
