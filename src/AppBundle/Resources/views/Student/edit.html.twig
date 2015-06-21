@@ -1,0 +1,25 @@
+{% extends "::layout.html.twig" %}
+
+{% block headline %}
+    Edit teacher
+{% endblock %}
+
+{% block content_content %}
+    {{ form_start(form, {'action': path('mayimbe_student_edit', {'id': student.id })}) }}
+        {{ form_errors(form) }}
+        {{ form_row(form.user.username) }}
+        {{ form_row(form.user.email) }}
+        {{ form_row(form.user.name) }}
+        {{ form_row(form.user.surname) }}
+        {{ form_row(form.user.gender) }}
+        {{ form_row(form.user.birthday) }}
+        {{ form_row(form.user.phone) }}
+        {{ form_row(form.user.city) }}
+        {{ form_row(form.user.address) }}
+        {{ form_row(form.user.country) }}
+        {{ form_row(form.user.postal_code) }}
+        {{ form_row(form.user.identity_number) }}
+        {{ form_row(form.member) }}
+        {{ form_row(form.comment) }}
+    {{ form_end(form) }}
+{% endblock %}

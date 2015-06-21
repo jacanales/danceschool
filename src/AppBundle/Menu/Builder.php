@@ -23,6 +23,7 @@ class Builder
         $this->addRoomMenu($menu);
         $this->addCourseMenu($menu);
         $this->addTeacherMenu($menu);
+        $this->addStudentMenu($menu);
 
         return $menu;
     }
@@ -66,7 +67,21 @@ class Builder
         // Create a dropdown header
         $teacher->addChild('Teacher', array('dropdown-header' => true));
         $teacher->addChild('View teachers', array('route' => 'mayimbe_teacher_index', 'dropdown-header' => false));
-        $teacher->addChild('Add teachers', array('route' => 'mayimbe_teacher_add', 'dropdown-header' => false));
+        $teacher->addChild('Add teacher', array('route' => 'mayimbe_teacher_add', 'dropdown-header' => false));
+    }
+
+    private function addStudentMenu(ItemInterface &$menu)
+    {
+        // Create a dropdown with a caret
+        $teacher = $menu->addChild('Student', array(
+            'dropdown' => true,
+            'caret' => true,
+        ));
+
+        // Create a dropdown header
+        $teacher->addChild('Student', array('dropdown-header' => true));
+        $teacher->addChild('View students', array('route' => 'mayimbe_student_index', 'dropdown-header' => false));
+        $teacher->addChild('Add student', array('route' => 'mayimbe_student_add', 'dropdown-header' => false));
     }
 
     public function invalidMethod(FactoryInterface $factory)

@@ -33,7 +33,7 @@ class UserType extends AbstractType
             ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
             ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
             ->add('gender', 'gender', array('placeholder' => 'Choose a gender'))
-            ->add('birthday', 'birthday', array('format' => 'yyyy-MM-dd'))
+            ->add('birthday', 'birthday')
             ->add('phone')
             ->add('address')
             ->add('city')

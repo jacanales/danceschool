@@ -40,20 +40,20 @@ class TeacherController extends Controller
      */
     public function showAction($id)
     {
-        $room = $this->getDoctrine()
+        $teacher = $this->getDoctrine()
                      ->getRepository('AppBundle:Teacher')
                      ->find($id);
 
-        if (!$room) {
+        if (!$teacher) {
             throw $this->createNotFoundException(
-                'No room found for id ' . $id
+                'No teacher found for id ' . $id
             );
         }
 
         return $this->render(
             'AppBundle:Teacher:show.html.twig',
             array(
-                'teacher' => $room,
+                'teacher' => $teacher,
             )
         );
     }
@@ -87,6 +87,10 @@ class TeacherController extends Controller
 
     /**
      * @Route("/edit/{id}", name="mayimbe_teacher_edit")
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, $id)
     {

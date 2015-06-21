@@ -11,7 +11,6 @@ class TeacherType extends AbstractType
     private $edit;
 
     /**
-     * @param string $class The User class name
      * @param bool $edit
      */
     public function __construct($edit = false)
@@ -43,11 +42,6 @@ class TeacherType extends AbstractType
             'data_class' => 'AppBundle\Entity\Teacher'
         ));
     }
-
-//    public function getParent()
-//    {
-//        return 'text';
-//    }
 
     /**
      * @return string
