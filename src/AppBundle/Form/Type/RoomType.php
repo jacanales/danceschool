@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form\Type;
 
+use libphonenumber\PhoneNumberFormat;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -12,12 +13,33 @@ class RoomType extends AbstractType
     {
         $builder
             ->add('id', 'hidden')
-            ->add('description')
-            ->add('price', 'text')
-            ->add('address')
-            ->add('city')
-            ->add('postal_code')
-            ->add('phone')
+            ->add('description', null, array(
+                'label' => 'form.label.description',
+                'translation_domain' => 'AppBundle'
+            ))
+            ->add('price', 'text', array(
+                'label' => 'form.label.price',
+                'translation_domain' => 'AppBundle'
+            ))
+            ->add('phone', 'tel', array(
+                'default_region' => 'ES',
+                'format' => PhoneNumberFormat::NATIONAL,
+                'label' => 'form.label.phone',
+                'translation_domain' => 'AppBundle'
+            ))
+            ->add('address', null, array(
+                'label' => 'form.label.address',
+                'translation_domain' => 'AppBundle'
+            ))
+            ->add('city', null, array(
+                'label' => 'form.label.city',
+                'translation_domain' => 'AppBundle'
+            ))
+            ->add('postal_code', null, array(
+                'label' => 'form.label.postal_code',
+                'translation_domain' => 'AppBundle'
+            ))
+
             ->add('save', 'submit', array('label' => 'Create Room'))
             ->getForm();
     }

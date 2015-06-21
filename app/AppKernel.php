@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new Liip\ThemeBundle\LiipThemeBundle(),
+            new Misd\PhoneNumberBundle\MisdPhoneNumberBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

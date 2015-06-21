@@ -62,7 +62,7 @@ class Room
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=15)
+     * @ORM\Column(type="phone_number", nullable=true)
      */
     protected $phone;
 

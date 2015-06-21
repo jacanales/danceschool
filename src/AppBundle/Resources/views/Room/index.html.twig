@@ -10,12 +10,12 @@
         <thead>
             <tr>
                 <th data-field="id" data-align="right" data-sortable="true">ID</th>
-                <th data-field="description" data-align="center" data-sortable="true">Description</th>
-                <th data-field="price" data-sortable="true">Price</th>
-                <th data-field="address" data-sortable="true">Address</th>
-                <th data-field="city" data-sortable="true">City</th>
-                <th data-field="postal_code" data-sortable="true">Postal Code</th>
-                <th data-field="phone" data-sortable="true">Phone number</th>
+                <th data-field="description" data-align="center" data-sortable="true">{{ 'form.label.description'|trans({}, 'AppBundle') }}</th>
+                <th data-field="price" data-sortable="true">{{ 'form.label.price'|trans({}, 'AppBundle') }}</th>
+                <th data-field="address" data-sortable="true">{{ 'form.label.address'|trans({}, 'AppBundle') }}</th>
+                <th data-field="city" data-sortable="true">{{ 'form.label.city'|trans({}, 'AppBundle') }}</th>
+                <th data-field="postal_code" data-sortable="true">{{ 'form.label.postal_code'|trans({}, 'AppBundle') }}</th>
+                <th data-field="phone" data-sortable="true">{{ 'form.label.phone'|trans({}, 'AppBundle') }}</th>
                 <th data-field="show" data-sortable="false"></th>
                 <th data-field="edit" data-sortable="false"></th>
                 <th data-field="delete" data-sortable="false"></th>
@@ -25,15 +25,15 @@
         {% for room in rooms %}
             <tr class="tr-class-1">
                 <td class="info">{{ room.getId() }}</td>
-                <td>{{ room.getDescription() }}</td>
-                <td>{{ room.getPrice() }}</td>
-                <td>{{ room.getAddress() }}</td>
-                <td>{{ room.getCity() }}</td>
-                <td>{{ room.getPostalCode() }}</td>
-                <td>{{ room.getPhone() }}</td>
+                <td>{{ room.description }}</td>
+                <td>{{ room.price }}</td>
+                <td>{{ room.address }}</td>
+                <td>{{ room.city }}</td>
+                <td>{{ room.postalCode }}</td>
+                <td>{% if room.phone %}{{ phone_number_format(room.phone, 'NATIONAL') }}{% endif %}</td>
                 <td class="info"><a href="{{ path('mayimbe_room_show', {'id': room.getId()}) }}" class="btn btn-default btn-xs" role="button">View</a></td>
-                <td class="info"><a href="{{ path('mayimbe_room_edit', {'id': room.getId()}) }}" class="btn btn-default btn-xs" role="button">Edit</a></td>
-                <td class="danger"><a href="{{ path('mayimbe_room_remove', {'id': room.getId()}) }}" class="btn btn-danger btn-xs" role="button">Delete</a></td>
+                <td class="info"><a href="{{ path('mayimbe_room_edit', {'id': room.id }) }}" class="btn btn-default btn-xs" role="button">Edit</a></td>
+                <td class="danger"><a href="{{ path('mayimbe_room_remove', {'id': room.id }) }}" class="btn btn-danger btn-xs" role="button">Delete</a></td>
             </tr>
         {% endfor %}
         </tbody>

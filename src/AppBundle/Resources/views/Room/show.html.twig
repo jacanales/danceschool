@@ -7,25 +7,25 @@
 {% block content_content %}
     <dl class="dl-horizontal">
         <dt>ID</dt>
-        <dd>{{ room.getId() }}</dd>
+        <dd>{{ room.id }}</dd>
 
-        <dt>Description</dt>
-        <dd>{{ room.getDescription() }}</dd>
+        <dt>{{ 'form.label.description'|trans({}, 'AppBundle') }}</dt>
+        <dd>{{ room.description }}</dd>
 
-        <dt>Price</dt>
-        <dd>{{ room.getPrice() }}</dd>
+        <dt>{{ 'form.label.price'|trans({}, 'AppBundle') }}</dt>
+        <dd>{{ room.price }}</dd>
 
-        <dt>Address</dt>
-        <dd>{{ room.getAddress() }}</dd>
+        <dt>{{ 'form.label.address'|trans({}, 'AppBundle') }}</dt>
+        <dd>{{ room.address }}</dd>
 
-        <dt>City</dt>
-        <dd>{{ room.getCity() }}</dd>
+        <dt>{{ 'form.label.city'|trans({}, 'AppBundle') }}</dt>
+        <dd>{{ room.city }}</dd>
 
-        <dt>Postal Code</dt>
-        <dd>{{ room.getPostalCode() }}</dd>
+        <dt>{{ 'form.label.postal_code'|trans({}, 'AppBundle') }}</dt>
+        <dd>{{ room.postalCode }}</dd>
 
-        <dt>Phone number</dt>
-        <dd>{{ room.getPhone() }}</dd>
+        <dt>{{ 'form.label.phone'|trans({}, 'AppBundle') }}</dt>
+        <dd>{{ phone_number_format(room.phone, 'NATIONAL') }}</dd>
     </dl>
 
     <a href="{{ path('mayimbe_room_index') }}" class="btn btn-primary btn-sm" role="button">Go to Index</a>
