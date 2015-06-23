@@ -108,4 +108,9 @@ mopa_bootstrap:
         show_legend: true # default is true
         show_child_legend: true # default is true
         error_type: block # or inline which is default
-    menu: ~  # enables twig helpers for menu
+    menu:   # enables twig helpers for menu
+        template: :Menu:menu.html.twig
+
+knp_menu:
+    twig:
+        template: AppBundle:Default:knp_menu.html.twig

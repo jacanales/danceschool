@@ -66,7 +66,12 @@ class RoomController extends Controller
      */
     public function addAction(Request $request)
     {
-        $form = $this->createForm(new RoomType(), new Room());
+        $translator = $this->get('translator');
+        $form = $this->createForm(new RoomType(), new Room(), array(
+            'show_legend' => true,
+            'label' => $translator->trans('title.add_room', array(), 'AppBundle', 'es')
+        ));
+
         $form->handleRequest($request);
 
         if ($form->isValid()) {

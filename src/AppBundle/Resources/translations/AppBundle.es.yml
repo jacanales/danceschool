@@ -1,6 +1,13 @@
+form.label.save: "Guardar"
 form.label.description: "Descripción"
 form.label.price: "Precio"
 form.label.address: "Dirección"
 form.label.city: "Ciudad"
 form.label.postal_code: "Código Postal"
 form.label.phone: "Teléfono"
+
+title.rooms: "Salas"
+title.list_rooms: "Listado de salas"
+title.room: "Sala"
+title.view_room: "Información de sala"
+title.add_room: "Añadir Sala"

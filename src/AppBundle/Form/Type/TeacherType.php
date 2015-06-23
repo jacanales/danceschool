@@ -25,7 +25,9 @@ class TeacherType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('User', new UserType('AppBundle\Entity\User', $this->edit), array())
+            ->add('User', new UserType('AppBundle\Entity\User', $this->edit), array(
+                'show_legend' => false
+            ))
             ->add('wage')
             ->add('comment')
             ->add('save', 'submit', array('label' => 'Create Room'))

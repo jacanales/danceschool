@@ -31,15 +31,15 @@ class Builder
     private function addRoomMenu(ItemInterface &$menu)
     {
         // Create a dropdown with a caret
-        $room = $menu->addChild('Room', array(
+        $room = $menu->addChild('title.room', array(
             'dropdown' => true,
             'caret' => true,
-        ));
+        ))->setExtra('translation_domain', 'AppBundle');
 
         // Create a dropdown header
-        $room->addChild('Rooms', array('dropdown-header' => true));
-        $room->addChild('View rooms', array('route' => 'mayimbe_room_index', 'dropdown-header' => false));
-        $room->addChild('Add room', array('route' => 'mayimbe_room_add', 'dropdown-header' => false));
+        $room->addChild('title.rooms', array('dropdown-header' => true))->setExtra('translation_domain', 'AppBundle');;
+        $room->addChild('title.list_rooms', array('route' => 'mayimbe_room_index', 'dropdown-header' => false))->setExtra('translation_domain', 'AppBundle');
+        $room->addChild('title.add_room', array('route' => 'mayimbe_room_add', 'dropdown-header' => false))->setExtra('translation_domain', 'AppBundle');
     }
 
     private function addCourseMenu(ItemInterface &$menu)

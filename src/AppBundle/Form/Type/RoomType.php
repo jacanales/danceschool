@@ -6,6 +6,7 @@ use libphonenumber\PhoneNumberFormat;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Translation\Translator;
 
 class RoomType extends AbstractType
 {
@@ -39,8 +40,7 @@ class RoomType extends AbstractType
                 'label' => 'form.label.postal_code',
                 'translation_domain' => 'AppBundle'
             ))
-
-            ->add('save', 'submit', array('label' => 'Create Room'))
+            ->add('add', 'submit', array('label' => 'form.label.save', 'translation_domain' => 'AppBundle'))
             ->getForm();
     }
 
@@ -50,7 +50,8 @@ class RoomType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Room'
+            'data_class' => 'AppBundle\Entity\Room',
+            'label' => 'Room'
         ));
     }
 
@@ -61,6 +62,6 @@ class RoomType extends AbstractType
      */
     public function getName()
     {
-        return 'room';
+        return 'appbundle_room';
     }
 }
