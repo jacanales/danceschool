@@ -1,5 +1,9 @@
 {% extends "::layout.html.twig" %}
 
+{% block headline %}
+    {{ 'title.courses'|trans({}, 'AppBundle') }}
+{% endblock %}
+
 {% block content_content %}
     {{ form_start(form, {'action': path('mayimbe_course_add')}) }}
     {{ form_widget(form) }}

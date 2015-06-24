@@ -66,7 +66,11 @@ class CourseController extends Controller
      */
     public function addAction(Request $request)
     {
-        $form = $this->createForm(new CourseType(), new Course());
+        $translator = $this->get('translator');
+
+        $form = $this->createForm(new CourseType(), new Course(), array(
+            'label' => $translator->trans('title.add_course', array(), 'AppBundle', 'es')
+        ));
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -88,15 +92,20 @@ class CourseController extends Controller
     /**
      * @Route("/edit/{id}", name="mayimbe_course_edit")
      *
+     * @param Request $request
      * @param integer $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, $id)
     {
+        $translator = $this->get('translator');
+
         $em = $this->getDoctrine()->getManager();
         $course = $em->getRepository('AppBundle:Course')->find($id);
 
-        $form = $this->createForm(new CourseType(), $course);
+        $form = $this->createForm(new CourseType(), $course, array(
+            'label' => $translator->trans('title.edit_course', array(), 'AppBundle', 'es')
+        ));
 
         $form->handleRequest($request);
 

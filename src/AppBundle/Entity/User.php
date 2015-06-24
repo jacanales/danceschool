@@ -54,7 +54,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=15)
+     * @ORM\Column(type="string", length=15, nullable=true)
      */
     protected $phone;
 
@@ -75,7 +75,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=2, nullable=false, options={"default":"ES"})
+     * @ORM\Column(type="string", length=2, nullable=true, options={"default":"ES"})
      */
     protected $country;
 

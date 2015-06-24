@@ -1,7 +1,7 @@
 {% extends "::layout.html.twig" %}
 
 {% block headline %}
-    View course
+    {{ 'title.view_course'|trans({}, 'AppBundle') }}
 {% endblock %}
 
 {% block content_content %}
@@ -9,14 +9,14 @@
         <dt>ID</dt>
         <dd>{{ course.getId() }}</dd>
 
-        <dt>Description</dt>
+        <dt>{{ 'form.label.description'|trans({}, 'AppBundle') }}</dt>
         <dd>{{ course.getDescription() }}</dd>
 
-        <dt>Price</dt>
+        <dt>{{ 'form.label.price'|trans({}, 'AppBundle') }}</dt>
         <dd>{{ course.getPrice() }}</dd>
     </dl>
 
-    <a href="{{ path('mayimbe_course_index') }}" class="btn btn-primary btn-sm" role="button">Go to Index</a>
-    <a href="{{ path('mayimbe_course_edit', {'id': course.id }) }}" class="btn btn-default btn-sm" role="button">Edit room</a>
-    <a href="{{ path('mayimbe_course_remove', {'id': course.id }) }}" class="btn btn-danger btn-sm" role="button">Delete room</a>
+    <a href="{{ path('mayimbe_course_index') }}" class="btn btn-primary btn-sm" role="button">{{ 'button.go_to_index'|trans({}, 'AppBundle') }}</a>
+    <a href="{{ path('mayimbe_course_edit', {'id': course.id }) }}" class="btn btn-default btn-sm" role="button">{{ 'button.edit'|trans({}, 'AppBundle') }}</a>
+    <a href="{{ path('mayimbe_course_remove', {'id': course.id }) }}" class="btn btn-danger btn-sm" role="button">{{ 'button.delete'|trans({}, 'AppBundle') }}</a>
 {% endblock %}

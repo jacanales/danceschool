@@ -31,9 +31,9 @@
                 <td>{{ room.city }}</td>
                 <td>{{ room.postalCode }}</td>
                 <td>{% if room.phone %}{{ phone_number_format(room.phone, 'NATIONAL') }}{% endif %}</td>
-                <td class="info"><a href="{{ path('mayimbe_room_show', {'id': room.getId()}) }}" class="btn btn-default btn-xs" role="button">View</a></td>
-                <td class="info"><a href="{{ path('mayimbe_room_edit', {'id': room.id }) }}" class="btn btn-default btn-xs" role="button">Edit</a></td>
-                <td class="danger"><a href="{{ path('mayimbe_room_remove', {'id': room.id }) }}" class="btn btn-danger btn-xs" role="button">Delete</a></td>
+                <td class="info"><a href="{{ path('mayimbe_room_show', {'id': room.getId()}) }}" class="btn btn-default btn-xs" role="button">{{ 'button.view'|trans({}, 'AppBundle') }}</a></td>
+                <td class="info"><a href="{{ path('mayimbe_room_edit', {'id': room.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.edit'|trans({}, 'AppBundle') }}</a></td>
+                <td class="danger"><a href="{{ path('mayimbe_room_remove', {'id': room.id }) }}" class="btn btn-danger btn-xs" role="button">{{ 'button.delete'|trans({}, 'AppBundle') }}</a></td>
             </tr>
         {% endfor %}
         </tbody>

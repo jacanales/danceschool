@@ -40,7 +40,10 @@ class RoomType extends AbstractType
                 'label' => 'form.label.postal_code',
                 'translation_domain' => 'AppBundle'
             ))
-            ->add('add', 'submit', array('label' => 'form.label.save', 'translation_domain' => 'AppBundle'))
+            ->add('add', 'submit', array(
+                'label' => 'form.label.save',
+                'translation_domain' => 'AppBundle'
+            ))
             ->getForm();
     }
 

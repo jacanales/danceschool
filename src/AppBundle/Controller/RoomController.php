@@ -67,6 +67,7 @@ class RoomController extends Controller
     public function addAction(Request $request)
     {
         $translator = $this->get('translator');
+
         $form = $this->createForm(new RoomType(), new Room(), array(
             'show_legend' => true,
             'label' => $translator->trans('title.add_room', array(), 'AppBundle', 'es')
@@ -99,10 +100,15 @@ class RoomController extends Controller
      */
     public function editAction(Request $request, $id)
     {
+        $translator = $this->get('translator');
+
         $em = $this->getDoctrine()->getManager();
         $room = $em->getRepository('AppBundle:Room')->find($id);
 
-        $form = $this->createForm(new RoomType(), $room);
+        $form = $this->createForm(new RoomType(), $room, array(
+            'show_legend' => true,
+            'label' => $translator->trans('title.edit_room', array(), 'AppBundle', 'es')
+        ));
 
         $form->handleRequest($request);
 

@@ -2,6 +2,6 @@ services:
     app.form.type.gender:
         class: AppBundle\Form\Type\GenderType
         arguments:
-            - { m: Male, f: Female }
+            - { m: form.gender.male, f: form.gender.female }
         tags:
             - { name: form.type, alias: gender }

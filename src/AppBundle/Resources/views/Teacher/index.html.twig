@@ -1,7 +1,7 @@
 {% extends "::layout.html.twig" %}
 
 {% block headline %}
-    List of Teachers
+    {{ 'title.teachers'|trans({}, 'AppBundle') }}
 {% endblock %}
 
 {% block content_content %}
@@ -10,11 +10,11 @@
         <thead>
             <tr>
                 <th data-field="id" data-align="right" data-sortable="true">ID</th>
-                <th data-field="name" data-align="right" data-sortable="true">Name</th>
-                <th data-field="surname" data-align="right" data-sortable="true">Surname</th>
-                <th data-field="email" data-align="right" data-sortable="true">Email</th>
-                <th data-field="wage" data-align="center" data-sortable="true">wage</th>
-                <th data-field="comment" data-sortable="true">comment</th>
+                <th data-field="name" data-align="right" data-sortable="true">{{ 'form.label.name'|trans({}, 'AppBundle') }}</th>
+                <th data-field="surname" data-align="right" data-sortable="true">{{ 'form.label.surname'|trans({}, 'AppBundle') }}</th>
+                <th data-field="email" data-align="right" data-sortable="true">{{ 'form.label.email'|trans({}, 'AppBundle') }}</th>
+                <th data-field="wage" data-align="center" data-sortable="true">{{ 'form.label.wage'|trans({}, 'AppBundle') }}</th>
+                <th data-field="comment" data-sortable="true">{{ 'form.label.comment'|trans({}, 'AppBundle') }}</th>
                 <th data-field="show" data-sortable="false"></th>
                 <th data-field="edit" data-sortable="false"></th>
                 <th data-field="delete" data-sortable="false"></th>
@@ -29,7 +29,7 @@
                 <td>{{ teacher.User.email }}</td>
                 <td>{{ teacher.wage }}</td>
                 <td>{{ teacher.comment }}</td>
-                <td class="info"><a href="{{ path('mayimbe_teacher_show', {'id': teacher.id }) }}" class="btn btn-default btn-xs" role="button">View</a></td>
+                <td class="info"><a href="{{ path('mayimbe_teacher_show', {'id': teacher.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.view'|trans({}, 'AppBundle') }}</a></td>
                 <td class="info"><a href="{{ path('mayimbe_teacher_edit', {'id': teacher.id }) }}" class="btn btn-default btn-xs" role="button">Edit</a></td>
                 <td class="danger"><a href="{{ path('mayimbe_teacher_remove', {'id': teacher.id }) }}" class="btn btn-danger btn-xs" role="button">Delete</a></td>
             </tr>

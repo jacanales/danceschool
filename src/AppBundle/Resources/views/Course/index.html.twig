@@ -1,7 +1,7 @@
 {% extends "::layout.html.twig" %}
 
 {% block headline %}
-    List of Courses
+    {{ 'title.courses'|trans({}, 'AppBundle') }}
 {% endblock %}
 
 {% block content_content %}
@@ -10,8 +10,8 @@
         <thead>
             <tr>
                 <th data-field="id" data-align="right" data-sortable="true">ID</th>
-                <th data-field="description" data-align="center" data-sortable="true">Description</th>
-                <th data-field="price" data-sortable="true">Price</th>
+                <th data-field="description" data-align="center" data-sortable="true">{{ 'form.label.description'|trans({}, 'AppBundle') }}</th>
+                <th data-field="price" data-sortable="true">{{ 'form.label.price'|trans({}, 'AppBundle') }}</th>
                 <th data-field="show" data-sortable="false"></th>
                 <th data-field="edit" data-sortable="false"></th>
                 <th data-field="delete" data-sortable="false"></th>
@@ -23,9 +23,9 @@
                 <td class="info">{{ course.id }}</td>
                 <td>{{ course.description }}</td>
                 <td>{{ course.price }}</td>
-                <td class="info"><a href="{{ path('mayimbe_course_show', {'id': course.id}) }}" class="btn btn-default btn-xs" role="button">View</a></td>
-                <td class="info"><a href="{{ path('mayimbe_course_edit', {'id': course.id}) }}" class="btn btn-default btn-xs" role="button">Edit</a></td>
-                <td class="danger"><a href="{{ path('mayimbe_course_remove', {'id': course.id}) }}" class="btn btn-danger btn-xs" role="button">Delete</a></td>
+                <td class="info"><a href="{{ path('mayimbe_course_show', {'id': course.id}) }}" class="btn btn-default btn-xs" role="button">{{ 'button.view'|trans({}, 'AppBundle') }}</a></td>
+                <td class="info"><a href="{{ path('mayimbe_course_edit', {'id': course.id}) }}" class="btn btn-default btn-xs" role="button">{{ 'button.edit'|trans({}, 'AppBundle') }}</a></td>
+                <td class="danger"><a href="{{ path('mayimbe_course_remove', {'id': course.id}) }}" class="btn btn-danger btn-xs" role="button">{{ 'button.delete'|trans({}, 'AppBundle') }}</a></td>
             </tr>
         {% endfor %}
         </tbody>

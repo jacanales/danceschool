@@ -28,9 +28,18 @@ class TeacherType extends AbstractType
             ->add('User', new UserType('AppBundle\Entity\User', $this->edit), array(
                 'show_legend' => false
             ))
-            ->add('wage')
-            ->add('comment')
-            ->add('save', 'submit', array('label' => 'Create Room'))
+            ->add('wage', null, array(
+                'label' => 'form.label.wage',
+                'translation_domain' => 'AppBundle'
+            ))
+            ->add('comment', null, array(
+                'label' => 'form.label.comment',
+                'translation_domain' => 'AppBundle'
+            ))
+            ->add('save', 'submit', array(
+                'label' => 'form.label.save',
+                'translation_domain' => 'AppBundle'
+            ))
             ->getForm();
         ;
     }
