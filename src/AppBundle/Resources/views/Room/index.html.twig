@@ -10,7 +10,6 @@
         <thead>
             <tr>
                 <th data-field="id" data-align="right" data-sortable="true">ID</th>
-                <th data-field="description" data-align="center" data-sortable="true">{{ 'form.label.description'|trans({}, 'AppBundle') }}</th>
                 <th data-field="price" data-sortable="true">{{ 'form.label.price'|trans({}, 'AppBundle') }}</th>
                 <th data-field="address" data-sortable="true">{{ 'form.label.address'|trans({}, 'AppBundle') }}</th>
                 <th data-field="city" data-sortable="true">{{ 'form.label.city'|trans({}, 'AppBundle') }}</th>
@@ -25,7 +24,6 @@
         {% for room in rooms %}
             <tr class="tr-class-1">
                 <td class="info">{{ room.getId() }}</td>
-                <td>{{ room.description }}</td>
                 <td>{{ room.price }}</td>
                 <td>{{ room.address }}</td>
                 <td>{{ room.city }}</td>
