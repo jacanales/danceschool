@@ -1,7 +1,9 @@
 {% extends "::layout.html.twig" %}
 
+{% trans_default_domain 'AppBundle' %}
+
 {% block headline %}
-    View room
+    {{ 'title.view_room'|trans() }}
 {% endblock %}
 
 {% block content %}
@@ -10,44 +12,42 @@
         <dt>ID</dt>
         <dd>{{ student.id }}</dd>
 
-        <dt>Name</dt>
+        <dt>{{ 'form.label.name'|trans() }}</dt>
         <dd>{{ student.user.name }}</dd>
-        <dt>Surname</dt>
+        <dt>{{ 'form.label.surname'|trans() }}</dt>
         <dd>{{ student.user.surname }}</dd>
-        <dt>Email</dt>
+        <dt>{{ 'form.label.email'|trans() }}</dt>
         <dd>{{ student.user.email }}</dd>
-        <dt>Username</dt>
-        <dd>{{ student.user.username }}</dd>
-        <dt>Gender</dt>
+        <dt>{{ 'form.label.gender'|trans() }}</dt>
         <dd>{{ student.user.gender }}</dd>
-        <dt>Identity number</dt>
+        <dt>{{ 'form.label.identity_number'|trans() }}</dt>
         <dd>{{ student.user.identityNumber }}</dd>
-        <dt>Birthday</dt>
+        <dt>{{ 'form.label.birthday'|trans() }}</dt>
         <dd>{{ student.user.birthday|date("d/m/Y") }}</dd>
-        <dt>Phone</dt>
+        <dt>{{ 'form.label.phone'|trans() }}</dt>
         <dd>{{ student.user.phone }}</dd>
-        <dt>Address</dt>
+        <dt>{{ 'form.label.address'|trans() }}</dt>
         <dd>{{ student.user.address }}</dd>
-        <dt>City</dt>
+        <dt>{{ 'form.label.city'|trans() }}</dt>
         <dd>{{ student.user.city }}</dd>
-        <dt>Country</dt>
+        <dt>{{ 'form.label.country'|trans() }}</dt>
         <dd>{{ student.user.country }}</dd>
-        <dt>Postal Code</dt>
+        <dt>{{ 'form.label.postal_code'|trans() }}</dt>
         <dd>{{ student.user.postalCode }}</dd>
 
 
-        <dt>Member</dt>
+        <dt>{{ 'form.label.member'|trans() }}</dt>
         <dd>{{ student.member }}</dd>
-        <dt>Comment</dt>
+        <dt>{{ 'form.label.comment'|trans() }}</dt>
         <dd>{{ student.comment }}</dd>
-        <dt>Created</dt>
+        <dt>{{ 'form.label.created'|trans() }}</dt>
         <dd>{{ student.user.created|date("d/m/Y H:i:s") }}</dd>
-        <dt>Modified</dt>
+        <dt>{{ 'form.label.modified'|trans() }}</dt>
         <dd>{{ student.user.modified|date("d/m/Y H:i:s") }}</dd>
     </dl>
 
-    <a href="{{ path('mayimbe_student_index') }}" class="btn btn-primary btn-sm" role="button">Go to Index</a>
-    <a href="{{ path('mayimbe_student_edit', {'id': student.id }) }}" class="btn btn-default btn-sm" role="button">Edit room</a>
-    <a href="{{ path('mayimbe_student_remove', {'id': student.id }) }}" class="btn btn-danger btn-sm" role="button">Delete student</a>
+    <a href="{{ path('mayimbe_student_index') }}" class="btn btn-primary btn-sm" role="button">{{ 'button.go_to_index'|trans() }}</a>
+    <a href="{{ path('mayimbe_student_edit', {'id': student.id }) }}" class="btn btn-default btn-sm" role="button">{{ 'button.edit'|trans() }}</a>
+    <a href="{{ path('mayimbe_student_remove', {'id': student.id }) }}" class="btn btn-danger btn-sm" role="button">{{ 'button.delete'|trans() }}</a>
 </div>
 {% endblock %}

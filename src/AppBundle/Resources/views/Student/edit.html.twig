@@ -1,11 +1,12 @@
 {% extends "::layout.html.twig" %}
 
 {% block headline %}
-    Edit teacher
+    {{ 'title.students'|trans({}, 'AppBundle') }}
 {% endblock %}
 
 {% block content_content %}
     {{ form_start(form, {'action': path('mayimbe_student_edit', {'id': student.id })}) }}
+        <legend>{{ 'title.edit_student'|trans({}, 'AppBundle') }}</legend>
         {{ form_errors(form) }}
         {{ form_row(form.user.username) }}
         {{ form_row(form.user.email) }}

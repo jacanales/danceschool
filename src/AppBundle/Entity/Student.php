@@ -39,7 +39,7 @@ class Student
     /**
      * @var boolean
      *
-     * @ORM\Column(type="boolean", nullable=false, options={"default":false})
+     * @ORM\Column(type="boolean", nullable=true, options={"default":false})
      */
     protected $member;
 

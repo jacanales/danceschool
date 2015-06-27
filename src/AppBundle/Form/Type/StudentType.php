@@ -26,11 +26,26 @@ class StudentType extends AbstractType
     {
         $builder
             ->add('user', new UserType('AppBundle\Entity\User', $this->edit), array())
-            ->add('captation_method')
-            ->add('member')
-            ->add('contract_expiration')
-            ->add('comment')
-            ->add('save', 'submit', array('label' => 'Create Student'))
+            ->add('captation_method', null, array(
+                'label' => 'form.label.captation_method',
+                'translation_domain' => 'AppBundle'
+            ))
+            ->add('member', null, array(
+                'label' => 'form.label.member',
+                'translation_domain' => 'AppBundle'
+            ))
+            ->add('contract_expiration', null, array(
+                'label' => 'form.label.contract_expiration',
+                'translation_domain' => 'AppBundle'
+            ))
+            ->add('comment', null, array(
+                'label' => 'form.label.comment',
+                'translation_domain' => 'AppBundle'
+            ))
+            ->add('save', 'submit', array(
+                'label' => 'form.label.save',
+                'translation_domain' => 'AppBundle'
+            ))
             ->getForm();
         ;
     }

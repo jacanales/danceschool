@@ -1,18 +1,22 @@
 {% extends "::layout.html.twig" %}
 
 {% block headline %}
-    Add student
+    {{ 'title.students'|trans({}, 'AppBundle') }}
 {% endblock %}
 
 {% block content_content %}
     {{ form_start(form) }}
+        <legend>{{ 'title.add_student'|trans({}, 'AppBundle') }}</legend>
         {{ form_errors(form) }}
         {{ form_row(form.user.username) }}
         {{ form_row(form.user.plainPassword) }}
-        {{ form_row(form.user.email) }}
         {{ form_row(form.user.name) }}
         {{ form_row(form.user.surname) }}
         {{ form_row(form.user.gender) }}
+        {{ form_row(form.user.email) }}
+        {{ form_row(form.captation_method) }}
+        {{ form_row(form.member) }}
+        {{ form_row(form.contract_expiration) }}
         {{ form_row(form.user.birthday) }}
         {{ form_row(form.user.phone) }}
         {{ form_row(form.user.city) }}

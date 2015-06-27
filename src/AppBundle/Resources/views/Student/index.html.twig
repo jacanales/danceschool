@@ -1,7 +1,9 @@
 {% extends "::layout.html.twig" %}
 
+{% trans_default_domain 'AppBundle' %}
+
 {% block headline %}
-    List of Students
+    {{ 'title.list_students'|trans() }}
 {% endblock %}
 
 {% block content_content %}
@@ -10,11 +12,10 @@
         <thead>
             <tr>
                 <th data-field="id" data-align="right" data-sortable="true">ID</th>
-                <th data-field="name" data-align="right" data-sortable="true">Name</th>
-                <th data-field="surname" data-align="right" data-sortable="true">Surname</th>
-                <th data-field="email" data-align="right" data-sortable="true">Email</th>
-                <th data-field="member" data-align="right" data-sortable="true">Member</th>
-                <th data-field="comment" data-sortable="true">comment</th>
+                <th data-field="name" data-align="right" data-sortable="true">{{ 'form.label.name'|trans() }}</th>
+                <th data-field="surname" data-align="right" data-sortable="true">{{ 'form.label.surname'|trans() }}</th>
+                <th data-field="email" data-align="right" data-sortable="true">{{ 'form.label.email'|trans() }}</th>
+                <th data-field="comment" data-sortable="true">{{ 'form.label.comment'|trans() }}</th>
                 <th data-field="show" data-sortable="false"></th>
                 <th data-field="edit" data-sortable="false"></th>
                 <th data-field="delete" data-sortable="false"></th>
@@ -27,11 +28,10 @@
                 <td>{{ student.user.name }}</td>
                 <td>{{ student.user.surname }}</td>
                 <td>{{ student.user.email }}</td>
-                <td>{{ student.member }}</td>
                 <td>{{ student.comment }}</td>
                 <td class="info"><a href="{{ path('mayimbe_student_show', {'id': student.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.view'|trans({}, 'AppBundle') }}</a></td>
-                <td class="info"><a href="{{ path('mayimbe_student_edit', {'id': student.id }) }}" class="btn btn-default btn-xs" role="button">Edit</a></td>
-                <td class="danger"><a href="{{ path('mayimbe_student_remove', {'id': student.id }) }}" class="btn btn-danger btn-xs" role="button">Delete</a></td>
+                <td class="info"><a href="{{ path('mayimbe_student_edit', {'id': student.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.edit'|trans() }}</a></td>
+                <td class="danger"><a href="{{ path('mayimbe_student_remove', {'id': student.id }) }}" class="btn btn-danger btn-xs" role="button">{{ 'button.delete'|trans() }}</a></td>
             </tr>
         {% endfor %}
         </tbody>
