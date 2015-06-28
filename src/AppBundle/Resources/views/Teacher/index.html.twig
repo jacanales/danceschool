@@ -30,8 +30,8 @@
                 <td>{{ teacher.wage }}</td>
                 <td>{{ teacher.comment }}</td>
                 <td class="info"><a href="{{ path('mayimbe_teacher_show', {'id': teacher.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.view'|trans({}, 'AppBundle') }}</a></td>
-                <td class="info"><a href="{{ path('mayimbe_teacher_edit', {'id': teacher.id }) }}" class="btn btn-default btn-xs" role="button">Edit</a></td>
-                <td class="danger"><a href="{{ path('mayimbe_teacher_remove', {'id': teacher.id }) }}" class="btn btn-danger btn-xs" role="button">Delete</a></td>
+                <td class="info"><a href="{{ path('mayimbe_teacher_edit', {'id': teacher.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.edit'|trans({}, 'AppBundle') }}</a></td>
+                <td class="danger"><a href="{{ path('mayimbe_teacher_remove', {'id': teacher.id }) }}" class="btn btn-danger btn-xs" role="button">{{ 'button.delete'|trans({}, 'AppBundle') }}</a></td>
             </tr>
         {% endfor %}
         </tbody>
