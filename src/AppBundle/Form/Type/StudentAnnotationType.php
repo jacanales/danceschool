@@ -8,6 +8,16 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class StudentAnnotationType extends AbstractType
 {
+    private $edit;
+
+    /**
+     * @param bool $edit
+     */
+    public function __construct($edit = false)
+    {
+        $this->edit = $edit;
+    }
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -15,11 +25,23 @@ class StudentAnnotationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('message')
-            ->add('created')
-            ->add('modified')
-            ->add('student')
+            ->add('message', null, array(
+                'label' => 'form.label.message',
+                'translation_domain' => 'AppBundle'
+            ))
+            ->add('save', 'submit', array(
+                'label' => 'form.label.save',
+                'translation_domain' => 'AppBundle'
+            ))
         ;
+
+        if (!$this->edit) {
+            $builder->add('student', 'hidden', array(
+                'data_class' => 'AppBundle\Entity\Student'
+            ));
+        }
+
+        $builder->getForm();
     }
     
     /**

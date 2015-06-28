@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Student;
+use AppBundle\Entity\StudentAnnotation;
+use AppBundle\Form\Type\StudentAnnotationType;
 use AppBundle\Form\Type\StudentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -22,13 +24,13 @@ class StudentController extends Controller
         /**
          * @var \Doctrine\ORM\EntityManager
          */
-        $teachers = $this->getDoctrine()
+        $students = $this->getDoctrine()
                          ->getRepository('AppBundle:Student')
                          ->findAll();
 
         return $this->render(
             'AppBundle:student:index.html.twig',
-            array('students' => $teachers)
+            array('students' => $students)
         );
     }
 
@@ -74,7 +76,7 @@ class StudentController extends Controller
             $em->persist($form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_teacher_index');
+            return $this->redirectToRoute('mayimbe_student_index');
         }
 
         return $this->render(
@@ -146,34 +148,128 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/{studentId}/annotations", name="mayimbe_student_annotations_remove")
+     * @Route("/{studentId}/annotations", name="mayimbe_student_annotations_index")
      */
-    public function indexAnnotationsAction()
+    public function indexAnnotationsAction($studentId)
     {
-        return $this->render('default/index.html.twig');
+        /**
+         * @var \Doctrine\ORM\EntityManager
+         */
+        $annotations = $this->getDoctrine()
+                         ->getRepository('AppBundle:StudentAnnotation')
+                         ->findBy(array(
+                             'student' => $studentId
+                         ));
+
+        return $this->render(
+            'AppBundle:student:list_annotations.html.twig',
+            array(
+                'annotations' => $annotations,
+                'studentId' => $studentId
+            )
+        );
     }
 
     /**
      * @Route("/{studentId}/annotations/add", name="mayimbe_student_annotation_add")
+     *
+     * @param Request $request
+     * @param $studentId
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function addAnnotationAction()
+    public function addAnnotationAction(Request $request, $studentId)
     {
-        return $this->render('default/index.html.twig');
+        $translator = $this->get('translator');
+
+        $form = $this->createForm(new StudentAnnotationType(), new StudentAnnotation(), array(
+            'label' => $translator->trans('title.add_annotation', array(), 'AppBundle', 'es'),
+        ));
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $student = $em->getRepository('AppBundle:Student')->find($studentId);
+
+            $em->persist($form->getData()->setStudent($student));
+            $em->flush();
+
+            return $this->redirectToRoute('mayimbe_student_annotations_index', array('studentId' => $studentId));
+        }
+
+        return $this->render(
+            'AppBundle:Student:add_annotation.html.twig',
+            array(
+                'form' => $form->createView(),
+                'studentId' => $studentId
+            )
+        );
     }
 
     /**
-     * @Route("/{studentId}/annotations/edit", name="mayimbe_student_annotation_edit")
+     * @Route("/{studentId}/annotations/edit/{annotationId}", name="mayimbe_student_annotation_edit")
+     *
+     * @param Request $request
+     * @param integer $studentId
+     * @param integer $annotationId
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function editAnnotationAction()
+    public function editAnnotationAction(Request $request, $studentId, $annotationId)
     {
-        return $this->render('default/index.html.twig');
+        $translator = $this->get('translator');
+
+        $em = $this->getDoctrine()->getManager();
+        $annotation = $em->getRepository('AppBundle:StudentAnnotation')->find($annotationId);
+
+        $form = $this->createForm(new StudentAnnotationType(true), $annotation, array(
+            'label' => $translator->trans('title.edit_annotation', array(), 'AppBundle', 'es'),
+        ));
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            if (!$annotation) {
+                throw $this->createNotFoundException(
+                    'No product found for id ' . $annotationId
+                );
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('mayimbe_student_annotations_index', array('studentId' => $studentId));
+        }
+
+        return $this->render(
+            'AppBundle:Student:edit_annotation.html.twig',
+            array(
+                'form' => $form->createView(),
+                'annotation' => $annotation,
+                'studentId' => $studentId
+            )
+        );
     }
 
     /**
-     * @Route("/{studentId}/annotations/remove", name="mayimbe_student_annotation_remove")
+     * @Route("/{studentId}/annotations/remove/{annotationId}", name="mayimbe_student_annotation_remove")
+     *
+     * @param integer $studentId
+     * @param integer $annotationId
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function removeAnnotationAction()
+    public function removeAnnotationAction($studentId, $annotationId)
     {
-        return $this->render('default/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $annotation = $em->getRepository('AppBundle:StudentAnnotation')->find($annotationId);
+
+        if (!$annotation) {
+            throw $this->createNotFoundException(
+                'No product found for id ' . $annotationId
+            );
+        }
+
+        $em->remove($annotation);
+        $em->flush();
+
+        return $this->redirectToRoute('mayimbe_student_annotations_index', array('studentId' => $studentId));
     }
 }

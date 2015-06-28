@@ -12,7 +12,8 @@ form:
         email: "Correo electrónico"
         gender: "Sexo"
         identity_number: "DNI"
-        member: "Miembro activo"
+        member: "Socio"
+        message: "Mensaje"
         modified: "Fecha de modificación"
         name: "Nombre"
         phone: "Teléfono"
@@ -22,12 +23,14 @@ form:
         surname: "Apellidos"
         wage: "Salario"
 
+form.choose_gender: "Elige un género"
 form.gender.male: "Hombre"
 form.gender.female: "Mujer"
 
-form.choose_gender: "Elige un género"
-
-
+form.choose_captation: "Elige modo de captación"
+form.captation.recommended: "Recomendado por alumno"
+form.captation.offer: "Oferta"
+form.captation.other: "Otro"
 
 title:
     home: "Inicio"
@@ -63,9 +66,14 @@ title:
     view_student: "Información de alumno"
     add_student: "Añadir alumno"
     edit_student: "Editar alumno"
+    add_annotation: "Añadir comentario"
+    edit_annotation: "Editar comentario"
 
 button:
+    add: "Añadir"
     delete: "Eliminar"
     edit: "Editar"
     go_to_index: "Ir al listado"
     view: "Ver"
+    add_annotation: "Añadir comentario"
+    list_annotations: "Ver comentarios"

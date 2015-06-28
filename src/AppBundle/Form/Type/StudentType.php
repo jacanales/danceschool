@@ -26,7 +26,14 @@ class StudentType extends AbstractType
     {
         $builder
             ->add('user', new UserType('AppBundle\Entity\User', $this->edit), array())
-            ->add('captation_method', null, array(
+            ->add('captation_method', 'choice', array(
+                'required' => false,
+                'placeholder' => 'form.choose_captation',
+                'choices' => array(
+                    'form.captation.recommended',
+                    'form.captation.offer',
+                    'form.captation.other',
+                ),
                 'label' => 'form.label.captation_method',
                 'translation_domain' => 'AppBundle'
             ))

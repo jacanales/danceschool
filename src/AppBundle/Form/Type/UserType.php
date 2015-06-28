@@ -51,8 +51,6 @@ class UserType extends AbstractType
                 'translation_domain' => 'AppBundle'
             ))
             ->add('birthday', 'birthday', array(
-                'required' => false,
-                'input' => 'string',
                 'widget' => 'single_text',
                 'years' => range(date('Y'), date('Y')-70),
                 'label' => 'form.label.birthday',

@@ -3,7 +3,7 @@
 {% trans_default_domain 'AppBundle' %}
 
 {% block headline %}
-    {{ 'title.view_room'|trans() }}
+    {{ 'title.view_student'|trans() }}
 {% endblock %}
 
 {% block content %}
@@ -48,6 +48,7 @@
 
     <a href="{{ path('mayimbe_student_index') }}" class="btn btn-primary btn-sm" role="button">{{ 'button.go_to_index'|trans() }}</a>
     <a href="{{ path('mayimbe_student_edit', {'id': student.id }) }}" class="btn btn-default btn-sm" role="button">{{ 'button.edit'|trans() }}</a>
+    <a href="{{ path('mayimbe_student_annotation_add', {'studentId': student.id }) }}" class="btn btn-default btn-sm" role="button">{{ 'button.add_annotation'|trans() }}</a>
     <a href="{{ path('mayimbe_student_remove', {'id': student.id }) }}" class="btn btn-danger btn-sm" role="button">{{ 'button.delete'|trans() }}</a>
 </div>
 {% endblock %}

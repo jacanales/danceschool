@@ -7,6 +7,9 @@
 {% endblock %}
 
 {% block content_content %}
+<div>
+    <a href="{{ path('mayimbe_student_add') }}" class="btn btn-primary" role="button">{{ 'button.add'|trans({}, 'AppBundle') }}</a>
+</div>
 <div class="table-responsive">
     <table class="table table-striped table-hover table-condensed">
         <thead>
@@ -17,6 +20,7 @@
                 <th data-field="email" data-align="right" data-sortable="true">{{ 'form.label.email'|trans() }}</th>
                 <th data-field="comment" data-sortable="true">{{ 'form.label.comment'|trans() }}</th>
                 <th data-field="show" data-sortable="false"></th>
+                <th data-field="edit" data-sortable="false"></th>
                 <th data-field="edit" data-sortable="false"></th>
                 <th data-field="delete" data-sortable="false"></th>
             </tr>
@@ -31,6 +35,7 @@
                 <td>{{ student.comment }}</td>
                 <td class="info"><a href="{{ path('mayimbe_student_show', {'id': student.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.view'|trans({}, 'AppBundle') }}</a></td>
                 <td class="info"><a href="{{ path('mayimbe_student_edit', {'id': student.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.edit'|trans() }}</a></td>
+                <td class="info"><a href="{{ path('mayimbe_student_annotations_index', {'studentId': student.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.list_annotations'|trans() }}</a></td>
                 <td class="danger"><a href="{{ path('mayimbe_student_remove', {'id': student.id }) }}" class="btn btn-danger btn-xs" role="button">{{ 'button.delete'|trans() }}</a></td>
             </tr>
         {% endfor %}
