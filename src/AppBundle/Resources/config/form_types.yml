@@ -5,3 +5,7 @@ services:
             - { m: form.gender.male, f: form.gender.female }
         tags:
             - { name: form.type, alias: gender }
+    app.form.type.weekday:
+        class: AppBundle\Form\Type\WeekdayType
+        tags:
+            - { name: form.type, alias: weekday }

@@ -1,0 +1,11 @@
+{% extends "::layout.html.twig" %}
+
+{% block headline %}
+    {{ 'title.groups'|trans({}, 'AppBundle') }}
+{% endblock %}
+
+{% block content_content %}
+    {{ form_start(form, {'action': path('mayimbe_group_add')}) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

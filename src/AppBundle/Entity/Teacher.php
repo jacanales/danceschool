@@ -60,6 +60,11 @@ class Teacher
         $this->groups = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return (string) $this->getId();
+    }
+
     /**
      * Get id
      *
@@ -174,5 +179,10 @@ class Teacher
     public function getGroups()
     {
         return $this->groups;
+    }
+
+    public function getFullName()
+    {
+        return $this->getUser()->getName() . ' ' . $this->getUser()->getSurname();
     }
 }

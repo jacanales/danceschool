@@ -7,10 +7,13 @@ form:
         comment: "Comentario"
         contract_expiration: "Fin de contrato"
         country: "País"
+        course: "Curso"
         created: "Fecha de creación"
         description: "Descripción"
         email: "Correo electrónico"
+        end_date: "Fecha de fin"
         gender: "Sexo"
+        hour: "Hora"
         identity_number: "DNI"
         member: "Socio"
         message: "Mensaje"
@@ -19,9 +22,14 @@ form:
         phone: "Teléfono"
         postal_code: "Código Postal"
         price: "Precio"
+        room: "Sala"
         save: "Guardar"
+        start_date: "Fecha de inicio"
         surname: "Apellidos"
+        teacher: "Profesor/a"
         wage: "Salario"
+        weekday: "Día"
+        whatsapp_group: "Grupo de Whatsapp"
 
 form.choose_gender: "Elige un género"
 form.gender.male: "Hombre"
@@ -69,6 +77,12 @@ title:
     add_annotation: "Añadir comentario"
     edit_annotation: "Editar comentario"
 
+    # Student
+    groups: "Grupos"
+    list_groups: "Listado de grupos"
+    group: "Grupo"
+    add_group: "Añadir grupo"
+
 button:
     add: "Añadir"
     delete: "Eliminar"
@@ -77,3 +91,13 @@ button:
     view: "Ver"
     add_annotation: "Añadir comentario"
     list_annotations: "Ver comentarios"
+
+date:
+    weekday:
+        monday: "Lunes"
+        tuesday: "Martes"
+        wednesday: "Miércoles"
+        thursday: "Jueves"
+        friday: "Viernes"
+        saturday: "Sábado"
+        sunday: "Domingo"

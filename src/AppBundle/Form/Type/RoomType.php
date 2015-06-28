@@ -14,6 +14,10 @@ class RoomType extends AbstractType
     {
         $builder
             ->add('id', 'hidden')
+            ->add('name', null, array(
+                'label' => 'form.label.name',
+                'translation_domain' => 'AppBundle'
+            ))
             ->add('description', null, array(
                 'label' => 'form.label.description',
                 'translation_domain' => 'AppBundle'

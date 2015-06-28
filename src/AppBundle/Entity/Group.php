@@ -29,7 +29,7 @@ class Group
      * @ORM\ManyToOne(targetEntity="Course", inversedBy="groups")
      * @ORM\JoinColumn(name="course_id", referencedColumnName="id", nullable=false)
      */
-    protected $courses;
+    protected $course;
 
     /**
      * @var integer
@@ -37,7 +37,7 @@ class Group
      * @ORM\ManyToOne(targetEntity="Room", inversedBy="groups")
      * @ORM\JoinColumn(name="room_id", referencedColumnName="id", nullable=false)
      */
-    protected $rooms;
+    protected $room;
 
     /**
      * @var integer
@@ -95,12 +95,18 @@ class Group
      * @ORM\OneToMany(targetEntity="GroupStudent", mappedBy="group")
      */
     protected $groupStudent;
+
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->groupStudent = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return (string) $this->getId();
     }
 
     /**
@@ -258,61 +264,61 @@ class Group
     }
 
     /**
-     * Set courses
+     * Set course
      *
-     * @param \AppBundle\Entity\Course $courses
+     * @param Course $course
      *
      * @return Group
      */
-    public function setCourses(\AppBundle\Entity\Course $courses)
+    public function setCourse(Course $course)
     {
-        $this->courses = $courses;
+        $this->course = $course;
 
         return $this;
     }
 
     /**
-     * Get courses
+     * Get course
      *
      * @return \AppBundle\Entity\Course
      */
-    public function getCourses()
+    public function getCourse()
     {
-        return $this->courses;
+        return $this->course;
     }
 
     /**
-     * Set rooms
+     * Set room
      *
-     * @param \AppBundle\Entity\Room $rooms
+     * @param Room $room
      *
      * @return Group
      */
-    public function setRooms(\AppBundle\Entity\Room $rooms)
+    public function setRoom(Room $room)
     {
-        $this->rooms = $rooms;
+        $this->room = $room;
 
         return $this;
     }
 
     /**
-     * Get rooms
+     * Get room
      *
      * @return \AppBundle\Entity\Room
      */
-    public function getRooms()
+    public function getRoom()
     {
-        return $this->rooms;
+        return $this->room;
     }
 
     /**
      * Set teacher
      *
-     * @param \AppBundle\Entity\Teacher $teacher
+     * @param Teacher $teacher
      *
      * @return Group
      */
-    public function setTeacher(\AppBundle\Entity\Teacher $teacher)
+    public function setTeacher(Teacher $teacher)
     {
         $this->teacher = $teacher;
 
@@ -322,7 +328,7 @@ class Group
     /**
      * Get teacher
      *
-     * @return \AppBundle\Entity\Teacher
+     * @return Teacher
      */
     public function getTeacher()
     {
@@ -332,11 +338,11 @@ class Group
     /**
      * Add groupStudent
      *
-     * @param \AppBundle\Entity\GroupStudent $groupStudent
+     * @param GroupStudent $groupStudent
      *
      * @return Group
      */
-    public function addGroupStudent(\AppBundle\Entity\GroupStudent $groupStudent)
+    public function addGroupStudent(GroupStudent $groupStudent)
     {
         $this->groupStudent[] = $groupStudent;
 
@@ -346,9 +352,9 @@ class Group
     /**
      * Remove groupStudent
      *
-     * @param \AppBundle\Entity\GroupStudent $groupStudent
+     * @param GroupStudent $groupStudent
      */
-    public function removeGroupStudent(\AppBundle\Entity\GroupStudent $groupStudent)
+    public function removeGroupStudent(GroupStudent $groupStudent)
     {
         $this->groupStudent->removeElement($groupStudent);
     }

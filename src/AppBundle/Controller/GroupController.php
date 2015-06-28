@@ -2,8 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Group;
+use AppBundle\Form\Type\GroupType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Route preffix affects only new (not overloaded) actions or if route name matches
@@ -22,9 +25,31 @@ class GroupController extends Controller
     /**
      * @Route("/add", name="mayimbe_group_add")
      */
-    public function addAction()
+    public function addAction(Request $request)
     {
-        return $this->render('default/index.html.twig');
+        $translator = $this->get('translator');
+
+        $form = $this->createForm(new GroupType(), new Group(), array(
+            'show_legend' => true,
+            'label' => $translator->trans('title.add_group', array(), 'AppBundle', 'es')
+        ));
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($form->getData());
+            $em->flush();
+
+            return $this->redirectToRoute('mayimbe_group_index');
+        }
+
+        return $this->render(
+            'AppBundle:Group:add.html.twig',
+            array(
+                'form' => $form->createView()
+            )
+        );
     }
 
     /**

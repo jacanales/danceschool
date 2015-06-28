@@ -29,6 +29,13 @@ class Room
      *
      * @ORM\Column(type="text")
      */
+    protected $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text")
+     */
     protected $description;
 
     /**
@@ -81,6 +88,11 @@ class Room
         $this->groups = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return (string) $this->getId();
+    }
+
     /**
      * @return int
      */
@@ -97,6 +109,26 @@ class Room
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return Room
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
 
         return $this;
     }

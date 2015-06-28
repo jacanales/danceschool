@@ -24,6 +24,7 @@ class Builder
         $this->addCourseMenu($menu);
         $this->addTeacherMenu($menu);
         $this->addStudentMenu($menu);
+        $this->addGroupMenu($menu);
 
         return $menu;
     }
@@ -73,15 +74,28 @@ class Builder
     private function addStudentMenu(ItemInterface &$menu)
     {
         // Create a dropdown with a caret
-        $teacher = $menu->addChild('title.student', array(
+        $student = $menu->addChild('title.student', array(
             'dropdown' => true,
             'caret' => true,
         ))->setExtra('translation_domain', 'AppBundle');
 
         // Create a dropdown header
-        $teacher->addChild('title.students', array('dropdown-header' => true))->setExtra('translation_domain', 'AppBundle');
-        $teacher->addChild('title.list_students', array('route' => 'mayimbe_student_index', 'dropdown-header' => false))->setExtra('translation_domain', 'AppBundle');
-        $teacher->addChild('title.add_student', array('route' => 'mayimbe_student_add', 'dropdown-header' => false))->setExtra('translation_domain', 'AppBundle');
+        $student->addChild('title.students', array('dropdown-header' => true))->setExtra('translation_domain', 'AppBundle');
+        $student->addChild('title.list_students', array('route' => 'mayimbe_student_index', 'dropdown-header' => false))->setExtra('translation_domain', 'AppBundle');
+        $student->addChild('title.add_student', array('route' => 'mayimbe_student_add', 'dropdown-header' => false))->setExtra('translation_domain', 'AppBundle');
+    }
+
+    private function addGroupMenu(ItemInterface &$menu)
+    {
+        $group = $menu->addChild('title.group', array(
+            'dropdown' => true,
+            'caret' => true,
+        ))->setExtra('translation_domain', 'AppBundle');
+
+        // Create a dropdown header
+        $group->addChild('title.groups', array('dropdown-header' => true))->setExtra('translation_domain', 'AppBundle');
+        $group->addChild('title.list_groups', array('route' => 'mayimbe_group_index', 'dropdown-header' => false))->setExtra('translation_domain', 'AppBundle');
+        $group->addChild('title.add_group', array('route' => 'mayimbe_group_add', 'dropdown-header' => false))->setExtra('translation_domain', 'AppBundle');
     }
 
     public function invalidMethod(FactoryInterface $factory)
