@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Group;
+use AppBundle\Entity\GroupStudent;
+use AppBundle\Form\Type\GroupStudentType;
 use AppBundle\Form\Type\GroupType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -19,11 +21,57 @@ class GroupController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig');
+        /**
+         * @var \Doctrine\ORM\EntityManager
+         */
+        $groups = $this->getDoctrine()
+                      ->getRepository('AppBundle:Group')
+                      ->findAll();
+
+        return $this->render(
+            'AppBundle:Group:index.html.twig',
+            array('groups' => $groups)
+        );
+    }
+
+    /**
+     * @Route("/show/{id}", name="mayimbe_group_show")
+     *
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showAction($id)
+    {
+        $group = $this->getDoctrine()
+                     ->getRepository('AppBundle:Group')
+                     ->find($id);
+
+        $students = $this->getDoctrine()
+            ->getRepository('AppBundle:GroupStudent')
+            ->findBy(array(
+                'group' => $id
+            ));
+
+        if (!$group) {
+            throw $this->createNotFoundException(
+                'No room found for id ' . $id
+            );
+        }
+
+        return $this->render(
+            'AppBundle:Group:show.html.twig',
+            array(
+                'group' => $group,
+                'students' => $students
+            )
+        );
     }
 
     /**
      * @Route("/add", name="mayimbe_group_add")
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function addAction(Request $request)
     {
@@ -53,42 +101,180 @@ class GroupController extends Controller
     }
 
     /**
-     * @Route("/edit", name="mayimbe_group_edit")
+     * @Route("/edit/{id}", name="mayimbe_group_edit")
+     *
+     * @param Request $request
+     * @param integer $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function editAction()
+    public function editAction(Request $request, $id)
     {
-        return $this->render('default/index.html.twig');
+        $translator = $this->get('translator');
+
+        $em = $this->getDoctrine()->getManager();
+        $group = $em->getRepository('AppBundle:Group')->find($id);
+
+        $form = $this->createForm(new GroupType(), $group, array(
+            'show_legend' => true,
+            'label' => $translator->trans('title.edit_group', array(), 'AppBundle', 'es')
+        ));
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            if (!$group) {
+                throw $this->createNotFoundException(
+                    'No product found for id '.$id
+                );
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('mayimbe_group_index');
+        }
+
+        return $this->render(
+            'AppBundle:Group:edit.html.twig',
+            array(
+                'form' => $form->createView(),
+                'group' => $group,
+            )
+        );
     }
 
     /**
-     * @Route("/remove", name="mayimbe_group_remove")
+     * @Route("/remove/{id}", name="mayimbe_group_remove")
+     *
+     * @param integer $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function removeAction()
+    public function removeAction($id)
     {
-        return $this->render('default/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $group = $em->getRepository('AppBundle:Group')->find($id);
+
+        if (!$group) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+        $em->remove($group);
+        $em->flush();
+
+        return $this->redirectToRoute('mayimbe_group_index');
     }
 
     /**
-     * @Route("/add", name="mayimbe_group_add_student")
+     * @Route("/{id}/student/add", name="mayimbe_group_add_student")
+     *
+     * @param Request $request
+     * @param integer $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function addStudentAction()
+    public function addStudentAction(Request $request, $id)
     {
-        return $this->render('default/index.html.twig');
+        $translator = $this->get('translator');
+
+        $form = $this->createForm(new GroupStudentType(), new GroupStudent(), array(
+            'show_legend' => true,
+            'label' => $translator->trans('title.add_student', array(), 'AppBundle', 'es')
+        ));
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $group = $em->getRepository('AppBundle:Group')->find($id);
+
+            $form->getData()->setGroup($group);
+
+            $em->persist($form->getData());
+            $em->flush();
+
+            return $this->redirectToRoute('mayimbe_group_show', array('id' => $id));
+        }
+
+        return $this->render(
+            'AppBundle:Group:add_student.html.twig',
+            array(
+                'form' => $form->createView(),
+                'id' => $id
+            )
+        );
     }
 
     /**
-     * @Route("/edit", name="mayimbe_group_edit_student")
+     * @Route("/{id}/student/edit/{studentId}", name="mayimbe_group_edit_student")
+     *
+     * @param Request $request
+     * @param integer $id
+     * @param integer $studentId
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function editStudentAction()
+    public function editStudentAction(Request $request, $id, $studentId)
     {
-        return $this->render('default/index.html.twig');
+        $translator = $this->get('translator');
+
+        $em = $this->getDoctrine()->getManager();
+        $student = $em->getRepository('AppBundle:GroupStudent')->findOneBy(array(
+            'group' => $id,
+            'student' => $studentId
+        ));
+
+        $form = $this->createForm(new GroupStudentType(), $student, array(
+            'show_legend' => true,
+            'label' => $translator->trans('title.edit_group', array(), 'AppBundle', 'es')
+        ));
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            if (!$student) {
+                throw $this->createNotFoundException(
+                    'No product found for id '.$id
+                );
+            }
+
+            $em->flush();
+
+            return $this->redirectToRoute('mayimbe_group_show', array('id' => $id));
+        }
+
+        return $this->render(
+            'AppBundle:Group:edit_student.html.twig',
+            array(
+                'form' => $form->createView(),
+                'student' => $student,
+                'id' => $id
+            )
+        );
     }
 
     /**
-     * @Route("/remove", name="mayimbe_group_remove_student")
+     * @Route("/{id}/student/remove/{studentId}", name="mayimbe_group_remove_student")
+     *
+     * @param integer $id
+     * @param integer $studentId
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function removeStudentAction()
+    public function removeStudentAction($id, $studentId)
     {
-        return $this->render('default/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $student = $em->getRepository('AppBundle:GroupStudent')->findOneBy(array(
+            'group' => $id,
+            'student' => $studentId
+        ));
+
+        if (!$student) {
+            throw $this->createNotFoundException(
+                'No product found for id ' . $studentId
+            );
+        }
+
+        $em->remove($student);
+        $em->flush();
+
+        return $this->redirectToRoute('mayimbe_group_show', array('id' => $id));
     }
 }

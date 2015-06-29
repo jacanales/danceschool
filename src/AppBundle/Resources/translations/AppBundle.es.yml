@@ -13,8 +13,10 @@ form:
         email: "Correo electrónico"
         end_date: "Fecha de fin"
         gender: "Sexo"
+        group: "Grupo"
         hour: "Hora"
         identity_number: "DNI"
+        is_reinforcing: "Refuerzo"
         member: "Socio"
         message: "Mensaje"
         modified: "Fecha de modificación"
@@ -25,6 +27,7 @@ form:
         room: "Sala"
         save: "Guardar"
         start_date: "Fecha de inicio"
+        student: "Alumno"
         surname: "Apellidos"
         teacher: "Profesor/a"
         wage: "Salario"
@@ -81,7 +84,9 @@ title:
     groups: "Grupos"
     list_groups: "Listado de grupos"
     group: "Grupo"
+    view_group: "Información del grupo"
     add_group: "Añadir grupo"
+    edit_group: "Editar grupo"
 
 button:
     add: "Añadir"
@@ -91,13 +96,15 @@ button:
     view: "Ver"
     add_annotation: "Añadir comentario"
     list_annotations: "Ver comentarios"
+    add_student: "Añadir alumno"
 
 date:
     weekday:
-        monday: "Lunes"
-        tuesday: "Martes"
-        wednesday: "Miércoles"
-        thursday: "Jueves"
-        friday: "Viernes"
-        saturday: "Sábado"
-        sunday: "Domingo"
+        1: "Lunes"
+        2: "Martes"
+        3: "Miércoles"
+        4: "Jueves"
+        5: "Viernes"
+        6: "Sábado"
+        7: "Domingo"
+

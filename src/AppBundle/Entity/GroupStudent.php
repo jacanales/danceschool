@@ -35,7 +35,55 @@ class GroupStudent
     /**
      * @var boolean
      *
-     * @ORM\Column(type="boolean", nullable=false, options={"default"=false})
+     * @ORM\Column(type="boolean", nullable=true, options={"default"=false})
      */
     protected $is_reinforcing;
+
+    /**
+     * @return int
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+
+    /**
+     * @param int $group
+     */
+    public function setGroup($group)
+    {
+        $this->group = $group;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStudent()
+    {
+        return $this->student;
+    }
+
+    /**
+     * @param int $student
+     */
+    public function setStudent($student)
+    {
+        $this->student = $student;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isIsReinforcing()
+    {
+        return $this->is_reinforcing;
+    }
+
+    /**
+     * @param boolean $is_reinforcing
+     */
+    public function setIsReinforcing($is_reinforcing)
+    {
+        $this->is_reinforcing = $is_reinforcing;
+    }
 }

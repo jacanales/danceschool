@@ -281,4 +281,9 @@ class Student
     {
         return $this->annotations;
     }
+
+    public function getFullName()
+    {
+        return $this->getUser()->getName() . ' ' . $this->getUser()->getSurname();
+    }
 }

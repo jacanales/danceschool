@@ -156,10 +156,10 @@ class StudentController extends Controller
          * @var \Doctrine\ORM\EntityManager
          */
         $annotations = $this->getDoctrine()
-                         ->getRepository('AppBundle:StudentAnnotation')
-                         ->findBy(array(
-                             'student' => $studentId
-                         ));
+             ->getRepository('AppBundle:StudentAnnotation')
+             ->findBy(array(
+                 'student' => $studentId
+             ));
 
         return $this->render(
             'AppBundle:student:list_annotations.html.twig',
@@ -191,7 +191,9 @@ class StudentController extends Controller
             $em = $this->getDoctrine()->getManager();
             $student = $em->getRepository('AppBundle:Student')->find($studentId);
 
-            $em->persist($form->getData()->setStudent($student));
+            $form->getData()->setStudent($student);
+
+            $em->persist($form->getData());
             $em->flush();
 
             return $this->redirectToRoute('mayimbe_student_annotations_index', array('studentId' => $studentId));

@@ -13,15 +13,13 @@ class WeekdayType extends AbstractType
 
     public function __construct()
     {
-        $this->weekdays = array(
-            1 => 'date.weekday.monday',
-            2 => 'date.weekday.tuesday',
-            3 => 'date.weekday.wednesday',
-            4 => 'date.weekday.thursday',
-            5 => 'date.weekday.friday',
-            6 => 'date.weekday.saturday',
-            0 => 'date.weekday.sunday'
-        );
+        $numDays = range(date('N', strtotime("monday")), date('N', strtotime("sunday")));
+
+        foreach ($numDays as $numDay)
+        {
+            $this->weekdays[$numDay] = 'date.weekday.' . $numDay;
+        }
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
