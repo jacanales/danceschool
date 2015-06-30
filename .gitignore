@@ -10,5 +10,6 @@
 /vendor/
 /web/bundles/
 /web/css
+!/web/css/layout/
 /web/js
 web/.htaccess
