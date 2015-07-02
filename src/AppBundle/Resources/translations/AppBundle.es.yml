@@ -79,6 +79,7 @@ title:
     edit_student: "Editar alumno"
     add_annotation: "Añadir comentario"
     edit_annotation: "Editar comentario"
+    annotations: "Comentarios"
 
     # Student
     groups: "Grupos"

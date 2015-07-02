@@ -46,6 +46,12 @@ class StudentController extends Controller
                      ->getRepository('AppBundle:Student')
                      ->find($id);
 
+        $annotations = $this->getDoctrine()
+            ->getRepository('AppBundle:StudentAnnotation')
+            ->findBy(array(
+                'student' => $id
+            ));
+
         if (!$student) {
             throw $this->createNotFoundException(
                 'No student found for id ' . $id
@@ -56,6 +62,7 @@ class StudentController extends Controller
             'AppBundle:Student:show.html.twig',
             array(
                 'student' => $student,
+                'annotations' => $annotations
             )
         );
     }
@@ -148,29 +155,6 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/{studentId}/annotations", name="mayimbe_student_annotations_index")
-     */
-    public function indexAnnotationsAction($studentId)
-    {
-        /**
-         * @var \Doctrine\ORM\EntityManager
-         */
-        $annotations = $this->getDoctrine()
-             ->getRepository('AppBundle:StudentAnnotation')
-             ->findBy(array(
-                 'student' => $studentId
-             ));
-
-        return $this->render(
-            'AppBundle:student:list_annotations.html.twig',
-            array(
-                'annotations' => $annotations,
-                'studentId' => $studentId
-            )
-        );
-    }
-
-    /**
      * @Route("/{studentId}/annotations/add", name="mayimbe_student_annotation_add")
      *
      * @param Request $request
@@ -196,7 +180,7 @@ class StudentController extends Controller
             $em->persist($form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_student_annotations_index', array('studentId' => $studentId));
+            return $this->redirectToRoute('mayimbe_student_show', array('id' => $studentId));
         }
 
         return $this->render(
