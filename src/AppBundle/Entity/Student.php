@@ -44,6 +44,13 @@ class Student
     protected $member;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true, options={"default":false})
+     */
+    protected $account_number;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(type="date", columnDefinition="DATE", nullable=true, options={"default":null})

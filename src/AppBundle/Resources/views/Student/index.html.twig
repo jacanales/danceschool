@@ -35,7 +35,6 @@
                 <td>{{ student.comment }}</td>
                 <td class="info"><a href="{{ path('mayimbe_student_show', {'id': student.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.view'|trans({}, 'AppBundle') }}</a></td>
                 <td class="info"><a href="{{ path('mayimbe_student_edit', {'id': student.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.edit'|trans() }}</a></td>
-                <td class="info"><a href="{{ path('mayimbe_student_annotations_index', {'studentId': student.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.list_annotations'|trans() }}</a></td>
                 <td class="danger"><a href="{{ path('mayimbe_student_remove', {'id': student.id }) }}" class="btn btn-danger btn-xs" role="button">{{ 'button.delete'|trans() }}</a></td>
             </tr>
         {% endfor %}
