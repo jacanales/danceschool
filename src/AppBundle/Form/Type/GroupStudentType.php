@@ -5,7 +5,7 @@ namespace AppBundle\Form\Type;
 use libphonenumber\PhoneNumberFormat;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class GroupStudentType extends AbstractType
 {
@@ -15,14 +15,14 @@ class GroupStudentType extends AbstractType
             /*
             ->add('group', 'entity', array(
                 'class' => 'AppBundle:Group',
-                'property' => 'name',
+                'choice_label' => 'name',
                 'label' => 'form.label.name',
                 'translation_domain' => 'AppBundle'
             ))
             */
             ->add('student', 'entity', array(
                 'class' => 'AppBundle:Student',
-                'property' => 'getFullName',
+                'choice_label' => 'getFullName',
                 'label' => 'form.label.student',
                 'translation_domain' => 'AppBundle'
             ))
@@ -39,9 +39,9 @@ class GroupStudentType extends AbstractType
     }
 
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\GroupStudent',

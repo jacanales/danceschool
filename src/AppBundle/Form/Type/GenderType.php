@@ -4,7 +4,6 @@ namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class GenderType extends AbstractType
 {
@@ -30,10 +29,5 @@ class GenderType extends AbstractType
     public function getName()
     {
         return 'gender';
-    }
-
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $this->configureOptions($resolver);
     }
 }

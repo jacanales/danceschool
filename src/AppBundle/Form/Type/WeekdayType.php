@@ -4,7 +4,6 @@ namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class WeekdayType extends AbstractType
 {
@@ -17,7 +16,7 @@ class WeekdayType extends AbstractType
 
         foreach ($numDays as $numDay)
         {
-            $this->weekdays[$numDay] = 'date.weekday.' . $numDay;
+            $this->weekdays['date.weekday.' . $numDay] = $numDay;
         }
 
     }
@@ -25,7 +24,8 @@ class WeekdayType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'choices' => $this->weekdays
+            'choices' => $this->weekdays,
+            'choices_as_values' => true,
         ));
     }
 
@@ -37,10 +37,5 @@ class WeekdayType extends AbstractType
     public function getName()
     {
         return 'weekday';
-    }
-
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $this->configureOptions($resolver);
     }
 }
