@@ -23,3 +23,9 @@ monolog:
             level: debug
         console:
             type:  console
+
+# Assetic Configuration
+assetic:
+    filters:
+        compass:
+            sass: /app/vendor/bundle/bin/compass
