@@ -96,14 +96,14 @@ class User extends BaseUser
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="datetime", nullable=false, options={"default":"CURRENT_TIMESTAMP"})
+     * @ORM\Column(type="datetime", nullable=false)
      */
     protected $created;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="datetime", nullable=false, options={"default":"CURRENT_TIMESTAMP"})
+     * @ORM\Column(type="datetime", nullable=false)
      */
     protected $modified;
 
