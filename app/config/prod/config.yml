@@ -27,5 +27,8 @@ monolog:
 # Assetic Configuration
 assetic:
     filters:
+        less:
+            node: /app/.heroku/node/bin/node
+            node_paths: [/app/node_modules]
         compass:
             sass: /app/vendor/bundle/bin/compass
