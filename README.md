@@ -23,3 +23,9 @@ gem install bundler
 php app/console doctrine:schema:create --dump-sql
 php app/console assetic:dump
 ```
+
+** Dev utilities **
+```
+npm install grunt --save-dev
+npm install grunt-contrib-jshint --save-dev
+```
