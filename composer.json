@@ -53,8 +53,7 @@
     },
     "scripts": {
         "compile": [
-            "rm web/app_dev.php",
-            "app/console assetic:dump"
+            "rm web/app_dev.php"
         ],
         "post-root-package-install": [
             "SymfonyStandard\\Composer::hookRootPackageInstall"
