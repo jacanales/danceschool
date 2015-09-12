@@ -1,5 +1,6 @@
 imports:
     - { resource: ../common/config.yml }
+    - { resource: parameters.yml }
 
 #framework:
 #    validation:
@@ -31,4 +32,4 @@ assetic:
             node: /app/.heroku/node/bin/node
             node_paths: [/app/node_modules]
         compass:
-            sass: /app/vendor/bundle/bin/compass
+            sass: %assetic.filter.compass.bin%

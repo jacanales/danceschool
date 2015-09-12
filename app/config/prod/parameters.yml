@@ -1,0 +1,2 @@
+parameters:
+    assetic.filter.compass.bin: /app/vendor/bundle/bin/compass
