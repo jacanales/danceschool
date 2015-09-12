@@ -1,0 +1,20 @@
+{
+    "name": "Mayimbe development app",
+    "description": "App for Mayimbe's Dance School",
+    "keywords": ["symfony", "school"],
+    "website": "https://www.salsaescuela.com",
+    "success_url": "/",
+    "repository": "https://github.com/jacanales/danceschool",
+    "logo": "",
+    "addons": [
+        "cleardb"
+    ],
+    "env": {
+        "SYMFONY_ENV": {
+            "value": "prod"
+        }
+    },
+    "scripts": {
+        "postdeploy": "php app/console doctrine:migration:migrate"
+    }
+}
