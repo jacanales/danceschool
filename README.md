@@ -12,6 +12,12 @@ gem update --system
 gem install compass
 ```
 
+Install bundler to allow use compass in Heroku
+```
+gem install bundler
+```
+
+
 ** Execute commands **
 ```
 php app/console doctrine:schema:create --dump-sql
