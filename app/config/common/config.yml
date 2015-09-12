@@ -53,10 +53,10 @@ assetic:
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
-        less:
-            node: /usr/local/bin/node
-            node_paths: [/opt/lessc/lib, /usr/local/lib/node_modules]
-            apply_to: "\.less$"
+#        less:
+#            node: /usr/local/bin/node
+#            node_paths: [/opt/lessc/lib, /usr/local/lib/node_modules]
+#            apply_to: "\.less$"
         compass:
             sass: /usr/local/bin/compass
             apply_to: "\.(scss|sass)$"
