@@ -59,8 +59,20 @@ class AppKernel extends Kernel
     {
         if (isset($_ENV['SYMFONY_ENV']) && $_ENV['SYMFONY_ENV'] == 'prod') {
             // Workaround to avoid problem with the slug of heroku
-            return '/app/app';
+            $prodPath = '/app/app';
+
+            return $this->isFolderCreated($prodPath) ? $prodPath : parent::getRootDir();
         }
+        
         return parent::getRootDir();
+    }
+
+    protected function isFolderCreated($folder)
+    {
+        // Get canonicalized absolute pathname
+        $path = realpath($folder);
+
+        // If it exist, check if it's a directory
+        return ($path !== false AND is_dir($path)) ? $path : false;
     }
 }
