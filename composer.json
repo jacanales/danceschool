@@ -51,6 +51,9 @@
         "egulias/listeners-debug-command-bundle": "~3.0.0"
     },
     "scripts": {
+        "compile": [
+            "app/console assetic:dump"
+        ],
         "post-root-package-install": [
             "SymfonyStandard\\Composer::hookRootPackageInstall"
         ],
