@@ -1,0 +1,18 @@
+/* TEAM */
+    Developer: Jesús Antonio Canales Diez
+    Contact: jacanalesdiez [at] gmail.com
+    Twitter: @tanque_tm
+    LinkedIn: https://es.linkedin.com/in/jacanales
+    G+:
+    Skype:
+    From: Barcelona, Catalonia, Spain
+
+/* SITE */
+    Site Name: Mayimbe's Dance School
+    Site URL: http://www.salsaescuela.com
+	Facebook: https://www.facebook.com/MayimbeSchool
+    Language: Català / English / Castellano
+	Last update: 2015/09/13
+	Standards: HTML5
+    Components: Symfony2, Bootstrap 3
+    Software: PHPStorm
