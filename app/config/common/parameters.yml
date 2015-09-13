@@ -12,3 +12,5 @@ parameters:
 
     mopa_bootstrap.form.render_optional_text: false
     mopa_bootstrap.form.render_required_asterisk: true
+
+    session.name: MSESSID

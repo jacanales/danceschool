@@ -73,6 +73,6 @@ class AppKernel extends Kernel
         $path = realpath($folder);
 
         // If it exist, check if it's a directory
-        return ($path !== false AND is_dir($path)) ? $path : false;
+        return ($path !== false && is_dir($path)) ? $path : false;
     }
 }

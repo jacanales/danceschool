@@ -2,7 +2,6 @@
 
 namespace AppBundle\Form\Type;
 
-use libphonenumber\PhoneNumberFormat;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -12,14 +11,6 @@ class GroupStudentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            /*
-            ->add('group', 'entity', array(
-                'class' => 'AppBundle:Group',
-                'choice_label' => 'name',
-                'label' => 'form.label.name',
-                'translation_domain' => 'AppBundle'
-            ))
-            */
             ->add('student', 'entity', array(
                 'class' => 'AppBundle:Student',
                 'choice_label' => 'getFullName',

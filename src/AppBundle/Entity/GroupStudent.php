@@ -74,7 +74,7 @@ class GroupStudent
     /**
      * @return boolean
      */
-    public function isIsReinforcing()
+    public function isReinforcing()
     {
         return $this->is_reinforcing;
     }
@@ -82,7 +82,7 @@ class GroupStudent
     /**
      * @param boolean $is_reinforcing
      */
-    public function setIsReinforcing($is_reinforcing)
+    public function setReinforcing($is_reinforcing)
     {
         $this->is_reinforcing = $is_reinforcing;
     }

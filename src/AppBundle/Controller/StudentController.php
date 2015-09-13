@@ -8,6 +8,7 @@ use AppBundle\Form\Type\StudentAnnotationType;
 use AppBundle\Form\Type\StudentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -18,6 +19,7 @@ class StudentController extends Controller
 {
     /**
      * @Route("/", name="mayimbe_student_index")
+     * @Method("GET")
      */
     public function indexAction()
     {
@@ -36,6 +38,7 @@ class StudentController extends Controller
 
     /**
      * @Route("/show/{id}", name="mayimbe_student_show")
+     * @Method("GET")
      *
      * @param integer $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -69,6 +72,7 @@ class StudentController extends Controller
 
     /**
      * @Route("/add", name="mayimbe_student_add")
+     * @Method({"GET", "POST"})
      *
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -96,6 +100,7 @@ class StudentController extends Controller
 
     /**
      * @Route("/edit/{id}", name="mayimbe_student_edit")
+     * @Method({"GET", "POST"})
      *
      * @param Request $request
      * @param $id
@@ -133,6 +138,7 @@ class StudentController extends Controller
 
     /**
      * @Route("/remove/{id}", name="mayimbe_student_remove")
+     * @Method({"GET", "POST"})
      *
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
@@ -156,6 +162,7 @@ class StudentController extends Controller
 
     /**
      * @Route("/{studentId}/annotations/add", name="mayimbe_student_annotation_add")
+     * @Method({"GET", "POST"})
      *
      * @param Request $request
      * @param $studentId
@@ -194,6 +201,7 @@ class StudentController extends Controller
 
     /**
      * @Route("/{studentId}/annotations/edit/{annotationId}", name="mayimbe_student_annotation_edit")
+     * @Method({"GET", "POST"})
      *
      * @param Request $request
      * @param integer $studentId
@@ -237,6 +245,7 @@ class StudentController extends Controller
 
     /**
      * @Route("/{studentId}/annotations/remove/{annotationId}", name="mayimbe_student_annotation_remove")
+     * @Method({"GET", "POST"})
      *
      * @param integer $studentId
      * @param integer $annotationId
