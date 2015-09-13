@@ -52,7 +52,7 @@
     },
     "scripts": {
         "compile": [
-            "app/console assetic:dump"
+            "app/console assets:install"
         ],
         "post-root-package-install": [
             "SymfonyStandard\\Composer::hookRootPackageInstall"
