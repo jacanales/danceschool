@@ -1,4 +1,11 @@
 parameters:
+    database_driver: pdo_mysql
+    database_host: us-cdbr-iron-east-02.cleardb.net
+    database_port: null
+    database_name: heroku_a70ae3cc5e0e383
+    database_user: be24edc6dbabf4
+    database_password: 05e083e3
+
     assetic.filter.compass.bin: /app/vendor/bundle/bin/compass
     assetic.filter.less.node: /app/.heroku/node/bin/node
     assetic.filter.less.node_paths: [/app/node_modules]
