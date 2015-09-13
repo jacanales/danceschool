@@ -1,6 +1,7 @@
 imports:
     - { resource: ../common/config.yml }
     - { resource: parameters.yml }
+    - { resource: ../common/parameters_local.yml }
 
 #framework:
 #    validation:
@@ -24,12 +25,3 @@ monolog:
             level: debug
         console:
             type:  console
-
-# Assetic Configuration
-assetic:
-    filters:
-        less:
-            node: /app/.heroku/node/bin/node
-            node_paths: [/app/node_modules]
-        compass:
-            sass: %assetic.filter.compass.bin%

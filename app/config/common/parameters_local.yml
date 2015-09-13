@@ -12,3 +12,6 @@ parameters:
     mailer_password: null
 
     assetic.filter.compass.bin: /usr/local/bin/compass
+    assetic.filter.less.node: /usr/local/bin/node
+    assetic.filter.less.node_paths: [/opt/lessc/lib, /usr/local/lib/node_modules]
+    assetic.filter.sass.bin: /usr/local/bin/sass

@@ -1,7 +1,6 @@
 imports:
     - { resource: ../common/config.yml }
     - { resource: parameters.yml }
-    - { resource: parameters_local.yml, ignore_errors: true }
 
 framework:
     router:
@@ -44,7 +43,7 @@ monolog:
         #    level:  info
 
 assetic:
-    use_controller: true
+    use_controller: false
 
 #swiftmailer:
 #    delivery_address: me@example.com
