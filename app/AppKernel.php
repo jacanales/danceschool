@@ -63,7 +63,7 @@ class AppKernel extends Kernel
 
             return $this->isFolderCreated($prodPath) ? $prodPath : parent::getRootDir();
         }
-        
+
         return parent::getRootDir();
     }
 
