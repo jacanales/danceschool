@@ -1,6 +1,6 @@
 {
     "name": "jcanales/mayimbe",
-    "description": "Project test for Mayimbe's school"
+    "description": "Project test for Mayimbe's school",
     "license": "proprietary",
     "type": "project",
     "autoload": {
