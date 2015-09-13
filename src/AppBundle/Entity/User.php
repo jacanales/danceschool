@@ -33,14 +33,14 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true, options={"default":null})
      */
     protected $surname;
 
     /**
      * @var char
      *
-     * @ORM\Column(type="string", length=1, options={"comment":"m: Male, f: female"})
+     * @ORM\Column(type="string", nullable=true, length=1, options={"comment":"m: Male, f: female"})
      */
     protected $gender;
 
@@ -110,6 +110,7 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
+
         $this->created = new \DateTime('now');
     }
 
@@ -127,6 +128,10 @@ class User extends BaseUser
      */
     public function setUpdatedAt()
     {
+        if (is_null($this->name)) {
+            $this->name = $this->getUsername();
+        }
+
         $this->modified = new \DateTime('now');
     }
 
