@@ -10,3 +10,4 @@ parameters:
     assetic.filter.less.node: /app/.heroku/node/bin/node
     assetic.filter.less.node_paths: [/app/node_modules]
     assetic.filter.sass.bin: /usr/local/bin/sass
+    assetic.filter.yui_css.timeout: 10
