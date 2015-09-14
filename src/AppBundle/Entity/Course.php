@@ -40,9 +40,9 @@ class Course
     /**
      * @var integer
      *
-     * @ORM\OneToMany(targetEntity="Group", mappedBy="courses")
+     * @ORM\OneToMany(targetEntity="Group", mappedBy="course")
      */
-    protected $groups;
+    protected $group;
 
     /**
      * @return int

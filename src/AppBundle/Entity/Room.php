@@ -76,9 +76,9 @@ class Room
     /**
      * @var integer
      *
-     * @ORM\OneToMany(targetEntity="Group", mappedBy="rooms")
+     * @ORM\OneToMany(targetEntity="Group", mappedBy="room")
      */
-    protected $groups;
+    protected $group;
 
     /**
      * Constructor

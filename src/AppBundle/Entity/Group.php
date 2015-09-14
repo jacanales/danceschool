@@ -26,7 +26,7 @@ class Group
     /**
      * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Course", inversedBy="groups")
+     * @ORM\ManyToOne(targetEntity="Course", inversedBy="group")
      * @ORM\JoinColumn(name="course_id", referencedColumnName="id", nullable=false)
      */
     protected $course;
@@ -34,7 +34,7 @@ class Group
     /**
      * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Room", inversedBy="groups")
+     * @ORM\ManyToOne(targetEntity="Room", inversedBy="group")
      * @ORM\JoinColumn(name="room_id", referencedColumnName="id", nullable=false)
      */
     protected $room;
