@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2fd51f39c3fa03dbabbb6b0984ffe5f8",
-    "content-hash": "64df8b0425dfc8a0012ed1ab660e89d4",
+    "hash": "a68f6903564d5cfa74ac165c96d8332b",
+    "content-hash": "daca1e224f5ab5aaeb2db0556713decb",
     "packages": [
         {
             "name": "craue/formflow-bundle",
@@ -2614,6 +2614,54 @@
                 "templating"
             ],
             "time": "2015-09-13 17:12:38"
+        },
+        {
+            "name": "webfactory/exceptions-bundle",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webfactory/exceptions-bundle.git",
+                "reference": "176e86fee71d4b7a5c382654a1f4161cf9d53917"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webfactory/exceptions-bundle/zipball/176e86fee71d4b7a5c382654a1f4161cf9d53917",
+                "reference": "176e86fee71d4b7a5c382654a1f4161cf9d53917",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/twig-bundle": "~2.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "symfony/framework-bundle": "~2.2"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-default": "3.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webfactory\\Bundle\\ExceptionsBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "webfactory GmbH",
+                    "email": "info@webfactory.de",
+                    "homepage": "http://www.webfactory.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple controller to display error pages during development plus some building blocks for more user-friendly error pages.",
+            "homepage": "http://inside.webfactory.de/de/blog/symfony2-exception-handling-and-custom-error-pages-explained.html",
+            "time": "2015-05-22 12:31:25"
         }
     ],
     "packages-dev": [
@@ -3110,7 +3158,8 @@
     "stability-flags": {
         "friendsofsymfony/user-bundle": 20,
         "mopa/bootstrap-bundle": 20,
-        "knplabs/knp-menu": 20
+        "knplabs/knp-menu": 20,
+        "webfactory/exceptions-bundle": 0
     },
     "prefer-stable": false,
     "prefer-lowest": false,

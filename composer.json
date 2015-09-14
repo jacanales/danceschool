@@ -43,7 +43,8 @@
         "knplabs/knp-menu-bundle": "~2.0.0",
         "knplabs/knp-menu": "2.0.*@dev",
         "craue/formflow-bundle": "~2.0",
-        "misd/phone-number-bundle": "~1.0"
+        "misd/phone-number-bundle": "~1.0",
+        "webfactory/exceptions-bundle": "@stable"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
