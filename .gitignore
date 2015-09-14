@@ -12,5 +12,6 @@
 /web/bundles/
 /web/css/*
 !/web/css/layout
+web/images/*
 /web/js
 web/.htaccess
