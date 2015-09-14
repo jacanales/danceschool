@@ -40,6 +40,10 @@
 {% block navbar %}
     {% embed '@MopaBootstrap/Navbar/navbar.html.twig' with { fixedTop: true, staticTop: true, inverse: true, id: 'navbar-body' } %}
         {% block brand %}
+            {% image '@AppBundle/Resources/public/images/logotipovectorizado2.png' output='/images/logo.png' %}
+            <img class="navbar-brand" style="padding: 5px" src="{{ asset_url }}" />
+            {% endimage %}
+
             <a class="navbar-brand" href="#">Mayimbe</a>
         {% endblock %}
 
