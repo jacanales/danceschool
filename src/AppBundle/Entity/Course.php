@@ -70,10 +70,14 @@ class Course
 
     /**
      * @param string $description
+     *
+     * @return $this
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
+        return $this;
     }
 
     /**
@@ -86,10 +90,14 @@ class Course
 
     /**
      * @param float $price
+     *
+     * @return $this
      */
     public function setPrice($price)
     {
         $this->price = $price;
+
+        return $this;
     }
 
     /**

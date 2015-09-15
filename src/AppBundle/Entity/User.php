@@ -16,6 +16,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
+    const ROLE_ADMIN = 'ROLE_ADMIN';
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -140,7 +142,7 @@ class User extends BaseUser
      *
      * @param string $name
      *
-     * @return UserData
+     * @return User
      */
     public function setName($name)
     {
@@ -164,7 +166,7 @@ class User extends BaseUser
      *
      * @param string $surname
      *
-     * @return UserData
+     * @return User
      */
     public function setSurname($surname)
     {
@@ -186,9 +188,9 @@ class User extends BaseUser
     /**
      * Set gender
      *
-     * @param boolean $gender
+     * @param string $gender
      *
-     * @return UserData
+     * @return User
      */
     public function setGender($gender)
     {

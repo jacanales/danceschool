@@ -40,6 +40,7 @@ class AppKernel extends Kernel
             $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
             $bundles[] = new Egulias\ListenersDebugCommandBundle\EguliasListenersDebugCommandBundle();
             $bundles[] = new Webfactory\Bundle\ExceptionsBundle\WebfactoryExceptionsBundle();
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
         }
 
         return $bundles;
