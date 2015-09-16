@@ -21,6 +21,12 @@ class LoadUserData implements FixtureInterface
 
     private function addUser($userName, $email, $role = User::ROLE_DEFAULT)
     {
+        $user = $this->manager->getRepository('AppBundle:User')->findOneByEmail($email);
+
+        if ($user) {
+            return;
+        }
+
         $user = new User();
         $user->setUsername($userName)
             ->setPassword($this->generatePassword())

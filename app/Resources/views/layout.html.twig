@@ -41,15 +41,15 @@
     {% embed '@MopaBootstrap/Navbar/navbar.html.twig' with { fixedTop: true, staticTop: true, inverse: true, id: 'navbar-body' } %}
         {% block brand %}
             {% image '@AppBundle/Resources/public/images/logotipovectorizado2.png' output='/images/logo.png' %}
-            <img class="navbar-brand" style="padding: 5px" src="{{ asset_url }}" />
+            <img class="navbar-brand" style="padding: 7px 10px;" src="{{ asset_url }}" />
             {% endimage %}
 
             <a class="navbar-brand" href="#">Mayimbe</a>
         {% endblock %}
 
         {% block menu %}
-            {{ mopa_bootstrap_menu('AppBundle:Builder:mainMenu') }}
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ mopa_bootstrap_menu('AppBundle:Builder:mainMenu') }}
                 <div class="pull-right">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">

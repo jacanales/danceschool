@@ -58,6 +58,13 @@ class LoadTeacherData implements FixtureInterface, ContainerAwareInterface
     private function addTeacher($userName, $email, $name, $surname, $gender, $role = User::ROLE_DEFAULT)
     {
         $user = new User();
+
+        $teacher = $this->manager->getRepository('AppBundle:User')->findOneByEmail($email);
+
+        if ($teacher) {
+            return;
+        }
+
         $encoder = $this->container
             ->get('security.encoder_factory')
             ->getEncoder($user)
