@@ -48,6 +48,7 @@ assetic:
     debug:          "%kernel.debug%"
     use_controller: false
     bundles:
+        - AppBundle
         - MopaBootstrapBundle
         - FOSUserBundle
     #java: /usr/bin/java
