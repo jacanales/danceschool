@@ -1,0 +1,30 @@
+AppBundle\Entity\Teacher:
+    type: entity
+    table: teachers
+    fields:
+        id:
+            id: true
+            type: integer
+            length: 10
+            options:
+                unsigned: true
+            generator:
+                strategy: IDENTITY
+        wage:
+            type: float
+            nullable: true
+        comment:
+            type: text
+            nullable: true
+    oneToOne:
+        user:
+            targetEntity: AppBundle\Entity\User
+            cascade: ["persist"]
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                onDelete: ["cascade"]
+    oneToMany:
+        groups:
+            targetEntity: group
+            mappedBy: teacher

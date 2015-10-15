@@ -1,0 +1,25 @@
+AppBundle\Entity\GroupStudent:
+    type: entity
+    table: group_students
+    fields:
+        is_reinforcing:
+            type: boolean
+            nullable: true
+            options: {
+                default: false
+            }
+    manyToMany:
+        group:
+            targetEntity: AppBundle\Entity\Group
+            inversedBy: groupStudent
+            joinColumn:
+                name: group_id
+                referencedColumnName: id
+            nullable: false
+        student:
+            targetEntity: AppBundle\Entity\Student
+            inversedBy: groupStudent
+            joinColumn:
+                name: student_id
+                referencedColumnName: id
+            nullable: false

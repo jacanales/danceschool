@@ -1,0 +1,49 @@
+AppBundle\Entity\Room:
+    type: entity
+    table: rooms
+    fields:
+        id:
+            id: true
+            type: integer
+            length: 10
+            unsigned: true
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 50
+            nullable: false
+        description:
+            type: text
+            nullable: true
+        price:
+            type: float
+            nullable: false
+        address:
+            type: text
+            nullable: true
+            options: {
+                default: null
+            }
+        city:
+            type: string
+            length: 15
+            nullable: true
+            options: {
+                default: null
+            }
+        postal_code:
+            type: string
+            length: 15
+            nullable: true
+            options: {
+                default: null
+            }
+        phone:
+            type: phone_number
+            nullable: true
+
+    oneToMany:
+        group:
+            targetEntity: AppBundle\Entity\Group
+            mappedBy: room

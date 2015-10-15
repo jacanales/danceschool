@@ -1,0 +1,32 @@
+AppBundle\Entity\StudentAnnotation:
+    type: entity
+    table: student_annotations
+    lifecycleCallbacks:
+        prePersist: [setCreatedAt, setUpdatedAt]
+        preUpdate: [setUpdatedAt]
+    fields:
+        id:
+            id: true
+            type: integer
+            length: 10
+            options:
+                unsigned: true
+            generator:
+                strategy: IDENTITY
+        message:
+            type: text
+            nullable: false
+        created:
+            type: datetime
+            nullable: false
+        modified:
+            type: datetime
+            nullable: false
+    manyToOne:
+        student:
+            targetEntity: AppBundle\Entity\Student
+            inversedBy: annotations
+            joinColumn:
+                name: student_id
+                referencedColumnName: id
+                nullable: false

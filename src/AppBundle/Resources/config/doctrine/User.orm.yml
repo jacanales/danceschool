@@ -1,0 +1,68 @@
+AppBundle\Entity\User:
+    type: entity
+    table: users
+    lifecycleCallbacks:
+        prePersist: [setCreatedAt, setUpdatedAt]
+        preUpdate: [setUpdatedAt]
+    uniqueConstraints:
+        uniqueConstraint:
+            columns: [username_canonical, email_canonical]
+    fields:
+        id:
+            id: true
+            type: integer
+            length: 10
+            options:
+                unsigned: true
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+        surname:
+            type: string
+            nullable: true
+            options: {
+                default: null
+            }
+        gender:
+            type: string
+            nullable: true
+            length: 1
+            options: {
+                comment: "m: male, f: female"
+            }
+        birthday:
+            type: datetime
+            nullable: true
+            options: {
+                default: null
+            }
+        address:
+            type: text
+            nullable: true
+        city:
+            type: string
+            length: 45
+            nullable: true
+        country:
+            type: string
+            length: 2
+            nullable: true
+            options: {
+                default: "ES"
+                comment: "Use ISO Code"
+            }
+        postal_code:
+            type: string
+            unique: true
+            nullable: true
+        identity_number:
+            type: string
+            unique: true
+            nullable: true
+        created:
+            type: datetime
+            nullable: false
+        modified:
+            type: datetime
+            nullable: false

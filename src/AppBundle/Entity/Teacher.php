@@ -52,6 +52,7 @@ class Teacher
      * @ORM\OneToMany(targetEntity="Group", mappedBy="teacher")
      */
     protected $groups;
+
     /**
      * Constructor
      */
