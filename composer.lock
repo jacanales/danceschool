@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "603a4a65caf800363f55d96618749dd6",
-    "content-hash": "5bfe58821aab0036958ac22206f461ce",
+    "hash": "212e4aee423d82d715759ea699d61d6d",
+    "content-hash": "b037745168f3c2202bd79ee62147e9a9",
     "packages": [
         {
             "name": "craue/formflow-bundle",
@@ -948,16 +948,16 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "7.0.11",
+            "version": "7.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giggsey/libphonenumber-for-php.git",
-                "reference": "252294eadb22635588ce83f2a8442bdfb9cb01b5"
+                "reference": "75277038380dbeba6c915749add6c0d38edd3719"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/252294eadb22635588ce83f2a8442bdfb9cb01b5",
-                "reference": "252294eadb22635588ce83f2a8442bdfb9cb01b5",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/75277038380dbeba6c915749add6c0d38edd3719",
+                "reference": "75277038380dbeba6c915749add6c0d38edd3719",
                 "shasum": ""
             },
             "require": {
@@ -1007,7 +1007,7 @@
                 "phonenumber",
                 "validation"
             ],
-            "time": "2015-09-16 14:33:08"
+            "time": "2015-10-08 14:46:18"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1062,32 +1062,50 @@
         },
         {
             "name": "javiereguiluz/easyadmin-bundle",
-            "version": "v1.5.5",
+            "version": "v1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/javiereguiluz/EasyAdminBundle.git",
-                "reference": "fe386c6b4edc1a689b60abe54b4317fae6316826"
+                "reference": "704ad0cf5d84a29eee3c1935db161b2e449b37db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/fe386c6b4edc1a689b60abe54b4317fae6316826",
-                "reference": "fe386c6b4edc1a689b60abe54b4317fae6316826",
+                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/704ad0cf5d84a29eee3c1935db161b2e449b37db",
+                "reference": "704ad0cf5d84a29eee3c1935db161b2e449b37db",
                 "shasum": ""
             },
             "require": {
+                "doctrine/common": "^2.4.0",
                 "doctrine/doctrine-bundle": "~1.2",
                 "doctrine/orm": "~2.3",
                 "pagerfanta/pagerfanta": "~1.0,>=1.0.1",
                 "php": ">=5.3.0",
                 "sensio/distribution-bundle": "~2.3|~3.0|~4.0",
                 "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
-                "symfony/symfony": "~2.3",
+                "symfony/config": "~2.3",
+                "symfony/dependency-injection": "~2.3",
+                "symfony/doctrine-bridge": "~2.3",
+                "symfony/event-dispatcher": "~2.3",
+                "symfony/form": "~2.3",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/http-foundation": "~2.3",
+                "symfony/http-kernel": "~2.3",
+                "symfony/twig-bridge": "^2.3.4",
                 "twig/extensions": "~1.0",
-                "twig/twig": "~1.12,>=1.12.2"
+                "twig/twig": "~1.14,>=1.14.2|~2.0"
             },
             "require-dev": {
                 "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "phpunit/phpunit": "~4.4"
+                "phpunit/phpunit": "~4.4",
+                "symfony/browser-kit": "~2.3",
+                "symfony/console": "~2.3",
+                "symfony/css-selector": "~2.3",
+                "symfony/dom-crawler": "~2.3",
+                "symfony/finder": "~2.3",
+                "symfony/security-bundle": "~2.3",
+                "symfony/twig-bundle": "~2.3",
+                "symfony/validator": "~2.3",
+                "symfony/yaml": "~2.3"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -1116,7 +1134,7 @@
                 "backend",
                 "generator"
             ],
-            "time": "2015-06-22 06:42:42"
+            "time": "2015-10-07 17:39:01"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1417,16 +1435,16 @@
         },
         {
             "name": "kriswallsmith/assetic",
-            "version": "v1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "56cb5d6dec9e7a68a4da2fa89844f39d41092f31"
+                "reference": "cb92b179dddfb8a3f341d53bd27e088f24d9c2e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/56cb5d6dec9e7a68a4da2fa89844f39d41092f31",
-                "reference": "56cb5d6dec9e7a68a4da2fa89844f39d41092f31",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/cb92b179dddfb8a3f341d53bd27e088f24d9c2e5",
+                "reference": "cb92b179dddfb8a3f341d53bd27e088f24d9c2e5",
                 "shasum": ""
             },
             "require": {
@@ -1462,7 +1480,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -1491,7 +1509,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2015-08-31 19:07:16"
+            "time": "2015-10-15 01:33:42"
         },
         {
             "name": "liip/theme-bundle",
@@ -1626,16 +1644,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.17.1",
+            "version": "1.17.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "0524c87587ab85bc4c2d6f5b41253ccb930a5422"
+                "reference": "bee7f0dc9c3e0b69a6039697533dca1e845c8c24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/0524c87587ab85bc4c2d6f5b41253ccb930a5422",
-                "reference": "0524c87587ab85bc4c2d6f5b41253ccb930a5422",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bee7f0dc9c3e0b69a6039697533dca1e845c8c24",
+                "reference": "bee7f0dc9c3e0b69a6039697533dca1e845c8c24",
                 "shasum": ""
             },
             "require": {
@@ -1649,10 +1667,11 @@
                 "aws/aws-sdk-php": "^2.4.9",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
+                "jakub-onderka/php-parallel-lint": "0.9",
                 "php-console/php-console": "^3.1.3",
                 "phpunit/phpunit": "~4.5",
                 "phpunit/phpunit-mock-objects": "2.3.0",
-                "raven/raven": "~0.11",
+                "raven/raven": "^0.13",
                 "ruflin/elastica": ">=0.90 <3.0",
                 "swiftmailer/swiftmailer": "~5.3",
                 "videlalvaro/php-amqplib": "~2.4"
@@ -1698,7 +1717,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-08-31 09:17:37"
+            "time": "2015-10-14 12:51:02"
         },
         {
             "name": "mopa/bootstrap-bundle",
@@ -1706,8 +1725,8 @@
             "target-dir": "Mopa/Bundle/BootstrapBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jacanales/MopaBootstrapBundle",
-                "reference": "93a21f6ed4306d9d6adeb38033257e71732c2b2d"
+                "url": "https://github.com/phiamo/MopaBootstrapBundle",
+                "reference": "cc093b4f10f5598f9c5d77acd365c0e61283e8e7"
             },
             "require": {
                 "mopa/composer-bridge": "~1.3",
@@ -1771,20 +1790,20 @@
                 "form",
                 "template"
             ],
-            "time": "2015-09-12 22:35:25"
+            "time": "2015-09-15 16:51:21"
         },
         {
             "name": "mopa/composer-bridge",
-            "version": "v1.4.0",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phiamo/MopaComposerBridge.git",
-                "reference": "6f64e2f626bcdf2a6cab5d5c1be1d46a53905c13"
+                "reference": "58661a5c588ce9c3eff7d36c4030f6caa4de1ae2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phiamo/MopaComposerBridge/zipball/6f64e2f626bcdf2a6cab5d5c1be1d46a53905c13",
-                "reference": "6f64e2f626bcdf2a6cab5d5c1be1d46a53905c13",
+                "url": "https://api.github.com/repos/phiamo/MopaComposerBridge/zipball/58661a5c588ce9c3eff7d36c4030f6caa4de1ae2",
+                "reference": "58661a5c588ce9c3eff7d36c4030f6caa4de1ae2",
                 "shasum": ""
             },
             "require": {
@@ -1822,7 +1841,7 @@
                 "Symfony2",
                 "composer"
             ],
-            "time": "2015-02-23 10:26:44"
+            "time": "2015-10-01 19:20:19"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -2213,34 +2232,34 @@
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "v2.7.1",
+            "version": "2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/monolog-bundle.git",
-                "reference": "9320b6863404c70ebe111e9040dab96f251de7ac"
+                "reference": "7117b9a145722e3c5768db4585f6ad0643ed5c4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/9320b6863404c70ebe111e9040dab96f251de7ac",
-                "reference": "9320b6863404c70ebe111e9040dab96f251de7ac",
+                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/7117b9a145722e3c5768db4585f6ad0643ed5c4a",
+                "reference": "7117b9a145722e3c5768db4585f6ad0643ed5c4a",
                 "shasum": ""
             },
             "require": {
                 "monolog/monolog": "~1.8",
                 "php": ">=5.3.2",
-                "symfony/config": "~2.3",
-                "symfony/dependency-injection": "~2.3",
-                "symfony/http-kernel": "~2.3",
-                "symfony/monolog-bridge": "~2.3"
+                "symfony/config": "~2.3|3.*",
+                "symfony/dependency-injection": "~2.3|3.*",
+                "symfony/http-kernel": "~2.3|3.*",
+                "symfony/monolog-bridge": "~2.3|3.*"
             },
             "require-dev": {
-                "symfony/console": "~2.3",
+                "symfony/console": "~2.3|3.*",
                 "symfony/yaml": "~2.3"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7.x-dev"
+                    "dev-master": "2.8.x-dev"
                 }
             },
             "autoload": {
@@ -2268,7 +2287,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2015-01-04 20:21:17"
+            "time": "2015-10-02 11:51:59"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -2451,16 +2470,16 @@
         },
         {
             "name": "twbs/bootstrap-sass",
-            "version": "v3.3.5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap-sass.git",
-                "reference": "d64d48fd23c9624cc5c996e6516b7dc33fde5919"
+                "reference": "e15eef6a47ab94b15f80d44507859e4bc08ae965"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap-sass/zipball/d64d48fd23c9624cc5c996e6516b7dc33fde5919",
-                "reference": "d64d48fd23c9624cc5c996e6516b7dc33fde5919",
+                "url": "https://api.github.com/repos/twbs/bootstrap-sass/zipball/e15eef6a47ab94b15f80d44507859e4bc08ae965",
+                "reference": "e15eef6a47ab94b15f80d44507859e4bc08ae965",
                 "shasum": ""
             },
             "type": "library",
@@ -2500,7 +2519,7 @@
                 "css",
                 "sass"
             ],
-            "time": "2015-06-16 16:29:50"
+            "time": "2015-09-27 12:59:06"
         },
         {
             "name": "twig/extensions",
@@ -2556,16 +2575,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.22.2",
+            "version": "v1.22.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "79249fc8c9ff62e41e217e0c630e2e00bcadda6a"
+                "reference": "ebfc36b7e77b0c1175afe30459cf943010245540"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/79249fc8c9ff62e41e217e0c630e2e00bcadda6a",
-                "reference": "79249fc8c9ff62e41e217e0c630e2e00bcadda6a",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ebfc36b7e77b0c1175afe30459cf943010245540",
+                "reference": "ebfc36b7e77b0c1175afe30459cf943010245540",
                 "shasum": ""
             },
             "require": {
@@ -2613,55 +2632,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-09-22 13:59:32"
-        },
-        {
-            "name": "webfactory/exceptions-bundle",
-            "version": "4.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webfactory/exceptions-bundle.git",
-                "reference": "176e86fee71d4b7a5c382654a1f4161cf9d53917"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webfactory/exceptions-bundle/zipball/176e86fee71d4b7a5c382654a1f4161cf9d53917",
-                "reference": "176e86fee71d4b7a5c382654a1f4161cf9d53917",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/twig-bundle": "~2.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0",
-                "symfony/framework-bundle": "~2.2"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-default": "3.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Webfactory\\Bundle\\ExceptionsBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "webfactory GmbH",
-                    "email": "info@webfactory.de",
-                    "homepage": "http://www.webfactory.de",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A simple controller to display error pages during development plus some building blocks for more user-friendly error pages.",
-            "homepage": "http://inside.webfactory.de/de/blog/symfony2-exception-handling-and-custom-error-pages-explained.html",
-            "time": "2015-05-22 12:31:25"
+            "time": "2015-10-13 07:07:02"
         }
     ],
     "packages-dev": [
@@ -3151,6 +3122,54 @@
             ],
             "description": "This bundle generates code for you",
             "time": "2015-03-17 06:36:52"
+        },
+        {
+            "name": "webfactory/exceptions-bundle",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webfactory/exceptions-bundle.git",
+                "reference": "176e86fee71d4b7a5c382654a1f4161cf9d53917"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webfactory/exceptions-bundle/zipball/176e86fee71d4b7a5c382654a1f4161cf9d53917",
+                "reference": "176e86fee71d4b7a5c382654a1f4161cf9d53917",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/twig-bundle": "~2.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "symfony/framework-bundle": "~2.2"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-default": "3.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webfactory\\Bundle\\ExceptionsBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "webfactory GmbH",
+                    "email": "info@webfactory.de",
+                    "homepage": "http://www.webfactory.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple controller to display error pages during development plus some building blocks for more user-friendly error pages.",
+            "homepage": "http://inside.webfactory.de/de/blog/symfony2-exception-handling-and-custom-error-pages-explained.html",
+            "time": "2015-05-22 12:31:25"
         }
     ],
     "aliases": [],
@@ -3158,6 +3177,7 @@
     "stability-flags": {
         "friendsofsymfony/user-bundle": 20,
         "mopa/bootstrap-bundle": 20,
+        "twbs/bootstrap-sass": 20,
         "knplabs/knp-menu": 20,
         "webfactory/exceptions-bundle": 0
     },
