@@ -1,2 +1,0 @@
-webfactory_exceptions:
-    resource: "@WebfactoryExceptionsBundle/Resources/config/routing.yml"
