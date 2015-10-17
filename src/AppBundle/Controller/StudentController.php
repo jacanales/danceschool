@@ -31,7 +31,7 @@ class StudentController extends Controller
                          ->findAll();
 
         return $this->render(
-            'AppBundle:student:index.html.twig',
+            'AppBundle:Student:index.html.twig',
             array('students' => $students)
         );
     }
