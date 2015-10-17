@@ -27,7 +27,7 @@ class TeacherController extends Controller
                       ->findAll();
 
         return $this->render(
-            'AppBundle:teacher:index.html.twig',
+            'AppBundle:Teacher:index.html.twig',
             array('teachers' => $teachers)
         );
     }
