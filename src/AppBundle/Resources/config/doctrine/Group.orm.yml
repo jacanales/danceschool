@@ -29,9 +29,6 @@ AppBundle\Entity\Group:
         whatsapp_group:
             type: string
             nullable: true
-            options: {
-                default: null
-            }
     oneToMany:
         groupStudent:
             targetEntity: AppBundle\Entity\GroupStudent
