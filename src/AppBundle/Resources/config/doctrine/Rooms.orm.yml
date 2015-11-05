@@ -1,0 +1,47 @@
+Rooms:
+    type: entity
+    table: rooms
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+        price:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        address:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+        city:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+        postalCode:
+            type: string
+            nullable: true
+            length: 15
+            fixed: false
+            column: postal_code
+        phone:
+            type: phonenumber
+            nullable: true
+        name:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+    lifecycleCallbacks: {  }

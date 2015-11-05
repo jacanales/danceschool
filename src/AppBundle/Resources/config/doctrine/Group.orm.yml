@@ -1,0 +1,58 @@
+AppBundle\Entity\Group:
+    type: entity
+    table: `groups`
+    fields:
+        id:
+            id: true
+            type: integer
+            length: 10
+            options:
+                unsigned: true
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 50
+            nullable: false
+        weekday:
+            type: smallint
+            nullable: true
+        hour:
+            type: time
+            nullable: false
+        start_date:
+            time: date
+            nullable: false
+        end_date:
+            time: date
+            nullable: false
+        whatsapp_group:
+            type: string
+            nullable: true
+    oneToMany:
+        groupStudent:
+            targetEntity: AppBundle\Entity\GroupStudent
+            mappedBy: group
+
+    manyToOne:
+        course:
+            targetEntity: AppBundle\Entity\Course
+            inversedBy: group
+            joinColumn:
+                name: course_id
+                referencedColumnName: id
+            nullable: false
+        room:
+            targetEntity: AppBundle\Entity\Room
+            inversedBy: group
+            joinColumn:
+                name: room_id
+                referencedColumnName: id
+            nullable: false
+        teacher:
+            targetEntity: AppBundle\Entity\Teacher
+            inversedBy: group
+            joinColumn:
+                name: teacher_id
+                referencedColumnName: id
+            nullable: false
