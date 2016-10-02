@@ -21,22 +21,19 @@ AppBundle\Entity\User:
         surname:
             type: string
             nullable: true
-            options: {
+            options:
                 default: null
-            }
         gender:
             type: string
             nullable: true
             length: 1
-            options: {
+            options:
                 comment: "m: male, f: female"
-            }
         birthday:
             type: datetime
             nullable: true
-            options: {
+            options:
                 default: null
-            }
         address:
             type: text
             nullable: true
@@ -48,10 +45,9 @@ AppBundle\Entity\User:
             type: string
             length: 2
             nullable: true
-            options: {
+            options:
                 default: "ES"
                 comment: "Use ISO Code"
-            }
         postal_code:
             type: string
             unique: true

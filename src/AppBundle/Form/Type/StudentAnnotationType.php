@@ -59,6 +59,14 @@ class StudentAnnotationType extends AbstractType
      */
     public function getName()
     {
+        return $this->getBlockPrefix();
+    }
+
+    /**
+     * @return string
+     */
+    public function getBlockPrefix()
+    {
         return 'appbundle_studentannotation';
     }
 }

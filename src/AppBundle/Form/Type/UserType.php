@@ -103,7 +103,15 @@ class UserType extends AbstractType
         ));
     }
 
+    /**
+     * @return string
+     */
     public function getName()
+    {
+        return $this->getBlockPrefix();
+    }
+
+    public function getBlockPrefix()
     {
         return 'fos_user_registration';
     }

@@ -17,10 +17,11 @@
     ],
     "require": {
         "php": ">=5.5.26",
-        "symfony/symfony": "2.7.*",
+        "symfony/symfony": "2.8.*",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
+        "symfony/polyfill-iconv": "~1.0",
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
 
@@ -50,7 +51,8 @@
 
         "raulfraile/ladybug-bundle": "~1.0",
         "egulias/listeners-debug-command-bundle": "~3.0.0",
-        "webfactory/exceptions-bundle": "@stable"
+        "webfactory/exceptions-bundle": "@stable",
+        "symfony/phpunit-bridge": "^3.1"
     },
     "scripts": {
         "compile": [

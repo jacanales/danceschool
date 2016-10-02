@@ -5,11 +5,11 @@ AppBundle\Entity\GroupStudent:
         is_reinforcing:
             type: boolean
             nullable: true
-            options: {
+            options:
                 default: false
-            }
-    manyToMany:
+    manyToOne:
         group:
+            id: true
             targetEntity: AppBundle\Entity\Group
             inversedBy: groupStudent
             joinColumn:
@@ -17,6 +17,7 @@ AppBundle\Entity\GroupStudent:
                 referencedColumnName: id
             nullable: false
         student:
+            id: true
             targetEntity: AppBundle\Entity\Student
             inversedBy: groupStudent
             joinColumn:

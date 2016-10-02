@@ -41,11 +41,19 @@ class GroupStudentType extends AbstractType
     }
 
     /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getBlockPrefix();
+    }
+
+    /**
      * Returns the name of this type.
      *
      * @return string The name of this type
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'appbundle_groupstudent';
     }

@@ -26,7 +26,15 @@ class GenderType extends AbstractType
         return 'choice';
     }
 
+    /**
+     * @return string
+     */
     public function getName()
+    {
+        return $this->getBlockPrefix();
+    }
+
+    public function getBlockPrefix()
     {
         return 'gender';
     }
