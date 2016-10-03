@@ -16,22 +16,19 @@ AppBundle\Entity\Student:
         member:
             type: boolean
             nullable: true
-            options: {
+            options:
                 default: false
-            }
         account_number:
             type: string
             nullable: true
-            options: {
+            options:
                 default: false
-            }
         contract_expiration:
             type: date
             columnDefinition: DATE
             nullable: true
-            options: {
+            options:
                 default: null
-            }
         comment:
             type: text
             nullable: true
