@@ -86,14 +86,14 @@ class User extends BaseUser
      *
      * @ORM\Column(type="string", length=15, nullable=true, options={"default":null})
      */
-    protected $postal_code;
+    protected $postalCode;
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", unique=true, nullable=true, options={"default":null})
      */
-    protected $identity_number;
+    protected $identityNumber;
 
     /**
      * @var \DateTime
@@ -338,7 +338,7 @@ class User extends BaseUser
      */
     public function setPostalCode($postalCode)
     {
-        $this->postal_code = $postalCode;
+        $this->postalCode = $postalCode;
 
         return $this;
     }
@@ -350,7 +350,7 @@ class User extends BaseUser
      */
     public function getPostalCode()
     {
-        return $this->postal_code;
+        return $this->postalCode;
     }
 
     /**
@@ -362,7 +362,7 @@ class User extends BaseUser
      */
     public function setIdentityNumber($identityNumber)
     {
-        $this->identity_number = $identityNumber;
+        $this->identityNumber = $identityNumber;
 
         return $this;
     }
@@ -374,7 +374,7 @@ class User extends BaseUser
      */
     public function getIdentityNumber()
     {
-        return $this->identity_number;
+        return $this->identityNumber;
     }
 
     /**

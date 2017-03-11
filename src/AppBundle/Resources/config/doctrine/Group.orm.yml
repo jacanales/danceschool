@@ -1,58 +1,102 @@
 AppBundle\Entity\Group:
     type: entity
     table: `groups`
-    fields:
+    indexes:
+        idx_group_course:
+            columns:
+                - course_id
+        idx_group_room:
+            columns:
+                - room_id
+        idx_group_teacher:
+            columns:
+                - teacher_id
+    id:
         id:
-            id: true
             type: integer
-            length: 10
-            options:
-                unsigned: true
+            nullable: false
+            unsigned: true
+            id: true
             generator:
                 strategy: IDENTITY
+    fields:
         name:
             type: string
             length: 50
             nullable: false
+            fixed: false
         weekday:
             type: smallint
             nullable: true
+            unsigned: false
         hour:
             type: time
             nullable: false
-        start_date:
+        startDate:
             time: date
             nullable: false
-        end_date:
+            column: start_date
+        endDate:
             time: date
             nullable: false
-        whatsapp_group:
+            column: end_date
+        whatsappGroup:
             type: string
             nullable: true
+            length: 255
+            fixed: false
+            column: whatsapp_group
+    manyToOne:
+        course:
+            targetEntity: AppBundle\Entity\Course
+            cascade: {  }
+            mappedBy: null
+            inversedBy: group
+            joinColumn:
+                course_id:
+                    referencedColumnName: id
+            nullable: false
+            orphanRemoval: false
+        room:
+            targetEntity: AppBundle\Entity\Room
+            cascade: {  }
+            mappedBy: null
+            inversedBy: group
+            joinColumn:
+                room_id:
+                    referencedColumnName: id
+            nullable: false
+            orphanRemoval: false
+        teacher:
+            targetEntity: AppBundle\Entity\Teacher
+            cascade: {  }
+            mappedBy: null
+            inversedBy: group
+            joinColumn:
+                teacher_id:
+                    referencedColumnName: id
+            nullable: false
+            orphanRemoval: false
+#    manyToMany:
+#        student:
+#            targetEntity: AppBundle\Entity\Student
+#            cascade: {  }
+#            mappedBy: null
+#            inversedBy: group
+#            joinTable:
+#                name: group_students
+#                joinColumns:
+#                    -
+#                        name: group_id
+#                        referencedColumnName: id
+#                inverseJoinColumns:
+#                    -
+#                        name: student_id
+#                        referencedColumnName: id
+#            orderBy: null
+    lifecycleCallbacks: {  }
+
     oneToMany:
         groupStudent:
             targetEntity: AppBundle\Entity\GroupStudent
             mappedBy: group
-
-    manyToOne:
-        course:
-            targetEntity: AppBundle\Entity\Course
-            inversedBy: group
-            joinColumn:
-                name: course_id
-                referencedColumnName: id
-            nullable: false
-        room:
-            targetEntity: AppBundle\Entity\Room
-            inversedBy: group
-            joinColumn:
-                name: room_id
-                referencedColumnName: id
-            nullable: false
-        teacher:
-            targetEntity: AppBundle\Entity\Teacher
-            inversedBy: group
-            joinColumn:
-                name: teacher_id
-                referencedColumnName: id
-            nullable: false

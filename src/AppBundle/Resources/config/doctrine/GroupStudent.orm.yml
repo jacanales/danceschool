@@ -1,6 +1,14 @@
 AppBundle\Entity\GroupStudent:
     type: entity
     table: group_students
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
     fields:
         is_reinforcing:
             type: boolean
@@ -9,6 +17,7 @@ AppBundle\Entity\GroupStudent:
                 default: false
     manyToOne:
         group:
+            id: true
             targetEntity: AppBundle\Entity\Group
             inversedBy: groupStudent
             joinColumn:
@@ -16,6 +25,7 @@ AppBundle\Entity\GroupStudent:
                 referencedColumnName: id
             nullable: false
         student:
+            id: true
             targetEntity: AppBundle\Entity\Student
             inversedBy: groupStudent
             joinColumn:

@@ -1,37 +1,44 @@
 AppBundle\Entity\Student:
     type: entity
     table: students
-    fields:
+    id:
         id:
             id: true
             type: integer
-            length: 10
-            options:
-                unsigned: true
+            nullable: false
+            unsigned: true
             generator:
                 strategy: IDENTITY
-        captation_method:
+    fields:
+        captationMethod:
             type: smallint
             nullable: true
+            unsigned: false
+            column: captation_method
+            default: 0
         member:
             type: boolean
-            nullable: true
-            options:
-                default: false
-        account_number:
-            type: string
-            nullable: true
-            options:
-                default: false
-        contract_expiration:
+            nullable: false
+            default: 0
+        contractExpiration:
             type: date
-            columnDefinition: DATE
             nullable: true
-            options:
-                default: null
+            column: contract_expiration
+            columnDefinition: DATE
+            default: null
         comment:
             type: text
             nullable: true
+            length: null
+            fixed: false
+        accountNumber:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            default: false
+            column: account_number
+
     oneToOne:
         user:
             targetEntity: AppBundle\Entity\User

@@ -7,15 +7,21 @@ AppBundle\Entity\Course:
             type: integer
             length: 10
             unsigned: true
+            nullable: false
             generator:
                 strategy: IDENTITY
         description:
             type: text
             nullable: true
+            length: null
+            fixed: false
         price:
             type: float
             nullable: false
+            precision: 10
+            scale: 0
     oneToMany:
         group:
             targetEntity: AppBundle\Entity\Group
             mappedBy: course
+    lifecycleCallbacks: {  }

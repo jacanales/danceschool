@@ -64,7 +64,7 @@ class Room
      *
      * @ORM\Column(type="string", length=15, nullable=true, options={"default":null})
      */
-    protected $postal_code;
+    protected $postalCode;
 
     /**
      * @var string
@@ -218,17 +218,17 @@ class Room
      */
     public function getPostalCode()
     {
-        return $this->postal_code;
+        return $this->postalCode;
     }
 
     /**
-     * @param string $postal_code
+     * @param string $postalCode
      *
      * @return Room
      */
-    public function setPostalCode($postal_code)
+    public function setPostalCode($postalCode)
     {
-        $this->postal_code = $postal_code;
+        $this->postalCode = $postalCode;
 
         return $this;
     }

@@ -34,7 +34,7 @@ class Student
     /**
      * @ORM\Column(type="smallint", nullable=true)
      */
-    protected $captation_method;
+    protected $captationMethod;
 
     /**
      * @var boolean
@@ -48,14 +48,14 @@ class Student
      *
      * @ORM\Column(type="string", nullable=true, options={"default":false})
      */
-    protected $account_number;
+    protected $accountNumber;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(type="date", columnDefinition="DATE", nullable=true, options={"default":null})
      */
-    protected $contract_expiration;
+    protected $contractExpiration;
 
     /**
      * @var string
@@ -110,7 +110,7 @@ class Student
      */
     public function setCaptationMethod($captationMethod)
     {
-        $this->captation_method = $captationMethod;
+        $this->captationMethod = $captationMethod;
 
         return $this;
     }
@@ -122,7 +122,7 @@ class Student
      */
     public function getCaptationMethod()
     {
-        return $this->captation_method;
+        return $this->captationMethod;
     }
 
     /**
@@ -158,7 +158,7 @@ class Student
      */
     public function setContractExpiration($contractExpiration)
     {
-        $this->contract_expiration = $contractExpiration;
+        $this->contractExpiration = $contractExpiration;
 
         return $this;
     }
@@ -170,7 +170,7 @@ class Student
      */
     public function getContractExpiration()
     {
-        return $this->contract_expiration;
+        return $this->contractExpiration;
     }
 
     /**

@@ -29,12 +29,12 @@ class GroupType extends AbstractType
                 'translation_domain' => 'AppBundle'
             ))
             ->add('start_date', null, array(
-                'widget' => 'single_text',
+//                'widget' => 'single_text',
                 'label' => 'form.label.start_date',
                 'translation_domain' => 'AppBundle'
             ))
             ->add('end_date', null, array(
-                'widget' => 'single_text',
+//                'widget' => 'single_text',
                 'label' => 'form.label.end_date',
                 'translation_domain' => 'AppBundle'
             ))

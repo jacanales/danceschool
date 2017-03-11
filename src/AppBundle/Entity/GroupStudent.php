@@ -15,6 +15,13 @@ use Doctrine\ORM\Mapping as ORM;
 class GroupStudent
 {
     /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
      * @var integer
      *
      * @ORM\Id

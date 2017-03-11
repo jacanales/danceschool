@@ -1,14 +1,15 @@
 AppBundle\Entity\Room:
     type: entity
     table: rooms
-    fields:
+    id:
         id:
             id: true
             type: integer
-            length: 10
+            nullable: false
             unsigned: true
             generator:
                 strategy: IDENTITY
+    fields:
         name:
             type: string
             length: 50
@@ -16,9 +17,13 @@ AppBundle\Entity\Room:
         description:
             type: text
             nullable: true
+            length: null
+            fixed: false
         price:
             type: float
             nullable: false
+            precision: 10
+            scale: 0
         address:
             type: text
             nullable: true
@@ -30,13 +35,16 @@ AppBundle\Entity\Room:
             nullable: true
             options:
                 default: null
-        postal_code:
+        postalCode:
             type: string
-            length: 15
             nullable: true
+            length: 15
+            fixed: false
+            column: postal_code
             options:
                 default: null
         phone:
+            #type: phone_number
             type: phone_number
             nullable: true
 
@@ -44,3 +52,4 @@ AppBundle\Entity\Room:
         group:
             targetEntity: AppBundle\Entity\Group
             mappedBy: room
+    lifecycleCallbacks: {  }

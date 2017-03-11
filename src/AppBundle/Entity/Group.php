@@ -24,7 +24,7 @@ class Group
     protected $id;
 
     /**
-     * @var integer
+     * @var Course
      *
      * @ORM\ManyToOne(targetEntity="Course", inversedBy="group")
      * @ORM\JoinColumn(name="course_id", referencedColumnName="id", nullable=false)
@@ -32,7 +32,7 @@ class Group
     protected $course;
 
     /**
-     * @var integer
+     * @var Room
      *
      * @ORM\ManyToOne(targetEntity="Room", inversedBy="group")
      * @ORM\JoinColumn(name="room_id", referencedColumnName="id", nullable=false)
@@ -40,7 +40,7 @@ class Group
     protected $room;
 
     /**
-     * @var integer
+     * @var Teacher
      *
      * @ORM\ManyToOne(targetEntity="Teacher", inversedBy="groups")
      * @ORM\JoinColumn(name="teacher_id", referencedColumnName="id", nullable=false)
@@ -73,21 +73,21 @@ class Group
      *
      * @ORM\Column(type="date", nullable=false)
      */
-    protected $start_date;
+    protected $startDate;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(type="date", nullable=false)
      */
-    protected $end_date;
+    protected $endDate;
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", nullable=true, options={"default"=null})
      */
-    protected $whatsapp_group;
+    protected $whatsappGroup;
 
     /**
      * @var integer
@@ -95,6 +95,13 @@ class Group
      * @ORM\OneToMany(targetEntity="GroupStudent", mappedBy="group")
      */
     protected $groupStudent;
+
+    /**
+     * @var integer
+     *
+     * @ORM\OneToMany(targetEntity="GroupStudent", mappedBy="group")
+     */
+    protected $student;
 
     /**
      * Constructor
@@ -200,7 +207,7 @@ class Group
      */
     public function setStartDate($startDate)
     {
-        $this->start_date = $startDate;
+        $this->startDate = $startDate;
 
         return $this;
     }
@@ -212,7 +219,7 @@ class Group
      */
     public function getStartDate()
     {
-        return $this->start_date;
+        return $this->startDate;
     }
 
     /**
@@ -224,7 +231,7 @@ class Group
      */
     public function setEndDate($endDate)
     {
-        $this->end_date = $endDate;
+        $this->endDate = $endDate;
 
         return $this;
     }
@@ -236,7 +243,7 @@ class Group
      */
     public function getEndDate()
     {
-        return $this->end_date;
+        return $this->endDate;
     }
 
     /**
@@ -248,7 +255,7 @@ class Group
      */
     public function setWhatsappGroup($whatsappGroup)
     {
-        $this->whatsapp_group = $whatsappGroup;
+        $this->whatsappGroup = $whatsappGroup;
 
         return $this;
     }
@@ -260,7 +267,7 @@ class Group
      */
     public function getWhatsappGroup()
     {
-        return $this->whatsapp_group;
+        return $this->whatsappGroup;
     }
 
     /**
