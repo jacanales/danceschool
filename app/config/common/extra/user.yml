@@ -4,5 +4,5 @@ fos_user:
     user_class: AppBundle\Entity\User
     use_username_form_type: false
     from_email:
-        address: %mail.from_address%
-        sender_name: %mail.from_name%
+        address: '%mail.from_address%'
+        sender_name: '%mail.from_name%'

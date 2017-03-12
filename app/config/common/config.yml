@@ -8,7 +8,7 @@ imports:
 
 framework:
     #esi:             ~
-    assets:           ~
+    assets:             ~
     translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
@@ -46,7 +46,7 @@ twig:
 
 # Assetic Configuration
 assetic:
-    debug:          "%kernel.debug%"
+    debug:          '%kernel.debug%'
     use_controller: false
     bundles:
         - AppBundle
@@ -56,18 +56,18 @@ assetic:
     filters:
         cssrewrite: ~
         compass:
-            sass: %assetic.filter.compass.bin%
+            sass: '%assetic.filter.compass.bin%'
             apply_to: "*.(scss$|sass)$"
             load_paths:
-                - "%kernel.root_dir%/../vendor/twbs/bootstrap-sass/lib"
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap-sass/lib'
         cssembed:
-            jar: %kernel.root_dir%/Resources/java/cssembed-0.4.5.jar
+            jar: '%kernel.root_dir%/Resources/java/cssembed-0.4.5.jar'
             apply_to: "*.(css$|less)$"
         yui_css:
-            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar"
+            jar: '%kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar'
             apply_to: "*.css$"
         yui_js:
-            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar"
+            jar: '%kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar'
             apply_to: "*.js$"
 
 # Doctrine Configuration
