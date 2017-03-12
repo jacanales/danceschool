@@ -1,13 +1,9 @@
-/app/bootstrap.php.cache
 /app/config/parameters_local.yml
-/app/cache/*
-!app/cache/.gitkeep
-/app/logs/*
-!app/logs/.gitkeep
-/app/phpunit.xml
-/bin/
-/composer.phar
 /node_modules/*
+/phpunit.xml
+/var/
+!var/cache/.gitkeep
+!var/logs/.gitkeep
 /vendor/
 /web/bundles/
 /web/css/*
@@ -15,3 +11,5 @@
 web/images/*
 /web/js
 web/.htaccess
+
+

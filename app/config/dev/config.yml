@@ -44,11 +44,12 @@ monolog:
 
 assetic:
     use_controller: false
-
+#
 #swiftmailer:
 #    delivery_address: me@example.com
-
-raul_fraile_ladybug:
-    theme: modern # select the theme: base, modern or custom themes
-    expanded: true # true to expand all the variables tree by default
-    silenced: false # true to ignore all ladybug calls
+#
+#raul_fraile_ladybug:
+#    theme: modern # select the theme: base, modern or custom themes
+#    expanded: true # true to expand all the variables tree by default
+#    silenced: false # true to ignore all ladybug calls
+#
