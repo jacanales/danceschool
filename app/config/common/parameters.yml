@@ -10,6 +10,9 @@ parameters:
     mailer_user: null
     mailer_password: null
 
+    mail.from_address: admin@zonadev.es
+    mail.from_name: ZonaDev
+
     mopa_bootstrap.form.render_optional_text: false
     mopa_bootstrap.form.render_required_asterisk: true
 

@@ -26,7 +26,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
-            new Liip\ThemeBundle\LiipThemeBundle(),
+//            new Liip\ThemeBundle\LiipThemeBundle(),
             new Misd\PhoneNumberBundle\MisdPhoneNumberBundle()
         );
 
@@ -37,10 +37,10 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
 
             # Third-party bundles
-            $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
-            $bundles[] = new Egulias\ListenersDebugCommandBundle\EguliasListenersDebugCommandBundle();
             $bundles[] = new Webfactory\Bundle\ExceptionsBundle\WebfactoryExceptionsBundle();
             $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
+//            $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
+//            $bundles[] = new Egulias\ListenersDebugCommandBundle\EguliasListenersDebugCommandBundle();
         }
 
         return $bundles;
@@ -59,14 +59,17 @@ class AppKernel extends Kernel
 
     public function getRootDir()
     {
-        if (isset($_ENV['SYMFONY_ENV']) && $_ENV['SYMFONY_ENV'] == 'prod') {
-            // Workaround to avoid problem with the slug of heroku
-            $prodPath = '/app/app';
+        return __DIR__;
+    }
 
-            return $this->isFolderCreated($prodPath) ? $prodPath : parent::getRootDir();
-        }
+    public function getCacheDir()
+    {
+        return dirname(__DIR__).'/var/cache/' . $this->environment;
+    }
 
-        return parent::getRootDir();
+    public function getLogDir()
+    {
+        return dirname(__DIR__).'/var/logs';
     }
 
     protected function isFolderCreated($folder)

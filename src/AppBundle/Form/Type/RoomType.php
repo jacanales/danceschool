@@ -2,8 +2,14 @@
 
 namespace AppBundle\Form\Type;
 
+use AppBundle\Entity\Room;
 use libphonenumber\PhoneNumberFormat;
+use Misd\PhoneNumberBundle\Form\Type\PhoneNumberType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,41 +18,41 @@ class RoomType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('id', 'hidden')
-            ->add('name', null, array(
+            ->add('id', HiddenType::class)
+            ->add('name', TextType::class, [
                 'label' => 'form.label.name',
                 'translation_domain' => 'AppBundle'
-            ))
-            ->add('description', null, array(
+            ])
+            ->add('description', TextareaType::class, [
                 'label' => 'form.label.description',
                 'translation_domain' => 'AppBundle'
-            ))
-            ->add('price', 'text', array(
+            ])
+            ->add('price', TextType::class, [
                 'label' => 'form.label.price',
                 'translation_domain' => 'AppBundle'
-            ))
-            ->add('phone', 'tel', array(
+            ])
+            ->add('phone', PhoneNumberType::class, [
                 'default_region' => 'ES',
                 'format' => PhoneNumberFormat::NATIONAL,
                 'label' => 'form.label.phone',
                 'translation_domain' => 'AppBundle'
-            ))
-            ->add('address', null, array(
+            ])
+            ->add('address', TextareaType::class, [
                 'label' => 'form.label.address',
                 'translation_domain' => 'AppBundle'
-            ))
-            ->add('city', null, array(
+            ])
+            ->add('city', TextType::class, [
                 'label' => 'form.label.city',
                 'translation_domain' => 'AppBundle'
-            ))
-            ->add('postal_code', null, array(
+            ])
+            ->add('postal_code', TextType::class, [
                 'label' => 'form.label.postal_code',
                 'translation_domain' => 'AppBundle'
-            ))
-            ->add('add', 'submit', array(
+            ])
+            ->add('add', SubmitType::class, [
                 'label' => 'form.label.save',
                 'translation_domain' => 'AppBundle'
-            ))
+            ])
             ->getForm();
     }
 
@@ -55,10 +61,10 @@ class RoomType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Room',
+        $resolver->setDefaults([
+            'data_class' => Room::class,
             'label' => 'Room'
-        ));
+        ]);
     }
 
     /**

@@ -8,6 +8,7 @@ imports:
 
 framework:
     #esi:             ~
+    assets:             ~
     translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
@@ -21,7 +22,7 @@ framework:
             resources:
                 - 'AppBundle:Form'
         engines: ['twig']
-        assets_version: 1.0
+#        assets_version: 1.0
 #        assets_base_url:
 #            http:
 #                - "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
@@ -45,7 +46,7 @@ twig:
 
 # Assetic Configuration
 assetic:
-    debug:          "%kernel.debug%"
+    debug:          '%kernel.debug%'
     use_controller: false
     bundles:
         - AppBundle
@@ -55,19 +56,19 @@ assetic:
     filters:
         cssrewrite: ~
         compass:
-            sass: %assetic.filter.compass.bin%
-            apply_to: "\.(scss$|sass)$"
+            sass: '%assetic.filter.compass.bin%'
+            apply_to: ".(scss|sass)$"
             load_paths:
-                - "%kernel.root_dir%/../vendor/twbs/bootstrap-sass/lib"
+                - '%kernel.root_dir%/../vendor/twbs/bootstrap-sass/lib'
         cssembed:
-            jar: %kernel.root_dir%/Resources/java/cssembed-0.4.5.jar
-            apply_to: "\.(css$|\.less)$"
+            jar: '%kernel.root_dir%/Resources/java/cssembed-0.4.5.jar'
+            apply_to: ".(css|less)$"
         yui_css:
-            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar"
-            apply_to: "\.css$"
+            jar: '%kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar'
+            apply_to: ".css$"
         yui_js:
-            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar"
-            apply_to: "\.js$"
+            jar: '%kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar'
+            apply_to: ".js$"
 
 # Doctrine Configuration
 doctrine:

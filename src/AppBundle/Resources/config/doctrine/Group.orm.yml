@@ -1,6 +1,6 @@
 AppBundle\Entity\Group:
     type: entity
-    table: `groups`
+    table: groups
     indexes:
         idx_group_course:
             columns:

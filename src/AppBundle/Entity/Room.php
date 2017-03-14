@@ -254,7 +254,7 @@ class Room
     }
 
     /**
-     * @return int
+     * @return ArrayCollection
      */
     public function getGroups()
     {
