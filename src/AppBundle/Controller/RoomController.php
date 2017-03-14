@@ -28,7 +28,40 @@ class RoomController extends Controller
 
         return $this->render(
             'AppBundle:Room:index.html.twig',
-            array('rooms' => $rooms)
+            ['rooms' => $rooms]
+        );
+    }
+
+    /**
+     * @Route("/add", name="mayimbe_room_add")
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function addAction(Request $request)
+    {
+        $translator = $this->get('translator');
+
+        $form = $this->createForm(RoomType::class, new Room(), [
+            'show_legend' => true,
+            'label' => $translator->trans('title.add_room', [], 'AppBundle', 'es')
+        ]);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($form->getData());
+            $em->flush();
+
+            return $this->redirectToRoute('mayimbe_room_index');
+        }
+
+        return $this->render(
+            'AppBundle:Room:add.html.twig',
+            [
+                'form' => $form->createView()
+            ]
         );
     }
 
@@ -52,42 +85,9 @@ class RoomController extends Controller
 
         return $this->render(
             'AppBundle:Room:show.html.twig',
-            array(
+            [
                 'room' => $room,
-            )
-        );
-    }
-
-    /**
-     * @Route("/add", name="mayimbe_room_add")
-     *
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function addAction(Request $request)
-    {
-        $translator = $this->get('translator');
-
-        $form = $this->createForm(new RoomType(), new Room(), array(
-            'show_legend' => true,
-            'label' => $translator->trans('title.add_room', array(), 'AppBundle', 'es')
-        ));
-
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($form->getData());
-            $em->flush();
-
-            return $this->redirectToRoute('mayimbe_room_index');
-        }
-
-        return $this->render(
-            'AppBundle:Room:add.html.twig',
-            array(
-                'form' => $form->createView()
-            )
+            ]
         );
     }
 
@@ -105,10 +105,10 @@ class RoomController extends Controller
         $em = $this->getDoctrine()->getManager();
         $room = $em->getRepository('AppBundle:Room')->find($id);
 
-        $form = $this->createForm(new RoomType(), $room, array(
+        $form = $this->createForm(new RoomType(), $room, [
             'show_legend' => true,
-            'label' => $translator->trans('title.edit_room', array(), 'AppBundle', 'es')
-        ));
+            'label' => $translator->trans('title.edit_room', [], 'AppBundle', 'es')
+        ]);
 
         $form->handleRequest($request);
 
@@ -126,10 +126,10 @@ class RoomController extends Controller
 
         return $this->render(
             'AppBundle:Room:edit.html.twig',
-            array(
+            [
                 'form' => $form->createView(),
                 'room' => $room,
-            )
+            ]
         );
     }
 
