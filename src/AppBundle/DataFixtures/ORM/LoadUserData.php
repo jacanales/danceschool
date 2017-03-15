@@ -33,7 +33,7 @@ class LoadUserData implements FixtureInterface
             ->setPassword($this->generatePassword())
             ->setEmail($email)
             ->setEnabled(true)
-            ->addRole(User::ROLE_SUPER_ADMIN);
+            ->addRole($role);
 
         $this->manager->persist($user);
     }
