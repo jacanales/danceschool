@@ -15,6 +15,7 @@ class LoadUserData implements FixtureInterface
     public function load(ObjectManager $manager)
     {
         $this->manager = $manager;
+        $this->addUser('admin', 'admin@zonadev.es', User::ROLE_SUPER_ADMIN);
         $this->addUser('jcanales', 'tanque.tm@gmail.com', User::ROLE_SUPER_ADMIN);
         $manager->flush();
     }

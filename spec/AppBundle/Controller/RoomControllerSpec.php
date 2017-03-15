@@ -3,9 +3,11 @@
 namespace spec\AppBundle\Controller;
 
 use AppBundle\Controller\RoomController;
+use AppBundle\Entity\Room;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
+use Doctrine\ORM\EntityManager;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
@@ -45,18 +47,18 @@ class RoomControllerSpec extends ObjectBehavior
         $this->shouldHaveType(RoomController::class);
     }
 
-    function it_is_of_type_container_aware() {
+    public function it_is_of_type_container_aware() {
         $this->shouldBeAnInstanceOf(ContainerAwareInterface::class);
     }
 
-    function it_should_respond_to_index_action(
+    public function it_should_respond_to_index_action(
         ObjectRepository $repository,
         EngineInterface $templating,
         Response $mockResponse
     ) {
         $templating
             ->renderResponse(
-                'AppBundle:Room:index.html.twig',
+                Argument::exact('AppBundle:Room:index.html.twig'),
                 ['rooms' => []],
                 null
             )
@@ -64,6 +66,30 @@ class RoomControllerSpec extends ObjectBehavior
         ;
 
         $repository->findAll()->willReturn([]);
+
+        $response = $this->indexAction();
+
+        $response->shouldHaveType(Response::class);
+    }
+
+    public function it_should_list_objects_in_index_action(
+        EntityManager $entityManager,
+        ObjectRepository $repository,
+        EngineInterface $templating,
+        Response $mockResponse,
+        Room $room
+    ) {
+        $entityManager->getRepository(Argument::exact('AppBundle:Room'))->willReturn($repository);
+        $repository->findAll()->willReturn([$room]);
+
+        $templating
+            ->renderResponse(
+                Argument::exact('AppBundle:Room:index.html.twig'),
+                ['rooms' => [$room]],
+                null
+            )
+            ->willReturn($mockResponse)
+        ;
 
         $response = $this->indexAction();
 

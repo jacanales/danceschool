@@ -23,8 +23,8 @@ class RoomController extends Controller
          * @var \Doctrine\ORM\EntityManager
          */
         $rooms = $this->getDoctrine()
-            ->getRepository('AppBundle:Room')
-            ->findAll();
+                      ->getRepository('AppBundle:Room')
+                      ->findAll();
 
         return $this->render(
             'AppBundle:Room:index.html.twig',
