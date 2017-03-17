@@ -4,10 +4,30 @@ namespace AppBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\User;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadUserData implements FixtureInterface
+class LoadUserData implements FixtureInterface, ContainerAwareInterface
 {
+    /**
+     * @var ObjectManager
+     */
     private $manager;
+
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
+
+    /**
+     * Sets the container.
+     *
+     * @param ContainerInterface|null $container A ContainerInterface instance or null
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
 
     /**
      * {@inheritDoc}
@@ -28,14 +48,17 @@ class LoadUserData implements FixtureInterface
             return;
         }
 
-        $user = new User();
+        $userManager = $this->container->get('fos_user.user_manager');
+        $user = $userManager->createUser();
+
         $user->setUsername($userName)
-            ->setPassword($this->generatePassword())
+            ->setPlainPassword($this->generatePassword())
             ->setEmail($email)
             ->setEnabled(true)
             ->addRole($role);
 
-        $this->manager->persist($user);
+        $userManager->updateUser($user, true);
+//        $this->manager->persist($user);
     }
 
     private function generatePassword()

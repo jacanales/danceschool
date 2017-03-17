@@ -24,6 +24,10 @@ AppBundle\Entity\User:
             unsigned: true
             generator:
                 strategy: IDENTITY
+    attributeOverride:
+        salt:
+             type: string
+             nullable: true
     fields:
 #        username:
 #            type: string

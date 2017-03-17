@@ -33,6 +33,8 @@ class LoadTeacherData implements FixtureInterface, ContainerAwareInterface
      */
     public function load(ObjectManager $manager)
     {
+        return;
+
         $this->manager = $manager;
 
         $this->addTeacher(
