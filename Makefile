@@ -11,4 +11,5 @@ cs-fix-dry-run:
 	bin/php-cs-fixer fix --dry-run -vv
 
 phpmetrics:
-	bin/phpmetrics --plugins=./vendor/phpmetrics/symfony-extension/SymfonyExtension.php --report-html=web/phpmetrics src/
+	bin/phpmetrics --plugins=./vendor/phpmetrics/symfony-extension/SymfonyExtension.php --git --report-html=web/phpmetrics src/
+	bin/phpmetrics --report-violations="./build/violations.xml" src/

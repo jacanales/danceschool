@@ -1,3 +1,4 @@
+/build
 /app/config/parameters_local.yml
 /node_modules/*
 /phpunit.xml
@@ -11,5 +12,6 @@
 web/images/*
 /web/js
 web/.htaccess
+web/phpmetrics/
 
 
