@@ -234,7 +234,7 @@ class Group
      */
     public function setEndDate($endDate)
     {
-        $this->endDate = $endDate->getTimestamp();
+        $this->endDate = $endDate;
 
         return $this;
     }

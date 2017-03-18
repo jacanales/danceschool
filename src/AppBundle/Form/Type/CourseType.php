@@ -3,6 +3,9 @@
 namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,15 +18,15 @@ class CourseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('description', null, array(
+            ->add('description', TextareaType::class, array(
                 'label' => 'form.label.description',
                 'translation_domain' => 'AppBundle'
             ))
-            ->add('price', 'text', array(
+            ->add('price', TextType::class, array(
                 'label' => 'form.label.price',
                 'translation_domain' => 'AppBundle'
             ))
-            ->add('save', 'submit', array(
+            ->add('save', SubmitType::class, array(
                 'label' => 'form.label.save',
                 'translation_domain' => 'AppBundle'
             ))

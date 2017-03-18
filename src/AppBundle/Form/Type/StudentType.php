@@ -3,6 +3,8 @@
 namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -11,48 +13,40 @@ class StudentType extends AbstractType
     private $edit;
 
     /**
-     * @param bool $edit
-     */
-    public function __construct($edit = false)
-    {
-        $this->edit = $edit;
-    }
-
-    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('user', new UserType('AppBundle\Entity\User', $this->edit), array())
-            ->add('captation_method', 'choice', array(
+            ->add('user', UserType::class, [])
+            ->add('captation_method', ChoiceType::class, [
                 'required' => false,
                 'placeholder' => 'form.choose_captation',
-                'choices' => array(
+                'choices' => [
                     'form.captation.recommended',
                     'form.captation.offer',
                     'form.captation.other',
-                ),
+                ],
                 'label' => 'form.label.captation_method',
                 'translation_domain' => 'AppBundle'
-            ))
-            ->add('member', null, array(
+            ])
+            ->add('member', null, [
                 'label' => 'form.label.member',
                 'translation_domain' => 'AppBundle'
-            ))
-            ->add('contract_expiration', null, array(
+            ])
+            ->add('contract_expiration', null, [
                 'label' => 'form.label.contract_expiration',
                 'translation_domain' => 'AppBundle'
-            ))
-            ->add('comment', null, array(
+            ])
+            ->add('comment', null, [
                 'label' => 'form.label.comment',
                 'translation_domain' => 'AppBundle'
-            ))
-            ->add('save', 'submit', array(
+            ])
+            ->add('save', SubmitType::class, [
                 'label' => 'form.label.save',
                 'translation_domain' => 'AppBundle'
-            ))
+            ])
             ->getForm();
         ;
     }

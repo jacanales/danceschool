@@ -26,7 +26,7 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
 
         $faker = \Faker\Factory::create();
 
-//        $students = $this->manager->getRepository('AppBundle:Student')->findAll();
+        $students = $this->manager->getRepository('AppBundle:Student')->findAll();
 
         $courses = $this->manager->getRepository('AppBundle:Course')->findAll();
 
@@ -41,8 +41,7 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
             $group->setHour(new \DateTime($faker->time('H:i')));
             $group->setStartDate($faker->dateTimeThisMonth);
 
-            $startDate = $group->getStartDate();
-            $group->setEndDate($startDate->add(new \DateInterval('P3M')));
+//            $group->setEndDate($group->getStartDate()->add(new \DateInterval('P3M')));
             $group->setWhatsappGroup($faker->text(15));
 
             $courseIndex = array_rand($courses);

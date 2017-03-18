@@ -22,13 +22,14 @@ class CourseController extends Controller
         /**
          * @var \Doctrine\ORM\EntityManager
          */
-        $rooms = $this->getDoctrine()
-                      ->getRepository('AppBundle:Course')
-                      ->findAll();
+        $rooms = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:Course')
+            ->findAll();
 
         return $this->render(
             'AppBundle:Course:index.html.twig',
-            array('courses' => $rooms)
+            ['courses' => $rooms]
         );
     }
 
@@ -40,9 +41,10 @@ class CourseController extends Controller
      */
     public function showAction($id)
     {
-        $course = $this->getDoctrine()
-                     ->getRepository('AppBundle:Course')
-                     ->find($id);
+        $course = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:Course')
+            ->find($id);
 
         if (!$course) {
             throw $this->createNotFoundException(
@@ -52,9 +54,9 @@ class CourseController extends Controller
 
         return $this->render(
             'AppBundle:Course:show.html.twig',
-            array(
+            [
                 'course' => $course,
-            )
+            ]
         );
     }
 
@@ -68,9 +70,10 @@ class CourseController extends Controller
     {
         $translator = $this->get('translator');
 
-        $form = $this->createForm(new CourseType(), new Course(), array(
-            'label' => $translator->trans('title.add_course', array(), 'AppBundle', 'es')
-        ));
+        $form = $this->createForm(CourseType::class, new Course(), [
+            'label' => $translator->trans('title.add_course', [], 'AppBundle', 'es')
+        ]);
+
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -83,9 +86,9 @@ class CourseController extends Controller
 
         return $this->render(
             'AppBundle:Course:add.html.twig',
-            array(
+            [
                 'form' => $form->createView()
-            )
+            ]
         );
     }
 
@@ -103,9 +106,9 @@ class CourseController extends Controller
         $em = $this->getDoctrine()->getManager();
         $course = $em->getRepository('AppBundle:Course')->find($id);
 
-        $form = $this->createForm(new CourseType(), $course, array(
-            'label' => $translator->trans('title.edit_course', array(), 'AppBundle', 'es')
-        ));
+        $form = $this->createForm(CourseType::class, $course, [
+            'label' => $translator->trans('title.edit_course', [], 'AppBundle', 'es')
+        ]);
 
         $form->handleRequest($request);
 
@@ -123,10 +126,10 @@ class CourseController extends Controller
 
         return $this->render(
             'AppBundle:Course:edit.html.twig',
-            array(
+            [
                 'form' => $form->createView(),
                 'course' => $course,
-            )
+            ]
         );
     }
 

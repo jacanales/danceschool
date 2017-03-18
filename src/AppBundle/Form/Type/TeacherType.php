@@ -3,6 +3,9 @@
 namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -25,18 +28,18 @@ class TeacherType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('User', new UserType('AppBundle\Entity\User', $this->edit), array(
+            ->add('User', UserType::class, array(
                 'show_legend' => false
             ))
-            ->add('wage', null, array(
+            ->add('wage', IntegerType::class, array(
                 'label' => 'form.label.wage',
                 'translation_domain' => 'AppBundle'
             ))
-            ->add('comment', null, array(
+            ->add('comment', TextareaType::class, array(
                 'label' => 'form.label.comment',
                 'translation_domain' => 'AppBundle'
             ))
-            ->add('save', 'submit', array(
+            ->add('save', SubmitType::class, array(
                 'label' => 'form.label.save',
                 'translation_domain' => 'AppBundle'
             ))

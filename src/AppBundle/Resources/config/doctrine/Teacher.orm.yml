@@ -28,7 +28,25 @@ AppBundle\Entity\Teacher:
                 name: user_id
                 referencedColumnName: id
                 onDelete: "cascade"
+#    manyToMany:
+#        groups:
+#            targetEntity: AppBundle\Entity\Group
+#            cascade: {  }
+#            mappedBy: teacher
+#            inversedBy: group
+#            joinTable:
+#                name: group_teachers
+#                joinColumns:
+#                    -
+#                        name: group_id
+#                        referencedColumnName: id
+#                inverseJoinColumns:
+#                    -
+#                        name: teacher_id
+#                        referencedColumnName: id
+#            orderBy: null
+
     oneToMany:
-        groups:
+        group:
             targetEntity: AppBundle\Entity\Group
             mappedBy: teacher

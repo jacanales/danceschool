@@ -2,7 +2,12 @@
 
 namespace AppBundle\Form\Type;
 
+use AppBundle\Entity\GroupStudent;
+use AppBundle\Entity\Student;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -11,21 +16,21 @@ class GroupStudentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('student', 'entity', array(
-                'class' => 'AppBundle:Student',
+            ->add('student', EntityType::class, [
+                'class' => Student::class,
                 'choice_label' => 'getFullName',
                 'label' => 'form.label.student',
-                'translation_domain' => 'AppBundle'
-            ))
-            ->add('is_reinforcing', null, array(
+                'translation_domain' => 'AppBundle',
+            ])
+            ->add('is_reinforcing', IntegerType::class, [
                 'required' => false,
                 'label' => 'form.label.is_reinforcing',
                 'translation_domain' => 'AppBundle'
-            ))
-            ->add('save', 'submit', array(
+            ])
+            ->add('save', SubmitType::class, [
                 'label' => 'form.label.save',
                 'translation_domain' => 'AppBundle'
-            ))
+            ])
             ->getForm();
     }
 
@@ -34,10 +39,10 @@ class GroupStudentType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\GroupStudent',
+        $resolver->setDefaults([
+            'data_class' => GroupStudent::class,
             'label' => 'GroupStudent'
-        ));
+        ]);
     }
 
     /**

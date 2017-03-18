@@ -77,10 +77,10 @@ class GroupController extends Controller
     {
         $translator = $this->get('translator');
 
-        $form = $this->createForm(new GroupType(), new Group(), array(
+        $form = $this->createForm(GroupType::class, new Group(), [
             'show_legend' => true,
-            'label' => $translator->trans('title.add_group', array(), 'AppBundle', 'es')
-        ));
+            'label' => $translator->trans('title.add_group', [], 'AppBundle', 'es')
+        ]);
 
         $form->handleRequest($request);
 
@@ -94,9 +94,9 @@ class GroupController extends Controller
 
         return $this->render(
             'AppBundle:Group:add.html.twig',
-            array(
+            [
                 'form' => $form->createView()
-            )
+            ]
         );
     }
 
@@ -116,7 +116,7 @@ class GroupController extends Controller
 
         $form = $this->createForm(new GroupType(), $group, array(
             'show_legend' => true,
-            'label' => $translator->trans('title.edit_group', array(), 'AppBundle', 'es')
+            'label' => $translator->trans('title.edit_group', [], 'AppBundle', 'es')
         ));
 
         $form->handleRequest($request);
@@ -135,10 +135,10 @@ class GroupController extends Controller
 
         return $this->render(
             'AppBundle:Group:edit.html.twig',
-            array(
+            [
                 'form' => $form->createView(),
                 'group' => $group,
-            )
+            ]
         );
     }
 
@@ -176,10 +176,10 @@ class GroupController extends Controller
     {
         $translator = $this->get('translator');
 
-        $form = $this->createForm(new GroupStudentType(), new GroupStudent(), array(
+        $form = $this->createForm(GroupStudentType::class, new GroupStudent(), [
             'show_legend' => true,
-            'label' => $translator->trans('title.add_student', array(), 'AppBundle', 'es')
-        ));
+            'label' => $translator->trans('title.add_student', [], 'AppBundle', 'es')
+        ]);
 
         $form->handleRequest($request);
 
@@ -192,15 +192,15 @@ class GroupController extends Controller
             $em->persist($form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_group_show', array('id' => $id));
+            return $this->redirectToRoute('mayimbe_group_show', ['id' => $id]);
         }
 
         return $this->render(
             'AppBundle:Group:add_student.html.twig',
-            array(
+            [
                 'form' => $form->createView(),
                 'id' => $id
-            )
+            ]
         );
     }
 
@@ -224,7 +224,7 @@ class GroupController extends Controller
 
         $form = $this->createForm(new GroupStudentType(), $student, array(
             'show_legend' => true,
-            'label' => $translator->trans('title.edit_group', array(), 'AppBundle', 'es')
+            'label' => $translator->trans('title.edit_group', [], 'AppBundle', 'es')
         ));
 
         $form->handleRequest($request);

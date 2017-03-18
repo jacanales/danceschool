@@ -52,9 +52,9 @@ class TeacherController extends Controller
 
         return $this->render(
             'AppBundle:Teacher:show.html.twig',
-            array(
+            [
                 'teacher' => $teacher,
-            )
+            ]
         );
     }
 
@@ -66,7 +66,7 @@ class TeacherController extends Controller
      */
     public function addAction(Request $request)
     {
-        $form = $this->createForm(new TeacherType(), new Teacher());
+        $form = $this->createForm(TeacherType::class, new Teacher());
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -79,9 +79,9 @@ class TeacherController extends Controller
 
         return $this->render(
             'AppBundle:Teacher:add.html.twig',
-            array(
+            [
                 'form' => $form->createView(),
-            )
+            ]
         );
     }
 

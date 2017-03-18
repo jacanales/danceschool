@@ -79,7 +79,7 @@ class StudentController extends Controller
      */
     public function addAction(Request $request)
     {
-        $form = $this->createForm(new StudentType(), new Student());
+        $form = $this->createForm(StudentType::class, new Student());
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -92,9 +92,9 @@ class StudentController extends Controller
 
         return $this->render(
             'AppBundle:Student:add.html.twig',
-            array(
+            [
                 'form' => $form->createView(),
-            )
+            ]
         );
     }
 
@@ -173,7 +173,7 @@ class StudentController extends Controller
         $translator = $this->get('translator');
 
         $form = $this->createForm(new StudentAnnotationType(), new StudentAnnotation(), array(
-            'label' => $translator->trans('title.add_annotation', array(), 'AppBundle', 'es'),
+            'label' => $translator->trans('title.add_annotation', [], 'AppBundle', 'es'),
         ));
 
         $form->handleRequest($request);
@@ -216,7 +216,7 @@ class StudentController extends Controller
         $annotation = $em->getRepository('AppBundle:StudentAnnotation')->find($annotationId);
 
         $form = $this->createForm(new StudentAnnotationType(true), $annotation, array(
-            'label' => $translator->trans('title.edit_annotation', array(), 'AppBundle', 'es'),
+            'label' => $translator->trans('title.edit_annotation', [], 'AppBundle', 'es'),
         ));
 
         $form->handleRequest($request);
