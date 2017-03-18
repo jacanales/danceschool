@@ -105,7 +105,9 @@
         "elasticsearch/elasticsearch": "~2.0",
         "guzzlehttp/guzzle": "6.2.*, >=6.2.1",
 
-        "league/csv": "@stable"
+        "league/csv": "@stable",
+
+        "zonadev/core-design-bundle": "@stable"
 
     },
     "scripts": {

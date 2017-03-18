@@ -35,12 +35,12 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
     public function load(ObjectManager $manager)
     {
         $this->manager = $manager;
-        $this->addUser('admin', 'admin@zonadev.es', User::ROLE_SUPER_ADMIN);
+        $this->addUser('admin', 'admin@zonadev.es', User::ROLE_SUPER_ADMIN, 'admin');
         $this->addUser('jcanales', 'tanque.tm@gmail.com', User::ROLE_SUPER_ADMIN);
         $manager->flush();
     }
 
-    private function addUser($userName, $email, $role = User::ROLE_DEFAULT)
+    private function addUser($userName, $email, $role = User::ROLE_DEFAULT, $password = null)
     {
         $user = $this->manager->getRepository('AppBundle:User')->findOneByEmail($email);
 
@@ -52,7 +52,7 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
         $user = $userManager->createUser();
 
         $user->setUsername($userName)
-            ->setPlainPassword($this->generatePassword())
+            ->setPlainPassword($this->generatePassword($password))
             ->setEmail($email)
             ->setEnabled(true)
             ->addRole($role);
@@ -61,8 +61,12 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
 //        $this->manager->persist($user);
     }
 
-    private function generatePassword()
+    private function generatePassword($password = null)
     {
+        if ($password) {
+            return $password;
+        }
+
         return substr(str_shuffle(sha1(microtime())), 0, 20);
     }
 }
