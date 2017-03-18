@@ -207,7 +207,7 @@ class Group
      */
     public function setStartDate($startDate)
     {
-        $this->startDate = $startDate;
+        $this->startDate = $startDate->getTimestamp();
 
         return $this;
     }
@@ -219,7 +219,10 @@ class Group
      */
     public function getStartDate()
     {
-        return $this->startDate;
+        $datetime = new \DateTime();
+        $datetime->setTimestamp($this->startDate);
+
+        return $datetime;
     }
 
     /**
@@ -231,7 +234,7 @@ class Group
      */
     public function setEndDate($endDate)
     {
-        $this->endDate = $endDate;
+        $this->endDate = $endDate->getTimestamp();
 
         return $this;
     }

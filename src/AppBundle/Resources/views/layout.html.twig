@@ -48,8 +48,9 @@
         {% endblock %}
 
         {% block menu %}
+            {{ mopa_bootstrap_menu('AppBundle:Builder:mainMenu') }}
+
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ mopa_bootstrap_menu('AppBundle:Builder:mainMenu') }}
                 <div class="pull-right">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">

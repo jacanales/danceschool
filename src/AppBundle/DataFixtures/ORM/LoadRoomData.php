@@ -1,22 +1,29 @@
 <?php
 namespace AppBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Room;
 use libphonenumber\PhoneNumberUtil;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadRoomData implements FixtureInterface, ContainerAwareInterface
+class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     /**
      * @var ObjectManager
      */
     private $manager;
 
+    /**
+     * @var ContainerInterface
+     */
     private $container;
 
+    /**
+     * {@inheritDoc}
+     */
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
@@ -68,5 +75,10 @@ class LoadRoomData implements FixtureInterface, ContainerAwareInterface
             ->setPhone($this->container->get('libphonenumber.phone_number_util')->parse($phone, PhoneNumberUtil::UNKNOWN_REGION));
 
         $this->manager->persist($room);
+    }
+
+    public function getOrder()
+    {
+        return 3;
     }
 }

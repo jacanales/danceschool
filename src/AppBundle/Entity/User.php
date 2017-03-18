@@ -142,7 +142,7 @@ class User extends BaseUser
      *
      * @param string $name
      *
-     * @return User
+     * @return self
      */
     public function setName($name)
     {
@@ -166,7 +166,7 @@ class User extends BaseUser
      *
      * @param string $surname
      *
-     * @return User
+     * @return self
      */
     public function setSurname($surname)
     {
@@ -190,7 +190,7 @@ class User extends BaseUser
      *
      * @param string $gender
      *
-     * @return User
+     * @return self
      */
     public function setGender($gender)
     {
@@ -202,7 +202,7 @@ class User extends BaseUser
     /**
      * Get gender
      *
-     * @return boolean
+     * @return string
      */
     public function getGender()
     {
@@ -214,7 +214,7 @@ class User extends BaseUser
      *
      * @param string $birthday
      *
-     * @return UserData
+     * @return self
      */
     public function setBirthday($birthday)
     {
@@ -238,7 +238,7 @@ class User extends BaseUser
      *
      * @param string $phone
      *
-     * @return UserData
+     * @return self
      */
     public function setPhone($phone)
     {
@@ -262,7 +262,7 @@ class User extends BaseUser
      *
      * @param string $address
      *
-     * @return UserData
+     * @return self
      */
     public function setAddress($address)
     {
@@ -286,7 +286,7 @@ class User extends BaseUser
      *
      * @param string $city
      *
-     * @return UserData
+     * @return self
      */
     public function setCity($city)
     {
@@ -310,7 +310,7 @@ class User extends BaseUser
      *
      * @param string $country
      *
-     * @return UserData
+     * @return self
      */
     public function setCountry($country)
     {
@@ -334,7 +334,7 @@ class User extends BaseUser
      *
      * @param string $postalCode
      *
-     * @return UserData
+     * @return self
      */
     public function setPostalCode($postalCode)
     {
@@ -358,7 +358,7 @@ class User extends BaseUser
      *
      * @param string $identityNumber
      *
-     * @return UserData
+     * @return self
      */
     public function setIdentityNumber($identityNumber)
     {
@@ -382,7 +382,7 @@ class User extends BaseUser
      *
      * @param \DateTime $created
      *
-     * @return UserData
+     * @return self
      */
     public function setCreated(\DateTime $created)
     {
@@ -406,7 +406,7 @@ class User extends BaseUser
      *
      * @param \DateTime $modified
      *
-     * @return UserData
+     * @return self
      */
     public function setModified(\DateTime $modified)
     {

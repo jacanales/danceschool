@@ -1,12 +1,16 @@
 <?php
 namespace AppBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Course;
 
-class LoadCourseData implements FixtureInterface
+class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
 {
+    /**
+     * @var ObjectManager
+     */
     private $manager;
 
     /**
@@ -15,6 +19,7 @@ class LoadCourseData implements FixtureInterface
     public function load(ObjectManager $manager)
     {
         $this->manager = $manager;
+
         $this->addCourse('MAMA FIT');
         $this->addCourse('ZUMBA KIDS');
         $this->addCourse('ZUMBA');
@@ -40,7 +45,11 @@ class LoadCourseData implements FixtureInterface
         $course->setDescription($description)
             ->setPrice($price);
 
-
         $this->manager->persist($course);
+    }
+
+    public function getOrder()
+    {
+        return 4;
     }
 }

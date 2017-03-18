@@ -1,13 +1,14 @@
 <?php
 namespace AppBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadUserData implements FixtureInterface, ContainerAwareInterface
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     /**
      * @var ObjectManager
@@ -36,7 +37,6 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
     {
         $this->manager = $manager;
         $this->addUser('admin', 'admin@zonadev.es', User::ROLE_SUPER_ADMIN, 'admin');
-        $this->addUser('jcanales', 'tanque.tm@gmail.com', User::ROLE_SUPER_ADMIN);
         $manager->flush();
     }
 
@@ -58,7 +58,6 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
             ->addRole($role);
 
         $userManager->updateUser($user, true);
-//        $this->manager->persist($user);
     }
 
     private function generatePassword($password = null)
@@ -68,5 +67,10 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
         }
 
         return substr(str_shuffle(sha1(microtime())), 0, 20);
+    }
+
+    public function getOrder()
+    {
+        return 1;
     }
 }

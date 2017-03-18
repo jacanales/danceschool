@@ -293,4 +293,12 @@ class Student
     {
         return $this->getUser()->getName() . ' ' . $this->getUser()->getSurname();
     }
+
+    /**
+     * @param string $accountNumber
+     */
+    public function setAccountNumber($accountNumber)
+    {
+        $this->accountNumber = $accountNumber;
+    }
 }
