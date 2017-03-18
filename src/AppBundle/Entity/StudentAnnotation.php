@@ -5,19 +5,18 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Group object
+ * Group object.
  *
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="student_annotations")
- *
  *
  * @author Jesús A. Canales Diez <jacanalesdiez@gmail.com>
  */
 class StudentAnnotation
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -26,7 +25,7 @@ class StudentAnnotation
     protected $id;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\ManyToOne(targetEntity="Student", inversedBy="annotations")
      * @ORM\JoinColumn(name="student_id", referencedColumnName="id", nullable=false)
@@ -72,9 +71,9 @@ class StudentAnnotation
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -82,7 +81,7 @@ class StudentAnnotation
     }
 
     /**
-     * Set message
+     * Set message.
      *
      * @param string $message
      *
@@ -96,7 +95,7 @@ class StudentAnnotation
     }
 
     /**
-     * Get message
+     * Get message.
      *
      * @return string
      */
@@ -106,7 +105,7 @@ class StudentAnnotation
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -120,7 +119,7 @@ class StudentAnnotation
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -130,7 +129,7 @@ class StudentAnnotation
     }
 
     /**
-     * Set modified
+     * Set modified.
      *
      * @param \DateTime $modified
      *
@@ -144,7 +143,7 @@ class StudentAnnotation
     }
 
     /**
-     * Get modified
+     * Get modified.
      *
      * @return \DateTime
      */
@@ -154,7 +153,7 @@ class StudentAnnotation
     }
 
     /**
-     * Set student
+     * Set student.
      *
      * @param \AppBundle\Entity\Student $student
      *
@@ -168,7 +167,7 @@ class StudentAnnotation
     }
 
     /**
-     * Get student
+     * Get student.
      *
      * @return \AppBundle\Entity\Student
      */

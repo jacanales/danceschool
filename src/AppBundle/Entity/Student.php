@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Student object
+ * Student object.
  *
  * @ORM\Entity
  * @ORM\Table(name="students")
@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Student
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -24,7 +24,7 @@ class Student
     protected $id;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\OneToOne(targetEntity="User", cascade={"persist"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
@@ -37,7 +37,7 @@ class Student
     protected $captationMethod;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(type="boolean", nullable=true, options={"default":false})
      */
@@ -65,25 +65,26 @@ class Student
     protected $comment;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\OneToMany(targetEntity="GroupStudent", mappedBy="student")
      */
     protected $groupStudent;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\OneToMany(targetEntity="StudentAnnotation", mappedBy="student")
      */
     protected $annotations;
+
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
         $this->groupStudent = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->annotations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->annotations  = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function __toString()
@@ -92,9 +93,9 @@ class Student
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -102,9 +103,9 @@ class Student
     }
 
     /**
-     * Set captationMethod
+     * Set captationMethod.
      *
-     * @param integer $captationMethod
+     * @param int $captationMethod
      *
      * @return Student
      */
@@ -116,9 +117,9 @@ class Student
     }
 
     /**
-     * Get captationMethod
+     * Get captationMethod.
      *
-     * @return integer
+     * @return int
      */
     public function getCaptationMethod()
     {
@@ -126,9 +127,9 @@ class Student
     }
 
     /**
-     * Set member
+     * Set member.
      *
-     * @param boolean $member
+     * @param bool $member
      *
      * @return Student
      */
@@ -140,9 +141,9 @@ class Student
     }
 
     /**
-     * Get member
+     * Get member.
      *
-     * @return boolean
+     * @return bool
      */
     public function getMember()
     {
@@ -150,7 +151,7 @@ class Student
     }
 
     /**
-     * Set contractExpiration
+     * Set contractExpiration.
      *
      * @param \DateTime $contractExpiration
      *
@@ -164,7 +165,7 @@ class Student
     }
 
     /**
-     * Get contractExpiration
+     * Get contractExpiration.
      *
      * @return \DateTime
      */
@@ -174,7 +175,7 @@ class Student
     }
 
     /**
-     * Set comment
+     * Set comment.
      *
      * @param string $comment
      *
@@ -188,7 +189,7 @@ class Student
     }
 
     /**
-     * Get comment
+     * Get comment.
      *
      * @return string
      */
@@ -198,7 +199,7 @@ class Student
     }
 
     /**
-     * Set user
+     * Set user.
      *
      * @param \AppBundle\Entity\User $user
      *
@@ -212,7 +213,7 @@ class Student
     }
 
     /**
-     * Get user
+     * Get user.
      *
      * @return \AppBundle\Entity\User
      */
@@ -222,7 +223,7 @@ class Student
     }
 
     /**
-     * Add groupStudent
+     * Add groupStudent.
      *
      * @param \AppBundle\Entity\GroupStudent $groupStudent
      *
@@ -236,7 +237,7 @@ class Student
     }
 
     /**
-     * Remove groupStudent
+     * Remove groupStudent.
      *
      * @param \AppBundle\Entity\GroupStudent $groupStudent
      */
@@ -246,7 +247,7 @@ class Student
     }
 
     /**
-     * Get groupStudent
+     * Get groupStudent.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -256,7 +257,7 @@ class Student
     }
 
     /**
-     * Add annotation
+     * Add annotation.
      *
      * @param \AppBundle\Entity\StudentAnnotation $annotation
      *
@@ -270,7 +271,7 @@ class Student
     }
 
     /**
-     * Remove annotation
+     * Remove annotation.
      *
      * @param \AppBundle\Entity\StudentAnnotation $annotation
      */
@@ -280,7 +281,7 @@ class Student
     }
 
     /**
-     * Get annotations
+     * Get annotations.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

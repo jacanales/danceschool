@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Group object
+ * Group object.
  *
  * @ORM\Entity
  * @ORM\Table(name="group_students")
@@ -22,7 +22,7 @@ class GroupStudent
     protected $id;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Group", inversedBy="groupStudent")
@@ -31,7 +31,7 @@ class GroupStudent
     protected $group;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Student", inversedBy="groupStudent")
@@ -40,7 +40,7 @@ class GroupStudent
     protected $student;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(type="boolean", nullable=true, options={"default"=false})
      */
@@ -79,7 +79,7 @@ class GroupStudent
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isReinforcing()
     {
@@ -87,7 +87,7 @@ class GroupStudent
     }
 
     /**
-     * @param boolean $is_reinforcing
+     * @param bool $is_reinforcing
      */
     public function setReinforcing($is_reinforcing)
     {

@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Group object
+ * Group object.
  *
  * @ORM\Entity
  * @ORM\Table(name="groups")
@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Group
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -55,7 +55,7 @@ class Group
     protected $name;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(type="smallint", nullable=true)
      */
@@ -90,21 +90,21 @@ class Group
     protected $whatsappGroup;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\OneToMany(targetEntity="GroupStudent", mappedBy="group")
      */
     protected $groupStudent;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\OneToMany(targetEntity="GroupStudent", mappedBy="group")
      */
     protected $student;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -117,9 +117,9 @@ class Group
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -127,7 +127,7 @@ class Group
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -141,7 +141,7 @@ class Group
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -151,9 +151,9 @@ class Group
     }
 
     /**
-     * Set weekday
+     * Set weekday.
      *
-     * @param integer $weekday
+     * @param int $weekday
      *
      * @return Group
      */
@@ -165,9 +165,9 @@ class Group
     }
 
     /**
-     * Get weekday
+     * Get weekday.
      *
-     * @return integer
+     * @return int
      */
     public function getWeekday()
     {
@@ -175,7 +175,7 @@ class Group
     }
 
     /**
-     * Set hour
+     * Set hour.
      *
      * @param \DateTime $hour
      *
@@ -189,7 +189,7 @@ class Group
     }
 
     /**
-     * Get hour
+     * Get hour.
      *
      * @return \DateTime
      */
@@ -199,7 +199,7 @@ class Group
     }
 
     /**
-     * Set startDate
+     * Set startDate.
      *
      * @param \DateTime $startDate
      *
@@ -213,7 +213,7 @@ class Group
     }
 
     /**
-     * Get startDate
+     * Get startDate.
      *
      * @return \DateTime
      */
@@ -226,7 +226,7 @@ class Group
     }
 
     /**
-     * Set endDate
+     * Set endDate.
      *
      * @param \DateTime $endDate
      *
@@ -240,7 +240,7 @@ class Group
     }
 
     /**
-     * Get endDate
+     * Get endDate.
      *
      * @return \DateTime
      */
@@ -250,7 +250,7 @@ class Group
     }
 
     /**
-     * Set whatsappGroup
+     * Set whatsappGroup.
      *
      * @param string $whatsappGroup
      *
@@ -264,7 +264,7 @@ class Group
     }
 
     /**
-     * Get whatsappGroup
+     * Get whatsappGroup.
      *
      * @return string
      */
@@ -274,7 +274,7 @@ class Group
     }
 
     /**
-     * Set course
+     * Set course.
      *
      * @param Course $course
      *
@@ -288,7 +288,7 @@ class Group
     }
 
     /**
-     * Get course
+     * Get course.
      *
      * @return \AppBundle\Entity\Course
      */
@@ -298,7 +298,7 @@ class Group
     }
 
     /**
-     * Set room
+     * Set room.
      *
      * @param Room $room
      *
@@ -312,7 +312,7 @@ class Group
     }
 
     /**
-     * Get room
+     * Get room.
      *
      * @return \AppBundle\Entity\Room
      */
@@ -322,7 +322,7 @@ class Group
     }
 
     /**
-     * Set teacher
+     * Set teacher.
      *
      * @param Teacher $teacher
      *
@@ -336,7 +336,7 @@ class Group
     }
 
     /**
-     * Get teacher
+     * Get teacher.
      *
      * @return Teacher
      */
@@ -346,7 +346,7 @@ class Group
     }
 
     /**
-     * Add groupStudent
+     * Add groupStudent.
      *
      * @param GroupStudent $groupStudent
      *
@@ -360,7 +360,7 @@ class Group
     }
 
     /**
-     * Remove groupStudent
+     * Remove groupStudent.
      *
      * @param GroupStudent $groupStudent
      */
@@ -370,7 +370,7 @@ class Group
     }
 
     /**
-     * Get groupStudent
+     * Get groupStudent.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

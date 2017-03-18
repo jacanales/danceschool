@@ -1,10 +1,11 @@
 <?php
+
 namespace AppBundle\DataFixtures\ORM;
 
+use AppBundle\Entity\Course;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Course;
 
 class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -14,7 +15,7 @@ class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
     private $manager;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {

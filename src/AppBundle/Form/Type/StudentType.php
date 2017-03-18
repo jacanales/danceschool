@@ -14,51 +14,50 @@ class StudentType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('user', UserType::class, [])
             ->add('captation_method', ChoiceType::class, [
-                'required' => false,
+                'required'    => false,
                 'placeholder' => 'form.choose_captation',
-                'choices' => [
+                'choices'     => [
                     'form.captation.recommended',
                     'form.captation.offer',
                     'form.captation.other',
                 ],
-                'label' => 'form.label.captation_method',
-                'translation_domain' => 'AppBundle'
+                'label'              => 'form.label.captation_method',
+                'translation_domain' => 'AppBundle',
             ])
             ->add('member', null, [
-                'label' => 'form.label.member',
-                'translation_domain' => 'AppBundle'
+                'label'              => 'form.label.member',
+                'translation_domain' => 'AppBundle',
             ])
             ->add('contract_expiration', null, [
-                'label' => 'form.label.contract_expiration',
-                'translation_domain' => 'AppBundle'
+                'label'              => 'form.label.contract_expiration',
+                'translation_domain' => 'AppBundle',
             ])
             ->add('comment', null, [
-                'label' => 'form.label.comment',
-                'translation_domain' => 'AppBundle'
+                'label'              => 'form.label.comment',
+                'translation_domain' => 'AppBundle',
             ])
             ->add('save', SubmitType::class, [
-                'label' => 'form.label.save',
-                'translation_domain' => 'AppBundle'
+                'label'              => 'form.label.save',
+                'translation_domain' => 'AppBundle',
             ])
             ->getForm();
-        ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Student'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'AppBundle\Entity\Student',
+        ]);
     }
 
     /**

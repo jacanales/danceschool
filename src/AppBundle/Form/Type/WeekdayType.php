@@ -12,19 +12,17 @@ class WeekdayType extends AbstractType
 
     public function __construct()
     {
-        $numDays = range(date('N', strtotime("monday")), date('N', strtotime("sunday")));
+        $numDays = range(date('N', strtotime('monday')), date('N', strtotime('sunday')));
 
-        foreach ($numDays as $numDay)
-        {
+        foreach ($numDays as $numDay) {
             $this->weekdays['date.weekday.' . $numDay] = $numDay;
         }
-
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'choices' => $this->weekdays,
+            'choices'           => $this->weekdays,
             'choices_as_values' => true,
         ]);
     }

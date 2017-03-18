@@ -23,38 +23,37 @@ class TeacherType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('User', UserType::class, array(
-                'show_legend' => false
-            ))
-            ->add('wage', IntegerType::class, array(
-                'label' => 'form.label.wage',
-                'translation_domain' => 'AppBundle'
-            ))
-            ->add('comment', TextareaType::class, array(
-                'label' => 'form.label.comment',
-                'translation_domain' => 'AppBundle'
-            ))
-            ->add('save', SubmitType::class, array(
-                'label' => 'form.label.save',
-                'translation_domain' => 'AppBundle'
-            ))
+            ->add('User', UserType::class, [
+                'show_legend' => false,
+            ])
+            ->add('wage', IntegerType::class, [
+                'label'              => 'form.label.wage',
+                'translation_domain' => 'AppBundle',
+            ])
+            ->add('comment', TextareaType::class, [
+                'label'              => 'form.label.comment',
+                'translation_domain' => 'AppBundle',
+            ])
+            ->add('save', SubmitType::class, [
+                'label'              => 'form.label.save',
+                'translation_domain' => 'AppBundle',
+            ])
             ->getForm();
-        ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Teacher'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'AppBundle\Entity\Teacher',
+        ]);
     }
 
     /**

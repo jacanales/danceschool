@@ -9,7 +9,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
 {
-    const MAX_GROUPS = 10;
+    const MAX_GROUPS             = 10;
     const MAX_STUDENTS_PER_GROUP = 20;
 
     /**
@@ -18,7 +18,7 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
     private $manager;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {
@@ -60,9 +60,9 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
     }
 
     /**
-     * Get the order of this fixture
+     * Get the order of this fixture.
      *
-     * @return integer
+     * @return int
      */
     public function getOrder()
     {

@@ -47,7 +47,8 @@ class RoomControllerSpec extends ObjectBehavior
         $this->shouldHaveType(RoomController::class);
     }
 
-    public function it_is_of_type_container_aware() {
+    public function it_is_of_type_container_aware()
+    {
         $this->shouldBeAnInstanceOf(ContainerAwareInterface::class);
     }
 

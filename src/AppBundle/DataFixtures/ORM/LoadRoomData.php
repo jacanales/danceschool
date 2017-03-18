@@ -1,10 +1,11 @@
 <?php
+
 namespace AppBundle\DataFixtures\ORM;
 
+use AppBundle\Entity\Room;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Room;
 use libphonenumber\PhoneNumberUtil;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -22,7 +23,7 @@ class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface, C
     private $container;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function setContainer(ContainerInterface $container = null)
     {
@@ -30,7 +31,7 @@ class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface, C
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {

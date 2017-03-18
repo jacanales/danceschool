@@ -1,10 +1,11 @@
 <?php
+
 namespace AppBundle\DataFixtures\ORM;
 
+use AppBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -31,7 +32,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {
@@ -49,7 +50,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         }
 
         $userManager = $this->container->get('fos_user.user_manager');
-        $user = $userManager->createUser();
+        $user        = $userManager->createUser();
 
         $user->setUsername($userName)
             ->setPlainPassword($this->generatePassword($password))

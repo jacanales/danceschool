@@ -4,12 +4,13 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Teacher;
 use AppBundle\Form\Type\TeacherType;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Route preffix affects only new (not overloaded) actions or if route name matches
+ * Route preffix affects only new (not overloaded) actions or if route name matches.
+ *
  * @Route("/teacher")
  */
 class TeacherController extends Controller
@@ -28,14 +29,15 @@ class TeacherController extends Controller
 
         return $this->render(
             'AppBundle:Teacher:index.html.twig',
-            array('teachers' => $teachers)
+            ['teachers' => $teachers]
         );
     }
 
     /**
      * @Route("/show/{id}", name="mayimbe_teacher_show")
      *
-     * @param integer $id
+     * @param int $id
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function showAction($id)
@@ -62,6 +64,7 @@ class TeacherController extends Controller
      * @Route("/add", name="mayimbe_teacher_add")
      *
      * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function addAction(Request $request)
@@ -90,11 +93,12 @@ class TeacherController extends Controller
      *
      * @param Request $request
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, $id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em      = $this->getDoctrine()->getManager();
         $teacher = $em->getRepository('AppBundle:Teacher')->find($id);
 
         $form = $this->createForm(new TeacherType(true), $teacher);
@@ -104,7 +108,7 @@ class TeacherController extends Controller
         if ($form->isValid()) {
             if (!$teacher) {
                 throw $this->createNotFoundException(
-                    'No product found for id '.$id
+                    'No product found for id ' . $id
                 );
             }
 
@@ -115,10 +119,10 @@ class TeacherController extends Controller
 
         return $this->render(
             'AppBundle:Teacher:edit.html.twig',
-            array(
-                'form' => $form->createView(),
+            [
+                'form'    => $form->createView(),
                 'teacher' => $teacher,
-            )
+            ]
         );
     }
 
@@ -127,7 +131,7 @@ class TeacherController extends Controller
      */
     public function removeAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em      = $this->getDoctrine()->getManager();
         $teacher = $em->getRepository('AppBundle:Teacher')->find($id);
 
         if (!$teacher) {

@@ -2,8 +2,8 @@
 
 namespace AppBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * @ORM\Entity
@@ -138,7 +138,7 @@ class User extends BaseUser
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -152,7 +152,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -162,7 +162,7 @@ class User extends BaseUser
     }
 
     /**
-     * Set surname
+     * Set surname.
      *
      * @param string $surname
      *
@@ -176,7 +176,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get surname
+     * Get surname.
      *
      * @return string
      */
@@ -186,7 +186,7 @@ class User extends BaseUser
     }
 
     /**
-     * Set gender
+     * Set gender.
      *
      * @param string $gender
      *
@@ -200,7 +200,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get gender
+     * Get gender.
      *
      * @return string
      */
@@ -210,7 +210,7 @@ class User extends BaseUser
     }
 
     /**
-     * Set birthday
+     * Set birthday.
      *
      * @param string $birthday
      *
@@ -224,7 +224,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get birthday
+     * Get birthday.
      *
      * @return string
      */
@@ -234,7 +234,7 @@ class User extends BaseUser
     }
 
     /**
-     * Set phone
+     * Set phone.
      *
      * @param string $phone
      *
@@ -248,7 +248,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get phone
+     * Get phone.
      *
      * @return string
      */
@@ -258,7 +258,7 @@ class User extends BaseUser
     }
 
     /**
-     * Set address
+     * Set address.
      *
      * @param string $address
      *
@@ -272,7 +272,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get address
+     * Get address.
      *
      * @return string
      */
@@ -282,7 +282,7 @@ class User extends BaseUser
     }
 
     /**
-     * Set city
+     * Set city.
      *
      * @param string $city
      *
@@ -296,7 +296,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get city
+     * Get city.
      *
      * @return string
      */
@@ -306,7 +306,7 @@ class User extends BaseUser
     }
 
     /**
-     * Set country
+     * Set country.
      *
      * @param string $country
      *
@@ -320,7 +320,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get country
+     * Get country.
      *
      * @return string
      */
@@ -330,7 +330,7 @@ class User extends BaseUser
     }
 
     /**
-     * Set postalCode
+     * Set postalCode.
      *
      * @param string $postalCode
      *
@@ -344,7 +344,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get postalCode
+     * Get postalCode.
      *
      * @return string
      */
@@ -354,7 +354,7 @@ class User extends BaseUser
     }
 
     /**
-     * Set identityNumber
+     * Set identityNumber.
      *
      * @param string $identityNumber
      *
@@ -368,7 +368,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get identityNumber
+     * Get identityNumber.
      *
      * @return string
      */
@@ -378,7 +378,7 @@ class User extends BaseUser
     }
 
     /**
-     * Set created
+     * Set created.
      *
      * @param \DateTime $created
      *
@@ -392,7 +392,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get created
+     * Get created.
      *
      * @return \DateTime
      */
@@ -402,7 +402,7 @@ class User extends BaseUser
     }
 
     /**
-     * Set modified
+     * Set modified.
      *
      * @param \DateTime $modified
      *
@@ -416,7 +416,7 @@ class User extends BaseUser
     }
 
     /**
-     * Get modified
+     * Get modified.
      *
      * @return \DateTime
      */

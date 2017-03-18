@@ -6,13 +6,14 @@ use AppBundle\Entity\Student;
 use AppBundle\Entity\StudentAnnotation;
 use AppBundle\Form\Type\StudentAnnotationType;
 use AppBundle\Form\Type\StudentType;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Route preffix affects only new (not overloaded) actions or if route name matches
+ * Route preffix affects only new (not overloaded) actions or if route name matches.
+ *
  * @Route("/student")
  */
 class StudentController extends Controller
@@ -32,7 +33,7 @@ class StudentController extends Controller
 
         return $this->render(
             'AppBundle:Student:index.html.twig',
-            array('students' => $students)
+            ['students' => $students]
         );
     }
 
@@ -40,7 +41,8 @@ class StudentController extends Controller
      * @Route("/show/{id}", name="mayimbe_student_show")
      * @Method("GET")
      *
-     * @param integer $id
+     * @param int $id
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function showAction($id)
@@ -51,9 +53,9 @@ class StudentController extends Controller
 
         $annotations = $this->getDoctrine()
             ->getRepository('AppBundle:StudentAnnotation')
-            ->findBy(array(
-                'student' => $id
-            ));
+            ->findBy([
+                'student' => $id,
+            ]);
 
         if (!$student) {
             throw $this->createNotFoundException(
@@ -63,10 +65,10 @@ class StudentController extends Controller
 
         return $this->render(
             'AppBundle:Student:show.html.twig',
-            array(
-                'student' => $student,
-                'annotations' => $annotations
-            )
+            [
+                'student'     => $student,
+                'annotations' => $annotations,
+            ]
         );
     }
 
@@ -75,6 +77,7 @@ class StudentController extends Controller
      * @Method({"GET", "POST"})
      *
      * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function addAction(Request $request)
@@ -104,11 +107,12 @@ class StudentController extends Controller
      *
      * @param Request $request
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, $id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em      = $this->getDoctrine()->getManager();
         $student = $em->getRepository('AppBundle:Student')->find($id);
 
         $form = $this->createForm(new StudentType(true), $student);
@@ -118,7 +122,7 @@ class StudentController extends Controller
         if ($form->isValid()) {
             if (!$student) {
                 throw $this->createNotFoundException(
-                    'No product found for id '.$id
+                    'No product found for id ' . $id
                 );
             }
 
@@ -129,10 +133,10 @@ class StudentController extends Controller
 
         return $this->render(
             'AppBundle:Student:edit.html.twig',
-            array(
-                'form' => $form->createView(),
+            [
+                'form'    => $form->createView(),
                 'student' => $student,
-            )
+            ]
         );
     }
 
@@ -141,11 +145,12 @@ class StudentController extends Controller
      * @Method({"GET", "POST"})
      *
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function removeAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em      = $this->getDoctrine()->getManager();
         $student = $em->getRepository('AppBundle:Student')->find($id);
 
         if (!$student) {
@@ -166,20 +171,21 @@ class StudentController extends Controller
      *
      * @param Request $request
      * @param $studentId
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function addAnnotationAction(Request $request, $studentId)
     {
         $translator = $this->get('translator');
 
-        $form = $this->createForm(new StudentAnnotationType(), new StudentAnnotation(), array(
+        $form = $this->createForm(new StudentAnnotationType(), new StudentAnnotation(), [
             'label' => $translator->trans('title.add_annotation', [], 'AppBundle', 'es'),
-        ));
+        ]);
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            $em      = $this->getDoctrine()->getManager();
             $student = $em->getRepository('AppBundle:Student')->find($studentId);
 
             $form->getData()->setStudent($student);
@@ -187,15 +193,15 @@ class StudentController extends Controller
             $em->persist($form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_student_show', array('id' => $studentId));
+            return $this->redirectToRoute('mayimbe_student_show', ['id' => $studentId]);
         }
 
         return $this->render(
             'AppBundle:Student:add_annotation.html.twig',
-            array(
-                'form' => $form->createView(),
-                'studentId' => $studentId
-            )
+            [
+                'form'      => $form->createView(),
+                'studentId' => $studentId,
+            ]
         );
     }
 
@@ -204,20 +210,21 @@ class StudentController extends Controller
      * @Method({"GET", "POST"})
      *
      * @param Request $request
-     * @param integer $studentId
-     * @param integer $annotationId
+     * @param int     $studentId
+     * @param int     $annotationId
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAnnotationAction(Request $request, $studentId, $annotationId)
     {
         $translator = $this->get('translator');
 
-        $em = $this->getDoctrine()->getManager();
+        $em         = $this->getDoctrine()->getManager();
         $annotation = $em->getRepository('AppBundle:StudentAnnotation')->find($annotationId);
 
-        $form = $this->createForm(new StudentAnnotationType(true), $annotation, array(
+        $form = $this->createForm(new StudentAnnotationType(true), $annotation, [
             'label' => $translator->trans('title.edit_annotation', [], 'AppBundle', 'es'),
-        ));
+        ]);
 
         $form->handleRequest($request);
 
@@ -230,16 +237,16 @@ class StudentController extends Controller
 
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_student_annotations_index', array('studentId' => $studentId));
+            return $this->redirectToRoute('mayimbe_student_annotations_index', ['studentId' => $studentId]);
         }
 
         return $this->render(
             'AppBundle:Student:edit_annotation.html.twig',
-            array(
-                'form' => $form->createView(),
+            [
+                'form'       => $form->createView(),
                 'annotation' => $annotation,
-                'studentId' => $studentId
-            )
+                'studentId'  => $studentId,
+            ]
         );
     }
 
@@ -247,13 +254,14 @@ class StudentController extends Controller
      * @Route("/{studentId}/annotations/remove/{annotationId}", name="mayimbe_student_annotation_remove")
      * @Method({"GET", "POST"})
      *
-     * @param integer $studentId
-     * @param integer $annotationId
+     * @param int $studentId
+     * @param int $annotationId
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function removeAnnotationAction($studentId, $annotationId)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em         = $this->getDoctrine()->getManager();
         $annotation = $em->getRepository('AppBundle:StudentAnnotation')->find($annotationId);
 
         if (!$annotation) {
@@ -265,6 +273,6 @@ class StudentController extends Controller
         $em->remove($annotation);
         $em->flush();
 
-        return $this->redirectToRoute('mayimbe_student_annotations_index', array('studentId' => $studentId));
+        return $this->redirectToRoute('mayimbe_student_annotations_index', ['studentId' => $studentId]);
     }
 }

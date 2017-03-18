@@ -20,38 +20,38 @@ class StudentAnnotationType extends AbstractType
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('message', null, array(
-                'label' => 'form.label.message',
-                'translation_domain' => 'AppBundle'
-            ))
-            ->add('save', 'submit', array(
-                'label' => 'form.label.save',
-                'translation_domain' => 'AppBundle'
-            ))
+            ->add('message', null, [
+                'label'              => 'form.label.message',
+                'translation_domain' => 'AppBundle',
+            ])
+            ->add('save', 'submit', [
+                'label'              => 'form.label.save',
+                'translation_domain' => 'AppBundle',
+            ])
         ;
 
         if (!$this->edit) {
-            $builder->add('student', 'hidden', array(
-                'data_class' => 'AppBundle\Entity\Student'
-            ));
+            $builder->add('student', 'hidden', [
+                'data_class' => 'AppBundle\Entity\Student',
+            ]);
         }
 
         $builder->getForm();
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\StudentAnnotation'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'AppBundle\Entity\StudentAnnotation',
+        ]);
     }
 
     /**

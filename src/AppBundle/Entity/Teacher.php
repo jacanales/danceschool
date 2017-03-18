@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Teacher object
+ * Teacher object.
  *
  * @ORM\Entity
  * @ORM\Table(name="teachers")
@@ -16,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Teacher
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -25,7 +25,7 @@ class Teacher
     protected $id;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\OneToOne(targetEntity="User", cascade={"persist"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
@@ -47,21 +47,21 @@ class Teacher
     protected $comment;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\OneToMany(targetEntity="Group", mappedBy="teacher")
      */
     protected $group;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\OneToMany(targetEntity="Group", mappedBy="teacher")
      */
     protected $groups;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -74,9 +74,9 @@ class Teacher
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -84,7 +84,7 @@ class Teacher
     }
 
     /**
-     * Set wage
+     * Set wage.
      *
      * @param float $wage
      *
@@ -98,7 +98,7 @@ class Teacher
     }
 
     /**
-     * Get wage
+     * Get wage.
      *
      * @return float
      */
@@ -108,7 +108,7 @@ class Teacher
     }
 
     /**
-     * Set comment
+     * Set comment.
      *
      * @param string $comment
      *
@@ -122,7 +122,7 @@ class Teacher
     }
 
     /**
-     * Get comment
+     * Get comment.
      *
      * @return string
      */
@@ -132,7 +132,7 @@ class Teacher
     }
 
     /**
-     * Set user
+     * Set user.
      *
      * @param User $user
      *
@@ -146,7 +146,7 @@ class Teacher
     }
 
     /**
-     * Get user
+     * Get user.
      *
      * @return User
      */
@@ -156,7 +156,7 @@ class Teacher
     }
 
     /**
-     * Add group
+     * Add group.
      *
      * @param Group $group
      *
@@ -170,7 +170,7 @@ class Teacher
     }
 
     /**
-     * Remove group
+     * Remove group.
      *
      * @param Group $group
      */
@@ -180,7 +180,7 @@ class Teacher
     }
 
     /**
-     * Get groups
+     * Get groups.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

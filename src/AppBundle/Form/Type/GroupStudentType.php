@@ -17,19 +17,19 @@ class GroupStudentType extends AbstractType
     {
         $builder
             ->add('student', EntityType::class, [
-                'class' => Student::class,
-                'choice_label' => 'getFullName',
-                'label' => 'form.label.student',
+                'class'              => Student::class,
+                'choice_label'       => 'getFullName',
+                'label'              => 'form.label.student',
                 'translation_domain' => 'AppBundle',
             ])
             ->add('is_reinforcing', IntegerType::class, [
-                'required' => false,
-                'label' => 'form.label.is_reinforcing',
-                'translation_domain' => 'AppBundle'
+                'required'           => false,
+                'label'              => 'form.label.is_reinforcing',
+                'translation_domain' => 'AppBundle',
             ])
             ->add('save', SubmitType::class, [
-                'label' => 'form.label.save',
-                'translation_domain' => 'AppBundle'
+                'label'              => 'form.label.save',
+                'translation_domain' => 'AppBundle',
             ])
             ->getForm();
     }
@@ -41,7 +41,7 @@ class GroupStudentType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => GroupStudent::class,
-            'label' => 'GroupStudent'
+            'label'      => 'GroupStudent',
         ]);
     }
 

@@ -1,11 +1,12 @@
 <?php
+
 namespace AppBundle\DataFixtures\ORM;
 
+use AppBundle\Entity\Teacher;
+use AppBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\User;
-use AppBundle\Entity\Teacher;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -24,7 +25,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
     private $container;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function setContainer(ContainerInterface $container = null)
     {
@@ -32,7 +33,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {

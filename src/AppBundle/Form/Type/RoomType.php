@@ -20,38 +20,38 @@ class RoomType extends AbstractType
         $builder
             ->add('id', HiddenType::class)
             ->add('name', TextType::class, [
-                'label' => 'form.label.name',
-                'translation_domain' => 'AppBundle'
+                'label'              => 'form.label.name',
+                'translation_domain' => 'AppBundle',
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'form.label.description',
-                'translation_domain' => 'AppBundle'
+                'label'              => 'form.label.description',
+                'translation_domain' => 'AppBundle',
             ])
             ->add('price', TextType::class, [
-                'label' => 'form.label.price',
-                'translation_domain' => 'AppBundle'
+                'label'              => 'form.label.price',
+                'translation_domain' => 'AppBundle',
             ])
             ->add('phone', PhoneNumberType::class, [
-                'default_region' => 'ES',
-                'format' => PhoneNumberFormat::NATIONAL,
-                'label' => 'form.label.phone',
-                'translation_domain' => 'AppBundle'
+                'default_region'     => 'ES',
+                'format'             => PhoneNumberFormat::NATIONAL,
+                'label'              => 'form.label.phone',
+                'translation_domain' => 'AppBundle',
             ])
             ->add('address', TextareaType::class, [
-                'label' => 'form.label.address',
-                'translation_domain' => 'AppBundle'
+                'label'              => 'form.label.address',
+                'translation_domain' => 'AppBundle',
             ])
             ->add('city', TextType::class, [
-                'label' => 'form.label.city',
-                'translation_domain' => 'AppBundle'
+                'label'              => 'form.label.city',
+                'translation_domain' => 'AppBundle',
             ])
             ->add('postal_code', TextType::class, [
-                'label' => 'form.label.postal_code',
-                'translation_domain' => 'AppBundle'
+                'label'              => 'form.label.postal_code',
+                'translation_domain' => 'AppBundle',
             ])
             ->add('add', SubmitType::class, [
-                'label' => 'form.label.save',
-                'translation_domain' => 'AppBundle'
+                'label'              => 'form.label.save',
+                'translation_domain' => 'AppBundle',
             ])
             ->getForm();
     }
@@ -63,7 +63,7 @@ class RoomType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Room::class,
-            'label' => 'Room'
+            'label'      => 'Room',
         ]);
     }
 

@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Course object
+ * Course object.
  *
  * @ORM\Entity
  * @ORM\Table(name="courses")
@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Course
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -38,7 +38,7 @@ class Course
     protected $price;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\OneToMany(targetEntity="Group", mappedBy="course")
      */

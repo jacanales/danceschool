@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Room object
+ * Room object.
  *
  * @ORM\Entity
  * @ORM\Table(name="rooms")
@@ -16,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Room
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -74,14 +74,14 @@ class Room
     protected $phone;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\OneToMany(targetEntity="Group", mappedBy="room")
      */
     protected $group;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -274,7 +274,7 @@ class Room
     }
 
     /**
-     * Add group
+     * Add group.
      *
      * @param Group $group
      *
@@ -288,7 +288,7 @@ class Room
     }
 
     /**
-     * Remove group
+     * Remove group.
      *
      * @param Group $group
      */
