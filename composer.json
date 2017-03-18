@@ -21,6 +21,10 @@
         {
             "type": "git",
             "url": "https://github.com/phiamo/MopaBootstrapBundle"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/phpmetrics/SymfonyExtension"
         }
     ],
     "require": {
@@ -66,6 +70,8 @@
         "matthiasnoback/symfony-dependency-injection-test": "^1.1|^2.0",
 
         "friendsofphp/php-cs-fixer": "~2.1.2",
+        "phpmetrics/phpmetrics": "~2.0.0",
+        "phpmetrics/symfony-extension": "dev-master@dev",
 
         "fzaninotto/faker": "~1.6.0"
     },

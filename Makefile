@@ -1,4 +1,4 @@
-.PHONY: database-update cs-fix cs-fix-dry-run
+.PHONY: database-update cs-fix cs-fix-dry-run phpmetrics
 
 database-update:
 	bin/console doctrine:schema:update --force
@@ -10,3 +10,5 @@ cs-fix:
 cs-fix-dry-run:
 	bin/php-cs-fixer fix --dry-run -vv
 
+phpmetrics:
+	bin/phpmetrics --plugins=./vendor/phpmetrics/symfony-extension/SymfonyExtension.php --report-html=web/phpmetrics src/
