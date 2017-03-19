@@ -101,7 +101,7 @@ class TeacherController extends Controller
         $em      = $this->getDoctrine()->getManager();
         $teacher = $em->getRepository('AppBundle:Teacher')->find($id);
 
-        $form = $this->createForm(new TeacherType(true), $teacher);
+        $form = $this->createForm(TeacherType::class, $teacher, ['edit' => true]);
 
         $form->handleRequest($request);
 

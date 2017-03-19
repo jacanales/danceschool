@@ -18,7 +18,13 @@
     <dt>{{ 'form.label.email'|trans() }}</dt>
     <dd>{{ student.user.email }}</dd>
     <dt>{{ 'form.label.gender'|trans() }}</dt>
-    <dd>{{ student.user.gender }}</dd>
+    <dd>
+        {% if student.User.gender == 'm' %}
+            {{ 'form.gender.male'|trans }}
+        {% else %}
+            {{ 'form.gender.female'|trans }}
+        {% endif %}
+    </dd>
     <dt>{{ 'form.label.identity_number'|trans() }}</dt>
     <dd>{{ student.user.identityNumber }}</dd>
     <dt>{{ 'form.label.birthday'|trans() }}</dt>

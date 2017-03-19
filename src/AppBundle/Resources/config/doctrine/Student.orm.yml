@@ -39,6 +39,7 @@ AppBundle\Entity\Student:
             default: false
             column: account_number
 
+    lifecycleCallbacks: {  }
     oneToOne:
         user:
             targetEntity: AppBundle\Entity\User

@@ -115,7 +115,7 @@ class StudentController extends Controller
         $em      = $this->getDoctrine()->getManager();
         $student = $em->getRepository('AppBundle:Student')->find($id);
 
-        $form = $this->createForm(new StudentType(true), $student);
+        $form = $this->createForm(StudentType::class, $student, ['edit' => true]);
 
         $form->handleRequest($request);
 
@@ -178,7 +178,7 @@ class StudentController extends Controller
     {
         $translator = $this->get('translator');
 
-        $form = $this->createForm(new StudentAnnotationType(), new StudentAnnotation(), [
+        $form = $this->createForm(StudentAnnotationType::class, new StudentAnnotation(), [
             'label' => $translator->trans('title.add_annotation', [], 'AppBundle', 'es'),
         ]);
 
@@ -222,8 +222,9 @@ class StudentController extends Controller
         $em         = $this->getDoctrine()->getManager();
         $annotation = $em->getRepository('AppBundle:StudentAnnotation')->find($annotationId);
 
-        $form = $this->createForm(new StudentAnnotationType(true), $annotation, [
+        $form = $this->createForm(StudentAnnotationType::class, $annotation, [
             'label' => $translator->trans('title.edit_annotation', [], 'AppBundle', 'es'),
+            'edit' => true
         ]);
 
         $form->handleRequest($request);
@@ -237,7 +238,7 @@ class StudentController extends Controller
 
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_student_annotations_index', ['studentId' => $studentId]);
+            return $this->redirectToRoute('mayimbe_student_show', ['id' => $studentId]);
         }
 
         return $this->render(
@@ -273,6 +274,6 @@ class StudentController extends Controller
         $em->remove($annotation);
         $em->flush();
 
-        return $this->redirectToRoute('mayimbe_student_annotations_index', ['studentId' => $studentId]);
+        return $this->redirectToRoute('mayimbe_student_show', ['id' => $studentId]);
     }
 }

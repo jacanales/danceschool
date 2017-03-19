@@ -2,16 +2,17 @@
 
 namespace AppBundle\Form\Type;
 
+use AppBundle\Entity\Student;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class StudentType extends AbstractType
 {
-    private $edit;
-
     /**
      * @param FormBuilderInterface $builder
      * @param array                $options
@@ -19,7 +20,7 @@ class StudentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('user', UserType::class, [])
+            ->add('user', UserType::class, ['edit' => $options['edit']])
             ->add('captation_method', ChoiceType::class, [
                 'required'    => false,
                 'placeholder' => 'form.choose_captation',
@@ -35,11 +36,13 @@ class StudentType extends AbstractType
                 'label'              => 'form.label.member',
                 'translation_domain' => 'AppBundle',
             ])
-            ->add('contract_expiration', null, [
+            ->add('contract_expiration', DateType::class, [
                 'label'              => 'form.label.contract_expiration',
                 'translation_domain' => 'AppBundle',
+                'widget'             => 'single_text',
+                'placeholder'        => 'DD/MM/YYYY',
             ])
-            ->add('comment', null, [
+            ->add('comment', TextareaType::class, [
                 'label'              => 'form.label.comment',
                 'translation_domain' => 'AppBundle',
             ])
@@ -56,7 +59,8 @@ class StudentType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\Student',
+            'data_class' => Student::class,
+            'edit'       => false,
         ]);
     }
 
@@ -73,6 +77,6 @@ class StudentType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_student';
+        return 'student';
     }
 }

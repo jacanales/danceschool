@@ -81,14 +81,17 @@ class UserType extends AbstractType
 
         $password = substr(str_shuffle(sha1(microtime())), 0, 20);
 
-        $builder
-            ->add('plainPassword', RepeatedType::class, [
-                'type'            => HiddenType::class,
-                'options'         => ['translation_domain' => 'FOSUserBundle', 'empty_data' => $password],
-                'first_options'   => ['label' => 'form.password'],
-                'second_options'  => ['label' => 'form.password_confirmation'],
-                'invalid_message' => 'fos_user.password.mismatch',
-            ]);
+        if (!$options['edit']) {
+            $builder
+                ->add(
+                    'plainPassword', RepeatedType::class, [
+                    'type'            => HiddenType::class,
+                    'options'         => ['translation_domain' => 'FOSUserBundle', 'empty_data' => $password],
+                    'first_options'   => ['label' => 'form.password'],
+                    'second_options'  => ['label' => 'form.password_confirmation'],
+                    'invalid_message' => 'fos_user.password.mismatch',
+                ]);
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -96,6 +99,7 @@ class UserType extends AbstractType
         $resolver->setDefaults([
             'data_class' => $this->class,
             'intention'  => 'registration',
+            'edit'       => false,
         ]);
     }
 

@@ -60,6 +60,6 @@ class GroupStudentType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_groupstudent';
+        return 'group_student';
     }
 }

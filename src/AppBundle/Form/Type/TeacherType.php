@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form\Type;
 
+use AppBundle\Entity\Teacher;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -11,16 +12,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TeacherType extends AbstractType
 {
-    private $edit;
-
-    /**
-     * @param bool $edit
-     */
-    public function __construct($edit = false)
-    {
-        $this->edit = $edit;
-    }
-
     /**
      * @param FormBuilderInterface $builder
      * @param array                $options
@@ -30,6 +21,7 @@ class TeacherType extends AbstractType
         $builder
             ->add('User', UserType::class, [
                 'show_legend' => false,
+                'edit'        => $options['edit'],
             ])
             ->add('wage', IntegerType::class, [
                 'label'              => 'form.label.wage',
@@ -52,7 +44,8 @@ class TeacherType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\Teacher',
+            'data_class' => Teacher::class,
+            'edit'       => false,
         ]);
     }
 
@@ -69,6 +62,6 @@ class TeacherType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_teacher';
+        return 'teacher';
     }
 }

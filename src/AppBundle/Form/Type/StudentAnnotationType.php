@@ -2,7 +2,12 @@
 
 namespace AppBundle\Form\Type;
 
+use AppBundle\Entity\Student;
+use AppBundle\Entity\StudentAnnotation;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -25,19 +30,19 @@ class StudentAnnotationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('message', null, [
+            ->add('message', TextType::class, [
                 'label'              => 'form.label.message',
                 'translation_domain' => 'AppBundle',
             ])
-            ->add('save', 'submit', [
+            ->add('save', SubmitType::class, [
                 'label'              => 'form.label.save',
                 'translation_domain' => 'AppBundle',
             ])
         ;
 
-        if (!$this->edit) {
-            $builder->add('student', 'hidden', [
-                'data_class' => 'AppBundle\Entity\Student',
+        if (!$options['edit']) {
+            $builder->add('student', HiddenType::class, [
+                'data_class' => Student::class,
             ]);
         }
 
@@ -50,7 +55,8 @@ class StudentAnnotationType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\StudentAnnotation',
+            'data_class' => StudentAnnotation::class,
+            'edit' => false
         ]);
     }
 
@@ -67,6 +73,6 @@ class StudentAnnotationType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_studentannotation';
+        return 'studentannotation';
     }
 }

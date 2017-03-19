@@ -71,7 +71,7 @@ class Group
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="date", nullable=false)
+     * @ORM\Column(type="date", columnDefinition="DATE", nullable=false)
      */
     protected $startDate;
 
@@ -203,11 +203,11 @@ class Group
      *
      * @param \DateTime $startDate
      *
-     * @return Group
+     * @return self
      */
     public function setStartDate($startDate)
     {
-        $this->startDate = $startDate->getTimestamp();
+        $this->startDate = $startDate;
 
         return $this;
     }
@@ -219,10 +219,11 @@ class Group
      */
     public function getStartDate()
     {
-        $datetime = new \DateTime();
-        $datetime->setTimestamp($this->startDate);
-
-        return $datetime;
+        return $this->startDate;
+//        $datetime = new \DateTime();
+//        $datetime->setTimestamp($this->startDate);
+//
+//        return $datetime;
     }
 
     /**

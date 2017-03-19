@@ -67,7 +67,7 @@ class GroupType extends AbstractType
                 'label'              => 'form.label.teacher',
                 'translation_domain' => 'AppBundle',
             ])
-            ->add('whatsapp_group', null, [
+            ->add('whatsapp_group', TextType::class, [
                 'label'              => 'form.label.whatsapp_group',
                 'translation_domain' => 'AppBundle',
             ])
@@ -101,6 +101,6 @@ class GroupType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_group';
+        return 'group';
     }
 }

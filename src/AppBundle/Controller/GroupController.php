@@ -118,7 +118,7 @@ class GroupController extends Controller
         $em    = $this->getDoctrine()->getManager();
         $group = $em->getRepository('AppBundle:Group')->find($id);
 
-        $form = $this->createForm(new GroupType(), $group, [
+        $form = $this->createForm(GroupType::class, $group, [
             'show_legend' => true,
             'label'       => $translator->trans('title.edit_group', [], 'AppBundle', 'es'),
         ]);
@@ -229,7 +229,7 @@ class GroupController extends Controller
             'student' => $studentId,
         ]);
 
-        $form = $this->createForm(new GroupStudentType(), $student, [
+        $form = $this->createForm(GroupStudentType::class, $student, [
             'show_legend' => true,
             'label'       => $translator->trans('title.edit_group', [], 'AppBundle', 'es'),
         ]);

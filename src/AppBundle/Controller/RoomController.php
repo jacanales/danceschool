@@ -109,7 +109,7 @@ class RoomController extends Controller
         $em   = $this->getDoctrine()->getManager();
         $room = $em->getRepository('AppBundle:Room')->find($id);
 
-        $form = $this->createForm(new RoomType(), $room, [
+        $form = $this->createForm(RoomType::class, $room, [
             'show_legend' => true,
             'label'       => $translator->trans('title.edit_room', [], 'AppBundle', 'es'),
         ]);

@@ -33,13 +33,15 @@ AppBundle\Entity\Group:
             type: time
             nullable: false
         startDate:
-            time: date
+            type: date
             nullable: false
             column: start_date
+            columnDefinition: DATE
         endDate:
-            time: date
+            type: date
             nullable: false
             column: end_date
+            columnDefinition: DATE
         whatsappGroup:
             type: string
             nullable: true

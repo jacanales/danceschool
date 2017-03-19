@@ -82,6 +82,6 @@ class RoomType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_room';
+        return 'room';
     }
 }

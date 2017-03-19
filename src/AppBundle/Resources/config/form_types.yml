@@ -2,9 +2,10 @@ services:
     app.form.type.gender:
         class: AppBundle\Form\Type\GenderType
         arguments:
-            - { m: form.gender.male, f: form.gender.female }
+            - { form.gender.male: m, form.gender.female: f }
         tags:
             - { name: form.type, alias: gender }
+
     app.form.type.weekday:
         class: AppBundle\Form\Type\WeekdayType
         tags:
