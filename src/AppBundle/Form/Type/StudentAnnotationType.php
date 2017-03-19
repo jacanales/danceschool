@@ -56,7 +56,7 @@ class StudentAnnotationType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => StudentAnnotation::class,
-            'edit' => false
+            'edit'       => false,
         ]);
     }
 

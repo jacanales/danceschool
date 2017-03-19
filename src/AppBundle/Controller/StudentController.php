@@ -224,7 +224,7 @@ class StudentController extends Controller
 
         $form = $this->createForm(StudentAnnotationType::class, $annotation, [
             'label' => $translator->trans('title.edit_annotation', [], 'AppBundle', 'es'),
-            'edit' => true
+            'edit'  => true,
         ]);
 
         $form->handleRequest($request);
