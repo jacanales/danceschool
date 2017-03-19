@@ -12,9 +12,10 @@ AppBundle\Entity\Teacher:
     fields:
         wage:
             type: float
-            nullable: true
+            nullable: false
             precision: 10
             scale: 0
+            default: 0
         comment:
             type: text
             nullable: true

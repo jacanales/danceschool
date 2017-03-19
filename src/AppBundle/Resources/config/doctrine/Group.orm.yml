@@ -36,12 +36,12 @@ AppBundle\Entity\Group:
             type: date
             nullable: false
             column: start_date
-            columnDefinition: DATE
+#            columnDefinition: DATE
         endDate:
             type: date
             nullable: false
             column: end_date
-            columnDefinition: DATE
+#            columnDefinition: DATE
         whatsappGroup:
             type: string
             nullable: true

@@ -25,9 +25,9 @@ class StudentType extends AbstractType
                 'required'    => false,
                 'placeholder' => 'form.choose_captation',
                 'choices'     => [
-                    'form.captation.recommended',
-                    'form.captation.offer',
-                    'form.captation.other',
+                    'form.captation.recommended' => 0,
+                    'form.captation.offer' => 1,
+                    'form.captation.other' => 2,
                 ],
                 'label'              => 'form.label.captation_method',
                 'translation_domain' => 'AppBundle',
