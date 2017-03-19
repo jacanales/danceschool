@@ -6,6 +6,7 @@ use AppBundle\Entity\GroupStudent;
 use AppBundle\Entity\Student;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,7 +23,7 @@ class GroupStudentType extends AbstractType
                 'label'              => 'form.label.student',
                 'translation_domain' => 'AppBundle',
             ])
-            ->add('is_reinforcing', IntegerType::class, [
+            ->add('is_reinforcing', CheckboxType::class, [
                 'required'           => false,
                 'label'              => 'form.label.is_reinforcing',
                 'translation_domain' => 'AppBundle',
