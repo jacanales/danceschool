@@ -1,0 +1,14 @@
+redis:
+  image: redis:2.6.17
+
+app:
+  image: socialpoint/ubuntu14.04-app:1.0
+  links:
+    - redis
+  volumes:
+    - .:/code
+    - "~/.ssh/id_circleci_github:/root/.ssh/id_rsa:ro"
+    - ~/.composer
+
+  environment:
+     REDIS_HOST: redis
