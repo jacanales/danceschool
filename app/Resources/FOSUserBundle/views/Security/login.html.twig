@@ -8,11 +8,17 @@
     <link href="{{ asset('css/layout/login.css') }}" rel="stylesheet">
 {% endblock head_style %}
 
-{% block fos_user_content %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+{% block page_header %}
+{% endblock page_header %}
 
+{% block flashes %}
+    {% if error %}
+        <div class="alert alert-danger" style="margin-top: 20px;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+{% endblock flashes%}
+
+{% block fos_user_content %}
+    <!-- container -->
     <div class="container">
         <form class="form-signin omb_loginForm" action="{{ path("fos_user_security_check") }}" method="post">
             <h2 class="form-signin-heading">{{ 'layout.login'|trans }}</h2>
@@ -37,5 +43,6 @@
             </div>
             <button class="btn btn-lg btn-primary btn-block" id="_submit" name="_submit" type="submit">{{ 'security.login.submit'|trans }}</button>
         </form>
-    </div> <!-- /container -->
+    </div>
+    <!-- /container -->
 {% endblock fos_user_content %}
