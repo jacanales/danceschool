@@ -54,6 +54,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
 
         $teacher = new Teacher();
         $teacher->setUser($user);
+        $teacher->setWage(0);
         $teacher->setComment('Owner');
 
         $this->manager->persist($teacher);

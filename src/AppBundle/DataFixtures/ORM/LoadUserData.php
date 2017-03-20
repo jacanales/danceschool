@@ -38,6 +38,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
     {
         $this->manager = $manager;
         $this->addUser('admin', 'admin@zonadev.es', User::ROLE_SUPER_ADMIN, 'admin');
+        $this->addUser('user', 'user@zonadev.es', User::ROLE_DEFAULT, 'user');
         $manager->flush();
     }
 

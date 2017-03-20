@@ -25,7 +25,7 @@
         <dd>{{ room.postalCode }}</dd>
 
         <dt>{{ 'form.label.phone'|trans({}, 'AppBundle') }}</dt>
-        <dd><td>{% if room.phone %}{{ phone_number_format(room.phone, 'NATIONAL') }}{% endif %}</td></dd>
+        <dd><td>{% if room.phone %}{{ room.phone|phone_number_format('NATIONAL') }}{% endif %}</td></dd>
     </dl>
 
     <a href="{{ path('mayimbe_room_index') }}" class="btn btn-primary btn-sm" role="button">{{ 'button.go_to_index'|trans({}, 'AppBundle') }}</a>
