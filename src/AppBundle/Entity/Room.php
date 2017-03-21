@@ -3,80 +3,51 @@
 namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Room object.
- *
- * @ORM\Entity
- * @ORM\Table(name="rooms")
- *
- * @author Jesús A. Canales Diez <jacanalesdiez@gmail.com>
- */
 class Room
 {
     /**
      * @var int
-     *
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="text")
      */
     protected $name;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="text")
      */
     protected $description;
 
     /**
      * @var float
-     *
-     * @ORM\Column(type="float", nullable=false)
      */
     protected $price;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", nullable=true, options={"default":null})
      */
     protected $address;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", length=45, nullable=true, options={"default":null})
      */
     protected $city;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", length=15, nullable=true, options={"default":null})
      */
     protected $postalCode;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="phone_number", nullable=true)
      */
     protected $phone;
 
     /**
      * @var int
-     *
-     * @ORM\OneToMany(targetEntity="Group", mappedBy="room")
      */
     protected $group;
 
@@ -104,7 +75,7 @@ class Room
     /**
      * @param int $id
      *
-     * @return Room
+     * @return self
      */
     public function setId($id)
     {
@@ -124,7 +95,7 @@ class Room
     /**
      * @param string $name
      *
-     * @return Room
+     * @return self
      */
     public function setName($name)
     {
@@ -144,7 +115,7 @@ class Room
     /**
      * @param string $description
      *
-     * @return Room
+     * @return self
      */
     public function setDescription($description)
     {
@@ -164,7 +135,7 @@ class Room
     /**
      * @param float $price
      *
-     * @return Room
+     * @return self
      */
     public function setPrice($price)
     {
@@ -184,7 +155,7 @@ class Room
     /**
      * @param string $address
      *
-     * @return Room
+     * @return self
      */
     public function setAddress($address)
     {
@@ -204,7 +175,7 @@ class Room
     /**
      * @param string $city
      *
-     * @return Room
+     * @return self
      */
     public function setCity($city)
     {
@@ -224,7 +195,7 @@ class Room
     /**
      * @param string $postalCode
      *
-     * @return Room
+     * @return self
      */
     public function setPostalCode($postalCode)
     {
@@ -244,7 +215,7 @@ class Room
     /**
      * @param string $phone
      *
-     * @return Room
+     * @return self
      */
     public function setPhone($phone)
     {
@@ -264,7 +235,7 @@ class Room
     /**
      * @param int $groups
      *
-     * @return Room
+     * @return self
      */
     public function setGroups($groups)
     {
@@ -278,7 +249,7 @@ class Room
      *
      * @param Group $group
      *
-     * @return Room
+     * @return self
      */
     public function addGroup(Group $group)
     {

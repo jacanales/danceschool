@@ -36,12 +36,12 @@ AppBundle\Entity\Group:
             type: date
             nullable: false
             column: start_date
-#            columnDefinition: DATE
+            columnDefinition: DATE
         endDate:
             type: date
             nullable: false
             column: end_date
-#            columnDefinition: DATE
+            columnDefinition: DATE
         whatsappGroup:
             type: string
             nullable: true
@@ -51,9 +51,9 @@ AppBundle\Entity\Group:
     manyToOne:
         course:
             targetEntity: AppBundle\Entity\Course
+            inversedBy: group
             cascade: {  }
             mappedBy: null
-            inversedBy: group
             joinColumn:
                 course_id:
                     referencedColumnName: id
@@ -61,9 +61,9 @@ AppBundle\Entity\Group:
             orphanRemoval: false
         room:
             targetEntity: AppBundle\Entity\Room
+            inversedBy: group
             cascade: {  }
             mappedBy: null
-            inversedBy: group
             joinColumn:
                 room_id:
                     referencedColumnName: id
@@ -71,9 +71,9 @@ AppBundle\Entity\Group:
             orphanRemoval: false
         teacher:
             targetEntity: AppBundle\Entity\Teacher
+            inversedBy: group
             cascade: {  }
             mappedBy: null
-            inversedBy: group
             joinColumn:
                 teacher_id:
                     referencedColumnName: id
@@ -96,6 +96,10 @@ AppBundle\Entity\Group:
 #                        name: student_id
 #                        referencedColumnName: id
 #            orderBy: null
+
+
+
+
     lifecycleCallbacks: {  }
 
     oneToMany:

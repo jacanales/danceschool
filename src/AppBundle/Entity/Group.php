@@ -2,113 +2,72 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Group object.
- *
- * @ORM\Entity
- * @ORM\Table(name="groups")
- *
- * @author Jesús A. Canales Diez <jacanalesdiez@gmail.com>
- */
 class Group
 {
     /**
      * @var int
-     *
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
      * @var Course
-     *
-     * @ORM\ManyToOne(targetEntity="Course", inversedBy="group")
-     * @ORM\JoinColumn(name="course_id", referencedColumnName="id", nullable=false)
      */
     protected $course;
 
     /**
      * @var Room
-     *
-     * @ORM\ManyToOne(targetEntity="Room", inversedBy="group")
-     * @ORM\JoinColumn(name="room_id", referencedColumnName="id", nullable=false)
      */
     protected $room;
 
     /**
      * @var Teacher
-     *
-     * @ORM\ManyToOne(targetEntity="Teacher", inversedBy="groups")
-     * @ORM\JoinColumn(name="teacher_id", referencedColumnName="id", nullable=false)
      */
     protected $teacher;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string")
      */
     protected $name;
 
     /**
      * @var int
-     *
-     * @ORM\Column(type="smallint", nullable=true)
      */
     protected $weekday;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(type="time", nullable=false)
      */
     protected $hour;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(type="date", columnDefinition="DATE", nullable=false)
      */
     protected $startDate;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(type="date", nullable=false)
      */
     protected $endDate;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", nullable=true, options={"default"=null})
      */
     protected $whatsappGroup;
 
     /**
      * @var int
-     *
-     * @ORM\OneToMany(targetEntity="GroupStudent", mappedBy="group")
      */
     protected $groupStudent;
-
-    /**
-     * @var int
-     *
-     * @ORM\OneToMany(targetEntity="GroupStudent", mappedBy="group")
-     */
-    protected $student;
 
     /**
      * Constructor.
      */
     public function __construct()
     {
-        $this->groupStudent = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->groupStudent = new ArrayCollection();
     }
 
     public function __toString()

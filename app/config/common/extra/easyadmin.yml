@@ -1,3 +1,8 @@
 easy_admin:
     entities:
         - AppBundle\Entity\User
+        - AppBundle\Entity\Course
+        - AppBundle\Entity\Group
+        - AppBundle\Entity\Room
+        - AppBundle\Entity\Student
+        - AppBundle\Entity\Teacher

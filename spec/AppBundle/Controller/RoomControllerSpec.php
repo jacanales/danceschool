@@ -70,6 +70,7 @@ class RoomControllerSpec extends ObjectBehavior
 
         $response = $this->indexAction();
 
+        $response->getStatusCode()->shouldBe(Response::HTTP_OK);
         $response->shouldHaveType(Response::class);
     }
 
