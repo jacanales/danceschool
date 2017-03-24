@@ -4,43 +4,25 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Course object.
- *
- * @ORM\Entity
- * @ORM\Table(name="courses")
- *
- * @author Jesús A. Canales Diez <jacanalesdiez@gmail.com>
- */
 class Course
 {
     /**
      * @var int
-     *
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="text")
      */
     protected $description;
 
     /**
      * @var float
-     *
-     * @ORM\Column(type="float", nullable=false)
      */
     protected $price;
 
     /**
      * @var int
-     *
-     * @ORM\OneToMany(targetEntity="Group", mappedBy="course")
      */
     protected $group;
 
@@ -71,7 +53,7 @@ class Course
     /**
      * @param string $description
      *
-     * @return $this
+     * @return self
      */
     public function setDescription($description)
     {
@@ -91,7 +73,7 @@ class Course
     /**
      * @param float $price
      *
-     * @return $this
+     * @return self
      */
     public function setPrice($price)
     {
@@ -103,16 +85,20 @@ class Course
     /**
      * @return int
      */
-    public function getGroups()
+    public function getGroup()
     {
-        return $this->groups;
+        return $this->group;
     }
 
     /**
-     * @param int $groups
+     * @param int $group
+     *
+     * @return self
      */
-    public function setGroups($groups)
+    public function setGroup($group)
     {
-        $this->groups = $groups;
+        $this->group = $group;
+
+        return $this;
     }
 }

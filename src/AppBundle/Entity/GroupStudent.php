@@ -89,8 +89,8 @@ class GroupStudent
     /**
      * @param bool $is_reinforcing
      */
-    public function setReinforcing($is_reinforcing)
+    public function setIsReinforcing($is_reinforcing)
     {
-        $this->is_reinforcing = $is_reinforcing;
+        $this->is_reinforcing = (bool) $is_reinforcing;
     }
 }

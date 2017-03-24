@@ -51,49 +51,4 @@ class RoomControllerSpec extends ObjectBehavior
     {
         $this->shouldBeAnInstanceOf(ContainerAwareInterface::class);
     }
-
-    public function it_should_respond_to_index_action(
-        ObjectRepository $repository,
-        EngineInterface $templating,
-        Response $mockResponse
-    ) {
-        $templating
-            ->renderResponse(
-                Argument::exact('AppBundle:Room:index.html.twig'),
-                ['rooms' => []],
-                null
-            )
-            ->willReturn($mockResponse)
-        ;
-
-        $repository->findAll()->willReturn([]);
-
-        $response = $this->indexAction();
-
-        $response->shouldHaveType(Response::class);
-    }
-
-    public function it_should_list_objects_in_index_action(
-        EntityManager $entityManager,
-        ObjectRepository $repository,
-        EngineInterface $templating,
-        Response $mockResponse,
-        Room $room
-    ) {
-        $entityManager->getRepository(Argument::exact('AppBundle:Room'))->willReturn($repository);
-        $repository->findAll()->willReturn([$room]);
-
-        $templating
-            ->renderResponse(
-                Argument::exact('AppBundle:Room:index.html.twig'),
-                ['rooms' => [$room]],
-                null
-            )
-            ->willReturn($mockResponse)
-        ;
-
-        $response = $this->indexAction();
-
-        $response->shouldHaveType(Response::class);
-    }
 }

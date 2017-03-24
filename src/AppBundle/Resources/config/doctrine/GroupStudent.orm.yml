@@ -2,19 +2,15 @@ AppBundle\Entity\GroupStudent:
     type: entity
     table: group_students
     id:
-        id:
-            type: integer
-            nullable: false
-            unsigned: true
-            id: true
-            generator:
-                strategy: IDENTITY
+        group:
+            associationKey: true
+        student:
+            associationKey: true
     fields:
         is_reinforcing:
             type: boolean
-            nullable: true
-            options:
-                default: false
+            nullable: false
+            default: 0
     manyToOne:
         group:
             id: true
