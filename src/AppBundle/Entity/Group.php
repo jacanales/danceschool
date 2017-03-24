@@ -179,10 +179,6 @@ class Group
     public function getStartDate()
     {
         return $this->startDate;
-//        $datetime = new \DateTime();
-//        $datetime->setTimestamp($this->startDate);
-//
-//        return $datetime;
     }
 
     /**

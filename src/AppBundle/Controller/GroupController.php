@@ -193,9 +193,10 @@ class GroupController extends Controller
             $em    = $this->getDoctrine()->getManager();
             $group = $em->getRepository('AppBundle:Group')->find($id);
 
-            $form->getData()->setGroup($group);
+            $formData = $form->getData();
+            $formData->setGroup($group);
 
-            $em->persist($form->getData());
+            $em->persist($formData);
             $em->flush();
 
             return $this->redirectToRoute('mayimbe_group_show', ['id' => $id]);
