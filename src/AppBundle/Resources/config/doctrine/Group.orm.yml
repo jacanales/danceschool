@@ -51,7 +51,7 @@ AppBundle\Entity\Group:
     manyToOne:
         course:
             targetEntity: AppBundle\Entity\Course
-            inversedBy: group
+            inversedBy: groups
             cascade: {  }
             mappedBy: null
             joinColumn:

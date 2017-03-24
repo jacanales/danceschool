@@ -48,6 +48,8 @@ class CourseController extends Controller
             ->getRepository('AppBundle:Course')
             ->find($id);
 
+        $groups = $course->getGroups();
+
         if (!$course) {
             throw $this->createNotFoundException(
                 'No course found for id ' . $id

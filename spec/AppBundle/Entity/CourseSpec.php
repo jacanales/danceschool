@@ -14,4 +14,25 @@ class CourseSpec extends ObjectBehavior
     {
     	$this->shouldHaveType(Course::class);
     }
+
+    public function it_sets_id()
+    {
+        $this->setId(1)->shouldHaveType(Course::class);
+
+        $this->getId()->shouldReturn(1);
+    }
+
+    public function it_sets_description()
+    {
+        $this->setDescription('description')->shouldHaveType(Course::class);
+
+        $this->getDescription()->shouldReturn('description');
+    }
+
+    public function it_sets_price()
+    {
+        $this->setPrice(1.1)->shouldHaveType(Course::class);
+
+        $this->getPrice()->shouldReturn(1.1);
+    }
 }

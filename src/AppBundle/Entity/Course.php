@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 class Course
@@ -24,7 +25,12 @@ class Course
     /**
      * @var int
      */
-    protected $group;
+    protected $groups;
+
+    public function __construct()
+    {
+        $this->groups = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -36,10 +42,14 @@ class Course
 
     /**
      * @param int $id
+     *
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -85,19 +95,19 @@ class Course
     /**
      * @return int
      */
-    public function getGroup()
+    public function getGroups()
     {
-        return $this->group;
+        return $this->groups;
     }
 
     /**
-     * @param int $group
+     * @param int $groups
      *
      * @return self
      */
-    public function setGroup($group)
+    public function setGroups($groups)
     {
-        $this->group = $group;
+        $this->groups = $groups;
 
         return $this;
     }

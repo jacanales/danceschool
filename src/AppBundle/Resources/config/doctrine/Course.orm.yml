@@ -21,7 +21,7 @@ AppBundle\Entity\Course:
             precision: 10
             scale: 0
     oneToMany:
-        group:
+        groups:
             targetEntity: AppBundle\Entity\Group
             mappedBy: course
     lifecycleCallbacks: {  }
