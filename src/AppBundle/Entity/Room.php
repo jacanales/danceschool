@@ -47,24 +47,6 @@ class Room
     protected $phone;
 
     /**
-     * @var int
-     */
-    protected $group;
-
-    /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-        $this->groups = new ArrayCollection();
-    }
-
-    public function __toString()
-    {
-        return (string) $this->getId();
-    }
-
-    /**
      * @return int
      */
     public function getId()
@@ -79,7 +61,7 @@ class Room
      */
     public function setId($id)
     {
-        $this->id = $id;
+        $this->id = (int) $id;
 
         return $this;
     }
@@ -139,7 +121,7 @@ class Room
      */
     public function setPrice($price)
     {
-        $this->price = $price;
+        $this->price = (float) $price;
 
         return $this;
     }
@@ -222,49 +204,5 @@ class Room
         $this->phone = $phone;
 
         return $this;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getGroups()
-    {
-        return $this->groups;
-    }
-
-    /**
-     * @param int $groups
-     *
-     * @return self
-     */
-    public function setGroups($groups)
-    {
-        $this->groups = $groups;
-
-        return $this;
-    }
-
-    /**
-     * Add group.
-     *
-     * @param Group $group
-     *
-     * @return self
-     */
-    public function addGroup(Group $group)
-    {
-        $this->groups[] = $group;
-
-        return $this;
-    }
-
-    /**
-     * Remove group.
-     *
-     * @param Group $group
-     */
-    public function removeGroup(Group $group)
-    {
-        $this->groups->removeElement($group);
     }
 }

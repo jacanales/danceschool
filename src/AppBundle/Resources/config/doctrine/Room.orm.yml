@@ -44,12 +44,6 @@ AppBundle\Entity\Room:
             options:
                 default: null
         phone:
-            #type: phone_number
             type: phone_number
             nullable: true
-
-    oneToMany:
-        group:
-            targetEntity: AppBundle\Entity\Group
-            mappedBy: room
     lifecycleCallbacks: {  }

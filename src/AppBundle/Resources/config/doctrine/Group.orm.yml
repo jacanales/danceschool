@@ -61,7 +61,6 @@ AppBundle\Entity\Group:
             orphanRemoval: false
         room:
             targetEntity: AppBundle\Entity\Room
-            inversedBy: group
             cascade: {  }
             mappedBy: null
             joinColumn:
