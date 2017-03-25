@@ -3,6 +3,7 @@
 namespace spec\AppBundle\Entity;
 
 use AppBundle\Entity\Course;
+use AppBundle\Entity\Group;
 use PhpSpec\ObjectBehavior;
 
 /**
@@ -34,5 +35,13 @@ class CourseSpec extends ObjectBehavior
         $this->setPrice(1.1)->shouldHaveType(Course::class);
 
         $this->getPrice()->shouldReturn(1.1);
+    }
+
+    public function it_sets_groups()
+    {
+        $group = new Group();
+        $this->setGroups([$group])->shouldHaveType(Course::class);
+
+        $this->getGroups()->shouldReturn([$group]);
     }
 }
