@@ -25,7 +25,7 @@ class RoomSpec extends ObjectBehavior
     public function it_sets_name()
     {
         $this->setName('name')->shouldHaveType(Room::class);
-        
+
         $this->getName()->shouldReturn('name');
     }
 

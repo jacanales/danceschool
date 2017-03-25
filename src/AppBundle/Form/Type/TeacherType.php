@@ -26,7 +26,7 @@ class TeacherType extends AbstractType
             ->add('wage', IntegerType::class, [
                 'label'              => 'form.label.wage',
                 'translation_domain' => 'AppBundle',
-                'attr'               => ['value' => 0]
+                'attr'               => ['value' => 0],
             ])
             ->add('comment', TextareaType::class, [
                 'label'              => 'form.label.comment',

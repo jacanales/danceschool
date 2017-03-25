@@ -13,7 +13,7 @@ class CourseSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-    	$this->shouldHaveType(Course::class);
+        $this->shouldHaveType(Course::class);
     }
 
     public function it_sets_id()

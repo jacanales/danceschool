@@ -22,18 +22,17 @@ class CourseRepositorySpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-    	$this->shouldHaveType(CourseRepository::class);
+        $this->shouldHaveType(CourseRepository::class);
     }
-    
+
     public function it_returns_hydrated_course_with_groups(
         EntityManagerInterface $entityManager,
         EntityRepository $entityRepository
     ) {
         $course = new Course();
-        $group = new Group();
+        $group  = new Group();
 
         $entityManager->find(null, 1, null, null)->shouldBeCalled()->willReturn($course);
-
 
         $entityRepository->findBy(['course' => 1])->shouldBeCalled()->willReturn([$group]);
         $entityManager->getRepository('AppBundle:Group')->willReturn($entityRepository);

@@ -10,7 +10,7 @@ class CourseRepository extends EntityRepository
     public function findWithGroups($id)
     {
         /**
-         * @var Course $course
+         * @var Course
          */
         $course = $this->find($id);
 
