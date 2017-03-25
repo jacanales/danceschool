@@ -1,6 +1,7 @@
 AppBundle\Entity\Course:
     type: entity
     table: courses
+    repositoryClass: AppBundle\Repository\CourseRepository
     fields:
         id:
             id: true

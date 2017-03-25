@@ -43,12 +43,13 @@ class CourseController extends Controller
      */
     public function showAction($id)
     {
-        $course = $this
+        $repository = $this
             ->getDoctrine()
-            ->getRepository('AppBundle:Course')
-            ->find($id);
+            ->getManager()
+            ->getRepository('AppBundle:Course');
 
-        $groups = $course->getGroups();
+        $course = $repository
+            ->findWithGroups($id);
 
         if (!$course) {
             throw $this->createNotFoundException(

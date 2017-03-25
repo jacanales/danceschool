@@ -23,7 +23,7 @@ class Course
     protected $price;
 
     /**
-     * @var int
+     * @var Group[]
      */
     protected $groups;
 
@@ -93,7 +93,7 @@ class Course
     }
 
     /**
-     * @return int
+     * @return Group[]
      */
     public function getGroups()
     {
@@ -101,11 +101,11 @@ class Course
     }
 
     /**
-     * @param int $groups
+     * @param Group[] $groups
      *
      * @return self
      */
-    public function setGroups($groups)
+    public function setGroups(array $groups)
     {
         $this->groups = $groups;
 
