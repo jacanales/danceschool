@@ -69,9 +69,16 @@ class Group
         $this->groupStudent = new ArrayCollection();
     }
 
-    public function __toString()
+    /**
+     * @param int $id
+     *
+     * @return self
+     */
+    public function setId($id)
     {
-        return (string) $this->getId();
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -298,39 +305,5 @@ class Group
     public function getTeacher()
     {
         return $this->teacher;
-    }
-
-    /**
-     * Add groupStudent.
-     *
-     * @param GroupStudent $groupStudent
-     *
-     * @return Group
-     */
-    public function addGroupStudent(GroupStudent $groupStudent)
-    {
-        $this->groupStudent[] = $groupStudent;
-
-        return $this;
-    }
-
-    /**
-     * Remove groupStudent.
-     *
-     * @param GroupStudent $groupStudent
-     */
-    public function removeGroupStudent(GroupStudent $groupStudent)
-    {
-        $this->groupStudent->removeElement($groupStudent);
-    }
-
-    /**
-     * Get groupStudent.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getGroupStudent()
-    {
-        return $this->groupStudent;
     }
 }
