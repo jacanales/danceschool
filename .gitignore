@@ -6,12 +6,12 @@
 !var/cache/.gitkeep
 !var/logs/.gitkeep
 /vendor/
-/web/bundles/
-/web/css/*
-!/web/css/layout
-web/images/*
-/web/js
-web/.htaccess
+#/web/bundles/
+#/web/css/*
+#!/web/css/layout
+#web/images/*
+#/web/js
+#web/.htaccess
 web/phpmetrics/
 
 
