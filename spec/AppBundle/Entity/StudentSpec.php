@@ -15,7 +15,7 @@ class StudentSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-    	$this->shouldHaveType(Student::class);
+        $this->shouldHaveType(Student::class);
     }
 
     public function it_sets_id()
@@ -54,7 +54,7 @@ class StudentSpec extends ObjectBehavior
 
         $this->getComment()->shouldReturn('comment');
     }
-    
+
     public function it_sets_user()
     {
         $user = new User();
