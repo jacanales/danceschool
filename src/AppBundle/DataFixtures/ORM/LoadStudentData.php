@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
-    const MAX_STUDENTS = 5;
+    const MAX_STUDENTS = 40;
 
     /**
      * @var ObjectManager

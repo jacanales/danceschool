@@ -26,12 +26,8 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
 
         $faker = \Faker\Factory::create();
 
-//        $students = $this->manager->getRepository('AppBundle:Student')->findAll();
-
         $courses = $this->manager->getRepository('AppBundle:Course')->findAll();
-
         $rooms = $this->manager->getRepository('AppBundle:Room')->findAll();
-
         $teachers = $this->manager->getRepository('AppBundle:Teacher')->findAll();
 
         for ($i = 1; $i <= self::MAX_GROUPS; ++$i) {

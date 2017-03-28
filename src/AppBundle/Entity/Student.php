@@ -2,99 +2,63 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Student object.
- *
- * @ORM\Entity
- * @ORM\Table(name="students")
- *
- * @author Jesús A. Canales Diez <jacanalesdiez@gmail.com>
- */
 class Student
 {
     /**
      * @var int
-     *
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
      * @var int
-     *
-     * @ORM\OneToOne(targetEntity="User", cascade={"persist"})
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    protected $user;
-
-    /**
-     * @ORM\Column(type="smallint", nullable=true)
      */
     protected $captationMethod;
 
     /**
      * @var bool
-     *
-     * @ORM\Column(type="boolean", nullable=true, options={"default":false})
      */
     protected $member;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", nullable=true, options={"default":false})
      */
     protected $accountNumber;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(type="date", columnDefinition="DATE", nullable=true, options={"default":null})
      */
     protected $contractExpiration;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="text", nullable=true)
      */
     protected $comment;
 
     /**
-     * @var int
-     *
-     * @ORM\OneToMany(targetEntity="GroupStudent", mappedBy="student")
+     * @var User
+     */
+    protected $user;
+
+    /**
+     * @var GroupStudent
      */
     protected $groupStudent;
 
     /**
-     * @var int
-     *
-     * @ORM\OneToMany(targetEntity="StudentAnnotation", mappedBy="student")
+     * @var StudentAnnotation
      */
     protected $annotations;
 
-    /**
-     * Constructor.
-     */
     public function __construct()
     {
-        $this->groupStudent = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->annotations  = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    public function __toString()
-    {
-        return (string) $this->getId();
+        $this->annotations  = new ArrayCollection();
+        $this->groupStudent = new ArrayCollection();
     }
 
     /**
-     * Get id.
-     *
      * @return int
      */
     public function getId()
@@ -103,8 +67,18 @@ class Student
     }
 
     /**
-     * Set captationMethod.
+     * @param int $id
      *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
      * @param int $captationMethod
      *
      * @return Student
@@ -117,8 +91,6 @@ class Student
     }
 
     /**
-     * Get captationMethod.
-     *
      * @return int
      */
     public function getCaptationMethod()
@@ -127,11 +99,9 @@ class Student
     }
 
     /**
-     * Set member.
-     *
      * @param bool $member
      *
-     * @return Student
+     * @return self
      */
     public function setMember($member)
     {
@@ -141,8 +111,6 @@ class Student
     }
 
     /**
-     * Get member.
-     *
      * @return bool
      */
     public function getMember()
@@ -151,11 +119,9 @@ class Student
     }
 
     /**
-     * Set contractExpiration.
-     *
      * @param \DateTime $contractExpiration
      *
-     * @return Student
+     * @return self
      */
     public function setContractExpiration($contractExpiration)
     {
@@ -165,8 +131,6 @@ class Student
     }
 
     /**
-     * Get contractExpiration.
-     *
      * @return \DateTime
      */
     public function getContractExpiration()
@@ -175,11 +139,9 @@ class Student
     }
 
     /**
-     * Set comment.
-     *
      * @param string $comment
      *
-     * @return Student
+     * @return self
      */
     public function setComment($comment)
     {
@@ -189,8 +151,6 @@ class Student
     }
 
     /**
-     * Get comment.
-     *
      * @return string
      */
     public function getComment()
@@ -199,13 +159,11 @@ class Student
     }
 
     /**
-     * Set user.
+     * @param User $user
      *
-     * @param \AppBundle\Entity\User $user
-     *
-     * @return Student
+     * @return self
      */
-    public function setUser(\AppBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 
@@ -213,9 +171,7 @@ class Student
     }
 
     /**
-     * Get user.
-     *
-     * @return \AppBundle\Entity\User
+     * @return User
      */
     public function getUser()
     {
@@ -223,83 +179,58 @@ class Student
     }
 
     /**
-     * Add groupStudent.
+     * @param StudentAnnotation $annotation
      *
-     * @param \AppBundle\Entity\GroupStudent $groupStudent
-     *
-     * @return Student
+     * @return self
      */
-    public function addGroupStudent(\AppBundle\Entity\GroupStudent $groupStudent)
+    public function addAnnotation(StudentAnnotation $annotation)
     {
-        $this->groupStudent[] = $groupStudent;
+        $this->annotations->add($annotation);
 
         return $this;
     }
 
     /**
-     * Remove groupStudent.
-     *
-     * @param \AppBundle\Entity\GroupStudent $groupStudent
+     * @param StudentAnnotation $annotation
      */
-    public function removeGroupStudent(\AppBundle\Entity\GroupStudent $groupStudent)
-    {
-        $this->groupStudent->removeElement($groupStudent);
-    }
-
-    /**
-     * Get groupStudent.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getGroupStudent()
-    {
-        return $this->groupStudent;
-    }
-
-    /**
-     * Add annotation.
-     *
-     * @param \AppBundle\Entity\StudentAnnotation $annotation
-     *
-     * @return Student
-     */
-    public function addAnnotation(\AppBundle\Entity\StudentAnnotation $annotation)
-    {
-        $this->annotations[] = $annotation;
-
-        return $this;
-    }
-
-    /**
-     * Remove annotation.
-     *
-     * @param \AppBundle\Entity\StudentAnnotation $annotation
-     */
-    public function removeAnnotation(\AppBundle\Entity\StudentAnnotation $annotation)
+    public function removeAnnotation(StudentAnnotation $annotation)
     {
         $this->annotations->removeElement($annotation);
     }
 
     /**
-     * Get annotations.
-     *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return ArrayCollection
      */
     public function getAnnotations()
     {
         return $this->annotations;
     }
 
-    public function getFullName()
-    {
-        return $this->getUser()->getName() . ' ' . $this->getUser()->getSurname();
-    }
-
     /**
      * @param string $accountNumber
+     *
+     * @return self
      */
     public function setAccountNumber($accountNumber)
     {
         $this->accountNumber = $accountNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAccountNumber()
+    {
+        return $this->accountNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->getUser()->getName() . ' ' . $this->getUser()->getSurname();
     }
 }
