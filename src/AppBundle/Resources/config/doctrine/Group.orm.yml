@@ -70,7 +70,7 @@ AppBundle\Entity\Group:
             orphanRemoval: false
         teacher:
             targetEntity: AppBundle\Entity\Teacher
-            inversedBy: group
+            inversedBy: groups
             cascade: {  }
             mappedBy: null
             joinColumn:
@@ -78,27 +78,6 @@ AppBundle\Entity\Group:
                     referencedColumnName: id
             nullable: false
             orphanRemoval: false
-#    manyToMany:
-#        student:
-#            targetEntity: AppBundle\Entity\Student
-#            cascade: {  }
-#            mappedBy: null
-#            inversedBy: group
-#            joinTable:
-#                name: group_students
-#                joinColumns:
-#                    -
-#                        name: group_id
-#                        referencedColumnName: id
-#                inverseJoinColumns:
-#                    -
-#                        name: student_id
-#                        referencedColumnName: id
-#            orderBy: null
-
-
-
-
     lifecycleCallbacks: {  }
 
     oneToMany:

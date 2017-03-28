@@ -45,6 +45,7 @@ class StudentType extends AbstractType
             ->add('comment', TextareaType::class, [
                 'label'              => 'form.label.comment',
                 'translation_domain' => 'AppBundle',
+                'required'           => false
             ])
             ->add('save', SubmitType::class, [
                 'label'              => 'form.label.save',

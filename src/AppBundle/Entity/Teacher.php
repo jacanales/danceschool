@@ -5,77 +5,51 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Teacher object.
- *
- * @ORM\Entity
- * @ORM\Table(name="teachers")
- *
- * @author Jesús A. Canales Diez <jacanalesdiez@gmail.com>
- */
 class Teacher
 {
     /**
      * @var int
-     *
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
-     * @var int
-     *
-     * @ORM\OneToOne(targetEntity="User", cascade={"persist"})
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
+     * @var User
      */
     protected $user;
 
     /**
      * @var float
-     *
-     * @ORM\Column(type="float", nullable=true)
      */
     protected $wage;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="text", nullable=true)
      */
     protected $comment;
 
     /**
-     * @var int
-     *
-     * @ORM\OneToMany(targetEntity="Group", mappedBy="teacher")
-     */
-    protected $group;
-
-    /**
-     * @var int
-     *
-     * @ORM\OneToMany(targetEntity="Group", mappedBy="teacher")
+     * @var Group[]
      */
     protected $groups;
 
-    /**
-     * Constructor.
-     */
     public function __construct()
     {
         $this->groups = new ArrayCollection();
     }
 
-    public function __toString()
+    /**
+     * @param int $id
+     *
+     * @return self
+     */
+    public function setId($id)
     {
-        return (string) $this->getId();
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
-     * Get id.
-     *
      * @return int
      */
     public function getId()
@@ -84,11 +58,9 @@ class Teacher
     }
 
     /**
-     * Set wage.
-     *
      * @param float $wage
      *
-     * @return Teacher
+     * @return self
      */
     public function setWage($wage)
     {
@@ -98,8 +70,6 @@ class Teacher
     }
 
     /**
-     * Get wage.
-     *
      * @return float
      */
     public function getWage()
@@ -108,11 +78,9 @@ class Teacher
     }
 
     /**
-     * Set comment.
-     *
      * @param string $comment
      *
-     * @return Teacher
+     * @return self
      */
     public function setComment($comment)
     {
@@ -122,8 +90,6 @@ class Teacher
     }
 
     /**
-     * Get comment.
-     *
      * @return string
      */
     public function getComment()
@@ -132,11 +98,9 @@ class Teacher
     }
 
     /**
-     * Set user.
-     *
      * @param User $user
      *
-     * @return Teacher
+     * @return self
      */
     public function setUser(User $user = null)
     {
@@ -146,8 +110,6 @@ class Teacher
     }
 
     /**
-     * Get user.
-     *
      * @return User
      */
     public function getUser()
@@ -156,39 +118,8 @@ class Teacher
     }
 
     /**
-     * Add group.
-     *
-     * @param Group $group
-     *
-     * @return Teacher
+     * @return string
      */
-    public function addClassGroup(Group $group)
-    {
-        $this->groups[] = $group;
-
-        return $this;
-    }
-
-    /**
-     * Remove group.
-     *
-     * @param Group $group
-     */
-    public function removeClassGroup(Group $group)
-    {
-        $this->groups->removeElement($group);
-    }
-
-    /**
-     * Get groups.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getGroups()
-    {
-        return $this->groups;
-    }
-
     public function getFullName()
     {
         return $this->getUser()->getName() . ' ' . $this->getUser()->getSurname();
