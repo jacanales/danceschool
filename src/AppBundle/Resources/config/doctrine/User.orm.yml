@@ -5,17 +5,15 @@ AppBundle\Entity\User:
         prePersist: [setCreatedAt, setUpdatedAt]
         preUpdate: [setUpdatedAt]
     uniqueConstraints:
-        uniqueConstraint:
-            columns: [username_canonical, email_canonical, identity_number]
-#            UNIQ_1483A5E992FC23A8:
-#                        columns:
-#                            - username_canonical
-#                    UNIQ_1483A5E9A0D96FBF:
-#                        columns:
-#                            - email_canonical
-#                    UNIQ_1483A5E92BC7B602:
-#                        columns:
-#                            - identity_number
+        UNIQ_1483A5E992FC23A8:
+            columns:
+                - username_canonical
+        UNIQ_1483A5E9A0D96FBF:
+            columns:
+                - email_canonical
+        UNIQ_1483A5E92BC7B602:
+            columns:
+                - identity_number
     id:
         id:
             id: true

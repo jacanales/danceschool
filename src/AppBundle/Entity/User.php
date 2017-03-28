@@ -2,110 +2,74 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
-/**
- * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
- * @ORM\Table(name="users",
- *  uniqueConstraints={
- *      @ORM\UniqueConstraint(name="uniq_username_canonical",columns={"username_canonical"}),
- *      @ORM\UniqueConstraint(name="uniq_email_canonical",columns={"email_canonical"})
- *  })
- */
 class User extends BaseUser
 {
     const ROLE_ADMIN = 'ROLE_ADMIN';
 
     /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var int
      */
     protected $id;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string")
      */
     protected $name;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", nullable=true, options={"default":null})
      */
     protected $surname;
 
     /**
-     * @var char
-     *
-     * @ORM\Column(type="string", nullable=true, length=1, options={"comment":"m: Male, f: female"})
+     * @var string
      */
     protected $gender;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(type="datetime", nullable=true, options={"default":null})
      */
     protected $birthday;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", length=15, nullable=true)
      */
     protected $phone;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", nullable=true, options={"default":null})
      */
     protected $address;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", length=45, nullable=true, options={"default":null})
      */
     protected $city;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", length=2, nullable=true, options={"default":"ES"})
      */
     protected $country;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", length=15, nullable=true, options={"default":null})
      */
     protected $postalCode;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", unique=true, nullable=true, options={"default":null})
      */
     protected $identityNumber;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(type="datetime", nullable=false)
      */
     protected $created;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(type="datetime", nullable=false)
      */
     protected $modified;
 
@@ -113,33 +77,24 @@ class User extends BaseUser
     {
         parent::__construct();
 
-        $this->created = new \DateTime('now');
+        $this->setCreatedAt();
     }
 
-    /**
-     * @ORM\PrePersist
-     */
     public function setCreatedAt()
     {
-        $this->created = new \DateTime('now');
+        $this->setCreated(new \DateTime('now'));
     }
 
-    /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
     public function setUpdatedAt()
     {
         if (is_null($this->name)) {
             $this->name = $this->getUsername();
         }
 
-        $this->modified = new \DateTime('now');
+        $this->setModified(new \DateTime('now'));
     }
 
     /**
-     * Set name.
-     *
      * @param string $name
      *
      * @return self
@@ -152,8 +107,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get name.
-     *
      * @return string
      */
     public function getName()
@@ -162,8 +115,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set surname.
-     *
      * @param string $surname
      *
      * @return self
@@ -176,8 +127,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get surname.
-     *
      * @return string
      */
     public function getSurname()
@@ -186,8 +135,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set gender.
-     *
      * @param string $gender
      *
      * @return self
@@ -200,8 +147,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get gender.
-     *
      * @return string
      */
     public function getGender()
@@ -210,8 +155,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set birthday.
-     *
      * @param string $birthday
      *
      * @return self
@@ -224,8 +167,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get birthday.
-     *
      * @return string
      */
     public function getBirthday()
@@ -234,8 +175,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set phone.
-     *
      * @param string $phone
      *
      * @return self
@@ -248,8 +187,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get phone.
-     *
      * @return string
      */
     public function getPhone()
@@ -258,8 +195,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set address.
-     *
      * @param string $address
      *
      * @return self
@@ -272,8 +207,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get address.
-     *
      * @return string
      */
     public function getAddress()
@@ -282,8 +215,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set city.
-     *
      * @param string $city
      *
      * @return self
@@ -296,8 +227,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get city.
-     *
      * @return string
      */
     public function getCity()
@@ -306,8 +235,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set country.
-     *
      * @param string $country
      *
      * @return self
@@ -320,8 +247,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get country.
-     *
      * @return string
      */
     public function getCountry()
@@ -330,8 +255,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set postalCode.
-     *
      * @param string $postalCode
      *
      * @return self
@@ -344,8 +267,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get postalCode.
-     *
      * @return string
      */
     public function getPostalCode()
@@ -354,8 +275,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set identityNumber.
-     *
      * @param string $identityNumber
      *
      * @return self
@@ -368,8 +287,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get identityNumber.
-     *
      * @return string
      */
     public function getIdentityNumber()
@@ -378,8 +295,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set created.
-     *
      * @param \DateTime $created
      *
      * @return self
@@ -392,8 +307,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get created.
-     *
      * @return \DateTime
      */
     public function getCreated()
@@ -402,8 +315,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set modified.
-     *
      * @param \DateTime $modified
      *
      * @return self
@@ -416,8 +327,6 @@ class User extends BaseUser
     }
 
     /**
-     * Get modified.
-     *
      * @return \DateTime
      */
     public function getModified()
