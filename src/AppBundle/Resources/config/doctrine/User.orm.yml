@@ -45,8 +45,9 @@ AppBundle\Entity\User:
             fixed: false
             comment: 'm: Male, f: female'
         birthday:
-            type: datetime
+            type: date
             nullable: true
+            columnDefinition: DATE
         phone:
             type: string
             nullable: true

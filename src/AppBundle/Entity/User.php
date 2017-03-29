@@ -155,7 +155,7 @@ class User extends BaseUser
     }
 
     /**
-     * @param string $birthday
+     * @param \DateTime $birthday
      *
      * @return self
      */
@@ -167,7 +167,7 @@ class User extends BaseUser
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
     public function getBirthday()
     {

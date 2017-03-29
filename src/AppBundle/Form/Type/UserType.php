@@ -49,9 +49,9 @@ class UserType extends AbstractType
             ])
             ->add('birthday', BirthdayType::class, [
                 'widget'             => 'single_text',
-                'years'              => range(date('Y'), date('Y') - 70),
                 'label'              => 'form.label.birthday',
                 'translation_domain' => 'AppBundle',
+                'placeholder'        => 'DD/MM/YYYY',
             ])
             ->add('phone', null, [
                 'label'              => 'form.label.phone',

@@ -85,7 +85,7 @@ class StudentController extends Controller
         $form = $this->createForm(StudentType::class, new Student());
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($form->getData());
             $em->flush();
@@ -119,7 +119,7 @@ class StudentController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             if (!$student) {
                 throw $this->createNotFoundException(
                     'No product found for id ' . $id
@@ -176,15 +176,14 @@ class StudentController extends Controller
      */
     public function addAnnotationAction(Request $request, $studentId)
     {
-        $translator = $this->get('translator');
-
         $form = $this->createForm(StudentAnnotationType::class, new StudentAnnotation(), [
-            'label' => $translator->trans('title.add_annotation', [], 'AppBundle', 'es'),
+            'label'              => 'title.add_annotation',
+            'translation_domain' => 'AppBundle',
         ]);
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em      = $this->getDoctrine()->getManager();
             $student = $em->getRepository('AppBundle:Student')->find($studentId);
 
@@ -217,19 +216,18 @@ class StudentController extends Controller
      */
     public function editAnnotationAction(Request $request, $studentId, $annotationId)
     {
-        $translator = $this->get('translator');
-
         $em         = $this->getDoctrine()->getManager();
         $annotation = $em->getRepository('AppBundle:StudentAnnotation')->find($annotationId);
 
         $form = $this->createForm(StudentAnnotationType::class, $annotation, [
-            'label' => $translator->trans('title.edit_annotation', [], 'AppBundle', 'es'),
-            'edit'  => true,
+            'label'              => 'title.edit_annotation',
+            'translation_domain' => 'AppBundle',
+            'edit'               => true,
         ]);
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             if (!$annotation) {
                 throw $this->createNotFoundException(
                     'No product found for id ' . $annotationId

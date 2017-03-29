@@ -28,7 +28,11 @@
     <dt>{{ 'form.label.identity_number'|trans() }}</dt>
     <dd>{{ student.user.identityNumber }}</dd>
     <dt>{{ 'form.label.birthday'|trans() }}</dt>
-    <dd>{{ student.user.birthday|date("d/m/Y") }}</dd>
+    <dd>
+        {% if student.user.birthday %}
+            {{ student.user.birthday|date("d/m/Y") }}
+        {% endif %}
+    </dd>
     <dt>{{ 'form.label.phone'|trans() }}</dt>
     <dd>{{ student.user.phone }}</dd>
     <dt>{{ 'form.label.address'|trans() }}</dt>

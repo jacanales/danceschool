@@ -72,7 +72,7 @@ class TeacherController extends Controller
         $form = $this->createForm(TeacherType::class, new Teacher());
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($form->getData());
             $em->flush();
@@ -105,7 +105,7 @@ class TeacherController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             if (!$teacher) {
                 throw $this->createNotFoundException(
                     'No product found for id ' . $id

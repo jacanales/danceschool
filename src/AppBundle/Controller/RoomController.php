@@ -42,16 +42,15 @@ class RoomController extends Controller
      */
     public function addAction(Request $request)
     {
-        $translator = $this->get('translator');
-
         $form = $this->createForm(RoomType::class, new Room(), [
-            'show_legend' => true,
-            'label'       => $translator->trans('title.add_room', [], 'AppBundle', 'es'),
+            'show_legend'        => true,
+            'label'              => 'title.add_room',
+            'translation_domain' => 'AppBundle',
         ]);
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($form->getData());
             $em->flush();
@@ -104,19 +103,18 @@ class RoomController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-        $translator = $this->get('translator');
-
         $em   = $this->getDoctrine()->getManager();
         $room = $em->getRepository('AppBundle:Room')->find($id);
 
         $form = $this->createForm(RoomType::class, $room, [
-            'show_legend' => true,
-            'label'       => $translator->trans('title.edit_room', [], 'AppBundle', 'es'),
+            'show_legend'        => true,
+            'label'              => 'title.edit_room',
+            'translation_domain' => 'AppBundle',
         ]);
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             if (!$room) {
                 throw $this->createNotFoundException(
                     'No product found for id ' . $id

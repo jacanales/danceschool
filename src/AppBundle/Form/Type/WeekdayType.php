@@ -23,7 +23,6 @@ class WeekdayType extends AbstractType
     {
         $resolver->setDefaults([
             'choices'           => $this->weekdays,
-            'choices_as_values' => true,
         ]);
     }
 

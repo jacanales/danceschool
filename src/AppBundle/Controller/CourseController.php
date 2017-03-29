@@ -74,15 +74,14 @@ class CourseController extends Controller
      */
     public function addAction(Request $request)
     {
-        $translator = $this->get('translator');
-
         $form = $this->createForm(CourseType::class, new Course(), [
-            'label' => $translator->trans('title.add_course', [], 'AppBundle', 'es'),
+            'label'              => 'title.add_course',
+            'translation_domain' => 'AppBundle',
         ]);
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($form->getData());
             $em->flush();
@@ -108,18 +107,17 @@ class CourseController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-        $translator = $this->get('translator');
-
         $em     = $this->getDoctrine()->getManager();
         $course = $em->getRepository('AppBundle:Course')->find($id);
 
         $form = $this->createForm(CourseType::class, $course, [
-            'label' => $translator->trans('title.edit_course', [], 'AppBundle', 'es'),
+            'label'              => 'title.edit_course',
+            'translation_domain' => 'AppBundle',
         ]);
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             if (!$course) {
                 throw $this->createNotFoundException(
                     'No product found for id ' . $id
