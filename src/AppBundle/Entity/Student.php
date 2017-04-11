@@ -230,6 +230,6 @@ class Student
      */
     public function getFullName()
     {
-        return $this->getUser()->getName() . ' ' . $this->getUser()->getSurname();
+        return $this->getUser()->getName() . ' ' . $this->getUser()->getLastname();
     }
 }

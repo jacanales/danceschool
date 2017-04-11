@@ -96,7 +96,7 @@ class Course
      */
     public function getGroups()
     {
-        return $this->groups;
+        return $this->groups->toArray();
     }
 
     /**
@@ -106,7 +106,7 @@ class Course
      */
     public function setGroups(array $groups)
     {
-        $this->groups->add($groups);
+        $this->groups = new ArrayCollection($groups);
 
         return $this;
     }

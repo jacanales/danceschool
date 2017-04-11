@@ -5,6 +5,7 @@ imports:
     - { resource: services.yml }
     - { resource: extra/easyadmin.yml }
     - { resource: extra/user.yml }
+    - { resource: extra/hwi_oauth.yml }
 
 framework:
     #esi:             ~

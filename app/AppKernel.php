@@ -21,12 +21,13 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
 
             # Third-party bundles
-            new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
+            new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 //            new Liip\ThemeBundle\LiipThemeBundle(),
             new Misd\PhoneNumberBundle\MisdPhoneNumberBundle()
         );
@@ -39,7 +40,6 @@ class AppKernel extends Kernel
             # Third-party bundles
             $bundles[] = new Webfactory\Bundle\ExceptionsBundle\WebfactoryExceptionsBundle();
             $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
-//            $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
 //            $bundles[] = new Egulias\ListenersDebugCommandBundle\EguliasListenersDebugCommandBundle();
         }
 

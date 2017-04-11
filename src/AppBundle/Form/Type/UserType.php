@@ -29,8 +29,8 @@ class UserType extends AbstractType
                 'label'              => 'form.label.name',
                 'translation_domain' => 'AppBundle',
             ])
-            ->add('surname', null, [
-                'label'              => 'form.label.surname',
+            ->add('lastname', null, [
+                'label'              => 'form.label.lastname',
                 'translation_domain' => 'AppBundle',
             ])
             ->add('username', HiddenType::class, [

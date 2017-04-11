@@ -52,7 +52,7 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
 
             $user
                 ->setName($faker->name)
-                ->setSurname($faker->lastName)
+                ->setLastname($faker->lastName)
                 ->setGender('m')
                 ->setPhone($faker->phoneNumber)
                 ->setIdentityNumber($faker->randomNumber(8))

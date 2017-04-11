@@ -43,6 +43,9 @@
             </div>
             <button class="btn btn-lg btn-primary btn-block" id="_submit" name="_submit" type="submit">{{ 'security.login.submit'|trans }}</button>
         </form>
+        <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">
+            <span>Facebook</span>
+        </a>
     </div>
     <!-- /container -->
 {% endblock fos_user_content %}

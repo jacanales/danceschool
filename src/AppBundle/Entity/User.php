@@ -21,7 +21,7 @@ class User extends BaseUser
     /**
      * @var string
      */
-    protected $surname;
+    protected $lastname;
 
     /**
      * @var string
@@ -73,6 +73,8 @@ class User extends BaseUser
      */
     protected $modified;
 
+    protected $facebookId;
+
     public function __construct()
     {
         parent::__construct();
@@ -115,13 +117,13 @@ class User extends BaseUser
     }
 
     /**
-     * @param string $surname
+     * @param string $lastname
      *
      * @return self
      */
-    public function setSurname($surname)
+    public function setLastname($lastname)
     {
-        $this->surname = $surname;
+        $this->lastname = $lastname;
 
         return $this;
     }
@@ -129,9 +131,9 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getSurname()
+    public function getLastname()
     {
-        return $this->surname;
+        return $this->lastname;
     }
 
     /**
@@ -332,5 +334,23 @@ class User extends BaseUser
     public function getModified()
     {
         return $this->modified;
+    }
+
+    /**
+     * @param string $facebookId
+     * @return void
+     */
+    public function setFacebookId($facebookId)
+    {
+        $this->facebookId = $facebookId;
+        $this->salt = '';
+    }
+
+    /**
+     * @return string
+     */
+    public function getFacebookId()
+    {
+        return $this->facebookId;
     }
 }
