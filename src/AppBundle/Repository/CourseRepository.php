@@ -7,10 +7,15 @@ use Doctrine\ORM\EntityRepository;
 
 class CourseRepository extends EntityRepository
 {
-    public function findWithGroups($id)
+    /**
+     * @param $id
+     *
+     * @return Course
+     */
+    public function findWithGroups(int $id): Course
     {
         /**
-         * @var Course
+         * @var Course $course
          */
         $course = $this->find($id);
 

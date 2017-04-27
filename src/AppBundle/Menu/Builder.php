@@ -7,7 +7,7 @@ use Knp\Menu\ItemInterface;
 
 class Builder
 {
-    public function mainMenu(FactoryInterface $factory)
+    public function mainMenu(FactoryInterface $factory): ItemInterface
     {
         $menu = $factory->createItem('root', [
             'navbar'     => true,
@@ -29,7 +29,7 @@ class Builder
         return $menu;
     }
 
-    private function addRoomMenu(ItemInterface &$menu)
+    private function addRoomMenu(ItemInterface $menu): void
     {
         // Create a dropdown with a caret
         $room = $menu->addChild('title.room', [
@@ -43,7 +43,7 @@ class Builder
         $room->addChild('title.add_room', ['route' => 'mayimbe_room_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
     }
 
-    private function addCourseMenu(ItemInterface &$menu)
+    private function addCourseMenu(ItemInterface $menu): void
     {
         // Create a dropdown with a caret
         $course = $menu->addChild('title.course', [
@@ -57,7 +57,7 @@ class Builder
         $course->addChild('title.add_course', ['route' => 'mayimbe_course_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
     }
 
-    private function addTeacherMenu(ItemInterface &$menu)
+    private function addTeacherMenu(ItemInterface $menu): void
     {
         // Create a dropdown with a caret
         $teacher = $menu->addChild('title.teacher', [
@@ -71,7 +71,7 @@ class Builder
         $teacher->addChild('title.add_teacher', ['route' => 'mayimbe_teacher_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
     }
 
-    private function addStudentMenu(ItemInterface &$menu)
+    private function addStudentMenu(ItemInterface $menu): void
     {
         // Create a dropdown with a caret
         $student = $menu->addChild('title.student', [
@@ -85,7 +85,7 @@ class Builder
         $student->addChild('title.add_student', ['route' => 'mayimbe_student_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
     }
 
-    private function addGroupMenu(ItemInterface &$menu)
+    private function addGroupMenu(ItemInterface $menu): void
     {
         $group = $menu->addChild('title.group', [
             'dropdown' => true,
@@ -98,7 +98,7 @@ class Builder
         $group->addChild('title.add_group', ['route' => 'mayimbe_group_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
     }
 
-    public function invalidMethod(FactoryInterface $factory)
+    public function invalidMethod(): \stdClass
     {
         return new \stdClass();
     }
