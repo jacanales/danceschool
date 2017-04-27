@@ -338,12 +338,11 @@ class User extends BaseUser
 
     /**
      * @param string $facebookId
-     * @return void
      */
     public function setFacebookId($facebookId)
     {
         $this->facebookId = $facebookId;
-        $this->salt = '';
+        $this->salt       = '';
     }
 
     /**

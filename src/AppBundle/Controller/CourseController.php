@@ -2,9 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Course;
 use AppBundle\Form\Type\CourseType;
-use Doctrine\Bundle\DoctrineBundle\Registry;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,6 +19,7 @@ class CourseController extends Controller
      * @Route("/", name="mayimbe_course_index")
      *
      * @return Response
+     *
      * @throws \LogicException
      */
     public function indexAction(): Response
@@ -45,6 +44,7 @@ class CourseController extends Controller
      * @param int $id
      *
      * @return Response
+     *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
@@ -79,6 +79,7 @@ class CourseController extends Controller
      * @param Request $request
      *
      * @return Response
+     *
      * @throws \LogicException
      */
     public function addAction(Request $request): Response
@@ -113,6 +114,7 @@ class CourseController extends Controller
      * @param int     $id
      *
      * @return Response
+     *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
@@ -156,6 +158,7 @@ class CourseController extends Controller
      * @param int $id
      *
      * @return Response
+     *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException

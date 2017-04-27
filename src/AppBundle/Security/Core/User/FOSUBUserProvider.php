@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class FOSUBUserProvider extends BaseUserProvider
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function connect(UserInterface $user, UserResponseInterface $response)
     {
@@ -21,12 +21,12 @@ class FOSUBUserProvider extends BaseUserProvider
         //on connect - get the access token and the user ID
         $service = $response->getResourceOwner()->getName();
 
-        $setter = 'set'.ucfirst($service);
-        $setter_id = $setter.'Id';
-        $setter_token = $setter.'AccessToken';
+        $setter       = 'set' . ucfirst($service);
+        $setter_id    = $setter . 'Id';
+        $setter_token = $setter . 'AccessToken';
 
         //we "disconnect" previously connected users
-        if (null !== $previousUser = $this->userManager->findUserBy(array($property => $username))) {
+        if (null !== $previousUser = $this->userManager->findUserBy([$property => $username])) {
             $previousUser->$setter_id(null);
             $previousUser->$setter_token(null);
             $this->userManager->updateUser($previousUser);
@@ -46,8 +46,8 @@ class FOSUBUserProvider extends BaseUserProvider
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
         $username = $response->getUsername();
-        $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
-        $email = $response->getEmail();
+        $user     = $this->userManager->findUserBy([$this->getProperty($response) => $username]);
+        $email    = $response->getEmail();
 
         //check if the user already has the corresponding social account
         if (null === $user) {
@@ -57,7 +57,7 @@ class FOSUBUserProvider extends BaseUserProvider
             if (null === $user || !$user instanceof UserInterface) {
                 //if the user does not have a normal account, set it up:
                 /**
-                 * @var $user User
+                 * @var User
                  */
                 $user = $this->userManager->createUser();
 
@@ -76,7 +76,6 @@ class FOSUBUserProvider extends BaseUserProvider
                     $user->setFacebookID($username);
                     break;
             }
-
 
             $this->userManager->updateUser($user);
         } else {
