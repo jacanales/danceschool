@@ -28,7 +28,7 @@ form:
         save: "Guardar"
         start_date: "Fecha de inicio"
         student: "Alumno"
-        surname: "Apellidos"
+        lastname: "Apellidos"
         teacher: "Profesor/a"
         username: "Nombre de usuario"
         wage: "Salario"

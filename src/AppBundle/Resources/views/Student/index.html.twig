@@ -16,7 +16,7 @@
             <tr>
                 <th data-field="id" data-align="right" data-sortable="true">ID</th>
                 <th data-field="name" data-align="right" data-sortable="true">{{ 'form.label.name'|trans() }}</th>
-                <th data-field="surname" data-align="right" data-sortable="true">{{ 'form.label.surname'|trans() }}</th>
+                <th data-field="lastname" data-align="right" data-sortable="true">{{ 'form.label.lastname'|trans() }}</th>
                 <th data-field="email" data-align="right" data-sortable="true">{{ 'form.label.email'|trans() }}</th>
                 <th data-field="comment" data-sortable="true">{{ 'form.label.comment'|trans() }}</th>
                 <th data-field="show" data-sortable="false"></th>
@@ -30,7 +30,7 @@
             <tr class="tr-class-1">
                 <td class="info">{{ student.id }}</td>
                 <td>{{ student.user.name }}</td>
-                <td>{{ student.user.surname }}</td>
+                <td>{{ student.user.lastname }}</td>
                 <td>{{ student.user.email }}</td>
                 <td>{{ student.comment }}</td>
                 <td class="info"><a href="{{ path('mayimbe_student_show', {'id': student.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.view'|trans({}, 'AppBundle') }}</a></td>
