@@ -4,9 +4,11 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Course;
 use AppBundle\Form\Type\CourseType;
+use Doctrine\Bundle\DoctrineBundle\Registry;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Route preffix affects only new (not overloaded) actions or if route name matches.
@@ -17,8 +19,11 @@ class CourseController extends Controller
 {
     /**
      * @Route("/", name="mayimbe_course_index")
+     *
+     * @return Response
+     * @throws \LogicException
      */
-    public function indexAction()
+    public function indexAction(): Response
     {
         /**
          * @var \Doctrine\ORM\EntityManager
@@ -39,9 +44,12 @@ class CourseController extends Controller
      *
      * @param int $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function showAction($id)
+    public function showAction(int $id): Response
     {
         $repository = $this
             ->getDoctrine()
@@ -70,9 +78,10 @@ class CourseController extends Controller
      *
      * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     * @throws \LogicException
      */
-    public function addAction(Request $request)
+    public function addAction(Request $request): Response
     {
         $form = $this->createForm(CourseType::class, new Course(), [
             'label'              => 'title.add_course',
@@ -103,9 +112,12 @@ class CourseController extends Controller
      * @param Request $request
      * @param int     $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function editAction(Request $request, $id)
+    public function editAction(Request $request, int $id): Response
     {
         $em     = $this->getDoctrine()->getManager();
         $course = $em->getRepository('AppBundle:Course')->find($id);
@@ -143,9 +155,12 @@ class CourseController extends Controller
      *
      * @param int $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function removeAction($id)
+    public function removeAction(int $id): Response
     {
         $em     = $this->getDoctrine()->getManager();
         $course = $em->getRepository('AppBundle:Course')->find($id);
