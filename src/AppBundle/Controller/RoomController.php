@@ -7,6 +7,7 @@ use AppBundle\Form\Type\RoomType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Route preffix affects only new (not overloaded) actions or if route name matches.
@@ -17,8 +18,10 @@ class RoomController extends Controller
 {
     /**
      * @Route("/", name="mayimbe_room_index")
+     *
+     * @throws \LogicException
      */
-    public function indexAction()
+    public function indexAction(): Response
     {
         /**
          * @var \Doctrine\ORM\EntityManager
@@ -38,9 +41,11 @@ class RoomController extends Controller
      *
      * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \LogicException
      */
-    public function addAction(Request $request)
+    public function addAction(Request $request): Response
     {
         $form = $this->createForm(RoomType::class, new Room(), [
             'show_legend'        => true,
@@ -71,9 +76,12 @@ class RoomController extends Controller
      *
      * @param int $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function showAction($id)
+    public function showAction(int $id): Response
     {
         $room = $this->getDoctrine()
                      ->getRepository('AppBundle:Room')
@@ -99,9 +107,13 @@ class RoomController extends Controller
      * @param Request $request
      * @param int     $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function editAction(Request $request, $id)
+    public function editAction(Request $request, int $id): Response
     {
         $em   = $this->getDoctrine()->getManager();
         $room = $em->getRepository('AppBundle:Room')->find($id);
@@ -140,9 +152,13 @@ class RoomController extends Controller
      *
      * @param int $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function removeAction($id)
+    public function removeAction($id): Response
     {
         $em   = $this->getDoctrine()->getManager();
         $room = $em->getRepository('AppBundle:Room')->find($id);

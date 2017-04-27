@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Route preffix affects only new (not overloaded) actions or if route name matches.
@@ -21,8 +22,10 @@ class StudentController extends Controller
     /**
      * @Route("/", name="mayimbe_student_index")
      * @Method("GET")
+     *
+     * @throws \LogicException
      */
-    public function indexAction()
+    public function indexAction(): Response
     {
         /**
          * @var \Doctrine\ORM\EntityManager
@@ -43,9 +46,13 @@ class StudentController extends Controller
      *
      * @param int $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \UnexpectedValueException
+     * @throws \LogicException
      */
-    public function showAction($id)
+    public function showAction(int $id): Response
     {
         $student = $this->getDoctrine()
                      ->getRepository('AppBundle:Student')
@@ -78,9 +85,11 @@ class StudentController extends Controller
      *
      * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \LogicException
      */
-    public function addAction(Request $request)
+    public function addAction(Request $request): Response
     {
         $form = $this->createForm(StudentType::class, new Student());
         $form->handleRequest($request);
@@ -106,11 +115,15 @@ class StudentController extends Controller
      * @Method({"GET", "POST"})
      *
      * @param Request $request
-     * @param $id
+     * @param         $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function editAction(Request $request, $id)
+    public function editAction(Request $request, int $id): Response
     {
         $em      = $this->getDoctrine()->getManager();
         $student = $em->getRepository('AppBundle:Student')->find($id);
@@ -146,9 +159,13 @@ class StudentController extends Controller
      *
      * @param $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return Response
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function removeAction($id)
+    public function removeAction(int $id): Response
     {
         $em      = $this->getDoctrine()->getManager();
         $student = $em->getRepository('AppBundle:Student')->find($id);
@@ -170,11 +187,13 @@ class StudentController extends Controller
      * @Method({"GET", "POST"})
      *
      * @param Request $request
-     * @param $studentId
+     * @param         $studentId
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \LogicException
      */
-    public function addAnnotationAction(Request $request, $studentId)
+    public function addAnnotationAction(Request $request, int $studentId): Response
     {
         $form = $this->createForm(StudentAnnotationType::class, new StudentAnnotation(), [
             'label'              => 'title.add_annotation',
@@ -212,9 +231,13 @@ class StudentController extends Controller
      * @param int     $studentId
      * @param int     $annotationId
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function editAnnotationAction(Request $request, $studentId, $annotationId)
+    public function editAnnotationAction(Request $request, int $studentId, int $annotationId): Response
     {
         $em         = $this->getDoctrine()->getManager();
         $annotation = $em->getRepository('AppBundle:StudentAnnotation')->find($annotationId);
@@ -256,9 +279,13 @@ class StudentController extends Controller
      * @param int $studentId
      * @param int $annotationId
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return Response
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function removeAnnotationAction($studentId, $annotationId)
+    public function removeAnnotationAction(int $studentId, int $annotationId): Response
     {
         $em         = $this->getDoctrine()->getManager();
         $annotation = $em->getRepository('AppBundle:StudentAnnotation')->find($annotationId);

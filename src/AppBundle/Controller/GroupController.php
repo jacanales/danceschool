@@ -8,7 +8,9 @@ use AppBundle\Form\Type\GroupStudentType;
 use AppBundle\Form\Type\GroupType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Route preffix affects only new (not overloaded) actions or if route name matches.
@@ -19,8 +21,10 @@ class GroupController extends Controller
 {
     /**
      * @Route("/", name="mayimbe_group_index")
+     *
+     * @throws \LogicException
      */
-    public function indexAction()
+    public function indexAction(): Response
     {
         /**
          * @var \Doctrine\ORM\EntityManager
@@ -40,9 +44,13 @@ class GroupController extends Controller
      *
      * @param $id
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \UnexpectedValueException
+     * @throws \LogicException
      */
-    public function showAction($id)
+    public function showAction(int $id): Response
     {
         $group = $this->getDoctrine()
                      ->getRepository('AppBundle:Group')
@@ -74,9 +82,11 @@ class GroupController extends Controller
      *
      * @param Request $request
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \LogicException
      */
-    public function addAction(Request $request)
+    public function addAction(Request $request): Response
     {
         $form = $this->createForm(GroupType::class, new Group(), [
             'show_legend'        => true,
@@ -108,9 +118,13 @@ class GroupController extends Controller
      * @param Request $request
      * @param int     $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function editAction(Request $request, $id)
+    public function editAction(Request $request, int $id): Response
     {
         $em    = $this->getDoctrine()->getManager();
         $group = $em->getRepository('AppBundle:Group')->find($id);
@@ -149,9 +163,13 @@ class GroupController extends Controller
      *
      * @param int $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function removeAction($id)
+    public function removeAction(int $id): RedirectResponse
     {
         $em    = $this->getDoctrine()->getManager();
         $group = $em->getRepository('AppBundle:Group')->find($id);
@@ -174,9 +192,11 @@ class GroupController extends Controller
      * @param Request $request
      * @param int     $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \LogicException
      */
-    public function addStudentAction(Request $request, $id)
+    public function addStudentAction(Request $request, int $id): Response
     {
         $form = $this->createForm(GroupStudentType::class, new GroupStudent(), [
             'show_legend'        => true,
@@ -215,9 +235,13 @@ class GroupController extends Controller
      * @param int     $id
      * @param int     $studentId
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function editStudentAction(Request $request, $id, $studentId)
+    public function editStudentAction(Request $request, int $id, int $studentId): Response
     {
         $em      = $this->getDoctrine()->getManager();
         $student = $em->getRepository('AppBundle:GroupStudent')->findOneBy([
@@ -261,9 +285,13 @@ class GroupController extends Controller
      * @param int $id
      * @param int $studentId
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \LogicException
      */
-    public function removeStudentAction($id, $studentId)
+    public function removeStudentAction(int $id, int $studentId): RedirectResponse
     {
         $em      = $this->getDoctrine()->getManager();
         $student = $em->getRepository('AppBundle:GroupStudent')->findOneBy([
