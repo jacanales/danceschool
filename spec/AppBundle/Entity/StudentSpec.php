@@ -102,10 +102,10 @@ class StudentSpec extends ObjectBehavior
     public function it_returns_full_name(User $user)
     {
         $user->getName()->shouldBeCalled()->willReturn('name');
-        $user->getSurname()->shouldBeCalled()->willReturn('surname');
+        $user->getLastname()->shouldBeCalled()->willReturn('lastname');
 
         $this->setUser($user);
 
-        $this->getFullName()->shouldReturn('name surname');
+        $this->getFullName()->shouldReturn('name lastname');
     }
 }

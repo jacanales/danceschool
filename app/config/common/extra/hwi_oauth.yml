@@ -1,0 +1,25 @@
+hwi_oauth:
+    connect:
+        account_connector: hwi_oauth.user.provider.fosub_bridge
+    firewall_names:        [secured_area]
+    resource_owners:
+        facebook:
+            type:           facebook
+            client_id:      260147244395053
+            client_secret:  9f94edfd480539e207d8a138faa9f708
+            scope:          "public_profile,email"
+            options:
+                csrf: true
+                display: ~
+                auth_type: rerequest
+    fosub:
+        # try 30 times to check if a username is available (foo, foo1, foo2 etc)
+        username_iterations: 30
+
+        # mapping between resource owners (see below) and properties
+        properties:
+            facebook: facebookId
+
+services:
+    hwi_oauth.user.provider.entity:
+        class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider

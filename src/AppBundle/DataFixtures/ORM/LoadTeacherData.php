@@ -46,7 +46,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
         $user->setUsername('carlos.dls')
              ->setEmail('infomayimbe@gmail.com')
              ->setName('Carlos')
-             ->setSurname('DlS')
+             ->setLastname('DlS')
              ->setGender('m')
              ->setPassword($this->generatePassword($user))
              ->addRole(User::ROLE_SUPER_ADMIN)
@@ -70,7 +70,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
 
             $user
                 ->setName($faker->name)
-                ->setSurname($faker->lastName)
+                ->setLastname($faker->lastName)
                 ->setGender('m')
                 ->setPhone($faker->phoneNumber)
                 ->setIdentityNumber($faker->unique()->randomDigit)
