@@ -34,7 +34,7 @@ class Course
     /**
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -42,9 +42,9 @@ class Course
     /**
      * @param int $id
      *
-     * @return $this
+     * @return self
      */
-    public function setId($id)
+    public function setId(int $id): self
     {
         $this->id = $id;
 
@@ -54,7 +54,7 @@ class Course
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -64,7 +64,7 @@ class Course
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -74,7 +74,7 @@ class Course
     /**
      * @return float
      */
-    public function getPrice()
+    public function getPrice(): float
     {
         return $this->price;
     }
@@ -84,7 +84,7 @@ class Course
      *
      * @return self
      */
-    public function setPrice($price)
+    public function setPrice(float $price): self
     {
         $this->price = $price;
 
@@ -94,7 +94,7 @@ class Course
     /**
      * @return Group[]
      */
-    public function getGroups()
+    public function getGroups(): array
     {
         return $this->groups->toArray();
     }
@@ -104,7 +104,7 @@ class Course
      *
      * @return self
      */
-    public function setGroups(array $groups)
+    public function setGroups(array $groups): self
     {
         $this->groups = new ArrayCollection($groups);
 

@@ -9,11 +9,6 @@ class User extends BaseUser
     const ROLE_ADMIN = 'ROLE_ADMIN';
 
     /**
-     * @var int
-     */
-    protected $id;
-
-    /**
      * @var string
      */
     protected $name;
@@ -82,12 +77,12 @@ class User extends BaseUser
         $this->setCreatedAt();
     }
 
-    public function setCreatedAt()
+    public function setCreatedAt(): void
     {
         $this->setCreated(new \DateTime('now'));
     }
 
-    public function setUpdatedAt()
+    public function setUpdatedAt(): void
     {
         if (is_null($this->name)) {
             $this->name = $this->getUsername();
@@ -101,7 +96,7 @@ class User extends BaseUser
      *
      * @return self
      */
-    public function setName($name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -111,7 +106,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -121,7 +116,7 @@ class User extends BaseUser
      *
      * @return self
      */
-    public function setLastname($lastname)
+    public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
 
@@ -131,7 +126,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getLastname()
+    public function getLastname(): string
     {
         return $this->lastname;
     }
@@ -141,7 +136,7 @@ class User extends BaseUser
      *
      * @return self
      */
-    public function setGender($gender)
+    public function setGender(string $gender): self
     {
         $this->gender = $gender;
 
@@ -151,7 +146,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getGender()
+    public function getGender(): string
     {
         return $this->gender;
     }
@@ -161,7 +156,7 @@ class User extends BaseUser
      *
      * @return self
      */
-    public function setBirthday($birthday)
+    public function setBirthday(\DateTime $birthday): self
     {
         $this->birthday = $birthday;
 
@@ -171,7 +166,7 @@ class User extends BaseUser
     /**
      * @return \DateTime
      */
-    public function getBirthday()
+    public function getBirthday(): \DateTime
     {
         return $this->birthday;
     }
@@ -181,7 +176,7 @@ class User extends BaseUser
      *
      * @return self
      */
-    public function setPhone($phone)
+    public function setPhone(string $phone): self
     {
         $this->phone = $phone;
 
@@ -191,7 +186,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getPhone()
+    public function getPhone(): string
     {
         return $this->phone;
     }
@@ -201,7 +196,7 @@ class User extends BaseUser
      *
      * @return self
      */
-    public function setAddress($address)
+    public function setAddress(string $address): self
     {
         $this->address = $address;
 
@@ -211,7 +206,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getAddress()
+    public function getAddress(): string
     {
         return $this->address;
     }
@@ -221,7 +216,7 @@ class User extends BaseUser
      *
      * @return self
      */
-    public function setCity($city)
+    public function setCity(string $city): self
     {
         $this->city = $city;
 
@@ -231,7 +226,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->city;
     }
@@ -241,7 +236,7 @@ class User extends BaseUser
      *
      * @return self
      */
-    public function setCountry($country)
+    public function setCountry(string $country): self
     {
         $this->country = $country;
 
@@ -251,7 +246,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getCountry()
+    public function getCountry(): string
     {
         return $this->country;
     }
@@ -261,7 +256,7 @@ class User extends BaseUser
      *
      * @return self
      */
-    public function setPostalCode($postalCode)
+    public function setPostalCode(string $postalCode): self
     {
         $this->postalCode = $postalCode;
 
@@ -271,7 +266,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getPostalCode()
+    public function getPostalCode(): string
     {
         return $this->postalCode;
     }
@@ -281,7 +276,7 @@ class User extends BaseUser
      *
      * @return self
      */
-    public function setIdentityNumber($identityNumber)
+    public function setIdentityNumber(string $identityNumber): self
     {
         $this->identityNumber = $identityNumber;
 
@@ -291,7 +286,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getIdentityNumber()
+    public function getIdentityNumber(): string
     {
         return $this->identityNumber;
     }
@@ -301,7 +296,7 @@ class User extends BaseUser
      *
      * @return self
      */
-    public function setCreated(\DateTime $created)
+    public function setCreated(\DateTime $created): self
     {
         $this->created = $created;
 
@@ -311,7 +306,7 @@ class User extends BaseUser
     /**
      * @return \DateTime
      */
-    public function getCreated()
+    public function getCreated(): \DateTime
     {
         return $this->created;
     }
@@ -321,7 +316,7 @@ class User extends BaseUser
      *
      * @return self
      */
-    public function setModified(\DateTime $modified)
+    public function setModified(\DateTime $modified): self
     {
         $this->modified = $modified;
 
@@ -331,7 +326,7 @@ class User extends BaseUser
     /**
      * @return \DateTime
      */
-    public function getModified()
+    public function getModified(): \DateTime
     {
         return $this->modified;
     }
@@ -339,7 +334,7 @@ class User extends BaseUser
     /**
      * @param string $facebookId
      */
-    public function setFacebookId($facebookId)
+    public function setFacebookId(string $facebookId): void
     {
         $this->facebookId = $facebookId;
         $this->salt       = '';
@@ -348,7 +343,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getFacebookId()
+    public function getFacebookId(): string
     {
         return $this->facebookId;
     }

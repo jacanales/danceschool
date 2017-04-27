@@ -60,7 +60,7 @@ class Student
     /**
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -70,7 +70,7 @@ class Student
      *
      * @return self
      */
-    public function setId($id)
+    public function setId(int $id): self
     {
         $this->id = $id;
 
@@ -82,7 +82,7 @@ class Student
      *
      * @return Student
      */
-    public function setCaptationMethod($captationMethod)
+    public function setCaptationMethod(int $captationMethod): self
     {
         $this->captationMethod = $captationMethod;
 
@@ -92,7 +92,7 @@ class Student
     /**
      * @return int
      */
-    public function getCaptationMethod()
+    public function getCaptationMethod(): int
     {
         return $this->captationMethod;
     }
@@ -102,7 +102,7 @@ class Student
      *
      * @return self
      */
-    public function setMember($member)
+    public function setMember(bool $member): self
     {
         $this->member = $member;
 
@@ -112,7 +112,7 @@ class Student
     /**
      * @return bool
      */
-    public function getMember()
+    public function getMember(): bool
     {
         return $this->member;
     }
@@ -122,7 +122,7 @@ class Student
      *
      * @return self
      */
-    public function setContractExpiration($contractExpiration)
+    public function setContractExpiration(\DateTime $contractExpiration): self
     {
         $this->contractExpiration = $contractExpiration;
 
@@ -132,7 +132,7 @@ class Student
     /**
      * @return \DateTime
      */
-    public function getContractExpiration()
+    public function getContractExpiration(): \DateTime
     {
         return $this->contractExpiration;
     }
@@ -142,7 +142,7 @@ class Student
      *
      * @return self
      */
-    public function setComment($comment)
+    public function setComment(string $comment): self
     {
         $this->comment = $comment;
 
@@ -152,7 +152,7 @@ class Student
     /**
      * @return string
      */
-    public function getComment()
+    public function getComment(): string
     {
         return $this->comment;
     }
@@ -162,7 +162,7 @@ class Student
      *
      * @return self
      */
-    public function setUser(User $user = null)
+    public function setUser(User $user = null): self
     {
         $this->user = $user;
 
@@ -172,7 +172,7 @@ class Student
     /**
      * @return User
      */
-    public function getUser()
+    public function getUser(): User
     {
         return $this->user;
     }
@@ -182,7 +182,7 @@ class Student
      *
      * @return self
      */
-    public function addAnnotation(StudentAnnotation $annotation)
+    public function addAnnotation(StudentAnnotation $annotation): self
     {
         $this->annotations->add($annotation);
 
@@ -192,7 +192,7 @@ class Student
     /**
      * @param StudentAnnotation $annotation
      */
-    public function removeAnnotation(StudentAnnotation $annotation)
+    public function removeAnnotation(StudentAnnotation $annotation): void
     {
         $this->annotations->removeElement($annotation);
     }
@@ -200,7 +200,7 @@ class Student
     /**
      * @return ArrayCollection
      */
-    public function getAnnotations()
+    public function getAnnotations(): ArrayCollection
     {
         return $this->annotations;
     }
@@ -210,7 +210,7 @@ class Student
      *
      * @return self
      */
-    public function setAccountNumber($accountNumber)
+    public function setAccountNumber(string $accountNumber): self
     {
         $this->accountNumber = $accountNumber;
 
@@ -220,7 +220,7 @@ class Student
     /**
      * @return string
      */
-    public function getAccountNumber()
+    public function getAccountNumber(): string
     {
         return $this->accountNumber;
     }
@@ -228,7 +228,7 @@ class Student
     /**
      * @return string
      */
-    public function getFullName()
+    public function getFullName(): string
     {
         return $this->getUser()->getName() . ' ' . $this->getUser()->getLastname();
     }

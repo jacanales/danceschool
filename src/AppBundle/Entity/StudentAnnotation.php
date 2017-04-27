@@ -2,92 +2,57 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
-/**
- * Group object.
- *
- * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
- * @ORM\Table(name="student_annotations")
- *
- * @author Jesús A. Canales Diez <jacanalesdiez@gmail.com>
- */
 class StudentAnnotation
 {
     /**
      * @var int
-     *
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
-     * @var int
-     *
-     * @ORM\ManyToOne(targetEntity="Student", inversedBy="annotations")
-     * @ORM\JoinColumn(name="student_id", referencedColumnName="id", nullable=false)
+     * @var Student
      */
     protected $student;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="text", nullable=false)
      */
     protected $message;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(type="datetime", nullable=false)
      */
     protected $created;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(type="datetime", nullable=false)
      */
     protected $modified;
 
-    /**
-     * @ORM\PrePersist
-     */
-    public function setCreatedAt()
+    public function setCreatedAt(): void
     {
         $this->created = new \DateTime('now');
     }
 
-    /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
-    public function setUpdatedAt()
+    public function setUpdatedAt(): void
     {
         $this->modified = new \DateTime('now');
     }
 
     /**
-     * Get id.
-     *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * Set message.
-     *
      * @param string $message
      *
      * @return StudentAnnotation
      */
-    public function setMessage($message)
+    public function setMessage(string $message): self
     {
         $this->message = $message;
 
@@ -95,23 +60,19 @@ class StudentAnnotation
     }
 
     /**
-     * Get message.
-     *
      * @return string
      */
-    public function getMessage()
+    public function getMessage(): string
     {
         return $this->message;
     }
 
     /**
-     * Set created.
-     *
      * @param \DateTime $created
      *
      * @return StudentAnnotation
      */
-    public function setCreated($created)
+    public function setCreated(\DateTime $created): self
     {
         $this->created = $created;
 
@@ -119,23 +80,19 @@ class StudentAnnotation
     }
 
     /**
-     * Get created.
-     *
      * @return \DateTime
      */
-    public function getCreated()
+    public function getCreated(): \DateTime
     {
         return $this->created;
     }
 
     /**
-     * Set modified.
-     *
      * @param \DateTime $modified
      *
      * @return StudentAnnotation
      */
-    public function setModified($modified)
+    public function setModified(\DateTime $modified): self
     {
         $this->modified = $modified;
 
@@ -143,23 +100,19 @@ class StudentAnnotation
     }
 
     /**
-     * Get modified.
-     *
      * @return \DateTime
      */
-    public function getModified()
+    public function getModified(): \DateTime
     {
         return $this->modified;
     }
 
     /**
-     * Set student.
-     *
-     * @param \AppBundle\Entity\Student $student
+     * @param Student $student
      *
      * @return StudentAnnotation
      */
-    public function setStudent(Student $student)
+    public function setStudent(Student $student): self
     {
         $this->student = $student;
 
@@ -167,11 +120,9 @@ class StudentAnnotation
     }
 
     /**
-     * Get student.
-     *
-     * @return \AppBundle\Entity\Student
+     * @return Student
      */
-    public function getStudent()
+    public function getStudent(): Student
     {
         return $this->student;
     }

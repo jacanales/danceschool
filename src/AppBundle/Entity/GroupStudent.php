@@ -27,7 +27,7 @@ class GroupStudent
     /**
      * @return Group
      */
-    public function getGroup()
+    public function getGroup(): Group
     {
         return $this->group;
     }
@@ -35,7 +35,7 @@ class GroupStudent
     /**
      * @param Group $group
      */
-    public function setGroup(Group $group)
+    public function setGroup(Group $group): void
     {
         $this->group = $group;
     }
@@ -43,7 +43,7 @@ class GroupStudent
     /**
      * @return Student
      */
-    public function getStudent()
+    public function getStudent(): Student
     {
         return $this->student;
     }
@@ -51,7 +51,7 @@ class GroupStudent
     /**
      * @param Student $student
      */
-    public function setStudent(Student $student)
+    public function setStudent(Student $student): void
     {
         $this->student = $student;
     }
@@ -59,7 +59,7 @@ class GroupStudent
     /**
      * @return bool
      */
-    public function isReinforcing()
+    public function isReinforcing(): bool
     {
         return $this->is_reinforcing;
     }
@@ -67,7 +67,7 @@ class GroupStudent
     /**
      * @param bool $is_reinforcing
      */
-    public function setIsReinforcing($is_reinforcing)
+    public function setIsReinforcing(bool $is_reinforcing): void
     {
         $this->is_reinforcing = (bool) $is_reinforcing;
     }

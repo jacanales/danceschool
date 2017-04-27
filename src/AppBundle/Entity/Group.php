@@ -61,9 +61,6 @@ class Group
      */
     protected $groupStudent;
 
-    /**
-     * Constructor.
-     */
     public function __construct()
     {
         $this->groupStudent = new ArrayCollection();
@@ -74,7 +71,7 @@ class Group
      *
      * @return self
      */
-    public function setId($id)
+    public function setId($id): self
     {
         $this->id = $id;
 
@@ -82,23 +79,19 @@ class Group
     }
 
     /**
-     * Get id.
-     *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * Set name.
-     *
      * @param string $name
      *
      * @return Group
      */
-    public function setName($name)
+    public function setName($name): self
     {
         $this->name = $name;
 
@@ -106,23 +99,19 @@ class Group
     }
 
     /**
-     * Get name.
-     *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
-     * Set weekday.
-     *
      * @param int $weekday
      *
      * @return Group
      */
-    public function setWeekday($weekday)
+    public function setWeekday($weekday): self
     {
         $this->weekday = $weekday;
 
@@ -130,23 +119,19 @@ class Group
     }
 
     /**
-     * Get weekday.
-     *
      * @return int
      */
-    public function getWeekday()
+    public function getWeekday(): int
     {
         return $this->weekday;
     }
 
     /**
-     * Set hour.
-     *
      * @param \DateTime $hour
      *
      * @return Group
      */
-    public function setHour($hour)
+    public function setHour($hour): self
     {
         $this->hour = $hour;
 
@@ -154,23 +139,19 @@ class Group
     }
 
     /**
-     * Get hour.
-     *
      * @return \DateTime
      */
-    public function getHour()
+    public function getHour(): \DateTime
     {
         return $this->hour;
     }
 
     /**
-     * Set startDate.
-     *
      * @param \DateTime $startDate
      *
      * @return self
      */
-    public function setStartDate($startDate)
+    public function setStartDate(\DateTime $startDate): self
     {
         $this->startDate = $startDate;
 
@@ -178,23 +159,19 @@ class Group
     }
 
     /**
-     * Get startDate.
-     *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->startDate;
     }
 
     /**
-     * Set endDate.
-     *
      * @param \DateTime $endDate
      *
      * @return Group
      */
-    public function setEndDate($endDate)
+    public function setEndDate(\DateTime $endDate): self
     {
         $this->endDate = $endDate;
 
@@ -202,23 +179,19 @@ class Group
     }
 
     /**
-     * Get endDate.
-     *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->endDate;
     }
 
     /**
-     * Set whatsappGroup.
-     *
      * @param string $whatsappGroup
      *
      * @return Group
      */
-    public function setWhatsappGroup($whatsappGroup)
+    public function setWhatsappGroup(string $whatsappGroup): self
     {
         $this->whatsappGroup = $whatsappGroup;
 
@@ -226,23 +199,19 @@ class Group
     }
 
     /**
-     * Get whatsappGroup.
-     *
      * @return string
      */
-    public function getWhatsappGroup()
+    public function getWhatsappGroup(): string
     {
         return $this->whatsappGroup;
     }
 
     /**
-     * Set course.
-     *
      * @param Course $course
      *
      * @return Group
      */
-    public function setCourse(Course $course)
+    public function setCourse(Course $course): self
     {
         $this->course = $course;
 
@@ -250,23 +219,19 @@ class Group
     }
 
     /**
-     * Get course.
-     *
-     * @return \AppBundle\Entity\Course
+     * @return Course
      */
-    public function getCourse()
+    public function getCourse(): Course
     {
         return $this->course;
     }
 
     /**
-     * Set room.
-     *
      * @param Room $room
      *
      * @return Group
      */
-    public function setRoom(Room $room)
+    public function setRoom(Room $room): self
     {
         $this->room = $room;
 
@@ -274,23 +239,19 @@ class Group
     }
 
     /**
-     * Get room.
-     *
-     * @return \AppBundle\Entity\Room
+     * @return Room
      */
-    public function getRoom()
+    public function getRoom(): Room
     {
         return $this->room;
     }
 
     /**
-     * Set teacher.
-     *
      * @param Teacher $teacher
      *
      * @return Group
      */
-    public function setTeacher(Teacher $teacher)
+    public function setTeacher(Teacher $teacher): self
     {
         $this->teacher = $teacher;
 
@@ -298,11 +259,9 @@ class Group
     }
 
     /**
-     * Get teacher.
-     *
      * @return Teacher
      */
-    public function getTeacher()
+    public function getTeacher(): Teacher
     {
         return $this->teacher;
     }

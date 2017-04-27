@@ -15,7 +15,7 @@ class CourseRepository extends EntityRepository
     public function findWithGroups(int $id): Course
     {
         /**
-         * @var Course $course
+         * @var Course
          */
         $course = $this->find($id);
 

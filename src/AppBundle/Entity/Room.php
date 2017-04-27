@@ -47,7 +47,7 @@ class Room
     /**
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -57,7 +57,7 @@ class Room
      *
      * @return self
      */
-    public function setId($id)
+    public function setId(int $id): self
     {
         $this->id = (int) $id;
 
@@ -67,7 +67,7 @@ class Room
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -77,7 +77,7 @@ class Room
      *
      * @return self
      */
-    public function setName($name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -87,7 +87,7 @@ class Room
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -97,7 +97,7 @@ class Room
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -107,7 +107,7 @@ class Room
     /**
      * @return float
      */
-    public function getPrice()
+    public function getPrice(): float
     {
         return $this->price;
     }
@@ -117,7 +117,7 @@ class Room
      *
      * @return self
      */
-    public function setPrice($price)
+    public function setPrice(float $price): self
     {
         $this->price = (float) $price;
 
@@ -127,7 +127,7 @@ class Room
     /**
      * @return string
      */
-    public function getAddress()
+    public function getAddress(): string
     {
         return $this->address;
     }
@@ -137,7 +137,7 @@ class Room
      *
      * @return self
      */
-    public function setAddress($address)
+    public function setAddress(string $address): self
     {
         $this->address = $address;
 
@@ -147,7 +147,7 @@ class Room
     /**
      * @return string
      */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->city;
     }
@@ -157,7 +157,7 @@ class Room
      *
      * @return self
      */
-    public function setCity($city)
+    public function setCity(string $city): self
     {
         $this->city = $city;
 
@@ -167,7 +167,7 @@ class Room
     /**
      * @return string
      */
-    public function getPostalCode()
+    public function getPostalCode(): string
     {
         return $this->postalCode;
     }
@@ -177,7 +177,7 @@ class Room
      *
      * @return self
      */
-    public function setPostalCode($postalCode)
+    public function setPostalCode(string $postalCode): self
     {
         $this->postalCode = $postalCode;
 
@@ -187,7 +187,7 @@ class Room
     /**
      * @return string
      */
-    public function getPhone()
+    public function getPhone(): string
     {
         return $this->phone;
     }
@@ -197,7 +197,7 @@ class Room
      *
      * @return self
      */
-    public function setPhone($phone)
+    public function setPhone(string $phone): self
     {
         $this->phone = $phone;
 

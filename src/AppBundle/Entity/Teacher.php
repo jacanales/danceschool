@@ -41,7 +41,7 @@ class Teacher
      *
      * @return self
      */
-    public function setId($id)
+    public function setId(int $id): self
     {
         $this->id = $id;
 
@@ -51,7 +51,7 @@ class Teacher
     /**
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -61,7 +61,7 @@ class Teacher
      *
      * @return self
      */
-    public function setWage($wage)
+    public function setWage(float $wage): self
     {
         $this->wage = $wage;
 
@@ -71,7 +71,7 @@ class Teacher
     /**
      * @return float
      */
-    public function getWage()
+    public function getWage(): float
     {
         return $this->wage;
     }
@@ -81,7 +81,7 @@ class Teacher
      *
      * @return self
      */
-    public function setComment($comment)
+    public function setComment(string $comment): self
     {
         $this->comment = $comment;
 
@@ -91,7 +91,7 @@ class Teacher
     /**
      * @return string
      */
-    public function getComment()
+    public function getComment(): string
     {
         return $this->comment;
     }
@@ -101,7 +101,7 @@ class Teacher
      *
      * @return self
      */
-    public function setUser(User $user = null)
+    public function setUser(User $user = null): self
     {
         $this->user = $user;
 
@@ -111,7 +111,7 @@ class Teacher
     /**
      * @return User
      */
-    public function getUser()
+    public function getUser(): User
     {
         return $this->user;
     }
@@ -119,7 +119,7 @@ class Teacher
     /**
      * @return string
      */
-    public function getFullName()
+    public function getFullName(): string
     {
         return $this->getUser()->getName() . ' ' . $this->getUser()->getLastname();
     }
