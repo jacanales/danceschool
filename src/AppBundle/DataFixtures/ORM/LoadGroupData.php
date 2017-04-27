@@ -6,6 +6,7 @@ use AppBundle\Entity\Group;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Faker\Factory;
 
 class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -19,12 +20,14 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \Exception
      */
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         $this->manager = $manager;
 
-        $faker = \Faker\Factory::create();
+        $faker = Factory::create();
 
         $courses  = $this->manager->getRepository('AppBundle:Course')->findAll();
         $rooms    = $this->manager->getRepository('AppBundle:Room')->findAll();
@@ -60,7 +63,7 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
      *
      * @return int
      */
-    public function getOrder()
+    public function getOrder(): int
     {
         return 6;
     }

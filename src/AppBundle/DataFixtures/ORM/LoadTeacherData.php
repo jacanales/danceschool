@@ -7,6 +7,7 @@ use AppBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Faker\Factory;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -27,7 +28,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
     /**
      * {@inheritdoc}
      */
-    public function setContainer(ContainerInterface $container = null)
+    public function setContainer(ContainerInterface $container = null): void
     {
         $this->container = $container;
     }
@@ -35,11 +36,11 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
     /**
      * {@inheritdoc}
      */
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         $this->manager = $manager;
 
-        $faker = \Faker\Factory::create();
+        $faker = Factory::create();
 
         $user = new User();
 
@@ -91,7 +92,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
         $this->manager->flush();
     }
 
-    private function generatePassword(User $user)
+    private function generatePassword(User $user): string
     {
         $encoder = $this->container
             ->get('security.encoder_factory')
@@ -103,7 +104,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
         return $encoder->encodePassword($password, $user->getSalt());
     }
 
-    public function getOrder()
+    public function getOrder(): int
     {
         return 2;
     }

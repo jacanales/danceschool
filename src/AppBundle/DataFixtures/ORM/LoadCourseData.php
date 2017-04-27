@@ -17,7 +17,7 @@ class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
     /**
      * {@inheritdoc}
      */
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         $this->manager = $manager;
 
@@ -40,7 +40,7 @@ class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
         $manager->flush();
     }
 
-    private function addCourse($description, $price = 75)
+    private function addCourse(string $description, float $price = 75): void
     {
         $course = new Course();
         $course->setDescription($description)
@@ -49,7 +49,7 @@ class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
         $this->manager->persist($course);
     }
 
-    public function getOrder()
+    public function getOrder(): int
     {
         return 4;
     }

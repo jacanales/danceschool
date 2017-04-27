@@ -25,7 +25,7 @@ class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface, C
     /**
      * {@inheritdoc}
      */
-    public function setContainer(ContainerInterface $container = null)
+    public function setContainer(ContainerInterface $container = null): void
     {
         $this->container = $container;
     }
@@ -33,7 +33,7 @@ class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface, C
     /**
      * {@inheritdoc}
      */
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         $this->manager = $manager;
 
@@ -63,8 +63,15 @@ class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface, C
         $this->manager->flush();
     }
 
-    private function addRoom($name, $description, $price = 0, $address = null, $city = null, $postal_code = null, $phone = null)
-    {
+    private function addRoom(
+        string $name,
+        string $description,
+        int $price = 0,
+        string $address = null,
+        string $city = null,
+        string $postal_code = null,
+        string $phone = null
+    ): void {
         $room = new Room();
 
         $room->setName($name)
@@ -78,7 +85,7 @@ class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface, C
         $this->manager->persist($room);
     }
 
-    public function getOrder()
+    public function getOrder(): int
     {
         return 3;
     }

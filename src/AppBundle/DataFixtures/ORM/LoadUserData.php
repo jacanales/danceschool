@@ -26,7 +26,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
      *
      * @param ContainerInterface|null $container A ContainerInterface instance or null
      */
-    public function setContainer(ContainerInterface $container = null)
+    public function setContainer(ContainerInterface $container = null): void
     {
         $this->container = $container;
     }
@@ -34,7 +34,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
     /**
      * {@inheritdoc}
      */
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         $this->manager = $manager;
         $this->addUser('admin', 'admin@zonadev.es', User::ROLE_SUPER_ADMIN, 'admin');
@@ -42,7 +42,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $manager->flush();
     }
 
-    private function addUser($userName, $email, $role = User::ROLE_DEFAULT, $password = null)
+    private function addUser(string $userName, string $email, string $role = User::ROLE_DEFAULT, string $password = null): void
     {
         $user = $this->manager->getRepository('AppBundle:User')->findOneByEmail($email);
 
@@ -62,7 +62,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $userManager->updateUser($user, true);
     }
 
-    private function generatePassword($password = null)
+    private function generatePassword(string $password = null): string
     {
         if ($password) {
             return $password;
@@ -71,7 +71,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         return substr(str_shuffle(sha1(microtime())), 0, 20);
     }
 
-    public function getOrder()
+    public function getOrder(): int
     {
         return 1;
     }
