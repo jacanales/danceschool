@@ -19,7 +19,7 @@
 
 {% block fos_user_content %}
     <!-- container -->
-    <div class="container">
+    <section id="content" class="container">
         <form class="form-signin omb_loginForm" action="{{ path("fos_user_security_check") }}" method="post">
             <h2 class="form-signin-heading">{{ 'layout.login'|trans }}</h2>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
@@ -27,7 +27,7 @@
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <label for="username" class="sr-only">{{ 'security.login.username'|trans }}</label>
-                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="form-control" placeholder="{{ 'form.login.placeholder.username'|trans({}, 'messages') }}" required="autofocus" />
+                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="form-control" placeholder="{{ 'form.login.placeholder.username'|trans({}, 'messages') }}" autofocus="autofocus" />
             </div>
 
             <div class="input-group">
@@ -43,9 +43,9 @@
             </div>
             <button class="btn btn-lg btn-primary btn-block" id="_submit" name="_submit" type="submit">{{ 'security.login.submit'|trans }}</button>
         </form>
-        <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">
+        <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" style="display: none;">
             <span>Facebook</span>
         </a>
-    </div>
+    </section>
     <!-- /container -->
 {% endblock fos_user_content %}
