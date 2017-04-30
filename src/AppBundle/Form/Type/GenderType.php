@@ -15,14 +15,14 @@ class GenderType extends AbstractType
         $this->genders = $choices;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'choices' => $this->genders,
         ]);
     }
 
-    public function getParent()
+    public function getParent(): string
     {
         return ChoiceType::class;
     }
@@ -30,12 +30,12 @@ class GenderType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->getBlockPrefix();
     }
 
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         return 'gender';
     }

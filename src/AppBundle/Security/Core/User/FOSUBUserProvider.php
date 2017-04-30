@@ -54,16 +54,16 @@ class FOSUBUserProvider extends BaseUserProvider
             //check if the user has a normal account
             $user = $this->userManager->findUserByEmail($email);
 
-            if (null === $user || !$user instanceof UserInterface) {
+            if (!$user instanceof UserInterface) {
                 //if the user does not have a normal account, set it up:
                 /**
                  * @var User
                  */
                 $user = $this->userManager->createUser();
 
-                $user->setUsername($response->getEmail());
+                $user->setUsername($email);
                 $user->setEmail($email);
-                $user->setPlainPassword(md5(uniqid()));
+                $user->setPlainPassword(md5(uniqid('', false)));
             }
 
             $user->setName($response->getFirstName());
