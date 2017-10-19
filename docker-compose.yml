@@ -17,7 +17,8 @@ services:
         ports:
             - "8080:80"
     php:
-        image: php:7.1-fpm
+        build: docker/php
+        image: zonadev/php:danceschool
         restart: always
         links:
             - mysql
@@ -31,7 +32,7 @@ services:
         environment:
             - XDEBUG_REMOTE_HOST=$DOCKER_HOST_IP
             - MYSQL_HOST=mysql
-            - MYSQL_USER=dragoncity
+            - MYSQL_USER=danceschool
             - MYSQL_DATABASE=danceschool
             - MYSQL_PASSWORD=danceschool
             - PHP_IDE_CONFIG=serverName=Docker
