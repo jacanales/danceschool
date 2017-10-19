@@ -1,4 +1,4 @@
-version: '2'
+version: '3.3'
 
 services:
     nginx:
@@ -8,18 +8,14 @@ services:
             - php
         depends_on:
             - php
+            - mysql
         volumes:
+            - .:/code
             - ./docker/site.conf:/etc/nginx/conf.d/default.conf
-        volumes_from:
-            - php
         networks:
             - code-network
         ports:
-            - 8080:80
-        networks:
-            code-network:
-                aliases:
-                    - nginx
+            - "8080:80"
     php:
         image: php:7.1-fpm
         restart: always
@@ -39,17 +35,14 @@ services:
             - MYSQL_DATABASE=danceschool
             - MYSQL_PASSWORD=danceschool
             - PHP_IDE_CONFIG=serverName=Docker
-        command: >
-            --wait tcp://mysql:3306
-               bash -c "/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"
-        ports:
-             - 9000:9000
-        networks:
-            code-network:
-                aliases:
-                    - php
+    composer:
+        image: "composer"
+        volumes:
+            - ".:/code"
+        command: install
     mysql:
         image: percona:latest
+        restart: always
         volumes:
             - mysql_data:/var/lib/mysql
         environment:
@@ -57,10 +50,6 @@ services:
             - MYSQL_DATABASE=danceschool
             - MYSQL_PASSWORD=danceschool
             - MYSQL_ROOT_PASSWORD=danceschool
-        networks:
-            code-network:
-                aliases:
-                    - mysql
 
 volumes:
     mysql_data:
