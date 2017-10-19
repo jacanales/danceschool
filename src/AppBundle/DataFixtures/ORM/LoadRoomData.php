@@ -74,13 +74,15 @@ class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface, C
     ): void {
         $room = new Room();
 
+        $phoneNumber = $this->container->get('libphonenumber.phone_number_util')->parse($phone, PhoneNumberUtil::UNKNOWN_REGION);
+
         $room->setName($name)
             ->setDescription($description)
             ->setPrice($price)
             ->setAddress($address)
             ->setCity($city)
             ->setPostalCode($postal_code)
-            ->setPhone($this->container->get('libphonenumber.phone_number_util')->parse($phone, PhoneNumberUtil::UNKNOWN_REGION));
+            ->setPhone($phoneNumber);
 
         $this->manager->persist($room);
     }

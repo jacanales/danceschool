@@ -4,8 +4,8 @@ server:
 	php -S localhost:8080 -t web web/index.php
 
 database-update:
-	bin/console doctrine:schema:update --force
-	bin/console doctrine:fixtures:load
+	php bin/console doctrine:schema:update --force
+	php bin/console doctrine:fixtures:load
 
 cs-fix:
 	bin/php-cs-fixer fix -vv

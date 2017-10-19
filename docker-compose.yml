@@ -36,14 +36,11 @@ services:
             - MYSQL_DATABASE=danceschool
             - MYSQL_PASSWORD=danceschool
             - PHP_IDE_CONFIG=serverName=Docker
-    composer:
-        image: "composer"
-        volumes:
-            - ".:/code"
-        command: install
     mysql:
         image: percona:latest
         restart: always
+        networks:
+            - code-network
         volumes:
             - mysql_data:/var/lib/mysql
         environment:
