@@ -28,19 +28,25 @@ services:
             - .:/code
         networks:
             - code-network
+        ports:
+            - "9001:9000"
         working_dir: /code
         environment:
-            - XDEBUG_REMOTE_HOST=$DOCKER_HOST_IP
+            - DOCKER_HOST_IP=10.0.75.0
+            - XDEBUG_REMOTE_HOST=10.0.75.0
+            - XDEBUG_CONFIG="remote_host=192.168.1.37"
             - MYSQL_HOST=mysql
             - MYSQL_USER=danceschool
             - MYSQL_DATABASE=danceschool
             - MYSQL_PASSWORD=danceschool
-            - PHP_IDE_CONFIG=serverName=Docker
+            - PHP_IDE_CONFIG="serverName=app_docker"
     mysql:
         image: percona:latest
         restart: always
         networks:
             - code-network
+        ports:
+            - "3307:3306"
         volumes:
             - mysql_data:/var/lib/mysql
         environment:

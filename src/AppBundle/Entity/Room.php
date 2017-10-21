@@ -42,7 +42,7 @@ class Room
     protected $postalCode;
 
     /**
-     * @var string
+     * @var PhoneNumber
      */
     protected $phone;
 
