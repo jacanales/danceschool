@@ -211,6 +211,7 @@ class GroupController extends Controller
             $group = $em->getRepository('AppBundle:Group')->find($id);
 
             $formData = $form->getData();
+
             $formData->setGroup($group);
 
             $em->persist($formData);

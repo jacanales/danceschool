@@ -60,7 +60,7 @@ class Student
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -92,7 +92,7 @@ class Student
     /**
      * @return int
      */
-    public function getCaptationMethod(): int
+    public function getCaptationMethod(): ?int
     {
         return $this->captationMethod;
     }
@@ -112,7 +112,7 @@ class Student
     /**
      * @return bool
      */
-    public function getMember(): bool
+    public function getMember(): ?bool
     {
         return $this->member;
     }
@@ -132,7 +132,7 @@ class Student
     /**
      * @return \DateTime
      */
-    public function getContractExpiration(): \DateTime
+    public function getContractExpiration(): ?\DateTime
     {
         return $this->contractExpiration;
     }
@@ -152,7 +152,7 @@ class Student
     /**
      * @return string
      */
-    public function getComment(): string
+    public function getComment(): ?string
     {
         return $this->comment;
     }
@@ -172,7 +172,7 @@ class Student
     /**
      * @return User
      */
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }

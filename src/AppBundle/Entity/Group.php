@@ -81,7 +81,7 @@ class Group
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -101,7 +101,7 @@ class Group
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -121,7 +121,7 @@ class Group
     /**
      * @return int
      */
-    public function getWeekday(): int
+    public function getWeekday(): ?int
     {
         return $this->weekday;
     }
@@ -141,7 +141,7 @@ class Group
     /**
      * @return \DateTime
      */
-    public function getHour(): \DateTime
+    public function getHour(): ?\DateTime
     {
         return $this->hour;
     }
@@ -161,7 +161,7 @@ class Group
     /**
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): ?\DateTime
     {
         return $this->startDate;
     }
@@ -181,7 +181,7 @@ class Group
     /**
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): ?\DateTime
     {
         return $this->endDate;
     }
@@ -201,7 +201,7 @@ class Group
     /**
      * @return string
      */
-    public function getWhatsappGroup(): string
+    public function getWhatsappGroup(): ?string
     {
         return $this->whatsappGroup;
     }
@@ -221,7 +221,7 @@ class Group
     /**
      * @return Course
      */
-    public function getCourse(): Course
+    public function getCourse(): ?Course
     {
         return $this->course;
     }
@@ -241,7 +241,7 @@ class Group
     /**
      * @return Room
      */
-    public function getRoom(): Room
+    public function getRoom(): ?Room
     {
         return $this->room;
     }
@@ -261,7 +261,7 @@ class Group
     /**
      * @return Teacher
      */
-    public function getTeacher(): Teacher
+    public function getTeacher(): ?Teacher
     {
         return $this->teacher;
     }

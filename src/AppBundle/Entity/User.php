@@ -126,7 +126,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getLastname(): string
+    public function getLastname(): ?string
     {
         return $this->lastname;
     }
@@ -206,7 +206,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getAddress(): string
+    public function getAddress(): ?string
     {
         return $this->address;
     }
@@ -226,7 +226,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getCity(): string
+    public function getCity(): ?string
     {
         return $this->city;
     }
@@ -246,7 +246,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getCountry(): string
+    public function getCountry(): ?string
     {
         return $this->country;
     }
@@ -266,7 +266,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode(): ?string
     {
         return $this->postalCode;
     }
@@ -286,7 +286,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getIdentityNumber(): string
+    public function getIdentityNumber(): ?string
     {
         return $this->identityNumber;
     }

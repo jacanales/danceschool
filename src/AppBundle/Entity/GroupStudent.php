@@ -22,7 +22,7 @@ class GroupStudent
     /**
      * @var bool
      */
-    protected $is_reinforcing;
+    protected $is_reinforcing = false;
 
     /**
      * @return Group
@@ -43,7 +43,7 @@ class GroupStudent
     /**
      * @return Student
      */
-    public function getStudent(): Student
+    public function getStudent(): ?Student
     {
         return $this->student;
     }
@@ -61,7 +61,7 @@ class GroupStudent
      */
     public function isReinforcing(): bool
     {
-        return $this->is_reinforcing;
+        return $this->is_reinforcing ?? false;
     }
 
     /**
@@ -69,6 +69,7 @@ class GroupStudent
      */
     public function setIsReinforcing(bool $is_reinforcing): void
     {
+        var_dump($is_reinforcing);
         $this->is_reinforcing = (bool) $is_reinforcing;
     }
 }

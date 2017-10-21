@@ -51,7 +51,7 @@ class Teacher
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -71,7 +71,7 @@ class Teacher
     /**
      * @return float
      */
-    public function getWage(): float
+    public function getWage(): ?float
     {
         return $this->wage;
     }
@@ -91,7 +91,7 @@ class Teacher
     /**
      * @return string
      */
-    public function getComment(): string
+    public function getComment(): ?string
     {
         return $this->comment;
     }
@@ -111,7 +111,7 @@ class Teacher
     /**
      * @return User
      */
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }

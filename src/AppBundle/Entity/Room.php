@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use libphonenumber\PhoneNumber;
+
 class Room
 {
     /**
@@ -47,7 +49,7 @@ class Room
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -67,7 +69,7 @@ class Room
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -87,7 +89,7 @@ class Room
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -107,7 +109,7 @@ class Room
     /**
      * @return float
      */
-    public function getPrice(): float
+    public function getPrice(): ?float
     {
         return $this->price;
     }
@@ -127,7 +129,7 @@ class Room
     /**
      * @return string
      */
-    public function getAddress(): string
+    public function getAddress(): ?string
     {
         return $this->address;
     }
@@ -147,7 +149,7 @@ class Room
     /**
      * @return string
      */
-    public function getCity(): string
+    public function getCity(): ?string
     {
         return $this->city;
     }
@@ -167,7 +169,7 @@ class Room
     /**
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode(): ?string
     {
         return $this->postalCode;
     }
@@ -185,19 +187,19 @@ class Room
     }
 
     /**
-     * @return string
+     * @return PhoneNumber
      */
-    public function getPhone(): string
+    public function getPhone(): PhoneNumber
     {
         return $this->phone;
     }
 
     /**
-     * @param string $phone
+     * @param PhoneNumber $phone
      *
      * @return self
      */
-    public function setPhone(string $phone): self
+    public function setPhone(PhoneNumber $phone): self
     {
         $this->phone = $phone;
 

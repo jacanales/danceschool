@@ -42,7 +42,7 @@ class StudentAnnotation
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -62,7 +62,7 @@ class StudentAnnotation
     /**
      * @return string
      */
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->message;
     }
@@ -122,7 +122,7 @@ class StudentAnnotation
     /**
      * @return Student
      */
-    public function getStudent(): Student
+    public function getStudent(): ?Student
     {
         return $this->student;
     }

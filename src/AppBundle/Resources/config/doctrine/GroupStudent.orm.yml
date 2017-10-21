@@ -10,7 +10,8 @@ AppBundle\Entity\GroupStudent:
         is_reinforcing:
             type: boolean
             nullable: false
-            default: 0
+            options:
+                default: 0
     manyToOne:
         group:
             id: true
