@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3'
 
 services:
     nginx:
@@ -36,8 +36,8 @@ services:
             - XDEBUG_REMOTE_HOST=10.0.75.0
             - XDEBUG_CONFIG="remote_host=192.168.1.37"
             - MYSQL_HOST=mysql
-            - MYSQL_USER=danceschool
             - MYSQL_DATABASE=danceschool
+            - MYSQL_USER=danceschool
             - MYSQL_PASSWORD=danceschool
             - PHP_IDE_CONFIG="serverName=app_docker"
     mysql:

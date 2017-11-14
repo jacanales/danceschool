@@ -1,10 +1,10 @@
 {
-    "name": "Mayimbe development app",
-    "description": "App for Mayimbe's Dance School",
+    "name": "Dance school development app",
+    "description": "App for a Dance School",
     "keywords": ["symfony", "school"],
-    "website": "https://www.salsaescuela.com",
+    "website": "http://www.zonadev.es",
     "success_url": "/",
-    "repository": "https://github.com/jacanales/danceschool",
+    "repository": "https://gitlab.com/jacanales/danceschool",
     "logo": "",
     "addons": [
         "cleardb"

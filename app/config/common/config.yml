@@ -107,3 +107,5 @@ mopa_bootstrap:
 knp_menu:
     twig:
         template: AppBundle:Default:knp_menu.html.twig
+
+craue_twig_extensions: ~

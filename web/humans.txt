@@ -8,11 +8,11 @@
     From: Barcelona, Catalonia, Spain
 
 /* SITE */
-    Site Name: Mayimbe's Dance School
-    Site URL: http://www.salsaescuela.com
-	Facebook: https://www.facebook.com/MayimbeSchool
+    Site Name: Danceschool project
+    Site URL: http://www.zonadev.com
+	Facebook: N/A
     Language: Català / English / Castellano
-	Last update: 2015/09/13
+	Last update: 2017/11/14
 	Standards: HTML5
     Components: Symfony2, Bootstrap 3
     Software: PHPStorm

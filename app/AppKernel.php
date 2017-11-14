@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
+            new Craue\TwigExtensionsBundle\CraueTwigExtensionsBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 //            new Liip\ThemeBundle\LiipThemeBundle(),
