@@ -6,10 +6,14 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
+sonata_admin_area:
+    resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
+    prefix: /admin
+
 easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/"
     type:     annotation
-    prefix:   /admin
+    prefix:   /easy_admin
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

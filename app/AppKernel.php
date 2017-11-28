@@ -20,17 +20,26 @@ class AppKernel extends Kernel
             new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
             new AppBundle\AppBundle(),
 
+            // Bundles the SonataAdminBundle relies on
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+
+            // The storage and SonataAdminBundle
+            new Sonata\AdminBundle\SonataAdminBundle(),
+
             # Third-party bundles
             new FOS\UserBundle\FOSUserBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new Craue\TwigExtensionsBundle\CraueTwigExtensionsBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 //            new Liip\ThemeBundle\LiipThemeBundle(),
-            new Misd\PhoneNumberBundle\MisdPhoneNumberBundle()
+            new Misd\PhoneNumberBundle\MisdPhoneNumberBundle(),
+
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
