@@ -1,5 +1,6 @@
 <?php
 
+use Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
@@ -27,6 +28,7 @@ class AppKernel extends Kernel
 
             // The storage and SonataAdminBundle
             new Sonata\AdminBundle\SonataAdminBundle(),
+            new SonataDoctrineORMAdminBundle(),
 
             # Third-party bundles
             new FOS\UserBundle\FOSUserBundle(),

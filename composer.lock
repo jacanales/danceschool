@@ -193,7 +193,7 @@
                 "symfony3",
                 "wizard"
             ],
-            "time": "2017-11-08 09:56:42"
+            "time": "2017-11-08T09:56:42+00:00"
         },
         {
             "name": "craue/twigextensions-bundle",
@@ -1217,7 +1217,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2017-10-24 09:06:59"
+            "time": "2017-10-24T09:06:59+00:00"
         },
         {
             "name": "giggsey/libphonenumber-for-php",
@@ -5126,7 +5126,7 @@
             "support": {
                 "issues": "https://github.com/PhpMetrics/SymfonyExtension/issues"
             },
-            "time": "2016-03-22 17:05:58"
+            "time": "2016-03-22T17:05:58+00:00"
         },
         {
             "name": "phpspec/php-diff",
