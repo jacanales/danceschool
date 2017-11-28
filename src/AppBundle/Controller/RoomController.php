@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Route preffix affects only new (not overloaded) actions or if route name matches.
  *
- * @Route("/room")
+ * @Route("/admin/room")
  */
 class RoomController extends Controller
 {

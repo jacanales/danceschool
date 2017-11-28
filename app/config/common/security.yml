@@ -45,8 +45,6 @@ security:
     # http://symfony.com/doc/current/cookbook/security/access_control.html
     access_control:
 #        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-#        - { path: ^/room/add, role: ROLE_ADMIN }
-#        - { path: ^/room$, role: ROLE_USER }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/css, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/js, role: IS_AUTHENTICATED_ANONYMOUSLY }
