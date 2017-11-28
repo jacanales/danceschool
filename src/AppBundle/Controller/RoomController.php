@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 class RoomController extends Controller
 {
     /**
-     * @Route("/", name="mayimbe_room_index")
+     * @Route("/", name="danceschool_room_index")
      *
      * @throws \LogicException
      */
@@ -37,7 +37,7 @@ class RoomController extends Controller
     }
 
     /**
-     * @Route("/add", name="mayimbe_room_add")
+     * @Route("/add", name="danceschool_room_add")
      *
      * @param Request $request
      *
@@ -60,7 +60,7 @@ class RoomController extends Controller
             $em->persist($form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_room_index');
+            return $this->redirectToRoute('danceschool_room_index');
         }
 
         return $this->render(
@@ -72,7 +72,7 @@ class RoomController extends Controller
     }
 
     /**
-     * @Route("/show/{id}", name="mayimbe_room_show")
+     * @Route("/show/{id}", name="danceschool_room_show")
      *
      * @param int $id
      *
@@ -102,7 +102,7 @@ class RoomController extends Controller
     }
 
     /**
-     * @Route("/edit/{id}", name="mayimbe_room_edit")
+     * @Route("/edit/{id}", name="danceschool_room_edit")
      *
      * @param Request $request
      * @param int     $id
@@ -135,7 +135,7 @@ class RoomController extends Controller
 
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_room_index');
+            return $this->redirectToRoute('danceschool_room_index');
         }
 
         return $this->render(
@@ -148,7 +148,7 @@ class RoomController extends Controller
     }
 
     /**
-     * @Route("/remove/{id}", name="mayimbe_room_remove")
+     * @Route("/remove/{id}", name="danceschool_room_remove")
      *
      * @param int $id
      *
@@ -172,6 +172,6 @@ class RoomController extends Controller
         $em->remove($room);
         $em->flush();
 
-        return $this->redirectToRoute('mayimbe_room_index');
+        return $this->redirectToRoute('danceschool_room_index');
     }
 }

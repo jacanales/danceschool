@@ -35,10 +35,10 @@
     <dd>{{ group.teacher.fullName }}</dd>
 </dl>
 
-<a href="{{ path('mayimbe_group_index') }}" class="btn btn-primary btn-sm" role="button">{{ 'button.go_to_index'|trans({}, 'AppBundle') }}</a>
-<a href="{{ path('mayimbe_group_add_student', {'id': group.id }) }}" class="btn btn-default btn-sm" role="button">{{ 'button.add_student'|trans({}, 'AppBundle') }}</a>
-<a href="{{ path('mayimbe_group_edit', {'id': group.id }) }}" class="btn btn-default btn-sm" role="button">{{ 'button.edit'|trans({}, 'AppBundle') }}</a>
-<a href="{{ path('mayimbe_group_remove', {'id': group.id }) }}" class="btn btn-danger btn-sm" role="button">{{ 'button.delete'|trans({}, 'AppBundle') }}</a>
+<a href="{{ path('danceschool_group_index') }}" class="btn btn-primary btn-sm" role="button">{{ 'button.go_to_index'|trans({}, 'AppBundle') }}</a>
+<a href="{{ path('danceschool_group_add_student', {'id': group.id }) }}" class="btn btn-default btn-sm" role="button">{{ 'button.add_student'|trans({}, 'AppBundle') }}</a>
+<a href="{{ path('danceschool_group_edit', {'id': group.id }) }}" class="btn btn-default btn-sm" role="button">{{ 'button.edit'|trans({}, 'AppBundle') }}</a>
+<a href="{{ path('danceschool_group_remove', {'id': group.id }) }}" class="btn btn-danger btn-sm" role="button">{{ 'button.delete'|trans({}, 'AppBundle') }}</a>
 
 
 <div class="table-responsive">
@@ -59,8 +59,8 @@
                 <td class="info">{{ student.student.id }}</td>
                 <td>{{ student.student.getFullName }}</td>
                 <td>{{ student.isReinforcing }}</td>
-                <td class="info"><a href="{{ path('mayimbe_group_edit_student', {'id': group.id, 'studentId': student.student.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.edit'|trans({}, 'AppBundle') }}</a></td>
-                <td class="danger"><a href="{{ path('mayimbe_group_remove_student', {'id': group.id, 'studentId': student.student.id }) }}" class="btn btn-danger btn-xs" role="button">{{ 'button.delete'|trans({}, 'AppBundle') }}</a></td>
+                <td class="info"><a href="{{ path('danceschool_group_edit_student', {'id': group.id, 'studentId': student.student.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.edit'|trans({}, 'AppBundle') }}</a></td>
+                <td class="danger"><a href="{{ path('danceschool_group_remove_student', {'id': group.id, 'studentId': student.student.id }) }}" class="btn btn-danger btn-xs" role="button">{{ 'button.delete'|trans({}, 'AppBundle') }}</a></td>
             </tr>
         {% endfor %}
         </tbody>

@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Response;
 class StudentController extends Controller
 {
     /**
-     * @Route("/", name="mayimbe_student_index")
+     * @Route("/", name="danceschool_student_index")
      * @Method("GET")
      *
      * @throws \LogicException
@@ -41,7 +41,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/show/{id}", name="mayimbe_student_show")
+     * @Route("/show/{id}", name="danceschool_student_show")
      * @Method("GET")
      *
      * @param int $id
@@ -80,7 +80,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/add", name="mayimbe_student_add")
+     * @Route("/add", name="danceschool_student_add")
      * @Method({"GET", "POST"})
      *
      * @param Request $request
@@ -99,7 +99,7 @@ class StudentController extends Controller
             $em->persist($form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_student_index');
+            return $this->redirectToRoute('danceschool_student_index');
         }
 
         return $this->render(
@@ -111,7 +111,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/edit/{id}", name="mayimbe_student_edit")
+     * @Route("/edit/{id}", name="danceschool_student_edit")
      * @Method({"GET", "POST"})
      *
      * @param Request $request
@@ -141,7 +141,7 @@ class StudentController extends Controller
 
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_student_index');
+            return $this->redirectToRoute('danceschool_student_index');
         }
 
         return $this->render(
@@ -154,7 +154,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/remove/{id}", name="mayimbe_student_remove")
+     * @Route("/remove/{id}", name="danceschool_student_remove")
      * @Method({"GET", "POST"})
      *
      * @param $id
@@ -179,11 +179,11 @@ class StudentController extends Controller
         $em->remove($student);
         $em->flush();
 
-        return $this->redirectToRoute('mayimbe_student_index');
+        return $this->redirectToRoute('danceschool_student_index');
     }
 
     /**
-     * @Route("/{studentId}/annotations/add", name="mayimbe_student_annotation_add")
+     * @Route("/{studentId}/annotations/add", name="danceschool_student_annotation_add")
      * @Method({"GET", "POST"})
      *
      * @param Request $request
@@ -211,7 +211,7 @@ class StudentController extends Controller
             $em->persist($form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_student_show', ['id' => $studentId]);
+            return $this->redirectToRoute('danceschool_student_show', ['id' => $studentId]);
         }
 
         return $this->render(
@@ -224,7 +224,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/{studentId}/annotations/edit/{annotationId}", name="mayimbe_student_annotation_edit")
+     * @Route("/{studentId}/annotations/edit/{annotationId}", name="danceschool_student_annotation_edit")
      * @Method({"GET", "POST"})
      *
      * @param Request $request
@@ -259,7 +259,7 @@ class StudentController extends Controller
 
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_student_show', ['id' => $studentId]);
+            return $this->redirectToRoute('danceschool_student_show', ['id' => $studentId]);
         }
 
         return $this->render(
@@ -273,7 +273,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/{studentId}/annotations/remove/{annotationId}", name="mayimbe_student_annotation_remove")
+     * @Route("/{studentId}/annotations/remove/{annotationId}", name="danceschool_student_annotation_remove")
      * @Method({"GET", "POST"})
      *
      * @param int $studentId
@@ -299,6 +299,6 @@ class StudentController extends Controller
         $em->remove($annotation);
         $em->flush();
 
-        return $this->redirectToRoute('mayimbe_student_show', ['id' => $studentId]);
+        return $this->redirectToRoute('danceschool_student_show', ['id' => $studentId]);
     }
 }

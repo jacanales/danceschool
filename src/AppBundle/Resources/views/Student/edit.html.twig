@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content_content %}
-    {{ form_start(form, {'action': path('mayimbe_student_edit', {'id': student.id })}) }}
+    {{ form_start(form, {'action': path('danceschool_student_edit', {'id': student.id })}) }}
         <legend>{{ 'title.edit_student'|trans({}, 'AppBundle') }}</legend>
         {{ form_errors(form) }}
         {{ form_row(form.user.username) }}

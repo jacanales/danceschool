@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 class TeacherController extends Controller
 {
     /**
-     * @Route("/", name="mayimbe_teacher_index")
+     * @Route("/", name="danceschool_teacher_index")
      *
      * @throws \LogicException
      */
@@ -37,7 +37,7 @@ class TeacherController extends Controller
     }
 
     /**
-     * @Route("/show/{id}", name="mayimbe_teacher_show")
+     * @Route("/show/{id}", name="danceschool_teacher_show")
      *
      * @param int $id
      *
@@ -67,7 +67,7 @@ class TeacherController extends Controller
     }
 
     /**
-     * @Route("/add", name="mayimbe_teacher_add")
+     * @Route("/add", name="danceschool_teacher_add")
      *
      * @param Request $request
      *
@@ -85,7 +85,7 @@ class TeacherController extends Controller
             $em->persist($form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_teacher_index');
+            return $this->redirectToRoute('danceschool_teacher_index');
         }
 
         return $this->render(
@@ -97,7 +97,7 @@ class TeacherController extends Controller
     }
 
     /**
-     * @Route("/edit/{id}", name="mayimbe_teacher_edit")
+     * @Route("/edit/{id}", name="danceschool_teacher_edit")
      *
      * @param Request $request
      * @param         $id
@@ -126,7 +126,7 @@ class TeacherController extends Controller
 
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_teacher_index');
+            return $this->redirectToRoute('danceschool_teacher_index');
         }
 
         return $this->render(
@@ -139,7 +139,7 @@ class TeacherController extends Controller
     }
 
     /**
-     * @Route("/remove/{id}", name="mayimbe_teacher_remove")
+     * @Route("/remove/{id}", name="danceschool_teacher_remove")
      *
      * @param int $id
      *
@@ -163,6 +163,6 @@ class TeacherController extends Controller
         $em->remove($teacher);
         $em->flush();
 
-        return $this->redirectToRoute('mayimbe_teacher_index');
+        return $this->redirectToRoute('danceschool_teacher_index');
     }
 }

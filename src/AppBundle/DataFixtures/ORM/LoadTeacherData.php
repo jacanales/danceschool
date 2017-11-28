@@ -45,7 +45,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
         $user = new User();
 
         $user->setUsername('carlos.dls')
-             ->setEmail('infomayimbe@gmail.com')
+             ->setEmail('infodanceschool@gmail.com')
              ->setName('Carlos')
              ->setLastname('DlS')
              ->setGender('m')

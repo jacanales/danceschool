@@ -39,8 +39,8 @@ class Builder
 
         // Create a dropdown header
         $room->addChild('title.rooms', ['dropdown-header' => true])->setExtra('translation_domain', 'AppBundle');
-        $room->addChild('title.list_rooms', ['route' => 'mayimbe_room_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
-        $room->addChild('title.add_room', ['route' => 'mayimbe_room_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $room->addChild('title.list_rooms', ['route' => 'danceschool_room_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $room->addChild('title.add_room', ['route' => 'danceschool_room_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
     }
 
     private function addCourseMenu(ItemInterface $menu): void
@@ -53,8 +53,8 @@ class Builder
 
         // Create a dropdown header
         $course->addChild('title.courses', ['dropdown-header' => true])->setExtra('translation_domain', 'AppBundle');
-        $course->addChild('title.list_courses', ['route' => 'mayimbe_course_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
-        $course->addChild('title.add_course', ['route' => 'mayimbe_course_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $course->addChild('title.list_courses', ['route' => 'danceschool_course_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $course->addChild('title.add_course', ['route' => 'danceschool_course_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
     }
 
     private function addTeacherMenu(ItemInterface $menu): void
@@ -67,8 +67,8 @@ class Builder
 
         // Create a dropdown header
         $teacher->addChild('title.teachers', ['dropdown-header' => true])->setExtra('translation_domain', 'AppBundle');
-        $teacher->addChild('title.list_teachers', ['route' => 'mayimbe_teacher_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
-        $teacher->addChild('title.add_teacher', ['route' => 'mayimbe_teacher_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $teacher->addChild('title.list_teachers', ['route' => 'danceschool_teacher_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $teacher->addChild('title.add_teacher', ['route' => 'danceschool_teacher_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
     }
 
     private function addStudentMenu(ItemInterface $menu): void
@@ -81,8 +81,8 @@ class Builder
 
         // Create a dropdown header
         $student->addChild('title.students', ['dropdown-header' => true])->setExtra('translation_domain', 'AppBundle');
-        $student->addChild('title.list_students', ['route' => 'mayimbe_student_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
-        $student->addChild('title.add_student', ['route' => 'mayimbe_student_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $student->addChild('title.list_students', ['route' => 'danceschool_student_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $student->addChild('title.add_student', ['route' => 'danceschool_student_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
     }
 
     private function addGroupMenu(ItemInterface $menu): void
@@ -94,8 +94,8 @@ class Builder
 
         // Create a dropdown header
         $group->addChild('title.groups', ['dropdown-header' => true])->setExtra('translation_domain', 'AppBundle');
-        $group->addChild('title.list_groups', ['route' => 'mayimbe_group_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
-        $group->addChild('title.add_group', ['route' => 'mayimbe_group_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $group->addChild('title.list_groups', ['route' => 'danceschool_group_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $group->addChild('title.add_group', ['route' => 'danceschool_group_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
     }
 
     public function invalidMethod(): \stdClass

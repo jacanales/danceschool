@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 class CourseController extends Controller
 {
     /**
-     * @Route("/", name="mayimbe_course_index")
+     * @Route("/", name="danceschool_course_index")
      *
      * @return Response
      *
@@ -40,7 +40,7 @@ class CourseController extends Controller
     }
 
     /**
-     * @Route("/show/{id}", name="mayimbe_course_show")
+     * @Route("/show/{id}", name="danceschool_course_show")
      *
      * @param int $id
      *
@@ -75,7 +75,7 @@ class CourseController extends Controller
     }
 
     /**
-     * @Route("/add", name="mayimbe_course_add")
+     * @Route("/add", name="danceschool_course_add")
      *
      * @param Request $request
      *
@@ -97,7 +97,7 @@ class CourseController extends Controller
             $em->persist($form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_course_index');
+            return $this->redirectToRoute('danceschool_course_index');
         }
 
         return $this->render(
@@ -109,7 +109,7 @@ class CourseController extends Controller
     }
 
     /**
-     * @Route("/edit/{id}", name="mayimbe_course_edit")
+     * @Route("/edit/{id}", name="danceschool_course_edit")
      *
      * @param Request $request
      * @param int     $id
@@ -141,7 +141,7 @@ class CourseController extends Controller
 
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_course_index');
+            return $this->redirectToRoute('danceschool_course_index');
         }
 
         return $this->render(
@@ -154,7 +154,7 @@ class CourseController extends Controller
     }
 
     /**
-     * @Route("/remove/{id}", name="mayimbe_course_remove")
+     * @Route("/remove/{id}", name="danceschool_course_remove")
      *
      * @param int $id
      *
@@ -178,6 +178,6 @@ class CourseController extends Controller
         $em->remove($course);
         $em->flush();
 
-        return $this->redirectToRoute('mayimbe_course_index');
+        return $this->redirectToRoute('danceschool_course_index');
     }
 }

@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Response;
 class GroupController extends Controller
 {
     /**
-     * @Route("/", name="mayimbe_group_index")
+     * @Route("/", name="danceschool_group_index")
      *
      * @throws \LogicException
      */
@@ -40,7 +40,7 @@ class GroupController extends Controller
     }
 
     /**
-     * @Route("/show/{id}", name="mayimbe_group_show")
+     * @Route("/show/{id}", name="danceschool_group_show")
      *
      * @param $id
      *
@@ -78,7 +78,7 @@ class GroupController extends Controller
     }
 
     /**
-     * @Route("/add", name="mayimbe_group_add")
+     * @Route("/add", name="danceschool_group_add")
      *
      * @param Request $request
      *
@@ -101,7 +101,7 @@ class GroupController extends Controller
             $em->persist($form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_group_index');
+            return $this->redirectToRoute('danceschool_group_index');
         }
 
         return $this->render(
@@ -113,7 +113,7 @@ class GroupController extends Controller
     }
 
     /**
-     * @Route("/edit/{id}", name="mayimbe_group_edit")
+     * @Route("/edit/{id}", name="danceschool_group_edit")
      *
      * @param Request $request
      * @param int     $id
@@ -146,7 +146,7 @@ class GroupController extends Controller
 
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_group_index');
+            return $this->redirectToRoute('danceschool_group_index');
         }
 
         return $this->render(
@@ -159,7 +159,7 @@ class GroupController extends Controller
     }
 
     /**
-     * @Route("/remove/{id}", name="mayimbe_group_remove")
+     * @Route("/remove/{id}", name="danceschool_group_remove")
      *
      * @param int $id
      *
@@ -183,11 +183,11 @@ class GroupController extends Controller
         $em->remove($group);
         $em->flush();
 
-        return $this->redirectToRoute('mayimbe_group_index');
+        return $this->redirectToRoute('danceschool_group_index');
     }
 
     /**
-     * @Route("/{id}/student/add", name="mayimbe_group_add_student")
+     * @Route("/{id}/student/add", name="danceschool_group_add_student")
      *
      * @param Request $request
      * @param int     $id
@@ -217,7 +217,7 @@ class GroupController extends Controller
             $em->persist($formData);
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_group_show', ['id' => $id]);
+            return $this->redirectToRoute('danceschool_group_show', ['id' => $id]);
         }
 
         return $this->render(
@@ -230,7 +230,7 @@ class GroupController extends Controller
     }
 
     /**
-     * @Route("/{id}/student/edit/{studentId}", name="mayimbe_group_edit_student")
+     * @Route("/{id}/student/edit/{studentId}", name="danceschool_group_edit_student")
      *
      * @param Request $request
      * @param int     $id
@@ -267,7 +267,7 @@ class GroupController extends Controller
 
             $em->flush();
 
-            return $this->redirectToRoute('mayimbe_group_show', ['id' => $id]);
+            return $this->redirectToRoute('danceschool_group_show', ['id' => $id]);
         }
 
         return $this->render(
@@ -281,7 +281,7 @@ class GroupController extends Controller
     }
 
     /**
-     * @Route("/{id}/student/remove/{studentId}", name="mayimbe_group_remove_student")
+     * @Route("/{id}/student/remove/{studentId}", name="danceschool_group_remove_student")
      *
      * @param int $id
      * @param int $studentId
@@ -309,6 +309,6 @@ class GroupController extends Controller
         $em->remove($student);
         $em->flush();
 
-        return $this->redirectToRoute('mayimbe_group_show', ['id' => $id]);
+        return $this->redirectToRoute('danceschool_group_show', ['id' => $id]);
     }
 }
