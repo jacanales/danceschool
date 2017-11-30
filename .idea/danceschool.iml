@@ -7,6 +7,11 @@
       <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" packagePrefix="SymfonyStandard" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/cocur/slugify" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/craue/twigextensions-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/egulias/email-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/fig/link-util" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/link" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/admin-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/block-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/cache" />
@@ -14,6 +19,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/datagrid-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-apcu" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php72" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/security-acl" />
     </content>
@@ -42,6 +48,11 @@
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/cocur/slugify" />
           <root url="file://$MODULE_DIR$/vendor/craue/twigextensions-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/egulias/email-validator" />
+          <root url="file://$MODULE_DIR$/vendor/fig/link-util" />
+          <root url="file://$MODULE_DIR$/vendor/psr/container" />
+          <root url="file://$MODULE_DIR$/vendor/psr/link" />
+          <root url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/admin-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/block-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/cache" />
@@ -49,12 +60,18 @@
           <root url="file://$MODULE_DIR$/vendor/sonata-project/datagrid-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/exporter" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-apcu" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php72" />
           <root url="file://$MODULE_DIR$/vendor/symfony/security-acl" />
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/cocur/slugify" />
           <root url="file://$MODULE_DIR$/vendor/craue/twigextensions-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/egulias/email-validator" />
+          <root url="file://$MODULE_DIR$/vendor/fig/link-util" />
+          <root url="file://$MODULE_DIR$/vendor/psr/container" />
+          <root url="file://$MODULE_DIR$/vendor/psr/link" />
+          <root url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/admin-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/block-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/cache" />
@@ -62,6 +79,7 @@
           <root url="file://$MODULE_DIR$/vendor/sonata-project/datagrid-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/exporter" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-apcu" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php72" />
           <root url="file://$MODULE_DIR$/vendor/symfony/security-acl" />
         </SOURCES>

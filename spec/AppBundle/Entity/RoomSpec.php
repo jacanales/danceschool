@@ -3,6 +3,7 @@
 namespace spec\AppBundle\Entity;
 
 use AppBundle\Entity\Room;
+use libphonenumber\PhoneNumber;
 use PhpSpec\ObjectBehavior;
 
 /**
@@ -64,10 +65,10 @@ class RoomSpec extends ObjectBehavior
         $this->getPostalCode()->shouldReturn('postcode');
     }
 
-    public function it_sets_phone()
+    public function it_sets_phone(PhoneNumber $phoneNumber)
     {
-        $this->setPhone('phone')->shouldHaveType(Room::class);
+        $this->setPhone($phoneNumber)->shouldHaveType(Room::class);
 
-        $this->getPhone()->shouldReturn('phone');
+        $this->getPhone()->shouldReturn($phoneNumber);
     }
 }
