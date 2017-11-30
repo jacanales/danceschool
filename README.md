@@ -29,3 +29,6 @@ php app/console assetic:dump
 npm install grunt --save-dev
 npm install grunt-contrib-jshint --save-dev
 ```
+
+** Extended **
+- See SonataAadmin documentation: https://sonata-project.org/bundles/admin/3-x/doc/getting_started/the_list_view.html

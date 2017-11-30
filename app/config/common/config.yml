@@ -6,6 +6,7 @@ imports:
     - { resource: extra/easyadmin.yml }
     - { resource: extra/user.yml }
     - { resource: extra/hwi_oauth.yml }
+    - { resource: extra/sonata.yml }
 
 framework:
     #esi:             ~
