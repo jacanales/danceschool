@@ -166,7 +166,7 @@ class User extends BaseUser
     /**
      * @return \DateTime
      */
-    public function getBirthday(): \DateTime
+    public function getBirthday(): ?\DateTime
     {
         return $this->birthday;
     }

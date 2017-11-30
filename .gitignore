@@ -1,6 +1,7 @@
+.idea
 /build
 /app/config/parameters_local.yml
-/node_modules/*
+/node_modules/
 /phpunit.xml
 /var/
 !var/cache/.gitkeep
@@ -13,5 +14,5 @@
 #/web/js
 #web/.htaccess
 web/phpmetrics/
-
-
+projectFilesBackup/
+tasks/

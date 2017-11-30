@@ -127,6 +127,14 @@ class Group
     }
 
     /**
+     * @return string
+     */
+    public function getWeekdayText(): ?string
+    {
+        return date('l', strtotime("Sunday +{$this->getWeekday()} days"));
+    }
+
+    /**
      * @param \DateTime $hour
      *
      * @return Group
