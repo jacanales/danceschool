@@ -1,6 +1,5 @@
-imports:
-    - { resource: extra/forms_parameters.yml }
-
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
 parameters:
     locale: es
     secret: b6b81bf786a28597d16ae47e47a56d87
@@ -17,3 +16,8 @@ parameters:
     mopa_bootstrap.form.render_required_asterisk: true
 
     session.name: MSESSID
+
+services:
+    app_user_provider:
+        class: AppBundle\Security\Core\User\FOSUBUserProvider
+        arguments: ['@fos_user.user_manager', {facebook: facebookId}]

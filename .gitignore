@@ -7,7 +7,7 @@
 !var/cache/.gitkeep
 !var/logs/.gitkeep
 /vendor/
-#/web/bundles/
+/web/bundles/
 #/web/css/*
 #!/web/css/layout
 #web/images/*

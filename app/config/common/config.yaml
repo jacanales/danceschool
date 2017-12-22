@@ -1,12 +1,12 @@
 imports:
-    - { resource: parameters.yml }
-    - { resource: parameters_local.yml, ignore_errors: true }
-    - { resource: security.yml }
-    - { resource: services.yml }
-    - { resource: extra/easyadmin.yml }
-    - { resource: extra/user.yml }
-    - { resource: extra/hwi_oauth.yml }
-    - { resource: extra/sonata.yml }
+    - { resource: parameters.yaml }
+    - { resource: parameters_local.yaml, ignore_errors: true }
+    - { resource: security.yaml }
+    - { resource: services.yaml }
+    - { resource: packages/easyadmin.yaml }
+    - { resource: packages/user.yaml }
+    - { resource: packages/hwi_oauth.yaml }
+    - { resource: packages/sonata.yaml }
 
 framework:
     #esi:             ~
@@ -14,7 +14,7 @@ framework:
     translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
-        resource: "%kernel.root_dir%/config/common/routing.yml"
+        resource: "%kernel.root_dir%/config/common/routing.yaml"
         strict_requirements: ~
     form:            ~
     csrf_protection: ~

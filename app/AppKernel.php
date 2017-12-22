@@ -56,14 +56,18 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
+    /**
+     * @param LoaderInterface $loader
+     * @throws Exception
+     */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $envFolder = $this->getRootDir() . '/config/' . $this->getEnvironment() . '/config.yml';
+        $envFolder = $this->getRootDir() . '/config/' . $this->getEnvironment() . '/config.yaml';
 
         if (file_exists($envFolder)) {
             $loader->load($envFolder);
         } else {
-            $loader->load($this->getRootDir() . '/config/common/config.yml');
+            $loader->load($this->getRootDir() . '/config/common/config.yaml');
         }
     }
 

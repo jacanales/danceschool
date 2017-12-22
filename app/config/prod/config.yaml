@@ -1,7 +1,7 @@
 imports:
-    - { resource: ../common/config.yml }
-    - { resource: parameters.yml }
-    - { resource: routing.yml }
+    - { resource: ../common/config.yaml }
+    - { resource: parameters.yaml }
+    - { resource: routing.yaml }
 
 #framework:
 #    validation:
