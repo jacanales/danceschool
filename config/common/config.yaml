@@ -1,5 +1,4 @@
 imports:
-    - { resource: parameters.yaml }
     - { resource: parameters_local.yaml, ignore_errors: true }
     - { resource: security.yaml }
     - { resource: services.yaml }

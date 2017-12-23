@@ -1,5 +1,8 @@
 # Learn more about services, parameters and containers at
 # http://symfony.com/doc/current/book/service_container.html
+imports:
+    - { resource: packages/forms_parameters.yaml }
+
 parameters:
     locale: es
     secret: b6b81bf786a28597d16ae47e47a56d87
