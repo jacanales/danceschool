@@ -7,6 +7,9 @@ imports:
     - { resource: packages/user.yaml }
     - { resource: packages/hwi_oauth.yaml }
     - { resource: packages/sonata.yaml }
+    - { resource: packages/knp_menu.yaml }
+    - { resource: packages/mopa_bootstrap.yaml }
+    - { resource: packages/swiftmailer.yaml }
 
 framework:
     #esi:             ~
@@ -32,7 +35,6 @@ framework:
 
     default_locale:  "%locale%"
     trusted_hosts:   ~
-    trusted_proxies: ~
     session:
         # handler_id set to null will use default session handler from php.ini
         handler_id:  ~
@@ -88,23 +90,3 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
-
-# Swiftmailer Configuration
-swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
-
-mopa_bootstrap:
-    form:
-        show_legend: true # default is true
-        show_child_legend: true # default is true
-        error_type: block # or inline which is default
-    menu:   # enables twig helpers for menu
-        template: AppBundle:Menu:menu.html.twig
-
-knp_menu:
-    twig:
-        template: AppBundle:Default:knp_menu.html.twig
