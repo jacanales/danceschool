@@ -7,7 +7,7 @@ class AppKernel extends Kernel
 {
     public function registerBundles()
     {
-        $contents = require $this->getProjectDir() . '/app/config/bundles.php';
+        $contents = require $this->getProjectDir() . '/config/bundles.php';
         foreach ($contents as $class => $envs) {
             if (isset($envs['all']) || isset($envs[$this->environment])) {
                 yield new $class();
@@ -21,12 +21,12 @@ class AppKernel extends Kernel
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $envFolder = $this->getRootDir() . '/config/' . $this->getEnvironment() . '/config.yaml';
+        $envFolder = $this->getProjectDir() . '/config/' . $this->getEnvironment() . '/config.yaml';
 
         if (file_exists($envFolder)) {
             $loader->load($envFolder);
         } else {
-            $loader->load($this->getRootDir() . '/config/common/config.yaml');
+            $loader->load($this->getProjectDir() . '/config/common/config.yaml');
         }
     }
 

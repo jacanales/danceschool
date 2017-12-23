@@ -4,7 +4,7 @@ imports:
 
 framework:
     router:
-        resource: "%kernel.root_dir%/config/dev/routing.yaml"
+        resource: "%kernel.project_dir%/config/dev/routing.yaml"
         strict_requirements: true
     profiler: { only_exceptions: false }
 
