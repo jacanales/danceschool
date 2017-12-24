@@ -39,7 +39,7 @@
         "sensio/generator-bundle": "~3.1.6",
         "sensio/framework-extra-bundle": "~5.1.1",
 
-        "doctrine/orm": "~2.5.13",
+        "doctrine/orm": "~2.6.0",
         "doctrine/dbal": "~2.6.3",
         "doctrine/doctrine-bundle": "~1.8.1",
         "doctrine/doctrine-fixtures-bundle": "^2.3.03",
@@ -53,7 +53,7 @@
 
         "mopa/bootstrap-bundle": "~3.2.1",
         "twbs/bootstrap-sass": "~3.3.7",
-        "knplabs/knp-paginator-bundle": "~2.6.0",
+        "knplabs/knp-paginator-bundle": "~2.7.1",
         "knplabs/knp-menu-bundle": "~2.2.0",
         "knplabs/knp-menu": "~2.3.0",
         "misd/phone-number-bundle": "~1.2.0",
@@ -66,13 +66,12 @@
 
     },
     "require-dev": {
-        "phpspec/phpspec": "~4.2.4",
-
-        "phpunit/phpunit": "~6.4.4",
-        "phpunit/php-code-coverage": "~5.2.4",
+        "phpspec/phpspec": "~4.3.0",
+        "phpunit/phpunit": "~6.5.5",
+        "phpunit/php-code-coverage": "~5.3.0",
         "matthiasnoback/symfony-dependency-injection-test": "^2.3",
 
-        "friendsofphp/php-cs-fixer": "~2.8.3",
+        "friendsofphp/php-cs-fixer": "~2.9.0",
         "phpmetrics/phpmetrics": "~2.3.2",
         "phpmetrics/symfony-extension": "dev-master@dev",
 
