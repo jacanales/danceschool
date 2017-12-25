@@ -6,12 +6,12 @@
     "autoload": {
         "psr-0": {
             "": "src/",
-            "SymfonyStandard": "app/"
+            "SymfonyStandard": "src/"
         },
-        "files": ["app/AppKernel.php"],
+        "files": ["src/AppKernel.php"],
         "classmap": [
-            "app/AppKernel.php",
-            "app/AppCache.php"
+            "src/AppKernel.php",
+            "src/AppCache.php"
         ]
     },
     "autoload-dev": {
