@@ -37,7 +37,6 @@ return [
     Sensio\Bundle\DistributionBundle\SensioDistributionBundle::class => ['dev' => true],
 
     # Third-party bundles
-    Webfactory\Bundle\ExceptionsBundle\WebfactoryExceptionsBundle::class => ['dev' => true],
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true],
     //Egulias\ListenersDebugCommandBundle\EguliasListenersDebugCommandBundle::class => ['dev' => true, 'test' => true],
 ];

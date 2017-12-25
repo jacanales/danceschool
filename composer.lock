@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0aa468a0ae827a160a71ae969eb7bd7",
+    "content-hash": "bd2d41a8c7d567acc7770b5d05e9fa0d",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -5523,35 +5523,6 @@
                 "templating"
             ],
             "time": "2017-09-27T18:10:31+00:00"
-        },
-        {
-            "name": "webfactory/exceptions-bundle",
-            "version": "3.0.1",
-            "target-dir": "Webfactory/Bundle/ExceptionsBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webfactory/exceptions-bundle.git",
-                "reference": "a85ed42116a9aa51a6e90c72e3b0ed0a33211dc2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webfactory/exceptions-bundle/zipball/a85ed42116a9aa51a6e90c72e3b0ed0a33211dc2",
-                "reference": "a85ed42116a9aa51a6e90c72e3b0ed0a33211dc2",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-default": "3.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Webfactory\\Bundle\\ExceptionsBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "time": "2013-04-16T08:55:48+00:00"
         }
     ],
     "packages-dev": [
@@ -7673,7 +7644,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "roave/security-advisories": 20,
-        "webfactory/exceptions-bundle": 0,
         "phpmetrics/symfony-extension": 20
     },
     "prefer-stable": false,

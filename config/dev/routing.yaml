@@ -16,6 +16,3 @@ _errors:
 
 _main:
     resource: ../common/routing.yaml
-
-webfactory_exceptions:
-    resource: "@WebfactoryExceptionsBundle/Resources/config/routing.yml"
