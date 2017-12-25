@@ -55,6 +55,7 @@
 
         "mopa/bootstrap-bundle": "~3.2.1",
         "twbs/bootstrap-sass": "~3.3.7",
+        "craue/formflow-bundle": "~3.0.1",
         "knplabs/knp-paginator-bundle": "~2.7.1",
         "knplabs/knp-menu-bundle": "~2.2.0",
         "knplabs/knp-menu": "~2.3.0",

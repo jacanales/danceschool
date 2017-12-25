@@ -1,6 +1,5 @@
 imports:
     - { resource: ../common/config.yaml }
-    - { resource: parameters.yaml }
 
 framework:
     router:
