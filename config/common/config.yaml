@@ -1,0 +1,91 @@
+imports:
+    - { resource: parameters_local.yaml, ignore_errors: true }
+    - { resource: security.yaml }
+    - { resource: services.yaml }
+    - { resource: packages/easyadmin.yaml }
+    - { resource: packages/user.yaml }
+    - { resource: packages/hwi_oauth.yaml }
+    - { resource: packages/sonata.yaml }
+    - { resource: packages/knp_menu.yaml }
+    - { resource: packages/mopa_bootstrap.yaml }
+    - { resource: packages/swiftmailer.yaml }
+    - { resource: packages/translator.yaml }
+
+framework:
+    #esi:             ~
+    assets:             ~
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.project_dir%/config/common/routing.yaml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        form:
+            resources:
+                - 'AppBundle:Form'
+        engines: ['twig']
+#        assets_version: 1.0
+#        assets_base_url:
+#            http:
+#                - "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+#                - "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    session:
+        # handler_id set to null will use default session handler from php.ini
+        handler_id:  ~
+    fragments:       ~
+    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    form_themes:
+        - 'AppBundle:Form:gender.html.twig'
+
+# Assetic Configuration
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: false
+    bundles:
+        - AppBundle
+        - MopaBootstrapBundle
+        - FOSUserBundle
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        compass:
+            sass: '%assetic.filter.compass.bin%'
+            apply_to: ".(scss|sass)$"
+            load_paths:
+                - '%kernel.project_dir%/../vendor/twbs/bootstrap-sass/lib'
+        cssembed:
+            jar: '%kernel.project_dir%/src/Resources/java/cssembed-0.4.5.jar'
+            apply_to: ".(css|less)$"
+        yui_css:
+            jar: '%kernel.project_dir%/src/Resources/java/yuicompressor-2.4.8.jar'
+            apply_to: ".css$"
+        yui_js:
+            jar: '%kernel.project_dir%/src/Resources/java/yuicompressor-2.4.8.jar'
+            apply_to: ".js$"
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        types:
+            phone_number: Misd\PhoneNumberBundle\Doctrine\DBAL\Types\PhoneNumberType
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true

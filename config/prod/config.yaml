@@ -1,0 +1,30 @@
+imports:
+    - { resource: ../common/config.yaml }
+    - { resource: routing.yaml }
+
+#framework:
+#    validation:
+#        cache: apc
+
+#doctrine:
+#    orm:
+#        metadata_cache_driver: apc
+#        result_cache_driver: apc
+#        query_cache_driver: apc
+
+monolog:
+    handlers:
+        main:
+            #type:         fingers_crossed
+            #action_level: error
+            #handler:      nested
+
+            type:   stream
+            path:   "%kernel.logs_dir%/%kernel.environment%.log"
+            level:  debug
+        nested:
+            type:  stream
+            path:  "php://stderr"
+            level: error
+        console:
+            type:  console
