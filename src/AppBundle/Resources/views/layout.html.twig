@@ -4,22 +4,13 @@
 {% block headline %}{% endblock headline %}
 
 {% block head_script %}
-    {% javascripts
-    '../app/Resources/public/js/jquery/jquery-2.1.4.min.js'
-    %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    <script type="text/javascript" src="{{ asset('js/jquery/jquery-2.1.4.min.js') }}"></script>
 {% endblock head_script %}
 
 {% block head_style %}
     {{ parent() }}
     <!-- Bootstrap core CSS -->
-    {% stylesheets filter='cssrewrite,?yui_css'
-    'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
-    %}
-    <link href="{{ asset_url }}" type="text/css" rel="stylesheet"
-          media="screen" />
-    {% endstylesheets %}
+    <link href="{{ asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css') }}" type="text/css" rel="stylesheet" media="screen" />
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/layout/layout.css') }}" rel="stylesheet">
@@ -40,10 +31,7 @@
 {% block navbar %}
     {% embed '@MopaBootstrap/Navbar/navbar.html.twig' with { fixedTop: true, staticTop: true, inverse: true, id: 'navbar-body' } %}
         {% block brand %}
-            {% image '@AppBundle/Resources/public/images/logotipovectorizado2.png' output='/images/logo.png' %}
-            <img class="navbar-brand" style="padding: 7px 10px;" src="{{ asset_url }}" />
-            {% endimage %}
-
+            <img class="navbar-brand" style="padding: 7px 10px;" src="{{ asset('@AppBundle/Resources/public/images/logotipovectorizado2.png') }}" />
             <a class="navbar-brand" href="#">Dance School</a>
         {% endblock %}
 
@@ -107,12 +95,8 @@
 {% endblock footer %}
 
 {% block foot_script_assetic %}
-    {% javascripts
-    '@MopaBootstrapBundle/Resources/public/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap-sass/assets/javascripts/bootstrap/*.js'
-    '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'
-    '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js'
-    %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    <script type="text/javascript" src="{{ asset('@MopaBootstrapBundle/Resources/public/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('@MopaBootstrapBundle/Resources/public/bootstrap-sass/assets/javascripts/bootstrap/*.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js') }}"></script>
 {% endblock foot_script_assetic %}

@@ -1,25 +1,25 @@
 # Assetic Configuration
-assetic:
-    debug:          '%kernel.debug%'
-    use_controller: false
-    bundles:
-        - AppBundle
-        - MopaBootstrapBundle
-        - FOSUserBundle
-    #java: /usr/bin/java
-    filters:
-        cssrewrite: ~
-        compass:
-            sass: '%assetic.filter.compass.bin%'
-            apply_to: ".(scss|sass)$"
-            load_paths:
-                - '%kernel.project_dir%/../vendor/twbs/bootstrap-sass/lib'
-        cssembed:
-            jar: '%kernel.project_dir%/src/Resources/java/cssembed-0.4.5.jar'
-            apply_to: ".(css|less)$"
-        yui_css:
-            jar: '%kernel.project_dir%/src/Resources/java/yuicompressor-2.4.8.jar'
-            apply_to: ".css$"
-        yui_js:
-            jar: '%kernel.project_dir%/src/Resources/java/yuicompressor-2.4.8.jar'
-            apply_to: ".js$"
+#assetic:
+#    debug:          '%kernel.debug%'
+#    use_controller: false
+#    bundles:
+#        - AppBundle
+#        - MopaBootstrapBundle
+#        - FOSUserBundle
+#    #java: /usr/bin/java
+#    filters:
+#        cssrewrite: ~
+#        compass:
+#            sass: '%assetic.filter.compass.bin%'
+#            apply_to: ".(scss|sass)$"
+#            load_paths:
+#                - '%kernel.project_dir%/../vendor/twbs/bootstrap-sass/lib'
+#        cssembed:
+#            jar: '%kernel.project_dir%/src/Resources/java/cssembed-0.4.5.jar'
+#            apply_to: ".(css|less)$"
+#        yui_css:
+#            jar: '%kernel.project_dir%/src/Resources/java/yuicompressor-2.4.8.jar'
+#            apply_to: ".css$"
+#        yui_js:
+#            jar: '%kernel.project_dir%/src/Resources/java/yuicompressor-2.4.8.jar'
+#            apply_to: ".js$"
