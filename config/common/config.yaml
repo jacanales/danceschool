@@ -9,11 +9,11 @@ imports:
     - { resource: packages/knp_menu.yaml }
     - { resource: packages/mopa_bootstrap.yaml }
     - { resource: packages/swiftmailer.yaml }
+    - { resource: packages/translator.yaml }
 
 framework:
     #esi:             ~
     assets:             ~
-    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.project_dir%/config/common/routing.yaml"
@@ -62,15 +62,15 @@ assetic:
             sass: '%assetic.filter.compass.bin%'
             apply_to: ".(scss|sass)$"
             load_paths:
-                - '%kernel.root_dir%/../vendor/twbs/bootstrap-sass/lib'
+                - '%kernel.project_dir%/../vendor/twbs/bootstrap-sass/lib'
         cssembed:
-            jar: '%kernel.root_dir%/Resources/java/cssembed-0.4.5.jar'
+            jar: '%kernel.project_dir%/src/Resources/java/cssembed-0.4.5.jar'
             apply_to: ".(css|less)$"
         yui_css:
-            jar: '%kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar'
+            jar: '%kernel.project_dir%/src/Resources/java/yuicompressor-2.4.8.jar'
             apply_to: ".css$"
         yui_js:
-            jar: '%kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar'
+            jar: '%kernel.project_dir%/src/Resources/java/yuicompressor-2.4.8.jar'
             apply_to: ".js$"
 
 # Doctrine Configuration
