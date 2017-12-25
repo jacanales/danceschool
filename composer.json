@@ -8,6 +8,9 @@
             "": "src/",
             "SymfonyStandard": "src/"
         },
+        "psr-4": {
+            "App\\": "src/"
+        },
         "files": ["src/AppKernel.php"],
         "classmap": [
             "src/AppKernel.php",
