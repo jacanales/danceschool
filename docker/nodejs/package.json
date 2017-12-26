@@ -1,0 +1,29 @@
+{
+    "name": "danceschool",
+    "author": "Jesús Antonio Canales Diez",
+    "license": "MIT",
+    "version": "0.1.0",
+    "private": true,
+    "engines": {
+        "node": "0.12.x"
+    },
+    "dependencies": {
+        "grunt": "~1.0.1",
+        "grunt-cli": "~1.2.0",
+        "grunt-contrib-compass": "~1.1.0",
+        "grunt-contrib-jshint": "~1.1.0",
+        "grunt-contrib-nodeunit": "1.0.0",
+        "grunt-contrib-uglify": "~3.3.0",
+        "grunt-contrib-watch": "^1.0.0",
+        "grunt-jsvalidate": "~0.2.2",
+        "grunt-react": "^0.12.3",
+        "jit-grunt": "^0.10.0",
+        "jshint-stylish": "~2.2.1",
+        "load-grunt-tasks": "~3.5.2",
+        "time-grunt": "~1.4.0"
+    },
+    "devDependencies": {
+        "grunt": "^1.1.0",
+        "grunt-contrib-jshint": "^1.1.0"
+    }
+}

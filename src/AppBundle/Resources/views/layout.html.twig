@@ -1,4 +1,4 @@
-{% extends 'MopaBootstrapBundle::base_sass_3.2.html.twig' %}
+{% extends 'MopaBootstrapBundle::base.html.twig' %}
 
 {% block title %}Dance School{% endblock %}
 {% block headline %}{% endblock headline %}
@@ -8,7 +8,7 @@
 {% endblock head_script %}
 
 {% block head_style %}
-    {{ parent() }}
+    <link href="{{ asset('bundles/mopabootstrap/sass/mopabootstrapbundle-3.2.scss') }}" type="text/css" rel="stylesheet" media="screen" />
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css') }}" type="text/css" rel="stylesheet" media="screen" />
 
@@ -31,7 +31,7 @@
 {% block navbar %}
     {% embed '@MopaBootstrap/Navbar/navbar.html.twig' with { fixedTop: true, staticTop: true, inverse: true, id: 'navbar-body' } %}
         {% block brand %}
-            <img class="navbar-brand" style="padding: 7px 10px;" src="{{ asset('@AppBundle/Resources/public/images/logotipovectorizado2.png') }}" />
+            <img class="navbar-brand" style="padding: 7px 10px;" src="{{ asset('bundles/app/images/logotipovectorizado2.png') }}" />
             <a class="navbar-brand" href="#">Dance School</a>
         {% endblock %}
 

@@ -2,6 +2,8 @@ FROM php:7.1-fpm
 
 LABEL maintainer = "Jesús Antonio Canales Diez <jcanales@zonadev.es>"
 
+WORKDIR /code
+
 RUN echo "\nexport TERM=xterm" >> /etc/bash.bashrc
 
 RUN apt-get update \
@@ -34,6 +36,8 @@ RUN pecl install \
         opcache \
     && printf "\nopcache.enable_cli = 1\n" >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
 
+# Install NodeJS
+
 ENV XDEBUG_REMOTE_HOST 127.0.0.1
 
 RUN printf "\nxdebug.remote_host=\${XDEBUG_REMOTE_HOST}\n\
@@ -57,5 +61,3 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
     && printf "export PATH=\"$HOME/.composer/vendor/bin:$PATH\"\n" >> ~/.bashrc
 
 RUN composer global require "squizlabs/php_codesniffer" "phpmd/phpmd" "sebastian/phpdcd=*"
-
-WORKDIR /code
