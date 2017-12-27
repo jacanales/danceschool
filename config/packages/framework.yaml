@@ -1,7 +1,11 @@
 framework:
     #esi:             ~
     assets:
-        base_path:  '/'
+        version: 1.0.0
+        version_format: '%%s?version=%%s'
+        packages:
+            bundles:
+                base_path: '/build'
     secret:          "%secret%"
     router:
         strict_requirements: ~

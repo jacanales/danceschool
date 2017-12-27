@@ -4,16 +4,16 @@
 {% block headline %}{% endblock headline %}
 
 {% block head_script %}
-    <script type="text/javascript" src="{{ asset('js/jquery/jquery-2.1.4.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery/jquery-2.1.4.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/twbsbootstrapsass/javascripts/bootstrap.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/mopabootstrap/js/mopabootstrap-collection.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/mopabootstrap/js/mopabootstrap-subnav.js') }}"></script>
 {% endblock head_script %}
 
 {% block head_style %}
-    <link href="{{ asset('bundles/mopabootstrap/sass/mopabootstrapbundle-3.2.scss') }}" type="text/css" rel="stylesheet" media="screen" />
+    <link href="{{ asset('build/app.css') }}" type="text/css" rel="stylesheet" media="screen" />
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css') }}" type="text/css" rel="stylesheet" media="screen" />
-
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('css/layout/layout.css') }}" rel="stylesheet">
 {% endblock head_style %}
 
 {% block head_bottom %}
@@ -31,7 +31,7 @@
 {% block navbar %}
     {% embed '@MopaBootstrap/Navbar/navbar.html.twig' with { fixedTop: true, staticTop: true, inverse: true, id: 'navbar-body' } %}
         {% block brand %}
-            <img class="navbar-brand" style="padding: 7px 10px;" src="{{ asset('bundles/app/images/logotipovectorizado2.png') }}" />
+            <img class="navbar-brand" style="padding: 7px 10px;" src="{{ asset('images/logo.png') }}" />
             <a class="navbar-brand" href="#">Dance School</a>
         {% endblock %}
 
@@ -93,10 +93,3 @@
 {% block footer %}
     {#<p>&copy; <a href="http://www.zonadev.es" target="_blank">Jesús A. Canales</a></p>#}
 {% endblock footer %}
-
-{% block foot_script_assetic %}
-    <script type="text/javascript" src="{{ asset('@MopaBootstrapBundle/Resources/public/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('@MopaBootstrapBundle/Resources/public/bootstrap-sass/assets/javascripts/bootstrap/*.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js') }}"></script>
-{% endblock foot_script_assetic %}

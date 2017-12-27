@@ -41,3 +41,6 @@ test-coverage-html:
 
 clean-build:
 	rm -rf build/*
+
+compile-assets:
+	./node_modules/.bin/encore dev --context .
