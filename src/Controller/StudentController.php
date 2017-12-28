@@ -197,7 +197,6 @@ class StudentController extends Controller
     {
         $form = $this->createForm(StudentAnnotationType::class, new StudentAnnotation(), [
             'label'              => 'title.add_annotation',
-            'translation_domain' => 'AppBundle',
         ]);
 
         $form->handleRequest($request);
@@ -244,7 +243,6 @@ class StudentController extends Controller
 
         $form = $this->createForm(StudentAnnotationType::class, $annotation, [
             'label'              => 'title.edit_annotation',
-            'translation_domain' => 'AppBundle',
             'edit'               => true,
         ]);
 

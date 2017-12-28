@@ -20,16 +20,13 @@ class GroupStudentType extends AbstractType
                 'class'              => Student::class,
                 'choice_label'       => 'getFullName',
                 'label'              => 'form.label.student',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('is_reinforcing', CheckboxType::class, [
                 'required'           => false,
                 'label'              => 'form.label.is_reinforcing',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('save', SubmitType::class, [
                 'label'              => 'form.label.save',
-                'translation_domain' => 'AppBundle',
             ])
             ->getForm();
     }

@@ -2,7 +2,10 @@
 
 namespace App\DataFixtures\ORM;
 
+use App\Entity\Course;
 use App\Entity\Group;
+use App\Entity\Room;
+use App\Entity\Teacher;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -29,9 +32,9 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
 
         $faker = Factory::create();
 
-        $courses  = $this->manager->getRepository('AppBundle:Course')->findAll();
-        $rooms    = $this->manager->getRepository('AppBundle:Room')->findAll();
-        $teachers = $this->manager->getRepository('AppBundle:Teacher')->findAll();
+        $courses  = $this->manager->getRepository(Course::class)->findAll();
+        $rooms    = $this->manager->getRepository(Room::class)->findAll();
+        $teachers = $this->manager->getRepository(Teacher::class)->findAll();
 
         for ($i = 1; $i <= self::MAX_GROUPS; ++$i) {
             $group = new Group();

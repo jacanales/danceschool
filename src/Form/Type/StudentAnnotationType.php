@@ -32,11 +32,9 @@ class StudentAnnotationType extends AbstractType
         $builder
             ->add('message', TextType::class, [
                 'label'              => 'form.label.message',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('save', SubmitType::class, [
                 'label'              => 'form.label.save',
-                'translation_domain' => 'AppBundle',
             ])
         ;
 

@@ -27,55 +27,43 @@ class UserType extends AbstractType
         $builder
             ->add('name', null, [
                 'label'              => 'form.label.name',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('lastname', null, [
                 'label'              => 'form.label.lastname',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('username', HiddenType::class, [
                 'data'               => uniqid('u:', true),
                 'label'              => 'form.username',
-                'translation_domain' => 'FOSUserBundle',
             ])
             ->add('email', EmailType::class, [
                 'label'              => 'form.label.email',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('gender', GenderType::class, [
                 'placeholder'        => 'form.choose_gender',
                 'label'              => 'form.label.gender',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('birthday', BirthdayType::class, [
                 'widget'             => 'single_text',
                 'label'              => 'form.label.birthday',
-                'translation_domain' => 'AppBundle',
                 'placeholder'        => 'DD/MM/YYYY',
             ])
             ->add('phone', null, [
                 'label'              => 'form.label.phone',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('address', null, [
                 'label'              => 'form.label.address',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('city', null, [
                 'label'              => 'form.label.city',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('country', null, [
                 'label'              => 'form.label.country',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('postal_code', null, [
                 'label'              => 'form.label.postal_code',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('identity_number', null, [
                 'label'              => 'form.label.identity_number',
-                'translation_domain' => 'AppBundle',
             ])
         ;
 

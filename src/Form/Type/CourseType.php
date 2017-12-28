@@ -21,15 +21,12 @@ class CourseType extends AbstractType
         $builder
             ->add('description', TextareaType::class, [
                 'label'              => 'form.label.description',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('price', TextType::class, [
                 'label'              => 'form.label.price',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('save', SubmitType::class, [
                 'label'              => 'form.label.save',
-                'translation_domain' => 'AppBundle',
             ])
         ;
     }

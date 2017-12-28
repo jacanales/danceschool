@@ -91,7 +91,6 @@ class GroupController extends Controller
         $form = $this->createForm(GroupType::class, new Group(), [
             'show_legend'        => true,
             'label'              => 'title.add_group',
-            'translation_domain' => 'AppBundle',
         ]);
 
         $form->handleRequest($request);
@@ -132,7 +131,6 @@ class GroupController extends Controller
         $form = $this->createForm(GroupType::class, $group, [
             'show_legend'        => true,
             'label'              => 'title.edit_group',
-            'translation_domain' => 'AppBundle',
         ]);
 
         $form->handleRequest($request);
@@ -201,7 +199,6 @@ class GroupController extends Controller
         $form = $this->createForm(GroupStudentType::class, new GroupStudent(), [
             'show_legend'        => true,
             'label'              => 'title.add_student',
-            'translation_domain' => 'AppBundle',
         ]);
 
         $form->handleRequest($request);
@@ -253,7 +250,6 @@ class GroupController extends Controller
         $form = $this->createForm(GroupStudentType::class, $student, [
             'show_legend'        => true,
             'label'              => 'title.edit_group',
-            'translation_domain' => 'AppBundle',
         ]);
 
         $form->handleRequest($request);

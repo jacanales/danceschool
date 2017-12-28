@@ -2,5 +2,118 @@ menu.option.show_profile: "Ver perfil"
 menu.option.edit_profile: "Editar perfil"
 menu.option.logout: "Cerrar sesión"
 
+form:
+    label:
+        address: "Dirección"
+        birthday: "Fecha de nacimiento"
+        city: "Ciudad"
+        captation_method: "Método de captación"
+        comment: "Comentario"
+        contract_expiration: "Fin de contrato"
+        country: "País"
+        course: "Curso"
+        created: "Fecha de creación"
+        description: "Descripción"
+        email: "Correo electrónico"
+        end_date: "Fecha de fin"
+        gender: "Sexo/Género"
+        group: "Grupo"
+        hour: "Hora"
+        identity_number: "DNI"
+        is_reinforcing: "Refuerzo"
+        member: "Socio"
+        message: "Mensaje"
+        modified: "Fecha de modificación"
+        name: "Nombre"
+        phone: "Teléfono"
+        postal_code: "Código Postal"
+        price: "Precio"
+        room: "Sala"
+        save: "Guardar"
+        start_date: "Fecha de inicio"
+        student: "Alumno"
+        lastname: "Apellidos"
+        teacher: "Profesor/a"
+        username: "Nombre de usuario"
+        wage: "Salario"
+        weekday: "Día"
+        whatsapp_group: "Grupo de Whatsapp"
+
 form.login.placeholder.username: 'Nombre de usuario'
 form.login.placeholder.password: Contraseña
+
+form.choose_gender: "Elige un género"
+form.gender.male: "Hombre"
+form.gender.female: "Mujer"
+
+form.choose_captation: "Elige modo de captación"
+form.captation.recommended: "Recomendado por alumno"
+form.captation.offer: "Oferta"
+form.captation.other: "Otro"
+
+title:
+    home: "Inicio"
+
+    # Room
+    rooms: "Salas"
+    list_rooms: "Listado de salas"
+    room: "Sala"
+    view_room: "Información de sala"
+    add_room: "Añadir Sala"
+    edit_room: "Editar Sala"
+
+    # Course
+    courses: "Cursos"
+    list_courses: "Listado de cursos"
+    course: "Curso"
+    view_course: "Información de curso"
+    add_course: "Añadir curso"
+    edit_course: "Editar curso"
+
+    # Teacher
+    teachers: "Profesores"
+    list_teachers: "Listado de profesores"
+    teacher: "Profesor"
+    view_teacher: "Información de profesor"
+    add_teacher: "Añadir profesor"
+    edit_teacher: "Editar profesor"
+
+    # Student
+    students: "Alumnos"
+    list_students: "Listado de alumnos"
+    student: "Alumno"
+    view_student: "Información de alumno"
+    add_student: "Añadir alumno"
+    edit_student: "Editar alumno"
+    add_annotation: "Añadir comentario"
+    edit_annotation: "Editar comentario"
+    annotations: "Comentarios"
+
+    # Student
+    groups: "Grupos"
+    list_groups: "Listado de grupos"
+    group: "Grupo"
+    view_group: "Información del grupo"
+    add_group: "Añadir grupo"
+    edit_group: "Editar grupo"
+
+button:
+    add: "Añadir"
+    delete: "Eliminar"
+    edit: "Editar"
+    go_to_index: "Ir al listado"
+    view: "Ver"
+    add_annotation: "Añadir comentario"
+    list_annotations: "Ver comentarios"
+    add_student: "Añadir alumno"
+
+date:
+    weekday:
+        1: "Lunes"
+        2: "Martes"
+        3: "Miércoles"
+        4: "Jueves"
+        5: "Viernes"
+        6: "Sábado"
+        7: "Domingo"
+

@@ -44,7 +44,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 
     private function addUser(string $userName, string $email, string $role = User::ROLE_DEFAULT, string $password = null): void
     {
-        $user = $this->manager->getRepository('AppBundle:User')->findOneByEmail($email);
+        $user = $this->manager->getRepository(User::class)->findOneByEmail($email);
 
         if ($user) {
             return;

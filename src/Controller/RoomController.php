@@ -50,7 +50,6 @@ class RoomController extends Controller
         $form = $this->createForm(RoomType::class, new Room(), [
             'show_legend'        => true,
             'label'              => 'title.add_room',
-            'translation_domain' => 'AppBundle',
         ]);
 
         $form->handleRequest($request);
@@ -121,7 +120,6 @@ class RoomController extends Controller
         $form = $this->createForm(RoomType::class, $room, [
             'show_legend'        => true,
             'label'              => 'title.edit_room',
-            'translation_domain' => 'AppBundle',
         ]);
 
         $form->handleRequest($request);

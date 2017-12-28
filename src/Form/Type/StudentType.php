@@ -30,26 +30,21 @@ class StudentType extends AbstractType
                     'form.captation.other'       => 2,
                 ],
                 'label'              => 'form.label.captation_method',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('member', null, [
                 'label'              => 'form.label.member',
-                'translation_domain' => 'AppBundle',
             ])
             ->add('contract_expiration', DateType::class, [
                 'label'              => 'form.label.contract_expiration',
-                'translation_domain' => 'AppBundle',
                 'widget'             => 'single_text',
                 'placeholder'        => 'DD/MM/YYYY',
             ])
             ->add('comment', TextareaType::class, [
                 'label'              => 'form.label.comment',
-                'translation_domain' => 'AppBundle',
                 'required'           => false,
             ])
             ->add('save', SubmitType::class, [
                 'label'              => 'form.label.save',
-                'translation_domain' => 'AppBundle',
             ])
             ->getForm();
     }

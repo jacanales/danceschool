@@ -88,7 +88,7 @@ class CourseController extends Controller
     {
         $form = $this->createForm(CourseType::class, new Course(), [
             'label'              => 'title.add_course',
-            'translation_domain' => 'AppBundle',
+            'translation_domain' => 'messages',
         ]);
 
         $form->handleRequest($request);
@@ -128,7 +128,7 @@ class CourseController extends Controller
 
         $form = $this->createForm(CourseType::class, $course, [
             'label'              => 'title.edit_course',
-            'translation_domain' => 'AppBundle',
+            'translation_domain' => 'messages',
         ]);
 
         $form->handleRequest($request);
