@@ -7,9 +7,19 @@ use Knp\Menu\ItemInterface;
 
 class Builder
 {
-    public function mainMenu(FactoryInterface $factory): ItemInterface
+    /**
+     * @var FactoryInterface
+     */
+    private $factory;
+
+    public function __construct(FactoryInterface $factory)
     {
-        $menu = $factory->createItem('root', [
+        $this->factory = $factory;
+    }
+
+    public function createMainMenu(array $options): ItemInterface
+    {
+        $menu = $this->factory->createItem('root', [
             'navbar'     => true,
             'pull-right' => false,
         ]);
@@ -20,11 +30,12 @@ class Builder
             'route' => 'homepage',
         ])->setExtra('translation_domain', 'AppBundle');
 
-        $this->addRoomMenu($menu);
-        $this->addCourseMenu($menu);
-        $this->addTeacherMenu($menu);
-        $this->addStudentMenu($menu);
-        $this->addGroupMenu($menu);
+
+        //$this->addRoomMenu($menu);
+        //$this->addCourseMenu($menu);
+        //$this->addTeacherMenu($menu);
+        //$this->addStudentMenu($menu);
+        //$this->addGroupMenu($menu);
 
         return $menu;
     }

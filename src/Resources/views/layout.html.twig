@@ -36,7 +36,7 @@
         {% endblock %}
 
         {% block menu %}
-            {{ mopa_bootstrap_menu('AppBundle:Builder:mainMenu') }}
+            {{ mopa_bootstrap_menu('main_menu') }}
 
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <div class="pull-right">
