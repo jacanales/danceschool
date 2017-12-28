@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\AppBundle\Entity;
+namespace spec\App\Entity;
 
-use AppBundle\Entity\Course;
-use AppBundle\Entity\Group;
-use AppBundle\Entity\Room;
-use AppBundle\Entity\Teacher;
+use App\Entity\Course;
+use App\Entity\Group;
+use App\Entity\Room;
+use App\Entity\Teacher;
 use PhpSpec\ObjectBehavior;
 
 /**

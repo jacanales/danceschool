@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\AppBundle\Entity;
+namespace spec\App\Entity;
 
-use AppBundle\Entity\Room;
+use App\Entity\Room;
 use libphonenumber\PhoneNumber;
 use PhpSpec\ObjectBehavior;
 

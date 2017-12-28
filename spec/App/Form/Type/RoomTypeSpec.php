@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\AppBundle\Form\Type;
+namespace spec\App\Form\Type;
 
-use AppBundle\Form\Type\RoomType;
+use App\Form\Type\RoomType;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormTypeInterface;

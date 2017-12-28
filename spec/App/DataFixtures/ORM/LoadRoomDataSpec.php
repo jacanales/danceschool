@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\AppBundle\DataFixtures\ORM;
+namespace spec\App\DataFixtures\ORM;
 
-use AppBundle\DataFixtures\ORM\LoadRoomData;
+use App\DataFixtures\ORM\LoadRoomData;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\AppBundle\Repository;
+namespace spec\App\Repository;
 
-use AppBundle\Entity\Course;
-use AppBundle\Entity\Group;
-use AppBundle\Repository\CourseRepository;
+use App\Entity\Course;
+use App\Entity\Group;
+use App\Repository\CourseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
@@ -35,7 +35,7 @@ class CourseRepositorySpec extends ObjectBehavior
         $entityManager->find(null, 1, null, null)->shouldBeCalled()->willReturn($course);
 
         $entityRepository->findBy(['course' => 1])->shouldBeCalled()->willReturn([$group]);
-        $entityManager->getRepository('AppBundle:Group')->willReturn($entityRepository);
+        $entityManager->getRepository(Group::class)->willReturn($entityRepository);
 
         $course = $this->findWithGroups(1);
 

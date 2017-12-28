@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\AppBundle\Entity;
+namespace spec\App\Entity;
 
-use AppBundle\Entity\Student;
-use AppBundle\Entity\StudentAnnotation;
-use AppBundle\Entity\User;
+use App\Entity\Student;
+use App\Entity\StudentAnnotation;
+use App\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use PhpSpec\ObjectBehavior;
 

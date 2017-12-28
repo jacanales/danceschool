@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\AppBundle\Entity;
+namespace spec\App\Entity;
 
-use AppBundle\Entity\Teacher;
-use AppBundle\Entity\User;
+use App\Entity\Teacher;
+use App\Entity\User;
 use PhpSpec\ObjectBehavior;
 
 /**

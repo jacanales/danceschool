@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\AppBundle\Entity;
+namespace spec\App\Entity;
 
-use AppBundle\Entity\Course;
-use AppBundle\Entity\Group;
+use App\Entity\Course;
+use App\Entity\Group;
 use PhpSpec\ObjectBehavior;
 
 /**

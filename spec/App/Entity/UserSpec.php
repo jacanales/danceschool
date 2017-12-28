@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\AppBundle\Entity;
+namespace spec\App\Entity;
 
-use AppBundle\Entity\User;
+use App\Entity\User;
 use PhpSpec\ObjectBehavior;
 
 class UserSpec extends ObjectBehavior

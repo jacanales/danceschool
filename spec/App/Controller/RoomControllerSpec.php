@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\AppBundle\Controller;
+namespace spec\App\Controller;
 
-use AppBundle\Controller\RoomController;
-use AppBundle\Entity\Room;
+use App\Controller\RoomController;
+use App\Entity\Room;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
