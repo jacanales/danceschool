@@ -31,11 +31,11 @@ class Builder
         ])->setExtra('translation_domain', 'AppBundle');
 
 
-        //$this->addRoomMenu($menu);
-        //$this->addCourseMenu($menu);
-        //$this->addTeacherMenu($menu);
-        //$this->addStudentMenu($menu);
-        //$this->addGroupMenu($menu);
+        $this->addRoomMenu($menu);
+        $this->addCourseMenu($menu);
+        $this->addTeacherMenu($menu);
+        $this->addStudentMenu($menu);
+        $this->addGroupMenu($menu);
 
         return $menu;
     }
