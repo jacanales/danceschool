@@ -31,11 +31,11 @@ class StudentController extends Controller
          * @var \Doctrine\ORM\EntityManager
          */
         $students = $this->getDoctrine()
-                         ->getRepository('AppBundle:Student')
+                         ->getRepository(Student::class)
                          ->findAll();
 
         return $this->render(
-            'AppBundle:Student:index.html.twig',
+            ':Student:index.html.twig',
             ['students' => $students]
         );
     }
@@ -55,11 +55,11 @@ class StudentController extends Controller
     public function showAction(int $id): Response
     {
         $student = $this->getDoctrine()
-                     ->getRepository('AppBundle:Student')
+                     ->getRepository(Student::class)
                      ->find($id);
 
         $annotations = $this->getDoctrine()
-            ->getRepository('AppBundle:StudentAnnotation')
+            ->getRepository(StudentAnnotation::class)
             ->findBy([
                 'student' => $id,
             ]);
@@ -71,7 +71,7 @@ class StudentController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Student:show.html.twig',
+            ':Student:show.html.twig',
             [
                 'student'     => $student,
                 'annotations' => $annotations,
@@ -103,7 +103,7 @@ class StudentController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Student:add.html.twig',
+            ':Student:add.html.twig',
             [
                 'form' => $form->createView(),
             ]
@@ -126,7 +126,7 @@ class StudentController extends Controller
     public function editAction(Request $request, int $id): Response
     {
         $em      = $this->getDoctrine()->getManager();
-        $student = $em->getRepository('AppBundle:Student')->find($id);
+        $student = $em->getRepository(Student::class)->find($id);
 
         $form = $this->createForm(StudentType::class, $student, ['edit' => true]);
 
@@ -145,7 +145,7 @@ class StudentController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Student:edit.html.twig',
+            ':Student:edit.html.twig',
             [
                 'form'    => $form->createView(),
                 'student' => $student,
@@ -168,7 +168,7 @@ class StudentController extends Controller
     public function removeAction(int $id): Response
     {
         $em      = $this->getDoctrine()->getManager();
-        $student = $em->getRepository('AppBundle:Student')->find($id);
+        $student = $em->getRepository(Student::class)->find($id);
 
         if (!$student) {
             throw $this->createNotFoundException(
@@ -204,7 +204,7 @@ class StudentController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em      = $this->getDoctrine()->getManager();
-            $student = $em->getRepository('AppBundle:Student')->find($studentId);
+            $student = $em->getRepository(Student::class)->find($studentId);
 
             $form->getData()->setStudent($student);
 
@@ -215,7 +215,7 @@ class StudentController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Student:add_annotation.html.twig',
+            ':Student:add_annotation.html.twig',
             [
                 'form'      => $form->createView(),
                 'studentId' => $studentId,
@@ -240,7 +240,7 @@ class StudentController extends Controller
     public function editAnnotationAction(Request $request, int $studentId, int $annotationId): Response
     {
         $em         = $this->getDoctrine()->getManager();
-        $annotation = $em->getRepository('AppBundle:StudentAnnotation')->find($annotationId);
+        $annotation = $em->getRepository(':StudentAnnotation')->find($annotationId);
 
         $form = $this->createForm(StudentAnnotationType::class, $annotation, [
             'label'              => 'title.edit_annotation',
@@ -263,7 +263,7 @@ class StudentController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Student:edit_annotation.html.twig',
+            ':Student:edit_annotation.html.twig',
             [
                 'form'       => $form->createView(),
                 'annotation' => $annotation,
@@ -288,7 +288,7 @@ class StudentController extends Controller
     public function removeAnnotationAction(int $studentId, int $annotationId): Response
     {
         $em         = $this->getDoctrine()->getManager();
-        $annotation = $em->getRepository('AppBundle:StudentAnnotation')->find($annotationId);
+        $annotation = $em->getRepository(StudentAnnotation::class)->find($annotationId);
 
         if (!$annotation) {
             throw $this->createNotFoundException(

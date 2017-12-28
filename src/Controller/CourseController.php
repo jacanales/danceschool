@@ -31,11 +31,11 @@ class CourseController extends Controller
          */
         $rooms = $this
             ->getDoctrine()
-            ->getRepository(CourseRepository::class)
+            ->getRepository(Course::class)
             ->findAll();
 
         return $this->render(
-            'AppBundle:Course:index.html.twig',
+            ':Course:index.html.twig',
             ['courses' => $rooms]
         );
     }
@@ -56,7 +56,7 @@ class CourseController extends Controller
         $repository = $this
             ->getDoctrine()
             ->getManager()
-            ->getRepository('AppBundle:Course');
+            ->getRepository(Course::class);
 
         $course = $repository
             ->findWithGroups($id);
@@ -68,7 +68,7 @@ class CourseController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Course:show.html.twig',
+            ':Course:show.html.twig',
             [
                 'course' => $course,
             ]
@@ -102,7 +102,7 @@ class CourseController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Course:add.html.twig',
+            ':Course:add.html.twig',
             [
                 'form' => $form->createView(),
             ]
@@ -124,7 +124,7 @@ class CourseController extends Controller
     public function editAction(Request $request, int $id): Response
     {
         $em     = $this->getDoctrine()->getManager();
-        $course = $em->getRepository('AppBundle:Course')->find($id);
+        $course = $em->getRepository(Course::class)->find($id);
 
         $form = $this->createForm(CourseType::class, $course, [
             'label'              => 'title.edit_course',
@@ -146,7 +146,7 @@ class CourseController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Course:edit.html.twig',
+            ':Course:edit.html.twig',
             [
                 'form'   => $form->createView(),
                 'course' => $course,
@@ -168,7 +168,7 @@ class CourseController extends Controller
     public function removeAction(int $id): Response
     {
         $em     = $this->getDoctrine()->getManager();
-        $course = $em->getRepository('AppBundle:Course')->find($id);
+        $course = $em->getRepository(Course::class)->find($id);
 
         if (!$course) {
             throw $this->createNotFoundException(

@@ -27,11 +27,11 @@ class TeacherController extends Controller
          * @var \Doctrine\ORM\EntityManager
          */
         $teachers = $this->getDoctrine()
-                      ->getRepository('AppBundle:Teacher')
+                      ->getRepository(Teacher::class)
                       ->findAll();
 
         return $this->render(
-            'AppBundle:Teacher:index.html.twig',
+            ':Teacher:index.html.twig',
             ['teachers' => $teachers]
         );
     }
@@ -49,7 +49,7 @@ class TeacherController extends Controller
     public function showAction(int $id): Response
     {
         $teacher = $this->getDoctrine()
-                     ->getRepository('AppBundle:Teacher')
+                     ->getRepository(Teacher::class)
                      ->find($id);
 
         if (!$teacher) {
@@ -59,7 +59,7 @@ class TeacherController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Teacher:show.html.twig',
+            ':Teacher:show.html.twig',
             [
                 'teacher' => $teacher,
             ]
@@ -89,7 +89,7 @@ class TeacherController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Teacher:add.html.twig',
+            ':Teacher:add.html.twig',
             [
                 'form' => $form->createView(),
             ]
@@ -111,7 +111,7 @@ class TeacherController extends Controller
     public function editAction(Request $request, int $id): Response
     {
         $em      = $this->getDoctrine()->getManager();
-        $teacher = $em->getRepository('AppBundle:Teacher')->find($id);
+        $teacher = $em->getRepository(Teacher::class)->find($id);
 
         $form = $this->createForm(TeacherType::class, $teacher, ['edit' => true]);
 
@@ -130,7 +130,7 @@ class TeacherController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Teacher:edit.html.twig',
+            ':Teacher:edit.html.twig',
             [
                 'form'    => $form->createView(),
                 'teacher' => $teacher,
@@ -152,7 +152,7 @@ class TeacherController extends Controller
     public function removeAction(int $id): Response
     {
         $em      = $this->getDoctrine()->getManager();
-        $teacher = $em->getRepository('AppBundle:Teacher')->find($id);
+        $teacher = $em->getRepository(Teacher::class)->find($id);
 
         if (!$teacher) {
             throw $this->createNotFoundException(

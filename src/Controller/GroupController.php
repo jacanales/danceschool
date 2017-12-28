@@ -30,11 +30,11 @@ class GroupController extends Controller
          * @var \Doctrine\ORM\EntityManager
          */
         $groups = $this->getDoctrine()
-                      ->getRepository('AppBundle:Group')
+                      ->getRepository(Group::class)
                       ->findAll();
 
         return $this->render(
-            'AppBundle:Group:index.html.twig',
+            ':Group:index.html.twig',
             ['groups' => $groups]
         );
     }
@@ -53,11 +53,11 @@ class GroupController extends Controller
     public function showAction(int $id): Response
     {
         $group = $this->getDoctrine()
-                     ->getRepository('AppBundle:Group')
+                     ->getRepository(Group::class)
                      ->find($id);
 
         $students = $this->getDoctrine()
-            ->getRepository('AppBundle:GroupStudent')
+            ->getRepository(GroupStudent::class)
             ->findBy([
                 'group' => $id,
             ]);
@@ -69,7 +69,7 @@ class GroupController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Group:show.html.twig',
+            ':Group:show.html.twig',
             [
                 'group'    => $group,
                 'students' => $students,
@@ -105,7 +105,7 @@ class GroupController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Group:add.html.twig',
+            ':Group:add.html.twig',
             [
                 'form' => $form->createView(),
             ]
@@ -127,7 +127,7 @@ class GroupController extends Controller
     public function editAction(Request $request, int $id): Response
     {
         $em    = $this->getDoctrine()->getManager();
-        $group = $em->getRepository('AppBundle:Group')->find($id);
+        $group = $em->getRepository(Group::class)->find($id);
 
         $form = $this->createForm(GroupType::class, $group, [
             'show_legend'        => true,
@@ -150,7 +150,7 @@ class GroupController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Group:edit.html.twig',
+            ':Group:edit.html.twig',
             [
                 'form'  => $form->createView(),
                 'group' => $group,
@@ -172,7 +172,7 @@ class GroupController extends Controller
     public function removeAction(int $id): RedirectResponse
     {
         $em    = $this->getDoctrine()->getManager();
-        $group = $em->getRepository('AppBundle:Group')->find($id);
+        $group = $em->getRepository(Group::class)->find($id);
 
         if (!$group) {
             throw $this->createNotFoundException(
@@ -208,7 +208,7 @@ class GroupController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em    = $this->getDoctrine()->getManager();
-            $group = $em->getRepository('AppBundle:Group')->find($id);
+            $group = $em->getRepository(Group::class)->find($id);
 
             $formData = $form->getData();
 
@@ -221,7 +221,7 @@ class GroupController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Group:add_student.html.twig',
+            ':Group:add_student.html.twig',
             [
                 'form' => $form->createView(),
                 'id'   => $id,
@@ -245,7 +245,7 @@ class GroupController extends Controller
     public function editStudentAction(Request $request, int $id, int $studentId): Response
     {
         $em      = $this->getDoctrine()->getManager();
-        $student = $em->getRepository('AppBundle:GroupStudent')->findOneBy([
+        $student = $em->getRepository(GroupStudent::class)->findOneBy([
             'group'   => $id,
             'student' => $studentId,
         ]);
@@ -271,7 +271,7 @@ class GroupController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Group:edit_student.html.twig',
+            ':Group:edit_student.html.twig',
             [
                 'form'    => $form->createView(),
                 'student' => $student,
@@ -295,7 +295,7 @@ class GroupController extends Controller
     public function removeStudentAction(int $id, int $studentId): RedirectResponse
     {
         $em      = $this->getDoctrine()->getManager();
-        $student = $em->getRepository('AppBundle:GroupStudent')->findOneBy([
+        $student = $em->getRepository(GroupStudent::class)->findOneBy([
             'group'   => $id,
             'student' => $studentId,
         ]);

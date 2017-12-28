@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Course;
+use App\Entity\Group;
 use Doctrine\ORM\EntityRepository;
 
 class CourseRepository extends EntityRepository
@@ -21,7 +22,7 @@ class CourseRepository extends EntityRepository
 
         $groups = $this
             ->getEntityManager()
-            ->getRepository('AppBundle:Group')
+            ->getRepository(Group::class)
             ->findBy(['course' => $id]);
 
         $course->setGroups($groups);
