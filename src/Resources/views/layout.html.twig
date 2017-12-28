@@ -4,10 +4,7 @@
 {% block headline %}{% endblock headline %}
 
 {% block head_script %}
-    <script type="text/javascript" src="{{ asset('js/jquery/jquery-2.1.4.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/twbsbootstrapsass/javascripts/bootstrap.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/mopabootstrap/js/mopabootstrap-collection.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/mopabootstrap/js/mopabootstrap-subnav.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
 {% endblock head_script %}
 
 {% block head_style %}
@@ -93,3 +90,6 @@
 {% block footer %}
     {#<p>&copy; <a href="http://www.zonadev.es" target="_blank">Jesús A. Canales</a></p>#}
 {% endblock footer %}
+
+{% block foot_script %}
+{% endblock foot_script %}
