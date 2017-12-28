@@ -1,0 +1,31 @@
+App\Entity\GroupStudent:
+    type: entity
+    table: group_students
+    id:
+        group:
+            associationKey: true
+        student:
+            associationKey: true
+    fields:
+        is_reinforcing:
+            type: boolean
+            nullable: false
+            options:
+                default: 0
+    manyToOne:
+        group:
+            id: true
+            targetEntity: App\Entity\Group
+            inversedBy: groupStudent
+            joinColumn:
+                name: group_id
+                referencedColumnName: id
+            nullable: false
+        student:
+            id: true
+            targetEntity: App\Entity\Student
+            inversedBy: groupStudent
+            joinColumn:
+                name: student_id
+                referencedColumnName: id
+            nullable: false

@@ -1,0 +1,56 @@
+App\Entity\Student:
+    type: entity
+    table: students
+    id:
+        id:
+            id: true
+            type: integer
+            nullable: false
+            unsigned: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        captationMethod:
+            type: smallint
+            nullable: true
+            unsigned: false
+            column: captation_method
+            default: 0
+        member:
+            type: boolean
+            nullable: false
+            default: 0
+        contractExpiration:
+            type: date
+            nullable: true
+            column: contract_expiration
+            columnDefinition: DATE
+            default: null
+        comment:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+        accountNumber:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            default: false
+            column: account_number
+
+    lifecycleCallbacks: {  }
+    oneToOne:
+        user:
+            targetEntity: App\Entity\User
+            cascade: ["persist"]
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+    oneToMany:
+        groupStudent:
+            targetEntity: App\Entity\GroupStudent
+            mappedBy: student
+        annotations:
+            targetEntity: App\Entity\StudentAnnotation
+            mappedBy: student

@@ -18,6 +18,13 @@
 
     <php>
         <server name="KERNEL_DIR" value="app/" />
+
+        <!-- ###+ symfony/framework-bundle ### -->
+        <env name="APP_ENV" value="dev"/>
+        <env name="APP_SECRET" value="e9f7f12d5683a1314615f293c59d4c48"/>
+        <!-- env name="TRUSTED_PROXIES" value="127.0.0.1,127.0.0.2" -->
+        <!-- env name="TRUSTED_HOSTS" value="localhost,example.com" -->
+        <!-- ###- symfony/framework-bundle ### -->
     </php>
 
     <filter>
@@ -35,5 +42,12 @@
     </filter>
     <php>
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak"/>
+
+        <!-- ###+ symfony/framework-bundle ### -->
+        <env name="APP_ENV" value="dev"/>
+        <env name="APP_SECRET" value="e9f7f12d5683a1314615f293c59d4c48"/>
+        <!-- env name="TRUSTED_PROXIES" value="127.0.0.1,127.0.0.2" -->
+        <!-- env name="TRUSTED_HOSTS" value="localhost,example.com" -->
+        <!-- ###- symfony/framework-bundle ### -->
     </php>
 </phpunit>

@@ -1,0 +1,14 @@
+services:
+    admin.course:
+        class: App\Admin\CourseAdmin
+        arguments: [~, App\Entity\Course, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Course }
+        public: true
+
+    admin.group:
+        class: App\Admin\GroupAdmin
+        arguments: [~, App\Entity\Group, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Group }
+        public: true

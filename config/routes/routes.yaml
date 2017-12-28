@@ -1,10 +1,6 @@
 homepage:
     path:     /
-    defaults: { _controller: AppBundle:Default:index }
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+    defaults: { _controller: App\Controller\DefaultController::index }
 
 sonata_admin_area:
     resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"

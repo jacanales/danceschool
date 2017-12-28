@@ -1,0 +1,28 @@
+App\Entity\Course:
+    type: entity
+    table: courses
+    repositoryClass: App\Repository\CourseRepository
+    fields:
+        id:
+            id: true
+            type: integer
+            length: 10
+            unsigned: true
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        description:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+        price:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+    oneToMany:
+        groups:
+            targetEntity: App\Entity\Group
+            mappedBy: course
+    lifecycleCallbacks: {  }
