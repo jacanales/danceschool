@@ -12,6 +12,7 @@ use Prophecy\Argument;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @mixin RoomController
@@ -34,7 +35,7 @@ class RoomControllerSpec extends ObjectBehavior
         $registry->getManager()->willReturn($manager);
 
         $registry
-            ->getRepository(Argument::exact('AppBundle:Room'))
+            ->getRepository(Room::class)
             ->willReturn($repository);
 
         $this->setContainer($container);
@@ -48,5 +49,10 @@ class RoomControllerSpec extends ObjectBehavior
     public function it_is_of_type_container_aware()
     {
         $this->shouldBeAnInstanceOf(ContainerAwareInterface::class);
+    }
+
+    public function it_render_index()
+    {
+        $this->indexAction()->shouldHaveType(Response::class);
     }
 }
