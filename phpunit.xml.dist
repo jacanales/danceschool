@@ -5,23 +5,22 @@
          xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
          backupGlobals="false"
          colors="true"
-         bootstrap="app/autoload.php"
+         bootstrap="vendor/autoload.php"
 >
     <testsuites>
         <testsuite name="Project Test Suite">
-            <directory>tests</directory>
-            <directory>../src/*/*Bundle/Tests</directory>
-            <directory>../src/*/Bundle/*Bundle/Tests</directory>
-            <directory>../src/*Bundle/Tests</directory>
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 
     <php>
-        <server name="KERNEL_DIR" value="app/" />
+        <server name="KERNEL_DIR" value="src/" />
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak"/>
 
         <!-- ###+ symfony/framework-bundle ### -->
-        <env name="APP_ENV" value="dev"/>
+        <env name="APP_ENV" value="test"/>
         <env name="APP_SECRET" value="e9f7f12d5683a1314615f293c59d4c48"/>
+        <env name="KERNEL_CLASS" value="App\Kernel"/>
         <!-- env name="TRUSTED_PROXIES" value="127.0.0.1,127.0.0.2" -->
         <!-- env name="TRUSTED_HOSTS" value="localhost,example.com" -->
         <!-- ###- symfony/framework-bundle ### -->
@@ -29,25 +28,10 @@
 
     <filter>
         <whitelist>
-            <directory>../src</directory>
+            <directory>../vendor</directory>
             <exclude>
-                <directory>../src/*Bundle/Resources</directory>
-                <directory>../src/*Bundle/Tests</directory>
-                <directory>../src/*/*Bundle/Resources</directory>
-                <directory>../src/*/*Bundle/Tests</directory>
-                <directory>../src/*/Bundle/*Bundle/Resources</directory>
-                <directory>../src/*/Bundle/*Bundle/Tests</directory>
+                <directory>../vendor/*</directory>
             </exclude>
         </whitelist>
     </filter>
-    <php>
-        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak"/>
-
-        <!-- ###+ symfony/framework-bundle ### -->
-        <env name="APP_ENV" value="dev"/>
-        <env name="APP_SECRET" value="e9f7f12d5683a1314615f293c59d4c48"/>
-        <!-- env name="TRUSTED_PROXIES" value="127.0.0.1,127.0.0.2" -->
-        <!-- env name="TRUSTED_HOSTS" value="localhost,example.com" -->
-        <!-- ###- symfony/framework-bundle ### -->
-    </php>
 </phpunit>
