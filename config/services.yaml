@@ -74,8 +74,6 @@ services:
 
     app.form.type.gender:
         class: App\Form\Type\GenderType
-        arguments:
-            - { form.gender.male: m, form.gender.female: f }
         tags:
             - { name: form.type, alias: gender }
 

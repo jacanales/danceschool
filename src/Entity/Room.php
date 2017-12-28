@@ -189,7 +189,7 @@ class Room
     /**
      * @return PhoneNumber
      */
-    public function getPhone(): PhoneNumber
+    public function getPhone(): ?PhoneNumber
     {
         return $this->phone;
     }

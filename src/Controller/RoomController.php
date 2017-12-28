@@ -27,11 +27,11 @@ class RoomController extends Controller
          * @var \Doctrine\ORM\EntityManager
          */
         $rooms = $this->getDoctrine()
-                      ->getRepository('AppBundle:Room')
+                      ->getRepository(Room::class)
                       ->findAll();
 
         return $this->render(
-            'AppBundle:Room:index.html.twig',
+            ':Room:index.html.twig',
             ['rooms' => $rooms]
         );
     }
@@ -64,7 +64,7 @@ class RoomController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Room:add.html.twig',
+            ':Room:add.html.twig',
             [
                 'form' => $form->createView(),
             ]
@@ -84,7 +84,7 @@ class RoomController extends Controller
     public function showAction(int $id): Response
     {
         $room = $this->getDoctrine()
-                     ->getRepository('AppBundle:Room')
+                     ->getRepository(Room::class)
                      ->find($id);
 
         if (!$room) {
@@ -94,7 +94,7 @@ class RoomController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Room:show.html.twig',
+            ':Room:show.html.twig',
             [
                 'room' => $room,
             ]
@@ -116,7 +116,7 @@ class RoomController extends Controller
     public function editAction(Request $request, int $id): Response
     {
         $em   = $this->getDoctrine()->getManager();
-        $room = $em->getRepository('AppBundle:Room')->find($id);
+        $room = $em->getRepository(Room::class)->find($id);
 
         $form = $this->createForm(RoomType::class, $room, [
             'show_legend'        => true,
@@ -139,7 +139,7 @@ class RoomController extends Controller
         }
 
         return $this->render(
-            'AppBundle:Room:edit.html.twig',
+            ':Room:edit.html.twig',
             [
                 'form' => $form->createView(),
                 'room' => $room,
@@ -161,7 +161,7 @@ class RoomController extends Controller
     public function removeAction($id): Response
     {
         $em   = $this->getDoctrine()->getManager();
-        $room = $em->getRepository('AppBundle:Room')->find($id);
+        $room = $em->getRepository(Room::class)->find($id);
 
         if (!$room) {
             throw $this->createNotFoundException(
