@@ -1,0 +1,11 @@
+{% extends "::layout.html.twig" %}
+
+{% block headline %}
+    {{ 'title.rooms'|trans() }}
+{% endblock %}
+
+{% block content_content %}
+    {{ form_start(form, {'action': path('danceschool_room_edit', {'id': room.getId() })}) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

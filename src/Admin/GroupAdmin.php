@@ -12,7 +12,7 @@ class GroupAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper->add('id');
-        $formMapper->add('name', 'text');
+        $formMapper->add('name');
         $formMapper->add('weekday');
         $formMapper->add('hour');
         $formMapper->add('startDate');

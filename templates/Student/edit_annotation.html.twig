@@ -1,0 +1,11 @@
+{% extends "::layout.html.twig" %}
+
+{% block headline %}
+    {{ 'title.students'|trans() }}
+{% endblock %}
+
+{% block content_content %}
+    {{ form_start(form, {'action': path('danceschool_student_annotation_edit', {'studentId': studentId, 'annotationId': annotation.id })}) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

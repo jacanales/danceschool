@@ -12,7 +12,7 @@ class CourseAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper->add('id');
-        $formMapper->add('description', 'text');
+        $formMapper->add('description');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

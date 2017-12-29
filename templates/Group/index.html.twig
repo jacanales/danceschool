@@ -1,0 +1,49 @@
+{% extends "::layout.html.twig" %}
+
+{% block headline %}
+    {{ 'title.groups'|trans() }}
+{% endblock %}
+
+{% block content_content %}
+<div>
+    <a href="{{ path('danceschool_group_add') }}" class="btn btn-primary" role="button">{{ 'button.add'|trans() }}</a>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th data-field="id" data-align="right" data-sortable="true">ID</th>
+                <th data-field="id" data-align="right" data-sortable="true">{{ 'form.label.name'|trans() }}</th>
+                <th data-field="price" data-sortable="true">{{ 'form.label.weekday'|trans() }}</th>
+                <th data-field="address" data-sortable="true">{{ 'form.label.hour'|trans() }}</th>
+                <th data-field="city" data-sortable="true">{{ 'form.label.start_date'|trans() }}</th>
+                <th data-field="postal_code" data-sortable="true">{{ 'form.label.end_date'|trans() }}</th>
+                <th data-field="phone" data-sortable="true">{{ 'form.label.course'|trans() }}</th>
+                <th data-field="phone" data-sortable="true">{{ 'form.label.room'|trans() }}</th>
+                <th data-field="phone" data-sortable="true">{{ 'form.label.teacher'|trans() }}</th>
+                <th data-field="show" data-sortable="false"></th>
+                <th data-field="edit" data-sortable="false"></th>
+                <th data-field="delete" data-sortable="false"></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for group in groups %}
+            <tr class="tr-class-1">
+                <td class="info">{{ group.id }}</td>
+                <td>{{ group.name }}</td>
+                <td>{{ ('date.weekday.'~ group.weekday)|trans() }}</td>
+                <td>{{ group.hour|date("H:i") }}</td>
+                <td>{{ group.startDate|date("d/m/Y") }}</td>
+                <td>{{ group.endDate|date("d/m/Y") }}</td>
+                <td>{{ group.course.description }}</td>
+                <td>{{ group.room.name }}</td>
+                <td>{{ group.teacher.fullName }}</td>
+                <td class="info"><a href="{{ path('danceschool_group_show', {'id': group.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.view'|trans() }}</a></td>
+                <td class="info"><a href="{{ path('danceschool_group_edit', {'id': group.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.edit'|trans() }}</a></td>
+                <td class="danger"><a href="{{ path('danceschool_group_remove', {'id': group.id }) }}" class="btn btn-danger btn-xs" role="button">{{ 'button.delete'|trans() }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
