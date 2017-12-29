@@ -28,7 +28,7 @@ class Builder
         $menu->addChild('title.home', [
             'icon'  => 'home',
             'route' => 'homepage',
-        ])->setExtra('translation_domain', 'AppBundle');
+        ])->setExtra('translation_domain', 'messages');
 
 
         $this->addRoomMenu($menu);
@@ -46,12 +46,12 @@ class Builder
         $room = $menu->addChild('title.room', [
             'dropdown' => true,
             'caret'    => true,
-        ])->setExtra('translation_domain', 'AppBundle');
+        ]);
 
         // Create a dropdown header
-        $room->addChild('title.rooms', ['dropdown-header' => true])->setExtra('translation_domain', 'AppBundle');
-        $room->addChild('title.list_rooms', ['route' => 'danceschool_room_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
-        $room->addChild('title.add_room', ['route' => 'danceschool_room_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $room->addChild('title.rooms', ['dropdown-header' => true]);
+        $room->addChild('title.list_rooms', ['route' => 'danceschool_room_index', 'dropdown-header' => false]);
+        $room->addChild('title.add_room', ['route' => 'danceschool_room_add', 'dropdown-header' => false]);
     }
 
     private function addCourseMenu(ItemInterface $menu): void
@@ -60,12 +60,12 @@ class Builder
         $course = $menu->addChild('title.course', [
             'dropdown' => true,
             'caret'    => true,
-        ])->setExtra('translation_domain', 'AppBundle');
+        ]);
 
         // Create a dropdown header
-        $course->addChild('title.courses', ['dropdown-header' => true])->setExtra('translation_domain', 'AppBundle');
-        $course->addChild('title.list_courses', ['route' => 'danceschool_course_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
-        $course->addChild('title.add_course', ['route' => 'danceschool_course_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $course->addChild('title.courses', ['dropdown-header' => true]);
+        $course->addChild('title.list_courses', ['route' => 'danceschool_course_index', 'dropdown-header' => false]);
+        $course->addChild('title.add_course', ['route' => 'danceschool_course_add', 'dropdown-header' => false]);
     }
 
     private function addTeacherMenu(ItemInterface $menu): void
@@ -74,12 +74,12 @@ class Builder
         $teacher = $menu->addChild('title.teacher', [
             'dropdown' => true,
             'caret'    => true,
-        ])->setExtra('translation_domain', 'AppBundle');
+        ]);
 
         // Create a dropdown header
-        $teacher->addChild('title.teachers', ['dropdown-header' => true])->setExtra('translation_domain', 'AppBundle');
-        $teacher->addChild('title.list_teachers', ['route' => 'danceschool_teacher_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
-        $teacher->addChild('title.add_teacher', ['route' => 'danceschool_teacher_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $teacher->addChild('title.teachers', ['dropdown-header' => true]);
+        $teacher->addChild('title.list_teachers', ['route' => 'danceschool_teacher_index', 'dropdown-header' => false]);
+        $teacher->addChild('title.add_teacher', ['route' => 'danceschool_teacher_add', 'dropdown-header' => false]);
     }
 
     private function addStudentMenu(ItemInterface $menu): void
@@ -88,12 +88,12 @@ class Builder
         $student = $menu->addChild('title.student', [
             'dropdown' => true,
             'caret'    => true,
-        ])->setExtra('translation_domain', 'AppBundle');
+        ]);
 
         // Create a dropdown header
-        $student->addChild('title.students', ['dropdown-header' => true])->setExtra('translation_domain', 'AppBundle');
-        $student->addChild('title.list_students', ['route' => 'danceschool_student_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
-        $student->addChild('title.add_student', ['route' => 'danceschool_student_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $student->addChild('title.students', ['dropdown-header' => true]);
+        $student->addChild('title.list_students', ['route' => 'danceschool_student_index', 'dropdown-header' => false]);
+        $student->addChild('title.add_student', ['route' => 'danceschool_student_add', 'dropdown-header' => false]);
     }
 
     private function addGroupMenu(ItemInterface $menu): void
@@ -101,12 +101,12 @@ class Builder
         $group = $menu->addChild('title.group', [
             'dropdown' => true,
             'caret'    => true,
-        ])->setExtra('translation_domain', 'AppBundle');
+        ]);
 
         // Create a dropdown header
-        $group->addChild('title.groups', ['dropdown-header' => true])->setExtra('translation_domain', 'AppBundle');
-        $group->addChild('title.list_groups', ['route' => 'danceschool_group_index', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
-        $group->addChild('title.add_group', ['route' => 'danceschool_group_add', 'dropdown-header' => false])->setExtra('translation_domain', 'AppBundle');
+        $group->addChild('title.groups', ['dropdown-header' => true]);
+        $group->addChild('title.list_groups', ['route' => 'danceschool_group_index', 'dropdown-header' => false]);
+        $group->addChild('title.add_group', ['route' => 'danceschool_group_add', 'dropdown-header' => false]);
     }
 
     public function invalidMethod(): \stdClass

@@ -1,12 +1,12 @@
 {% extends "::layout.html.twig" %}
 
 {% block headline %}
-    {{ 'title.students'|trans({}, 'AppBundle') }}
+    {{ 'title.students'|trans() }}
 {% endblock %}
 
 {% block content_content %}
     {{ form_start(form) }}
-        <legend>{{ 'title.add_student'|trans({}, 'AppBundle') }}</legend>
+        <legend>{{ 'title.add_student'|trans() }}</legend>
         {{ form_errors(form) }}
         {{ form_row(form.user.username) }}
         {{ form_row(form.user.plainPassword) }}

@@ -1,7 +1,7 @@
 {% extends "::layout.html.twig" %}
 
 {% block headline %}
-    {{ 'title.view_course'|trans({}, 'AppBundle') }}
+    {{ 'title.view_course'|trans() }}
 {% endblock %}
 
 {% block content_content %}
@@ -9,14 +9,14 @@
         <dt>ID</dt>
         <dd>{{ course.getId() }}</dd>
 
-        <dt>{{ 'form.label.description'|trans({}, 'AppBundle') }}</dt>
+        <dt>{{ 'form.label.description'|trans() }}</dt>
         <dd>{{ course.getDescription() }}</dd>
 
-        <dt>{{ 'form.label.price'|trans({}, 'AppBundle') }}</dt>
+        <dt>{{ 'form.label.price'|trans() }}</dt>
         <dd>{{ course.getPrice() }}</dd>
     </dl>
 
-    <a href="{{ path('danceschool_course_index') }}" class="btn btn-primary btn-sm" role="button">{{ 'button.go_to_index'|trans({}, 'AppBundle') }}</a>
-    <a href="{{ path('danceschool_course_edit', {'id': course.id }) }}" class="btn btn-default btn-sm" role="button">{{ 'button.edit'|trans({}, 'AppBundle') }}</a>
-    <a href="{{ path('danceschool_course_remove', {'id': course.id }) }}" class="btn btn-danger btn-sm" role="button">{{ 'button.delete'|trans({}, 'AppBundle') }}</a>
+    <a href="{{ path('danceschool_course_index') }}" class="btn btn-primary btn-sm" role="button">{{ 'button.go_to_index'|trans() }}</a>
+    <a href="{{ path('danceschool_course_edit', {'id': course.id }) }}" class="btn btn-default btn-sm" role="button">{{ 'button.edit'|trans() }}</a>
+    <a href="{{ path('danceschool_course_remove', {'id': course.id }) }}" class="btn btn-danger btn-sm" role="button">{{ 'button.delete'|trans() }}</a>
 {% endblock %}

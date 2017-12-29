@@ -1,14 +1,12 @@
 {% extends "::layout.html.twig" %}
 
-{% trans_default_domain 'AppBundle' %}
-
 {% block headline %}
     {{ 'title.list_students'|trans() }}
 {% endblock %}
 
 {% block content_content %}
 <div>
-    <a href="{{ path('danceschool_student_annotation_add', {'studentId': studentId}) }}" class="btn btn-primary" role="button">{{ 'button.add'|trans({}, 'AppBundle') }}</a>
+    <a href="{{ path('danceschool_student_annotation_add', {'studentId': studentId}) }}" class="btn btn-primary" role="button">{{ 'button.add'|trans() }}</a>
 </div>
 <div class="table-responsive">
     <table class="table table-striped table-hover table-condensed">
