@@ -48,28 +48,35 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    app_user_provider:
+    app.provider.user:
         class: App\Security\Core\User\FOSUBUserProvider
         arguments: ['@fos_user.user_manager', {facebook: facebookId}]
 
-    app.menu_builder:
+    app.builder.menu:
         class: App\Menu\Builder
         arguments: ["@knp_menu.factory"]
         tags:
             - { name: knp_menu.menu_builder, method: createMainMenu, alias: main_menu }
 
-    admin.course:
+    app.admin.course:
         class: App\Admin\CourseAdmin
         arguments: [~, App\Entity\Course, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Course }
         public: true
 
-    admin.group:
+    app.admin.group:
         class: App\Admin\GroupAdmin
         arguments: [~, App\Entity\Group, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Group }
+            - { name: sonata.admin, manager_type: orm, label: Group, group: default }
+        public: true
+
+    app.admin.room:
+        class: App\Admin\RoomAdmin
+        arguments: [~, App\Entity\Room, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Room }
         public: true
 
     app.form.type.gender:
@@ -77,12 +84,12 @@ services:
         tags:
             - { name: form.type, alias: gender }
 
-    app.form.transformer.weekday:
-        class: App\Form\DataTransformer\WeekdayTransformer
-
     app.form.type.weekday:
         class: App\Form\Type\WeekdayType
         arguments:
             - '@app.form.transformer.weekday'
         tags:
             - { name: form.type, alias: weekday }
+
+    app.form.transformer.weekday:
+        class: App\Form\DataTransformer\WeekdayTransformer
