@@ -17,6 +17,4 @@
     </dl>
 
     <a href="{{ path('danceschool_course_index') }}" class="btn btn-primary btn-sm" role="button">{{ 'button.go_to_index'|trans() }}</a>
-    <a href="{{ path('danceschool_course_edit', {'id': course.id }) }}" class="btn btn-default btn-sm" role="button">{{ 'button.edit'|trans() }}</a>
-    <a href="{{ path('danceschool_course_remove', {'id': course.id }) }}" class="btn btn-danger btn-sm" role="button">{{ 'button.delete'|trans() }}</a>
 {% endblock %}

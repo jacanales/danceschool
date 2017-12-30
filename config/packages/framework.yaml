@@ -1,30 +1,13 @@
+parameters:
+    secret: b6b81bf786a28597d16ae47e47a56d87
+    session.name: MSESSID
+
 framework:
     #esi:             ~
-    assets:
-        version: 1.0.0
-        version_format: '%%s?version=%%s'
-        packages:
-            bundles:
-                base_path: '/build'
     secret:          "%secret%"
-    router:
-        strict_requirements: ~
     profiler: { only_exceptions: false }
-    form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
-    templating:
-        form:
-            resources:
-                - ':Form'
-        engines: ['twig']
-#        assets_version: 1.0
-#        assets_base_url:
-#            http:
-#                - "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-#                - "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
-
-    default_locale:  "%locale%"
     trusted_hosts:   ~
     session:
         # handler_id set to null will use default session handler from php.ini

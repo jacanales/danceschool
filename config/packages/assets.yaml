@@ -1,0 +1,7 @@
+framework:
+    assets:
+        version: 1.0.0
+        version_format: '%%s?version=%%s'
+        packages:
+            bundles:
+                base_path: '/build'

@@ -11,22 +11,21 @@ class CourseAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('id');
-        $formMapper->add('description');
+        $formMapper->add('name');
         $formMapper->add('price');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper->add('id');
-        $datagridMapper->add('description');
+        $datagridMapper->add('name');
         $datagridMapper->add('price');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->addIdentifier('id');
-        $listMapper->add('description');
+        $listMapper->add('name');
         $listMapper->add('price');
     }
 }
