@@ -2,10 +2,14 @@
 
 namespace App\Admin;
 
+use App\Entity\Course;
+use App\Entity\Room;
+use App\Entity\Teacher;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class GroupAdmin extends AbstractAdmin
 {
@@ -13,6 +17,30 @@ class GroupAdmin extends AbstractAdmin
     {
         $formMapper->add('id');
         $formMapper->add('name');
+        $formMapper->add(
+            'course',
+            EntityType::class,
+            [
+                'class' => Course::class,
+                'choice_label' => 'name'
+            ]
+        );
+        $formMapper->add(
+            'room',
+            EntityType::class,
+            [
+                'class' => Room::class,
+                'choice_label' => 'name'
+            ]
+        );
+        $formMapper->add(
+            'teacher',
+            EntityType::class,
+            [
+                'class' => Teacher::class,
+                'choice_label' => 'fullname'
+            ]
+        );
         $formMapper->add('weekday');
         $formMapper->add('hour');
         $formMapper->add('startDate');

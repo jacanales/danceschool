@@ -10,6 +10,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 
 class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
@@ -79,14 +80,16 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
 
     private function generatePassword(User $user): string
     {
+        /**
+         * @var $encoder UserPasswordEncoder
+         */
         $encoder = $this->container
-            ->get('security.encoder_factory')
-            ->getEncoder($user)
+            ->get('security.password_encoder')
         ;
 
         $password = substr(str_shuffle(sha1(microtime())), 0, 20);
 
-        return $encoder->encodePassword($password, $user->getSalt());
+        return $encoder->encodePassword($user, $password);
     }
 
     public function getOrder(): int

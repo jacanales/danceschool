@@ -14,7 +14,7 @@ class Course
     /**
      * @var string
      */
-    protected $description;
+    protected $name;
 
     /**
      * @var float
@@ -54,19 +54,19 @@ class Course
     /**
      * @return string
      */
-    public function getDescription(): ?string
+    public function getName(): ?string
     {
-        return $this->description;
+        return $this->name;
     }
 
     /**
-     * @param string $description
+     * @param string $name
      *
      * @return self
      */
-    public function setDescription(string $description): self
+    public function setName(string $name): self
     {
-        $this->description = $description;
+        $this->name = $name;
 
         return $this;
     }

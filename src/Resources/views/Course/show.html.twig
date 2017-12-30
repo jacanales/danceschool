@@ -7,13 +7,13 @@
 {% block content_content %}
     <dl class="dl-horizontal">
         <dt>ID</dt>
-        <dd>{{ course.getId() }}</dd>
+        <dd>{{ course.id }}</dd>
 
-        <dt>{{ 'form.label.description'|trans() }}</dt>
-        <dd>{{ course.getDescription() }}</dd>
+        <dt>{{ 'form.label.name'|trans() }}</dt>
+        <dd>{{ course.name }}</dd>
 
         <dt>{{ 'form.label.price'|trans() }}</dt>
-        <dd>{{ course.getPrice() }}</dd>
+        <dd>{{ course.price }}</dd>
     </dl>
 
     <a href="{{ path('danceschool_course_index') }}" class="btn btn-primary btn-sm" role="button">{{ 'button.go_to_index'|trans() }}</a>

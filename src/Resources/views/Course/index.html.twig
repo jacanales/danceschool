@@ -13,7 +13,7 @@
         <thead>
             <tr>
                 <th data-field="id" data-align="right" data-sortable="true">ID</th>
-                <th data-field="description" data-align="center" data-sortable="true">{{ 'form.label.description'|trans() }}</th>
+                <th data-field="name" data-align="center" data-sortable="true">{{ 'form.label.name'|trans() }}</th>
                 <th data-field="price" data-sortable="true">{{ 'form.label.price'|trans() }}</th>
                 <th data-field="show" data-sortable="false"></th>
                 <th data-field="edit" data-sortable="false"></th>
@@ -24,7 +24,7 @@
         {% for course in courses %}
             <tr class="tr-class-1">
                 <td class="info">{{ course.id }}</td>
-                <td>{{ course.description }}</td>
+                <td>{{ course.name }}</td>
                 <td>{{ course.price }}</td>
                 <td class="info"><a href="{{ path('danceschool_course_show', {'id': course.id}) }}" class="btn btn-default btn-xs" role="button">{{ 'button.view'|trans() }}</a></td>
                 <td class="info"><a href="{{ path('danceschool_course_edit', {'id': course.id}) }}" class="btn btn-default btn-xs" role="button">{{ 'button.edit'|trans() }}</a></td>

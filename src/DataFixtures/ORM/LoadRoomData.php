@@ -6,6 +6,7 @@ use App\Entity\Room;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use libphonenumber\PhoneNumber;
 use libphonenumber\PhoneNumberUtil;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -74,7 +75,7 @@ class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface, C
     ): void {
         $room = new Room();
 
-        $phoneNumber = $this->container->get('libphonenumber.phone_number_util')->parse($phone, PhoneNumberUtil::UNKNOWN_REGION);
+        $phoneNumber = PhoneNumberUtil::getInstance()->parse($phone, PhoneNumberUtil::UNKNOWN_REGION);
 
         $room->setName($name)
             ->setDescription($description)

@@ -11,10 +11,10 @@ App\Entity\Course:
             nullable: false
             generator:
                 strategy: IDENTITY
-        description:
-            type: text
+        name:
+            type: string
+            length: 20
             nullable: true
-            length: null
             fixed: false
         price:
             type: float
