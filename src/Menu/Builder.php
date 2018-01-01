@@ -51,7 +51,6 @@ class Builder
         // Create a dropdown header
         $room->addChild('title.rooms', ['dropdown-header' => true]);
         $room->addChild('title.list_rooms', ['route' => 'danceschool_room_index', 'dropdown-header' => false]);
-        $room->addChild('title.add_room', ['route' => 'danceschool_room_add', 'dropdown-header' => false]);
     }
 
     private function addCourseMenu(ItemInterface $menu): void

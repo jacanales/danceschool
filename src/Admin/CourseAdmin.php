@@ -9,23 +9,23 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class CourseAdmin extends AbstractAdmin
 {
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureFormFields(FormMapper $form)
     {
-        $formMapper->add('name');
-        $formMapper->add('price');
+        $form->add('name');
+        $form->add('price');
     }
 
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    protected function configureDatagridFilters(DatagridMapper $filter)
     {
-        $datagridMapper->add('id');
-        $datagridMapper->add('name');
-        $datagridMapper->add('price');
+        $filter->add('id');
+        $filter->add('name');
+        $filter->add('price');
     }
 
-    protected function configureListFields(ListMapper $listMapper)
+    protected function configureListFields(ListMapper $list)
     {
-        $listMapper->addIdentifier('id');
-        $listMapper->add('name');
-        $listMapper->add('price');
+        $list->addIdentifier('id');
+        $list->add('name');
+        $list->add('price');
     }
 }

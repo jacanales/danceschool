@@ -4,4 +4,4 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     form_themes:
-        - ':Form:gender.html.twig'
+        - 'Form/gender.html.twig'

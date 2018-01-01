@@ -14,11 +14,11 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class GroupAdmin extends AbstractAdmin
 {
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureFormFields(FormMapper $form)
     {
-        $formMapper->add('id');
-        $formMapper->add('name');
-        $formMapper->add(
+        $form->add('id');
+        $form->add('name');
+        $form->add(
             'course',
             EntityType::class,
             [
@@ -26,7 +26,7 @@ class GroupAdmin extends AbstractAdmin
                 'choice_label' => 'name'
             ]
         );
-        $formMapper->add(
+        $form->add(
             'room',
             ModelType::class,
             [
@@ -34,7 +34,7 @@ class GroupAdmin extends AbstractAdmin
                 'property' => 'name'
             ]
         );
-        $formMapper->add(
+        $form->add(
             'teacher',
             EntityType::class,
             [
@@ -42,27 +42,27 @@ class GroupAdmin extends AbstractAdmin
                 'choice_label' => 'fullname'
             ]
         );
-        $formMapper->add('weekday');
-        $formMapper->add('hour');
-        $formMapper->add('startDate');
-        $formMapper->add('endDate');
-        $formMapper->add('whatsappGroup');
+        $form->add('weekday');
+        $form->add('hour');
+        $form->add('startDate');
+        $form->add('endDate');
+        $form->add('whatsappGroup');
     }
 
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    protected function configureDatagridFilters(DatagridMapper $filter)
     {
-        $datagridMapper->add('id');
-        $datagridMapper->add('name');
+        $filter->add('id');
+        $filter->add('name');
     }
 
-    protected function configureListFields(ListMapper $listMapper)
+    protected function configureListFields(ListMapper $list)
     {
-        $listMapper->addIdentifier('id');
-        $listMapper->add('name');
-        $listMapper->add('weekday');
-        $listMapper->add('hour');
-        $listMapper->add('startDate');
-        $listMapper->add('endDate');
-        $listMapper->add('whatsappGroup');
+        $list->addIdentifier('id');
+        $list->add('name');
+        $list->add('weekday');
+        $list->add('hour');
+        $list->add('startDate');
+        $list->add('endDate');
+        $list->add('whatsappGroup');
     }
 }
