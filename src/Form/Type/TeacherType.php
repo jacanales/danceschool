@@ -18,6 +18,8 @@ class TeacherType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        parent::buildForm($builder, $options);
+
         $builder
             ->add('User', UserType::class, [
                 'show_legend' => false,
@@ -30,11 +32,7 @@ class TeacherType extends AbstractType
             ->add('comment', TextareaType::class, [
                 'label'              => 'form.label.comment',
                 'required'           => false,
-            ])
-            ->add('save', SubmitType::class, [
-                'label'              => 'form.label.save',
-            ])
-            ->getForm();
+            ]);
     }
 
     /**
@@ -47,6 +45,7 @@ class TeacherType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Teacher::class,
             'edit'       => false,
+            'show_legend' => false,
         ]);
     }
 

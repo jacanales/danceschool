@@ -40,23 +40,30 @@ services:
     app.admin.course:
         class: App\Admin\CourseAdmin
         arguments: [~, App\Entity\Course, ~]
+        public: true
         tags:
             - { name: sonata.admin, manager_type: orm, label: Course }
-        public: true
 
     app.admin.group:
         class: App\Admin\GroupAdmin
         arguments: [~, App\Entity\Group, ~]
+        public: true
         tags:
             - { name: sonata.admin, manager_type: orm, label: Group, group: default }
-        public: true
 
     app.admin.room:
         class: App\Admin\RoomAdmin
         arguments: [~, App\Entity\Room, ~]
+        public: true
         tags:
             - { name: sonata.admin, manager_type: orm, label: Room }
+
+    app.admin.teacher:
+        class: App\Admin\TeacherAdmin
+        arguments: [~, App\Entity\Teacher, ~]
         public: true
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Teacher }
 
     app.form.type.gender:
         class: App\Form\Type\GenderType

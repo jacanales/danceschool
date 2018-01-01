@@ -123,4 +123,9 @@ class Teacher
     {
         return $this->getUser()->getName() . ' ' . $this->getUser()->getLastname();
     }
+
+    public function getTeacher(): self
+    {
+        return $this;
+    }
 }
