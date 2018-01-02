@@ -35,7 +35,7 @@ class CourseController extends Controller
             ->findAll();
 
         return $this->render(
-            ':Course:index.html.twig',
+            'Course/index.html.twig',
             ['courses' => $rooms]
         );
     }
@@ -68,7 +68,7 @@ class CourseController extends Controller
         }
 
         return $this->render(
-            ':Course:show.html.twig',
+            'Course/show.html.twig',
             [
                 'course' => $course,
             ]

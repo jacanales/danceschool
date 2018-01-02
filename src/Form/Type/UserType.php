@@ -5,6 +5,7 @@ namespace App\Form\Type;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -56,7 +57,7 @@ class UserType extends AbstractType
             ->add('city', null, [
                 'label'              => 'form.label.city',
             ])
-            ->add('country', null, [
+            ->add('country', CountryType::class, [
                 'label'              => 'form.label.country',
             ])
             ->add('postal_code', null, [

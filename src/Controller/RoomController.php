@@ -31,7 +31,7 @@ class RoomController extends Controller
                       ->findAll();
 
         return $this->render(
-            ':Room:index.html.twig',
+            'Room/index.html.twig',
             ['rooms' => $rooms]
         );
     }
@@ -59,7 +59,7 @@ class RoomController extends Controller
         }
 
         return $this->render(
-            ':Room:show.html.twig',
+            'Room/show.html.twig',
             [
                 'room' => $room,
             ]

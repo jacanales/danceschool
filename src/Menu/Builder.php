@@ -77,7 +77,6 @@ class Builder
         // Create a dropdown header
         $teacher->addChild('title.teachers', ['dropdown-header' => true]);
         $teacher->addChild('title.list_teachers', ['route' => 'danceschool_teacher_index', 'dropdown-header' => false]);
-        $teacher->addChild('title.add_teacher', ['route' => 'danceschool_teacher_add', 'dropdown-header' => false]);
     }
 
     private function addStudentMenu(ItemInterface $menu): void
