@@ -2,6 +2,7 @@
 
 namespace App\Admin;
 
+use App\Form\Type\CourseType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -11,8 +12,7 @@ class CourseAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $form)
     {
-        $form->add('name');
-        $form->add('price');
+        $form->add('course', CourseType::class);
     }
 
     protected function configureDatagridFilters(DatagridMapper $filter)

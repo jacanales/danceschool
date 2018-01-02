@@ -24,9 +24,6 @@ class CourseType extends AbstractType
             ->add('price', TextType::class, [
                 'label'              => 'form.label.price',
             ])
-            ->add('save', SubmitType::class, [
-                'label'              => 'form.label.save',
-            ])
         ;
     }
 

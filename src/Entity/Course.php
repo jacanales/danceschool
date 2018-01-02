@@ -32,6 +32,14 @@ class Course
     }
 
     /**
+     * @return Course
+     */
+    public function getCourse(): self
+    {
+        return $this;
+    }
+
+    /**
      * @return int
      */
     public function getId(): ?int

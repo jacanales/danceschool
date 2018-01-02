@@ -2,27 +2,17 @@
 
 namespace App\Admin;
 
-use libphonenumber\PhoneNumberFormat;
-use Misd\PhoneNumberBundle\Form\Type\PhoneNumberType;
+use App\Form\Type\RoomType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Symfony\Component\Form\Extension\Core\Type\CountryType;
 
 class RoomAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $form)
     {
-        $form->add('name');
-        $form->add('description');
-        $form->add('price');
-        $form->add('address');
-        $form->add('city');
-        $form->add('postalCode');
-        $form->add('phone', PhoneNumberType::class, [
-            'default_region'     => 'ES',
-            'format'             => PhoneNumberFormat::NATIONAL]);
+        $form->add('room', RoomType::class);
     }
 
     protected function configureDatagridFilters(DatagridMapper $filter)

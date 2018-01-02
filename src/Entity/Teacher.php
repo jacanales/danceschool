@@ -37,6 +37,14 @@ class Teacher
     }
 
     /**
+     * @return Teacher
+     */
+    public function getTeacher(): self
+    {
+        return $this;
+    }
+
+    /**
      * @param int $id
      *
      * @return self
@@ -122,10 +130,5 @@ class Teacher
     public function getFullName(): string
     {
         return $this->getUser()->getName() . ' ' . $this->getUser()->getLastname();
-    }
-
-    public function getTeacher(): self
-    {
-        return $this;
     }
 }

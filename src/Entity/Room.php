@@ -46,6 +46,11 @@ class Room
      */
     protected $phone;
 
+    public function getRoom(): self
+    {
+        return $this;
+    }
+
     /**
      * @return int
      */

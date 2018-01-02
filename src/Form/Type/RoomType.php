@@ -41,11 +41,7 @@ class RoomType extends AbstractType
             ])
             ->add('postal_code', TextType::class, [
                 'label'              => 'form.label.postal_code',
-            ])
-            ->add('add', SubmitType::class, [
-                'label'              => 'form.label.save',
-            ])
-            ->getForm();
+            ]);
     }
 
     /**
