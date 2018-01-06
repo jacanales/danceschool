@@ -1,5 +1,6 @@
 menu.option.show_profile: "Ver perfil"
 menu.option.edit_profile: "Editar perfil"
+menu.option.change_password: "Cambiar contraseña"
 menu.option.logout: "Cerrar sesión"
 
 form:
