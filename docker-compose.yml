@@ -31,10 +31,11 @@ services:
         ports:
             - "9001:9000"
         working_dir: /code
+        command: make database-update
         environment:
-            - DOCKER_HOST_IP=10.0.75.0
-            - XDEBUG_REMOTE_HOST=10.0.75.0
-            - XDEBUG_CONFIG="remote_host=192.168.1.37"
+            - DOCKER_HOST_IP=${DOCKER_HOST_IP}
+            - XDEBUG_REMOTE_HOST=192.168.99.1
+            - XDEBUG_CONFIG="remote_host=192.168.99.1"
             - MYSQL_HOST=mysql
             - MYSQL_DATABASE=danceschool
             - MYSQL_USER=danceschool
