@@ -1,0 +1,17 @@
+stages:
+    - test
+
+cache:
+    paths:
+        - vendor/
+
+test:
+    tags: php7
+    stage: build
+    script:
+        - echo "Building the app"
+        - docker-compose up -d
+        - make composer-install
+        - make cs-fix-dry-run
+        - make phpunit
+        - make phpspec

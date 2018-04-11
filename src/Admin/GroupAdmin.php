@@ -22,24 +22,24 @@ class GroupAdmin extends AbstractAdmin
             'course',
             EntityType::class,
             [
-                'class' => Course::class,
-                'choice_label' => 'name'
+                'class'        => Course::class,
+                'choice_label' => 'name',
             ]
         );
         $form->add(
             'room',
             ModelType::class,
             [
-                'class' => Room::class,
-                'property' => 'name'
+                'class'    => Room::class,
+                'property' => 'name',
             ]
         );
         $form->add(
             'teacher',
             EntityType::class,
             [
-                'class' => Teacher::class,
-                'choice_label' => 'fullname'
+                'class'        => Teacher::class,
+                'choice_label' => 'fullname',
             ]
         );
         $form->add('weekday');

@@ -30,7 +30,6 @@ class Builder
             'route' => 'homepage',
         ])->setExtra('translation_domain', 'messages');
 
-
         $this->addRoomMenu($menu);
         $this->addCourseMenu($menu);
         $this->addTeacherMenu($menu);

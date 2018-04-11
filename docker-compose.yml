@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+    composer:
+        image: "composer"
+        volumes:
+            - .:/code
+        networks:
+            - code-network
     nginx:
         image: "nginx:stable"
         restart: always

@@ -13,7 +13,7 @@ class GenderType extends AbstractType
     public function __construct()
     {
         $this->genders = [
-            'form.gender.male' => 'm',
+            'form.gender.male'   => 'm',
             'form.gender.female' => 'f',
         ];
     }

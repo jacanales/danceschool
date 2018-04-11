@@ -81,7 +81,7 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
     private function generatePassword(User $user): string
     {
         /**
-         * @var $encoder UserPasswordEncoder
+         * @var UserPasswordEncoder
          */
         $encoder = $this->container
             ->get('security.password_encoder')

@@ -18,10 +18,10 @@ phpmetrics:
 	bin/phpmetrics --report-violations="./build/violations.xml" src/
 
 phpunit:
-	./bin/phpunit -c app/ --exclude-group config
+	./bin/phpunit --exclude-group config
 
 phpunit-debug:
-	./bin/phpunit -c app/ --debug
+	./bin/phpunit --debug
 
 phpspec:
 	bin/phpspec run -fdot -vvv
@@ -44,3 +44,8 @@ clean-build:
 
 compile-assets:
 	./node_modules/.bin/encore dev --context .
+
+composer-install:
+	docker run --rm --interactive --tty \
+        --volume $PWD:/code \
+        composer install

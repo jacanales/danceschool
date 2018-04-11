@@ -4,9 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Course;
 use App\Entity\Group;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class CourseRepository extends EntityRepository
 {
@@ -18,7 +16,7 @@ class CourseRepository extends EntityRepository
     public function findWithGroups(int $id): Course
     {
         /**
-         * @var $course Course
+         * @var Course
          */
         $course = $this->find($id);
 
