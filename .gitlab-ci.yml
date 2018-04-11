@@ -6,7 +6,8 @@ cache:
         - vendor/
 
 test:
-    tags: php7
+    tags:
+        - php7
     stage: build
     script:
         - echo "Building the app"
