@@ -8,6 +8,7 @@ cache:
 test:
     tags:
         - php7
+        - docker
     stage: test
     script:
         - echo "Building the app"
