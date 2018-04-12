@@ -7,7 +7,6 @@ cache:
 
 test:
     tags:
-        - php7
         - docker
     stage: test
     script:
