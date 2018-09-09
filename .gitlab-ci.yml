@@ -1,18 +1,21 @@
-stages:
-    - test
-
 cache:
     paths:
         - vendor/
 
+variables:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_USER: danceschool
+    MYSQL_PASSWORD: danceschool
+    MYSQL_DATABASE: danceschool
+    DB_HOST: mysql
+
 test:
-    tags:
-        - docker
     stage: test
+    services:
+        - mysql: 5.7
+    image: edbizarro/gitlab-ci-pipeline-php:7.2-alpine
     script:
         - echo "Building the app"
-        - docker-compose up -d
-        - make composer-install
+        - composer install --prefer-dist --no-ansi --no-interaction --no-progress
         - make cs-fix-dry-run
-        - make phpunit
         - make phpspec

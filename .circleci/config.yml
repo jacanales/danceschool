@@ -17,4 +17,5 @@ jobs:
           key: composer-cache-{{ checksum "composer.lock" }}
           paths:
             - vendor
+      - run: make cs-fix-dry-run
       - run: make phpspec-unattended
