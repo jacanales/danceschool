@@ -1,3 +1,9 @@
+CI Status Badges
+=============
+| Branch | CircleCI | 
+| ------ | :-------- |
+| develop | [![CircleCI](https://circleci.com/bb/jacanales/danceschool.svg?style=svg)](https://circleci.com/bb/jacanales/danceschool) 
+
 danceschool
 =======
 
