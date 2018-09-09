@@ -49,3 +49,5 @@ composer-install:
 	docker run --rm --interactive --tty \
         --volume $PWD:/code \
         composer install
+up:
+	docker-compose up -d
