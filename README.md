@@ -1,8 +1,8 @@
 CI Status Badges
 =============
-| Branch | CircleCI | 
-| ------ | :-------- |
-| develop | [![CircleCI](https://circleci.com/bb/jacanales/danceschool.svg?style=svg)](https://circleci.com/bb/jacanales/danceschool) 
+| CircleCI | PHPSpec Coverage | PHPUnit Coverage 
+| ------ | :-------- | :-------- 
+| [![CircleCI](https://circleci.com/bb/jacanales/danceschool.svg?style=svg)](https://circleci.com/bb/jacanales/danceschool) | N/A | N/A 
 
 danceschool
 =======
