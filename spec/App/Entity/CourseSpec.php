@@ -23,13 +23,6 @@ class CourseSpec extends ObjectBehavior
         $this->getId()->shouldReturn(1);
     }
 
-    public function it_sets_description()
-    {
-        $this->setDescription('description')->shouldHaveType(Course::class);
-
-        $this->getDescription()->shouldReturn('description');
-    }
-
     public function it_sets_price()
     {
         $this->setPrice(1.1)->shouldHaveType(Course::class);
