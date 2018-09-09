@@ -1,8 +1,8 @@
 CI Status Badges
 =============
-| CircleCI | Codefactor.io | PHPSpec Coverage | PHPUnit Coverage 
-| ------ | :-------- | :-------- | :-------- 
-| [![CircleCI](https://circleci.com/bb/jacanales/danceschool.svg?style=svg)](https://circleci.com/bb/jacanales/danceschool) | [![CodeFactor](https://www.codefactor.io/repository/bitbucket/jacanales/danceschool/badge)](https://www.codefactor.io/repository/bitbucket/jacanales/danceschool) | N/A | N/A 
+| CircleCI | Codefactor.io | Codacy | PHPSpec Coverage | PHPUnit Coverage 
+| ------ | :-------- | :-------- | :-------- | :-------- 
+| [![CircleCI](https://circleci.com/bb/jacanales/danceschool.svg?style=svg)](https://circleci.com/bb/jacanales/danceschool) | [![CodeFactor](https://www.codefactor.io/repository/bitbucket/jacanales/danceschool/badge)](https://www.codefactor.io/repository/bitbucket/jacanales/danceschool) | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e3e5fc28bf1346cdb365136ac765a892)](https://www.codacy.com?utm_source=git@bitbucket.org&amp;utm_medium=referral&amp;utm_content=jacanales/danceschool&amp;utm_campaign=Badge_Grade) | N/A | N/A 
 
 danceschool
 =======
