@@ -34,14 +34,12 @@ App\Entity\Group:
             nullable: false
         startDate:
             type: date
-            nullable: false
+            nullable: true
             column: start_date
-            columnDefinition: DATE
         endDate:
             type: date
-            nullable: false
+            nullable: true
             column: end_date
-            columnDefinition: DATE
         whatsappGroup:
             type: string
             nullable: true

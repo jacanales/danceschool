@@ -1,4 +1,7 @@
 {
+    "composer/xdebug-handler": {
+        "version": "1.3.2"
+    },
     "doctrine/doctrine-migrations-bundle": {
         "version": "1.2",
         "recipe": {
@@ -8,14 +11,29 @@
             "ref": "c1431086fec31f17fbcfe6d6d7e92059458facc1"
         }
     },
+    "doctrine/event-manager": {
+        "version": "v1.0.0"
+    },
     "doctrine/migrations": {
         "version": "v1.6.2"
+    },
+    "doctrine/persistence": {
+        "version": "v1.1.0"
+    },
+    "doctrine/reflection": {
+        "version": "v1.0.0"
     },
     "ocramius/package-versions": {
         "version": "1.2.0"
     },
     "ocramius/proxy-manager": {
         "version": "2.1.1"
+    },
+    "ralouphie/getallheaders": {
+        "version": "2.0.5"
+    },
+    "sonata-project/doctrine-extensions": {
+        "version": "1.2.0"
     },
     "symfony/asset": {
         "version": "v4.0.2"
@@ -37,6 +55,9 @@
             "version": "3.3",
             "ref": "9f94d3ea453cd8a3b95db7f82592d7344fe3a76a"
         }
+    },
+    "symfony/contracts": {
+        "version": "v1.0.2"
     },
     "symfony/css-selector": {
         "version": "v4.0.2"
@@ -110,9 +131,6 @@
     "symfony/intl": {
         "version": "v4.0.2"
     },
-    "symfony/lts": {
-        "version": "4-dev"
-    },
     "symfony/maker-bundle": {
         "version": "1.0",
         "recipe": {
@@ -131,6 +149,12 @@
     "symfony/orm-pack": {
         "version": "v1.0.5"
     },
+    "symfony/polyfill-ctype": {
+        "version": "v1.11.0"
+    },
+    "symfony/polyfill-intl-idn": {
+        "version": "v1.11.0"
+    },
     "symfony/process": {
         "version": "v4.0.2"
     },
@@ -146,9 +170,6 @@
             "ref": "cda8b550123383d25827705d05a42acf6819fe4e"
         }
     },
-    "symfony/security": {
-        "version": "v4.0.2"
-    },
     "symfony/security-bundle": {
         "version": "3.3",
         "recipe": {
@@ -157,6 +178,18 @@
             "version": "3.3",
             "ref": "85834af1496735f28d831489d12ab1921a875e0d"
         }
+    },
+    "symfony/security-core": {
+        "version": "v4.2.7"
+    },
+    "symfony/security-csrf": {
+        "version": "v4.2.7"
+    },
+    "symfony/security-guard": {
+        "version": "v4.2.7"
+    },
+    "symfony/security-http": {
+        "version": "v4.2.7"
     },
     "symfony/stopwatch": {
         "version": "v4.0.2"
@@ -190,6 +223,9 @@
     },
     "symfony/var-dumper": {
         "version": "v4.0.2"
+    },
+    "symfony/var-exporter": {
+        "version": "v4.2.7"
     },
     "symfony/web-profiler-bundle": {
         "version": "3.3",
