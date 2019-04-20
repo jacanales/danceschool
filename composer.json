@@ -29,7 +29,6 @@
         "symfony/flex": "^1.2",
         "symfony/console": "^4.2",
         "symfony/framework-bundle": "^4.2",
-        "symfony/maker-bundle": "^1.11",
         "symfony/orm-pack": "^1.0",
         "symfony/yaml": "^4.2",
         "symfony/swiftmailer-bundle": "~3.2.6",
@@ -63,11 +62,13 @@
         "sonata-project/doctrine-orm-admin-bundle": "^3.3"
     },
     "require-dev": {
-        "symfony/browser-kit": "^4.0",
-        "symfony/css-selector": "^4.0",
-        "symfony/debug-bundle": "^4.0",
+        "roave/security-advisories": "dev-master",
+        "symfony/browser-kit": "^4.2",
+        "symfony/css-selector": "^4.2",
+        "symfony/debug-bundle": "^4.2",
         "symfony/dotenv": "^4.0",
-        "symfony/web-profiler-bundle": "^4.0",
+        "symfony/web-profiler-bundle": "^4.2",
+        "symfony/maker-bundle": "^1.11",
 
         "fzaninotto/faker": "~1.8.0",
         "friendsofphp/php-cs-fixer": "~2.14.2",

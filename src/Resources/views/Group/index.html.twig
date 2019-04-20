@@ -35,7 +35,7 @@
                 <td>{{ group.hour|date("H:i") }}</td>
                 <td>{{ group.startDate|date("d/m/Y") }}</td>
                 <td>{{ group.endDate|date("d/m/Y") }}</td>
-                <td>{{ group.course.description }}</td>
+                <td>{{ group.course.name }}</td>
                 <td>{{ group.room.name }}</td>
                 <td>{{ group.teacher.fullName }}</td>
                 <td class="info"><a href="{{ path('danceschool_group_show', {'id': group.id }) }}" class="btn btn-default btn-xs" role="button">{{ 'button.view'|trans() }}</a></td>

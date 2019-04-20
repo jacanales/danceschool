@@ -46,7 +46,7 @@ class GroupType extends AbstractType
             ])
             ->add('course', EntityType::class, [
                 'class'              => Course::class,
-                'choice_label'       => 'description',
+                'choice_label'       => 'name',
                 'label'              => 'form.label.course',
             ])
             ->add('room', EntityType::class, [
