@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="App\Entity\User" table="users">
+        <unique-constraints>
+            <unique-constraint name="UNIQ_1483A5E992FC23A8" columns="username_canonical" />
+            <unique-constraint name="UNIQ_1483A5E9A0D96FBF" columns="email_canonical" />
+            <unique-constraint name="UNIQ_1483A5E92BC7B602" columns="identity_number" />
+        </unique-constraints>
+        <id name="id" type="integer" column="id" length="10">
+            <generator strategy="IDENTITY" />
+        </id>
+        <field name="facebookId" column="facebook_id" nullable="true" />
+        <field name="name" column="name" length="255" />
+        <field name="lastname" column="lastname" length="255" nullable="true" />
+        <field name="gender" column="gender" length="1" nullable="true" />
+        <field name="birthday" type="date" column="birthday" column-definition="DATE" nullable="true" />
+        <field name="phone" column="phone" length="30" nullable="true" />
+        <field name="address" column="address" length="255" nullable="true" />
+        <field name="city" column="city" length="45" nullable="true" />
+        <field name="country" column="country" length="2" nullable="true">
+            <options>
+                <option name="default">ES</option>
+                <option name="comment">Use ISO Code</option>
+            </options>
+        </field>
+        <field name="postalCode" column="postal_code" length="15" nullable="true" />
+        <field name="identityNumber" column="identity_number" length="255" nullable="true" />
+        <field name="created" type="datetime" column="created" />
+        <field name="modified" type="datetime" column="modified" />
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="setCreatedAt" />
+            <lifecycle-callback type="prePersist" method="setUpdatedAt" />
+            <lifecycle-callback type="preUpdate" method="setUpdatedAt" />
+        </lifecycle-callbacks>
+    </entity>
+</doctrine-mapping>

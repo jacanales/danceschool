@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="App\Entity\Teacher" table="teachers">
+        <id name="id" type="integer" column="id">
+            <generator strategy="IDENTITY" />
+        </id>
+        <field name="wage" type="float" column="wage" precision="10" scale="0" />
+        <field name="comment" type="text" column="comment" nullable="true" />
+        <one-to-one field="user" target-entity="App\Entity\User">
+            <cascade>
+                <cascade-persist />
+            </cascade>
+            <join-columns>
+                <join-column name="user_id" on-delete="CASCADE" />
+            </join-columns>
+        </one-to-one>
+        <one-to-many field="groups" target-entity="App\Entity\Group" mapped-by="teacher" />
+    </entity>
+</doctrine-mapping>

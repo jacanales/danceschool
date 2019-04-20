@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="App\Entity\Room" table="rooms">
+        <id name="id" type="integer" column="id">
+            <generator strategy="IDENTITY" />
+        </id>
+        <field name="name" column="name" length="50" />
+        <field name="description" type="text" column="description" nullable="true" />
+        <field name="price" type="float" column="price" precision="10" scale="0" />
+        <field name="address" type="text" column="address" nullable="true" />
+        <field name="city" column="city" length="15" nullable="true" />
+        <field name="postalCode" column="postal_code" length="15" nullable="true" />
+        <field name="phone" type="phone_number" column="phone" nullable="true" />
+    </entity>
+</doctrine-mapping>
