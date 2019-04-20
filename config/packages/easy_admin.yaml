@@ -1,0 +1,17 @@
+easy_admin:
+    site_name: 'Dance School project'
+    entities:
+        User: App\Entity\User
+        Course:
+            class: App\Entity\Course
+            list:
+                fields:
+                    - { property: 'name', label: 'form.label.name' }
+                    - { property: 'price', label: 'form.label.price' }
+        Group: App\Entity\Group
+        Room: App\Entity\Room
+        Student: App\Entity\Student
+        Teacher: App\Entity\Teacher
+    user:
+        display_name: true
+        display_avatar: true

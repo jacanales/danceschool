@@ -11,17 +11,17 @@ class User extends BaseUser
     /**
      * @var string
      */
-    protected $name;
+    protected $name = '';
 
     /**
      * @var string
      */
-    protected $lastname;
+    protected $lastname = '';
 
     /**
      * @var string
      */
-    protected $gender;
+    protected $gender = '';
 
     /**
      * @var \DateTime
@@ -31,32 +31,32 @@ class User extends BaseUser
     /**
      * @var string
      */
-    protected $phone;
+    protected $phone = '';
 
     /**
      * @var string
      */
-    protected $address;
+    protected $address = '';
 
     /**
      * @var string
      */
-    protected $city;
+    protected $city = '';
 
     /**
      * @var string
      */
-    protected $country;
+    protected $country = '';
 
     /**
      * @var string
      */
-    protected $postalCode;
+    protected $postalCode = '';
 
     /**
      * @var string
      */
-    protected $identityNumber;
+    protected $identityNumber = '';
 
     /**
      * @var \DateTime
@@ -306,7 +306,7 @@ class User extends BaseUser
     /**
      * @return \DateTime
      */
-    public function getCreated(): \DateTime
+    public function getCreated(): ?\DateTime
     {
         return $this->created;
     }
@@ -326,7 +326,7 @@ class User extends BaseUser
     /**
      * @return \DateTime
      */
-    public function getModified(): \DateTime
+    public function getModified(): ?\DateTime
     {
         return $this->modified;
     }
@@ -343,7 +343,7 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getFacebookId(): string
+    public function getFacebookId(): ?string
     {
         return $this->facebookId;
     }

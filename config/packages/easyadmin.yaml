@@ -1,8 +1,0 @@
-easy_admin:
-    entities:
-        - App\Entity\User
-        - App\Entity\Course
-        - App\Entity\Group
-        - App\Entity\Room
-        - App\Entity\Student
-        - App\Entity\Teacher
