@@ -13,8 +13,7 @@ use Faker\Factory;
 
 class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
 {
-    const MAX_GROUPS             = 10;
-    const MAX_STUDENTS_PER_GROUP = 20;
+    private const MAX_GROUPS = 10;
 
     /**
      * @var ObjectManager

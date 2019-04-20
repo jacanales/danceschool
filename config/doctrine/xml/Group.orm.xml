@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="App\Entity\Group" table="groups">
+    <entity name="App\Entity\Group" table="classgroups">
         <indexes>
             <index name="idx_group_course" columns="course_id" />
             <index name="idx_group_room" columns="room_id" />

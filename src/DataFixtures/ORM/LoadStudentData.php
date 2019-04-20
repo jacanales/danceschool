@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 
 class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
-    const MAX_STUDENTS = 20;
+    private const MAX_STUDENTS = 20;
 
     /**
      * @var ObjectManager
