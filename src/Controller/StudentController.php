@@ -6,22 +6,20 @@ use App\Entity\Student;
 use App\Entity\StudentAnnotation;
 use App\Form\Type\StudentAnnotationType;
 use App\Form\Type\StudentType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Route preffix affects only new (not overloaded) actions or if route name matches.
  *
  * @Route("/admin/student")
  */
-class StudentController extends Controller
+class StudentController extends AbstractController
 {
     /**
-     * @Route("/", name="danceschool_student_index")
-     * @Method("GET")
+     * @Route("/", name="danceschool_student_index", methods={"GET"})
      *
      * @throws \LogicException
      */
@@ -41,8 +39,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/show/{id}", name="danceschool_student_show")
-     * @Method("GET")
+     * @Route("/show/{id}", name="danceschool_student_show", methods={"GET"})
      *
      * @param int $id
      *
@@ -80,8 +77,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/add", name="danceschool_student_add")
-     * @Method({"GET", "POST"})
+     * @Route("/add", name="danceschool_student_add", methods={"GET", "POST"})
      *
      * @param Request $request
      *
@@ -111,8 +107,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/edit/{id}", name="danceschool_student_edit")
-     * @Method({"GET", "POST"})
+     * @Route("/edit/{id}", name="danceschool_student_edit", methods={"GET", "POST"})
      *
      * @param Request $request
      * @param         $id
@@ -154,8 +149,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/remove/{id}", name="danceschool_student_remove")
-     * @Method({"GET", "POST"})
+     * @Route("/remove/{id}", name="danceschool_student_remove", methods={"GET", "POST"})
      *
      * @param $id
      *
@@ -183,8 +177,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/{studentId}/annotations/add", name="danceschool_student_annotation_add")
-     * @Method({"GET", "POST"})
+     * @Route("/{studentId}/annotations/add", name="danceschool_student_annotation_add", methods={"GET", "POST"})
      *
      * @param Request $request
      * @param         $studentId
@@ -223,8 +216,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/{studentId}/annotations/edit/{annotationId}", name="danceschool_student_annotation_edit")
-     * @Method({"GET", "POST"})
+     * @Route("/{studentId}/annotations/edit/{annotationId}", name="danceschool_student_annotation_edit", methods={"GET", "POST"})
      *
      * @param Request $request
      * @param int     $studentId
@@ -271,8 +263,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/{studentId}/annotations/remove/{annotationId}", name="danceschool_student_annotation_remove")
-     * @Method({"GET", "POST"})
+     * @Route("/{studentId}/annotations/remove/{annotationId}", name="danceschool_student_annotation_remove", methods={"GET", "POST"})
      *
      * @param int $studentId
      * @param int $annotationId

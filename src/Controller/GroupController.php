@@ -6,18 +6,18 @@ use App\Entity\Group;
 use App\Entity\GroupStudent;
 use App\Form\Type\GroupStudentType;
 use App\Form\Type\GroupType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Route preffix affects only new (not overloaded) actions or if route name matches.
  *
  * @Route("/admin/group")
  */
-class GroupController extends Controller
+class GroupController extends AbstractController
 {
     /**
      * @Route("/", name="danceschool_group_index")

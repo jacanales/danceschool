@@ -3,16 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Course;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Route preffix affects only new (not overloaded) actions or if route name matches.
  *
  * @Route("/admin/course")
  */
-class CourseController extends Controller
+class CourseController extends AbstractController
 {
     /**
      * @Route("/", name="danceschool_course_index")
