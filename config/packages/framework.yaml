@@ -1,16 +1,21 @@
-parameters:
-    secret: b6b81bf786a28597d16ae47e47a56d87
-    session.name: MSESSID
-
 framework:
-    #esi:             ~
-    secret:          "%secret%"
-    profiler: { only_exceptions: false }
-    csrf_protection: ~
-    validation:      { enable_annotations: true }
-    trusted_hosts:   ~
+    secret:          '%env(APP_SECRET)%'
+    default_locale:  es
+    csrf_protection: true
+    http_method_override: true
+
     session:
         # handler_id set to null will use default session handler from php.ini
         handler_id:  ~
-    fragments:       ~
-    http_method_override: true
+        cookie_secure: auto
+        cookie_samesite: lax
+
+    #esi:             ~
+    #fragments:       true
+    php_errors:
+        log: true
+
+    profiler: { only_exceptions: false }
+
+    validation:      { enable_annotations: true }
+    trusted_hosts:   ~
