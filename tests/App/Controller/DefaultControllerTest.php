@@ -2,7 +2,7 @@
 
 namespace Tests\App\Controller;
 
-use App\Controller\DefaultController;
+use App\School\UI\Http\Controller\DefaultController;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**

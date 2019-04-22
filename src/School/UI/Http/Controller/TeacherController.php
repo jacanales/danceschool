@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\School\UI\Http\Controller;
 
-use App\School\Domain\Entity\Course;
+use App\School\Domain\Entity\Teacher;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,14 +10,12 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Route preffix affects only new (not overloaded) actions or if route name matches.
  *
- * @Route("/admin/course")
+ * @Route("/admin/teacher")
  */
-class CourseController extends AbstractController
+class TeacherController extends AbstractController
 {
     /**
-     * @Route("/", name="danceschool_course_index")
-     *
-     * @return Response
+     * @Route("/", name="danceschool_teacher_index")
      *
      * @throws \LogicException
      */
@@ -26,48 +24,42 @@ class CourseController extends AbstractController
         /**
          * @var \Doctrine\ORM\EntityManager
          */
-        $rooms = $this
-            ->getDoctrine()
-            ->getRepository(Course::class)
-            ->findAll();
+        $teachers = $this->getDoctrine()
+                      ->getRepository(Teacher::class)
+                      ->findAll();
 
         return $this->render(
-            'Course/index.html.twig',
-            ['courses' => $rooms]
+            'Teacher/index.html.twig',
+            ['teachers' => $teachers]
         );
     }
 
     /**
-     * @Route("/show/{id}", name="danceschool_course_show")
+     * @Route("/show/{id}", name="danceschool_teacher_show")
      *
      * @param int $id
      *
      * @return Response
      *
-     * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
      */
     public function show(int $id): Response
     {
-        $repository = $this
-            ->getDoctrine()
-            ->getManager()
-            ->getRepository(Course::class);
+        $teacher = $this->getDoctrine()
+                     ->getRepository(Teacher::class)
+                     ->find($id);
 
-        $course = $repository
-            ->findWithGroups($id);
-
-        if (!$course) {
+        if (!$teacher) {
             throw $this->createNotFoundException(
-                'No course found for id ' . $id
+                'No teacher found for id ' . $id
             );
         }
 
         return $this->render(
-            'Course/show.html.twig',
+            'Teacher/show.html.twig',
             [
-                'course' => $course,
+                'teacher' => $teacher,
             ]
         );
     }

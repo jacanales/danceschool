@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\School\UI\Http\Controller;
 
-use App\School\Domain\Entity\Room;
+use App\School\Domain\Entity\Course;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,12 +10,14 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Route preffix affects only new (not overloaded) actions or if route name matches.
  *
- * @Route("/admin/room")
+ * @Route("/admin/course")
  */
-class RoomController extends AbstractController
+class CourseController extends AbstractController
 {
     /**
-     * @Route("/", name="danceschool_room_index")
+     * @Route("/", name="danceschool_course_index")
+     *
+     * @return Response
      *
      * @throws \LogicException
      */
@@ -24,42 +26,48 @@ class RoomController extends AbstractController
         /**
          * @var \Doctrine\ORM\EntityManager
          */
-        $rooms = $this->getDoctrine()
-                      ->getRepository(Room::class)
-                      ->findAll();
+        $rooms = $this
+            ->getDoctrine()
+            ->getRepository(Course::class)
+            ->findAll();
 
         return $this->render(
-            'Room/index.html.twig',
-            ['rooms' => $rooms]
+            'Course/index.html.twig',
+            ['courses' => $rooms]
         );
     }
 
     /**
-     * @Route("/show/{id}", name="danceschool_room_show")
+     * @Route("/show/{id}", name="danceschool_course_show")
      *
      * @param int $id
      *
      * @return Response
      *
+     * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
      */
     public function show(int $id): Response
     {
-        $room = $this->getDoctrine()
-                     ->getRepository(Room::class)
-                     ->find($id);
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository(Course::class);
 
-        if (!$room) {
+        $course = $repository
+            ->findWithGroups($id);
+
+        if (!$course) {
             throw $this->createNotFoundException(
-                'No room found for id ' . $id
+                'No course found for id ' . $id
             );
         }
 
         return $this->render(
-            'Room/show.html.twig',
+            'Course/show.html.twig',
             [
-                'room' => $room,
+                'course' => $course,
             ]
         );
     }

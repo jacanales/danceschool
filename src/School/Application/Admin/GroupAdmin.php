@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Admin;
+namespace App\School\Application\Admin;
 
 use App\School\Domain\Entity\Course;
 use App\School\Domain\Entity\Room;

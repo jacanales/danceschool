@@ -4,25 +4,25 @@ services:
         autoconfigure: true
         public: false
 
-    App\Admin\CourseAdmin:
+    App\School\Application\Admin\CourseAdmin:
         arguments: [~, App\School\Domain\Entity\Course, ~]
         public: true
         tags:
             - { name: sonata.admin, manager_type: orm, label: Course }
 
-    App\Admin\GroupAdmin:
+    App\School\Application\Admin\GroupAdmin:
         arguments: [~, App\School\Domain\Entity\Group, ~]
         public: true
         tags:
             - { name: sonata.admin, manager_type: orm, label: Group, group: default }
 
-    App\Admin\RoomAdmin:
+    App\School\Application\Admin\RoomAdmin:
         arguments: [~, App\School\Domain\Entity\Room, ~]
         public: true
         tags:
             - { name: sonata.admin, manager_type: orm, label: Room }
 
-    App\Admin\TeacherAdmin:
+    App\School\Application\Admin\TeacherAdmin:
         arguments: [~, App\School\Domain\Entity\Teacher, ~]
         public: true
         tags:

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Admin;
+namespace App\School\Application\Admin;
 
 use App\Form\Type\TeacherType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;

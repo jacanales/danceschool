@@ -1,43 +1,40 @@
 <?php
 
-namespace spec\App\Entity;
+namespace spec\App\School\Domain\Entity;
 
 use App\School\Domain\Entity\Teacher;
 use App\Entity\User;
 use PhpSpec\ObjectBehavior;
 
-/**
- * @mixin Teacher
- */
 class TeacherSpec extends ObjectBehavior
 {
-    public function it_is_initializable()
+    public function it_is_initializable(): void
     {
         $this->shouldHaveType(Teacher::class);
     }
 
-    public function it_sets_id()
+    public function it_sets_id(): void
     {
         $this->setId(1)->shouldHaveType(Teacher::class);
 
         $this->getId()->shouldReturn(1);
     }
 
-    public function it_sets_wage()
+    public function it_sets_wage(): void
     {
         $this->setWage(30.0)->shouldHaveType(Teacher::class);
 
         $this->getWage()->shouldReturn(30.0);
     }
 
-    public function it_sets_comment()
+    public function it_sets_comment(): void
     {
         $this->setComment('comment')->shouldHaveType(Teacher::class);
 
         $this->getComment()->shouldReturn('comment');
     }
 
-    public function it_sets_user()
+    public function it_sets_user(): void
     {
         $user = new User();
 
@@ -46,7 +43,7 @@ class TeacherSpec extends ObjectBehavior
         $this->getUser()->shouldReturn($user);
     }
 
-    public function it_returns_full_name(User $user)
+    public function it_returns_full_name(User $user): void
     {
         $user->getName()->shouldBeCalled()->willReturn('name');
         $user->getLastname()->shouldBeCalled()->willReturn('lastname');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\School\Infrastructure\Repository;
 
 use App\School\Domain\Entity\Course;
 use App\School\Domain\Entity\Group;

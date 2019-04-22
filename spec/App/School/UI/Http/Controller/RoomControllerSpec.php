@@ -1,21 +1,18 @@
 <?php
 
-namespace spec\App\Controller;
+namespace spec\App\School\UI\Http\Controller;
 
-use App\Controller\RoomController;
+use App\School\UI\Http\Controller\RoomController;
 use App\School\Domain\Entity\Room;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
 use PhpSpec\ObjectBehavior;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @mixin RoomController
- */
 class RoomControllerSpec extends ObjectBehavior
 {
     public function let(
@@ -24,7 +21,7 @@ class RoomControllerSpec extends ObjectBehavior
         ObjectManager $manager,
         ObjectRepository $repository,
         EngineInterface $templating
-    ) {
+    ): void {
         $container->has('doctrine')->willReturn(true);
         $container->get('doctrine')->willReturn($registry);
 
@@ -40,18 +37,14 @@ class RoomControllerSpec extends ObjectBehavior
         $this->setContainer($container);
     }
 
-    public function it_is_initializable()
+    public function it_is_initializable(): void
     {
         $this->shouldHaveType(RoomController::class);
+        $this->shouldBeAnInstanceOf(AbstractController::class);
     }
 
-    public function it_is_of_type_container_aware()
+    public function it_render_index(): void
     {
-        $this->shouldBeAnInstanceOf(ContainerAwareInterface::class);
-    }
-
-    public function it_render_index()
-    {
-        $this->indexAction()->shouldHaveType(Response::class);
+        $this->index()->shouldHaveType(Response::class);
     }
 }

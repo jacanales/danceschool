@@ -1,34 +1,31 @@
 <?php
 
-namespace spec\App\Repository;
+namespace spec\App\School\Infrastructure\Repository;
 
 use App\School\Domain\Entity\Course;
 use App\School\Domain\Entity\Group;
-use App\Repository\CourseRepository;
-use Doctrine\ORM\EntityManagerInterface;
+use App\School\Infrastructure\Repository\CourseRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use PhpSpec\ObjectBehavior;
 
-/**
- * @mixin CourseRepository
- */
 class CourseRepositorySpec extends ObjectBehavior
 {
-    public function let(EntityManagerInterface $entityManager, ClassMetadata $metadata)
+    public function let(EntityManager $entityManager, ClassMetadata $metadata): void
     {
         $this->beConstructedWith($entityManager, $metadata);
     }
 
-    public function it_is_initializable()
+    public function it_is_initializable(): void
     {
         $this->shouldHaveType(CourseRepository::class);
     }
 
     public function it_returns_hydrated_course_with_groups(
-        EntityManagerInterface $entityManager,
+        EntityManager $entityManager,
         EntityRepository $entityRepository
-    ) {
+    ): void {
         $course = new Course();
         $group  = new Group();
 

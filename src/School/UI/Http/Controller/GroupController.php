@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\School\UI\Http\Controller;
 
 use App\School\Domain\Entity\Group;
 use App\School\Domain\Entity\GroupStudent;

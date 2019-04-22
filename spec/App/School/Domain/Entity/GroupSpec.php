@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\App\Entity;
+namespace spec\App\School\Domain\Entity;
 
 use App\School\Domain\Entity\Course;
 use App\School\Domain\Entity\Group;
@@ -8,37 +8,34 @@ use App\School\Domain\Entity\Room;
 use App\School\Domain\Entity\Teacher;
 use PhpSpec\ObjectBehavior;
 
-/**
- * @mixin Group
- */
 class GroupSpec extends ObjectBehavior
 {
-    public function it_is_initializable()
+    public function it_is_initializable(): void
     {
         $this->shouldHaveType(Group::class);
     }
 
-    public function it_sets_id()
+    public function it_sets_id(): void
     {
         $this->setId(1)->shouldHaveType(Group::class);
 
         $this->getId()->shouldReturn(1);
     }
 
-    public function it_sets_name()
+    public function it_sets_name(): void
     {
         $this->setName('name')->shouldHaveType(Group::class);
 
         $this->getName()->shouldReturn('name');
     }
 
-    public function it_sets_weekday()
+    public function it_sets_weekday(): void
     {
         $this->setWeekday(1)->shouldHaveType(Group::class);
         $this->getWeekday()->shouldReturn(1);
     }
 
-    public function it_sets_hour()
+    public function it_sets_hour(): void
     {
         $time = \DateTime::createFromFormat('H:i', '15:00');
 
@@ -48,33 +45,33 @@ class GroupSpec extends ObjectBehavior
         $this->getHour()->shouldHaveType(\DateTime::class);
     }
 
-    public function it_sets_start_date()
+    public function it_sets_start_date(): void
     {
         $datetime = new \DateTime();
 
         $this->setStartDate($datetime)->shouldHaveType(Group::class);
 
         $this->getStartDate()->shouldReturn($datetime);
-        $this->getStartDate($datetime)->shouldHaveType(\DateTime::class);
+        $this->getStartDate()->shouldHaveType(\DateTime::class);
     }
 
-    public function it_sets_end_date()
+    public function it_sets_end_date(): void
     {
         $datetime = new \DateTime();
 
         $this->setEndDate($datetime)->shouldHaveType(Group::class);
 
         $this->getEndDate()->shouldReturn($datetime);
-        $this->getEndDate($datetime)->shouldHaveType(\DateTime::class);
+        $this->getEndDate()->shouldHaveType(\DateTime::class);
     }
 
-    public function it_sets_whatsapp_group()
+    public function it_sets_whatsapp_group(): void
     {
         $this->setWhatsappGroup('whatsapp')->shouldHaveType(Group::class);
         $this->getWhatsappGroup()->shouldReturn('whatsapp');
     }
 
-    public function it_sets_course()
+    public function it_sets_course(): void
     {
         $course = new Course();
 
@@ -84,7 +81,7 @@ class GroupSpec extends ObjectBehavior
         $this->getCourse()->shouldHaveType(Course::class);
     }
 
-    public function it_sets_room()
+    public function it_sets_room(): void
     {
         $course = new Room();
 
@@ -94,17 +91,7 @@ class GroupSpec extends ObjectBehavior
         $this->getRoom()->shouldHaveType(Room::class);
     }
 
-    public function it_sets_teacher()
-    {
-        $course = new Teacher();
-
-        $this->setTeacher($course)->shouldHaveType(Group::class);
-
-        $this->getTeacher()->shouldReturn($course);
-        $this->getTeacher()->shouldHaveType(Teacher::class);
-    }
-
-    public function it_adds_student()
+    public function it_sets_teacher(): void
     {
         $course = new Teacher();
 

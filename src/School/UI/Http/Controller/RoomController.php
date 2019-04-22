@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\School\UI\Http\Controller;
 
-use App\School\Domain\Entity\Teacher;
+use App\School\Domain\Entity\Room;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,12 +10,12 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Route preffix affects only new (not overloaded) actions or if route name matches.
  *
- * @Route("/admin/teacher")
+ * @Route("/admin/room")
  */
-class TeacherController extends AbstractController
+class RoomController extends AbstractController
 {
     /**
-     * @Route("/", name="danceschool_teacher_index")
+     * @Route("/", name="danceschool_room_index")
      *
      * @throws \LogicException
      */
@@ -24,18 +24,18 @@ class TeacherController extends AbstractController
         /**
          * @var \Doctrine\ORM\EntityManager
          */
-        $teachers = $this->getDoctrine()
-                      ->getRepository(Teacher::class)
+        $rooms = $this->getDoctrine()
+                      ->getRepository(Room::class)
                       ->findAll();
 
         return $this->render(
-            'Teacher/index.html.twig',
-            ['teachers' => $teachers]
+            'Room/index.html.twig',
+            ['rooms' => $rooms]
         );
     }
 
     /**
-     * @Route("/show/{id}", name="danceschool_teacher_show")
+     * @Route("/show/{id}", name="danceschool_room_show")
      *
      * @param int $id
      *
@@ -46,20 +46,20 @@ class TeacherController extends AbstractController
      */
     public function show(int $id): Response
     {
-        $teacher = $this->getDoctrine()
-                     ->getRepository(Teacher::class)
+        $room = $this->getDoctrine()
+                     ->getRepository(Room::class)
                      ->find($id);
 
-        if (!$teacher) {
+        if (!$room) {
             throw $this->createNotFoundException(
-                'No teacher found for id ' . $id
+                'No room found for id ' . $id
             );
         }
 
         return $this->render(
-            'Teacher/show.html.twig',
+            'Room/show.html.twig',
             [
-                'teacher' => $teacher,
+                'room' => $room,
             ]
         );
     }

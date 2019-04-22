@@ -1,9 +1,9 @@
 homepage:
     path:     /
-    defaults: { _controller: App\Controller\DefaultController::index }
+    defaults: { _controller: App\School\UI\Http\Controller\DefaultController::index }
 
 app:
-    resource: ../src/Controller/
+    resource: ../src/School/UI/Http/Controller/
     type:     annotation
 
 sonata_admin_area:
