@@ -23,7 +23,7 @@ class StudentController extends AbstractController
      *
      * @throws \LogicException
      */
-    public function indexAction(): Response
+    public function index(): Response
     {
         /**
          * @var \Doctrine\ORM\EntityManager
@@ -49,7 +49,7 @@ class StudentController extends AbstractController
      * @throws \UnexpectedValueException
      * @throws \LogicException
      */
-    public function showAction(int $id): Response
+    public function show(int $id): Response
     {
         $student = $this->getDoctrine()
                      ->getRepository(Student::class)
@@ -85,7 +85,7 @@ class StudentController extends AbstractController
      *
      * @throws \LogicException
      */
-    public function addAction(Request $request): Response
+    public function add(Request $request): Response
     {
         $form = $this->createForm(StudentType::class, new Student());
         $form->handleRequest($request);
@@ -118,7 +118,7 @@ class StudentController extends AbstractController
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
      */
-    public function editAction(Request $request, int $id): Response
+    public function edit(Request $request, int $id): Response
     {
         $em      = $this->getDoctrine()->getManager();
         $student = $em->getRepository(Student::class)->find($id);
@@ -159,7 +159,7 @@ class StudentController extends AbstractController
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
      */
-    public function removeAction(int $id): Response
+    public function remove(int $id): Response
     {
         $em      = $this->getDoctrine()->getManager();
         $student = $em->getRepository(Student::class)->find($id);
@@ -186,7 +186,7 @@ class StudentController extends AbstractController
      *
      * @throws \LogicException
      */
-    public function addAnnotationAction(Request $request, int $studentId): Response
+    public function addAnnotation(Request $request, int $studentId): Response
     {
         $form = $this->createForm(StudentAnnotationType::class, new StudentAnnotation(), [
             'label'              => 'title.add_annotation',
@@ -228,7 +228,7 @@ class StudentController extends AbstractController
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
      */
-    public function editAnnotationAction(Request $request, int $studentId, int $annotationId): Response
+    public function editAnnotation(Request $request, int $studentId, int $annotationId): Response
     {
         $em         = $this->getDoctrine()->getManager();
         $annotation = $em->getRepository(':StudentAnnotation')->find($annotationId);
@@ -274,7 +274,7 @@ class StudentController extends AbstractController
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
      */
-    public function removeAnnotationAction(int $studentId, int $annotationId): Response
+    public function removeAnnotation(int $studentId, int $annotationId): Response
     {
         $em         = $this->getDoctrine()->getManager();
         $annotation = $em->getRepository(StudentAnnotation::class)->find($annotationId);

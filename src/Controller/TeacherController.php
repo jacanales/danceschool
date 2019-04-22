@@ -19,7 +19,7 @@ class TeacherController extends AbstractController
      *
      * @throws \LogicException
      */
-    public function indexAction(): Response
+    public function index(): Response
     {
         /**
          * @var \Doctrine\ORM\EntityManager
@@ -44,7 +44,7 @@ class TeacherController extends AbstractController
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
      */
-    public function showAction(int $id): Response
+    public function show(int $id): Response
     {
         $teacher = $this->getDoctrine()
                      ->getRepository(Teacher::class)

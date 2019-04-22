@@ -24,7 +24,7 @@ class GroupController extends AbstractController
      *
      * @throws \LogicException
      */
-    public function indexAction(): Response
+    public function index(): Response
     {
         /**
          * @var \Doctrine\ORM\EntityManager
@@ -50,7 +50,7 @@ class GroupController extends AbstractController
      * @throws \UnexpectedValueException
      * @throws \LogicException
      */
-    public function showAction(int $id): Response
+    public function show(int $id): Response
     {
         $group = $this->getDoctrine()
                      ->getRepository(Group::class)
@@ -86,7 +86,7 @@ class GroupController extends AbstractController
      *
      * @throws \LogicException
      */
-    public function addAction(Request $request): Response
+    public function add(Request $request): Response
     {
         $form = $this->createForm(GroupType::class, new Group(), [
             'show_legend'        => true,
@@ -123,7 +123,7 @@ class GroupController extends AbstractController
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
      */
-    public function editAction(Request $request, int $id): Response
+    public function edit(Request $request, int $id): Response
     {
         $em    = $this->getDoctrine()->getManager();
         $group = $em->getRepository(Group::class)->find($id);
@@ -167,7 +167,7 @@ class GroupController extends AbstractController
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
      */
-    public function removeAction(int $id): RedirectResponse
+    public function remove(int $id): RedirectResponse
     {
         $em    = $this->getDoctrine()->getManager();
         $group = $em->getRepository(Group::class)->find($id);
@@ -194,7 +194,7 @@ class GroupController extends AbstractController
      *
      * @throws \LogicException
      */
-    public function addStudentAction(Request $request, int $id): Response
+    public function addStudent(Request $request, int $id): Response
     {
         $form = $this->createForm(GroupStudentType::class, new GroupStudent(), [
             'show_legend'        => true,
@@ -239,7 +239,7 @@ class GroupController extends AbstractController
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
      */
-    public function editStudentAction(Request $request, int $id, int $studentId): Response
+    public function editStudent(Request $request, int $id, int $studentId): Response
     {
         $em      = $this->getDoctrine()->getManager();
         $student = $em->getRepository(GroupStudent::class)->findOneBy([
@@ -288,7 +288,7 @@ class GroupController extends AbstractController
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
      */
-    public function removeStudentAction(int $id, int $studentId): RedirectResponse
+    public function removeStudent(int $id, int $studentId): RedirectResponse
     {
         $em      = $this->getDoctrine()->getManager();
         $student = $em->getRepository(GroupStudent::class)->findOneBy([
