@@ -1,8 +1,7 @@
 {
     "name": "jcanales/danceschool",
-    "description": "Dance school development app",
-    "license": "proprietary",
     "type": "project",
+    "license": "proprietary",
     "autoload": {
         "psr-4": {
             "App\\": "src/"
@@ -25,13 +24,15 @@
     ],
     "require": {
         "php": "^7.2",
-        "symfony/flex": "^1.2",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
         "symfony/console": "^4.2",
+        "symfony/dotenv": "^4.2",
+        "symfony/flex": "^1.2",
         "symfony/framework-bundle": "^4.2",
         "symfony/yaml": "^4.2",
         "symfony/swiftmailer-bundle": "~3.2.6",
         "symfony/monolog-bundle": "~3.3.1",
-        "symfony/polyfill-iconv": "~1.11.0",
         "symfony/security-acl": "~3.0",
         "symfony/security-core": "~4.2",
 
@@ -62,7 +63,6 @@
     "require-dev": {
         "roave/security-advisories": "dev-master",
         "symfony/debug-bundle": "^4.2",
-        "symfony/dotenv": "^4.2",
         "symfony/web-profiler-bundle": "^4.2",
         "symfony/maker-bundle": "^1.11",
 
@@ -148,12 +148,9 @@
         "symfony/symfony": "*"
     },
     "extra": {
-        "symfony-app-dir": "src",
-        "symfony-web-dir": "public",
-        "symfony-var-dir": "var",
-        "symfony-bin-dir": "bin",
-        "symfony-tests-dir": "tests",
-        "symfony-assets-install": "relative",
-        "allow-contrib": false
+        "symfony": {
+            "allow-contrib": false,
+            "require": "4.2.*"
+        }
     }
 }
