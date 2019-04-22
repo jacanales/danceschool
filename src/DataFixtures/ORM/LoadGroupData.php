@@ -2,10 +2,10 @@
 
 namespace App\DataFixtures\ORM;
 
-use App\Entity\Course;
-use App\Entity\Group;
-use App\Entity\Room;
-use App\Entity\Teacher;
+use App\School\Domain\Entity\Course;
+use App\School\Domain\Entity\Group;
+use App\School\Domain\Entity\Room;
+use App\School\Domain\Entity\Teacher;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;

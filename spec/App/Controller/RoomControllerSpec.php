@@ -3,7 +3,7 @@
 namespace spec\App\Controller;
 
 use App\Controller\RoomController;
-use App\Entity\Room;
+use App\School\Domain\Entity\Room;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;

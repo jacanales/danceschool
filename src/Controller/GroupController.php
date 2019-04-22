@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Group;
-use App\Entity\GroupStudent;
+use App\School\Domain\Entity\Group;
+use App\School\Domain\Entity\GroupStudent;
 use App\Form\Type\GroupStudentType;
 use App\Form\Type\GroupType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

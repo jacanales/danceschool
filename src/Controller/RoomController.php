@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Room;
+use App\School\Domain\Entity\Room;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

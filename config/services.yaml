@@ -36,30 +36,6 @@ services:
         tags:
             - { name: knp_menu.menu_builder, method: createMainMenu, alias: main_menu }
 
-    App\Admin\CourseAdmin:
-        arguments: [~, App\Entity\Course, ~]
-        public: true
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Course }
-
-    App\Admin\GroupAdmin:
-        arguments: [~, App\Entity\Group, ~]
-        public: true
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Group, group: default }
-
-    App\Admin\RoomAdmin:
-        arguments: [~, App\Entity\Room, ~]
-        public: true
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Room }
-
-    App\Admin\TeacherAdmin:
-        arguments: [~, App\Entity\Teacher, ~]
-        public: true
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Teacher }
-
     App\Form\Type\GenderType:
         tags:
             - { name: form.type, alias: gender }

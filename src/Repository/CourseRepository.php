@@ -2,8 +2,8 @@
 
 namespace App\Repository;
 
-use App\Entity\Course;
-use App\Entity\Group;
+use App\School\Domain\Entity\Course;
+use App\School\Domain\Entity\Group;
 use Doctrine\ORM\EntityRepository;
 
 class CourseRepository extends EntityRepository

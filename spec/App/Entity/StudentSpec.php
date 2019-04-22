@@ -2,8 +2,8 @@
 
 namespace spec\App\Entity;
 
-use App\Entity\Student;
-use App\Entity\StudentAnnotation;
+use App\School\Domain\Entity\Student;
+use App\School\Domain\Entity\StudentAnnotation;
 use App\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use PhpSpec\ObjectBehavior;

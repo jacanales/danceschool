@@ -2,7 +2,7 @@
 
 namespace App\Form\Type;
 
-use App\Entity\Room;
+use App\School\Domain\Entity\Room;
 use libphonenumber\PhoneNumberFormat;
 use Misd\PhoneNumberBundle\Form\Type\PhoneNumberType;
 use Symfony\Component\Form\AbstractType;

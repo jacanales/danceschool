@@ -2,8 +2,8 @@
 
 namespace spec\App\Entity;
 
-use App\Entity\Course;
-use App\Entity\Group;
+use App\School\Domain\Entity\Course;
+use App\School\Domain\Entity\Group;
 use PhpSpec\ObjectBehavior;
 
 /**

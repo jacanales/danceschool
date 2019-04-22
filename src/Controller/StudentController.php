@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Student;
-use App\Entity\StudentAnnotation;
+use App\School\Domain\Entity\Student;
+use App\School\Domain\Entity\StudentAnnotation;
 use App\Form\Type\StudentAnnotationType;
 use App\Form\Type\StudentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

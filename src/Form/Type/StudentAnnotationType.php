@@ -2,8 +2,8 @@
 
 namespace App\Form\Type;
 
-use App\Entity\Student;
-use App\Entity\StudentAnnotation;
+use App\School\Domain\Entity\Student;
+use App\School\Domain\Entity\StudentAnnotation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;

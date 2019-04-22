@@ -2,9 +2,9 @@
 
 namespace App\Admin;
 
-use App\Entity\Course;
-use App\Entity\Room;
-use App\Entity\Teacher;
+use App\School\Domain\Entity\Course;
+use App\School\Domain\Entity\Room;
+use App\School\Domain\Entity\Teacher;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;

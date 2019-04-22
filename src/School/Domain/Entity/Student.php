@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\School\Domain\Entity;
 
+use App\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Student

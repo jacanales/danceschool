@@ -2,10 +2,10 @@
 
 namespace App\Form\Type;
 
-use App\Entity\Course;
-use App\Entity\Group;
-use App\Entity\Room;
-use App\Entity\Teacher;
+use App\School\Domain\Entity\Course;
+use App\School\Domain\Entity\Group;
+use App\School\Domain\Entity\Room;
+use App\School\Domain\Entity\Teacher;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;

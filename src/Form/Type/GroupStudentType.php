@@ -2,8 +2,8 @@
 
 namespace App\Form\Type;
 
-use App\Entity\GroupStudent;
-use App\Entity\Student;
+use App\School\Domain\Entity\GroupStudent;
+use App\School\Domain\Entity\Student;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;

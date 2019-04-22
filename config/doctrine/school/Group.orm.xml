@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="App\Entity\Group" table="classgroups">
+    <entity name="App\School\Domain\Entity\Group" table="classgroups">
         <indexes>
             <index name="idx_group_course" columns="course_id" />
             <index name="idx_group_room" columns="room_id" />
@@ -17,18 +17,18 @@
         <field name="startDate" type="date" column="start_date" nullable="true" />
         <field name="endDate" type="date" column="end_date" nullable="true" />
         <field name="whatsappGroup" column="whatsapp_group" length="255" nullable="true" />
-        <one-to-many field="groupStudent" target-entity="App\Entity\GroupStudent" mapped-by="group" />
-        <many-to-one field="course" target-entity="App\Entity\Course" inversed-by="groups">
+        <one-to-many field="groupStudent" target-entity="App\School\Domain\Entity\GroupStudent" mapped-by="group" />
+        <many-to-one field="course" target-entity="App\School\Domain\Entity\Course" inversed-by="groups">
             <join-columns>
                 <join-column name="course_id" />
             </join-columns>
         </many-to-one>
-        <many-to-one field="room" target-entity="App\Entity\Room">
+        <many-to-one field="room" target-entity="App\School\Domain\Entity\Room">
             <join-columns>
                 <join-column name="room_id" />
             </join-columns>
         </many-to-one>
-        <many-to-one field="teacher" target-entity="App\Entity\Teacher" inversed-by="groups">
+        <many-to-one field="teacher" target-entity="App\School\Domain\Entity\Teacher" inversed-by="groups">
             <join-columns>
                 <join-column name="teacher_id" />
             </join-columns>

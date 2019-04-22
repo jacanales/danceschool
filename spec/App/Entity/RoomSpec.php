@@ -2,7 +2,7 @@
 
 namespace spec\App\Entity;
 
-use App\Entity\Room;
+use App\School\Domain\Entity\Room;
 use libphonenumber\PhoneNumber;
 use PhpSpec\ObjectBehavior;
 

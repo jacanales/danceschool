@@ -2,7 +2,7 @@
 
 namespace spec\App\Entity;
 
-use App\Entity\Teacher;
+use App\School\Domain\Entity\Teacher;
 use App\Entity\User;
 use PhpSpec\ObjectBehavior;
 

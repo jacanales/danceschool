@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="App\Entity\StudentAnnotation" table="student_annotations">
+    <entity name="App\School\Domain\Entity\StudentAnnotation" table="student_annotations">
         <indexes>
             <index name="idx_student_anotation_student_id" columns="student_id" />
         </indexes>
@@ -12,7 +12,7 @@
         <field name="message" type="text" column="message" />
         <field name="created" type="datetime" column="created" />
         <field name="modified" type="datetime" column="modified" />
-        <many-to-one field="student" target-entity="App\Entity\Student" inversed-by="annotations">
+        <many-to-one field="student" target-entity="App\School\Domain\Entity\Student" inversed-by="annotations">
             <join-columns>
                 <join-column name="student_id" />
             </join-columns>

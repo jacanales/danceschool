@@ -2,8 +2,8 @@
 
 namespace spec\App\Repository;
 
-use App\Entity\Course;
-use App\Entity\Group;
+use App\School\Domain\Entity\Course;
+use App\School\Domain\Entity\Group;
 use App\Repository\CourseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;

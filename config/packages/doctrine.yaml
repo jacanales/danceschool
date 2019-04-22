@@ -25,6 +25,12 @@ doctrine:
             App:
                 is_bundle: false
                 type: xml
-                dir: '%kernel.project_dir%/config/doctrine/xml'
+                dir: '%kernel.project_dir%/config/doctrine/user'
                 prefix: 'App\Entity'
                 alias: App
+            App\School:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/doctrine/school'
+                prefix: 'App\School\Domain\Entity'
+                alias: App\School
