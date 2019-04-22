@@ -36,7 +36,7 @@ security:
                 use_forward:       false
                 oauth_user_provider:
                     #service: hwi_oauth.user.provider.fosub_bridge
-                    service: app.provider.user
+                    service: App\Security\Core\User\FOSUBUserProvider
             logout:
                 path: /logout
 

@@ -56,13 +56,13 @@
         "misd/phone-number-bundle": "dev-master@dev",
 
         "easycorp/easyadmin-bundle": "~2.1",
-        "sonata-project/admin-bundle": "^3.28.0",
-        "sonata-project/doctrine-orm-admin-bundle": "^3.3"
+        "sonata-project/admin-bundle": "^3.48.1",
+        "sonata-project/doctrine-orm-admin-bundle": "^3.9"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
         "symfony/debug-bundle": "^4.2",
-        "symfony/dotenv": "^4.0",
+        "symfony/dotenv": "^4.2",
         "symfony/web-profiler-bundle": "^4.2",
         "symfony/maker-bundle": "^1.11",
 
