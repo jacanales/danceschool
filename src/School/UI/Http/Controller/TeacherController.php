@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\School\UI\Http\Controller;
 
 use App\School\Domain\Entity\Teacher;

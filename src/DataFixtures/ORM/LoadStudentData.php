@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\DataFixtures\ORM;
 
 use App\Entity\User;
@@ -61,8 +63,7 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
                 ->setAddress($faker->address)
                 ->setCity($faker->city)
                 ->setCountry($faker->countryCode)
-                ->setPostalCode($faker->postcode)
-            ;
+                ->setPostalCode($faker->postcode);
 
             $student = new Student();
             $student->setUser($user);
@@ -89,8 +90,7 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
          * @var UserPasswordEncoder
          */
         $encoder = $this->container
-            ->get('security.password_encoder')
-        ;
+            ->get('security.password_encoder');
 
         $password = \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
 

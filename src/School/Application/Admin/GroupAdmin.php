@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\School\Application\Admin;
 
 use App\School\Domain\Entity\Course;

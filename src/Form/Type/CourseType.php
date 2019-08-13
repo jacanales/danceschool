@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Form\Type;
 
 use App\School\Domain\Entity\Course;
@@ -18,8 +20,7 @@ class CourseType extends AbstractType
             ])
             ->add('price', TextType::class, [
                 'label' => 'form.label.price',
-            ])
-        ;
+            ]);
     }
 
     /**

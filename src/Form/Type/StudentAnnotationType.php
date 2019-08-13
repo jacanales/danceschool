@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Form\Type;
 
 use App\School\Domain\Entity\Student;
@@ -31,8 +33,7 @@ class StudentAnnotationType extends AbstractType
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'form.label.save',
-            ])
-        ;
+            ]);
 
         if (!$options['edit']) {
             $builder->add('student', HiddenType::class, [

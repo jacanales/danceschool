@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Form\Type;
 
 use App\Entity\User;
@@ -65,8 +67,7 @@ class UserType extends AbstractType
             ])
             ->add('identity_number', null, [
                 'label' => 'form.label.identity_number',
-            ])
-        ;
+            ]);
 
         $password = \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
 
