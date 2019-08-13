@@ -68,7 +68,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             return $password;
         }
 
-        return substr(str_shuffle(sha1(microtime())), 0, 20);
+        return \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
     }
 
     public function getOrder(): int

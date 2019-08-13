@@ -10,8 +10,6 @@ class CourseRepository extends EntityRepository
 {
     /**
      * @param $id
-     *
-     * @return Course
      */
     public function findWithGroups(int $id): Course
     {

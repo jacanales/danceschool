@@ -6,7 +6,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 
 class User extends BaseUser
 {
-    const ROLE_ADMIN = 'ROLE_ADMIN';
+    public const ROLE_ADMIN = 'ROLE_ADMIN';
 
     /**
      * @var string
@@ -84,18 +84,13 @@ class User extends BaseUser
 
     public function setUpdatedAt(): void
     {
-        if (is_null($this->name)) {
+        if (\is_null($this->name)) {
             $this->name = $this->getUsername();
         }
 
         $this->setModified(new \DateTime('now'));
     }
 
-    /**
-     * @param string $name
-     *
-     * @return self
-     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -103,19 +98,11 @@ class User extends BaseUser
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $lastname
-     *
-     * @return self
-     */
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
@@ -131,11 +118,6 @@ class User extends BaseUser
         return $this->lastname;
     }
 
-    /**
-     * @param string $gender
-     *
-     * @return self
-     */
     public function setGender(string $gender): self
     {
         $this->gender = $gender;
@@ -143,19 +125,11 @@ class User extends BaseUser
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getGender(): string
     {
         return $this->gender;
     }
 
-    /**
-     * @param \DateTime $birthday
-     *
-     * @return self
-     */
     public function setBirthday(\DateTime $birthday): self
     {
         $this->birthday = $birthday;
@@ -171,11 +145,6 @@ class User extends BaseUser
         return $this->birthday;
     }
 
-    /**
-     * @param string $phone
-     *
-     * @return self
-     */
     public function setPhone(string $phone): self
     {
         $this->phone = $phone;
@@ -183,19 +152,11 @@ class User extends BaseUser
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getPhone(): string
     {
         return $this->phone;
     }
 
-    /**
-     * @param string $address
-     *
-     * @return self
-     */
     public function setAddress(string $address): self
     {
         $this->address = $address;
@@ -211,11 +172,6 @@ class User extends BaseUser
         return $this->address;
     }
 
-    /**
-     * @param string $city
-     *
-     * @return self
-     */
     public function setCity(string $city): self
     {
         $this->city = $city;
@@ -231,11 +187,6 @@ class User extends BaseUser
         return $this->city;
     }
 
-    /**
-     * @param string $country
-     *
-     * @return self
-     */
     public function setCountry(string $country): self
     {
         $this->country = $country;
@@ -251,11 +202,6 @@ class User extends BaseUser
         return $this->country;
     }
 
-    /**
-     * @param string $postalCode
-     *
-     * @return self
-     */
     public function setPostalCode(string $postalCode): self
     {
         $this->postalCode = $postalCode;
@@ -271,11 +217,6 @@ class User extends BaseUser
         return $this->postalCode;
     }
 
-    /**
-     * @param string $identityNumber
-     *
-     * @return self
-     */
     public function setIdentityNumber(string $identityNumber): self
     {
         $this->identityNumber = $identityNumber;
@@ -291,11 +232,6 @@ class User extends BaseUser
         return $this->identityNumber;
     }
 
-    /**
-     * @param \DateTime $created
-     *
-     * @return self
-     */
     public function setCreated(\DateTime $created): self
     {
         $this->created = $created;
@@ -311,11 +247,6 @@ class User extends BaseUser
         return $this->created;
     }
 
-    /**
-     * @param \DateTime $modified
-     *
-     * @return self
-     */
     public function setModified(\DateTime $modified): self
     {
         $this->modified = $modified;
@@ -331,9 +262,6 @@ class User extends BaseUser
         return $this->modified;
     }
 
-    /**
-     * @param string $facebookId
-     */
     public function setFacebookId(string $facebookId): void
     {
         $this->facebookId = $facebookId;

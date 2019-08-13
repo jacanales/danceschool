@@ -45,11 +45,6 @@ class Teacher
         return $this;
     }
 
-    /**
-     * @param int $id
-     *
-     * @return self
-     */
     public function setId(int $id): self
     {
         $this->id = $id;
@@ -65,11 +60,6 @@ class Teacher
         return $this->id;
     }
 
-    /**
-     * @param float $wage
-     *
-     * @return self
-     */
     public function setWage(float $wage): self
     {
         $this->wage = $wage;
@@ -85,11 +75,6 @@ class Teacher
         return $this->wage;
     }
 
-    /**
-     * @param string $comment
-     *
-     * @return self
-     */
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
@@ -107,8 +92,6 @@ class Teacher
 
     /**
      * @param User $user
-     *
-     * @return self
      */
     public function setUser(User $user = null): self
     {
@@ -125,9 +108,6 @@ class Teacher
         return $this->user;
     }
 
-    /**
-     * @return string
-     */
     public function getFullName(): string
     {
         return $this->getUser()->getName() . ' ' . $this->getUser()->getLastname();

@@ -2,8 +2,8 @@
 
 namespace spec\App\School\UI\Http\Controller;
 
-use App\School\UI\Http\Controller\RoomController;
 use App\School\Domain\Entity\Room;
+use App\School\UI\Http\Controller\RoomController;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;

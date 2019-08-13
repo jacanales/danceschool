@@ -36,7 +36,7 @@ class WeekdayTransformer implements DataTransformerInterface
      */
     public function transform($value)
     {
-        return date('l', strtotime("Sunday +{$value} days"));
+        return \date('l', \strtotime("Sunday +{$value} days"));
     }
 
     /**
@@ -65,6 +65,6 @@ class WeekdayTransformer implements DataTransformerInterface
      */
     public function reverseTransform($value)
     {
-        return date('N', strtotime($value));
+        return \date('N', \strtotime($value));
     }
 }

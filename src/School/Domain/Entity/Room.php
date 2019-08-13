@@ -59,11 +59,6 @@ class Room
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     *
-     * @return self
-     */
     public function setId(int $id): self
     {
         $this->id = (int) $id;
@@ -79,11 +74,6 @@ class Room
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return self
-     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -99,11 +89,6 @@ class Room
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     *
-     * @return self
-     */
     public function setDescription(string $description): self
     {
         $this->description = $description;
@@ -119,11 +104,6 @@ class Room
         return $this->price;
     }
 
-    /**
-     * @param float $price
-     *
-     * @return self
-     */
     public function setPrice(float $price): self
     {
         $this->price = (float) $price;
@@ -139,11 +119,6 @@ class Room
         return $this->address;
     }
 
-    /**
-     * @param string $address
-     *
-     * @return self
-     */
     public function setAddress(string $address): self
     {
         $this->address = $address;
@@ -159,11 +134,6 @@ class Room
         return $this->city;
     }
 
-    /**
-     * @param string $city
-     *
-     * @return self
-     */
     public function setCity(string $city): self
     {
         $this->city = $city;
@@ -179,11 +149,6 @@ class Room
         return $this->postalCode;
     }
 
-    /**
-     * @param string $postalCode
-     *
-     * @return self
-     */
     public function setPostalCode(string $postalCode): self
     {
         $this->postalCode = $postalCode;
@@ -199,11 +164,6 @@ class Room
         return $this->phone;
     }
 
-    /**
-     * @param PhoneNumber $phone
-     *
-     * @return self
-     */
     public function setPhone(PhoneNumber $phone): self
     {
         $this->phone = $phone;

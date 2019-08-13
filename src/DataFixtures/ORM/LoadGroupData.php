@@ -45,13 +45,13 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
             $group->setEndDate($group->getStartDate()->add(new \DateInterval('P3M')));
             $group->setWhatsappGroup($faker->text(15));
 
-            $courseIndex = array_rand($courses);
+            $courseIndex = \array_rand($courses);
             $group->setCourse($courses[$courseIndex]);
 
-            $teacherIndex = array_rand($teachers);
+            $teacherIndex = \array_rand($teachers);
             $group->setTeacher($teachers[$teacherIndex]);
 
-            $roomIndex = array_rand($rooms);
+            $roomIndex = \array_rand($rooms);
             $group->setRoom($rooms[$roomIndex]);
 
             $this->manager->persist($group);
@@ -62,8 +62,6 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
 
     /**
      * Get the order of this fixture.
-     *
-     * @return int
      */
     public function getOrder(): int
     {

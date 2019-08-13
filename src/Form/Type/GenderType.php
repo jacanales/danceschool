@@ -30,9 +30,6 @@ class GenderType extends AbstractType
         return ChoiceType::class;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->getBlockPrefix();

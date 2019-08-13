@@ -27,65 +27,66 @@ class UserType extends AbstractType
 
         $builder
             ->add('name', null, [
-                'label'              => 'form.label.name',
+                'label' => 'form.label.name',
             ])
             ->add('lastname', null, [
-                'label'              => 'form.label.lastname',
+                'label' => 'form.label.lastname',
             ])
             ->add('username', HiddenType::class, [
-                'data'               => uniqid('u:', true),
-                'label'              => 'form.username',
+                'data'  => \uniqid('u:', true),
+                'label' => 'form.username',
             ])
             ->add('email', EmailType::class, [
-                'label'              => 'form.label.email',
+                'label' => 'form.label.email',
             ])
             ->add('gender', GenderType::class, [
-                'placeholder'        => 'form.choose_gender',
-                'label'              => 'form.label.gender',
+                'placeholder' => 'form.choose_gender',
+                'label'       => 'form.label.gender',
             ])
             ->add('birthday', BirthdayType::class, [
-                'widget'             => 'single_text',
-                'label'              => 'form.label.birthday',
-                'placeholder'        => 'DD/MM/YYYY',
+                'widget'      => 'single_text',
+                'label'       => 'form.label.birthday',
+                'placeholder' => 'DD/MM/YYYY',
             ])
             ->add('phone', null, [
-                'label'              => 'form.label.phone',
+                'label' => 'form.label.phone',
             ])
             ->add('address', null, [
-                'label'              => 'form.label.address',
+                'label' => 'form.label.address',
             ])
             ->add('city', null, [
-                'label'              => 'form.label.city',
+                'label' => 'form.label.city',
             ])
             ->add('country', CountryType::class, [
-                'label'              => 'form.label.country',
+                'label' => 'form.label.country',
             ])
             ->add('postal_code', null, [
-                'label'              => 'form.label.postal_code',
+                'label' => 'form.label.postal_code',
             ])
             ->add('identity_number', null, [
-                'label'              => 'form.label.identity_number',
+                'label' => 'form.label.identity_number',
             ])
         ;
 
-        $password = substr(str_shuffle(sha1(microtime())), 0, 20);
+        $password = \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
 
         if (!$options['edit']) {
             $builder
                 ->add(
-                    'plainPassword', RepeatedType::class, [
+                    'plainPassword',
+                    RepeatedType::class,
+                    [
                     'type'            => HiddenType::class,
                     'options'         => ['translation_domain' => 'FOSUserBundle', 'empty_data' => $password],
                     'first_options'   => ['label' => 'form.password'],
                     'second_options'  => ['label' => 'form.password_confirmation'],
                     'invalid_message' => 'fos_user.password.mismatch',
-                ]);
+                ]
+                );
         }
     }
 
     /**
-     * @param OptionsResolver $resolver
-     *
      * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
      */
     public function configureOptions(OptionsResolver $resolver): void
@@ -97,9 +98,6 @@ class UserType extends AbstractType
         ]);
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->getBlockPrefix();

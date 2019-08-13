@@ -66,11 +66,6 @@ class Student
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     *
-     * @return self
-     */
     public function setId(int $id): self
     {
         $this->id = $id;
@@ -79,8 +74,6 @@ class Student
     }
 
     /**
-     * @param int $captationMethod
-     *
      * @return Student
      */
     public function setCaptationMethod(int $captationMethod): self
@@ -98,11 +91,6 @@ class Student
         return $this->captationMethod;
     }
 
-    /**
-     * @param bool $member
-     *
-     * @return self
-     */
     public function setMember(bool $member): self
     {
         $this->member = $member;
@@ -118,11 +106,6 @@ class Student
         return $this->member;
     }
 
-    /**
-     * @param \DateTime $contractExpiration
-     *
-     * @return self
-     */
     public function setContractExpiration(\DateTime $contractExpiration): self
     {
         $this->contractExpiration = $contractExpiration;
@@ -138,11 +121,6 @@ class Student
         return $this->contractExpiration;
     }
 
-    /**
-     * @param string $comment
-     *
-     * @return self
-     */
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
@@ -160,8 +138,6 @@ class Student
 
     /**
      * @param User $user
-     *
-     * @return self
      */
     public function setUser(User $user = null): self
     {
@@ -178,11 +154,6 @@ class Student
         return $this->user;
     }
 
-    /**
-     * @param StudentAnnotation $annotation
-     *
-     * @return self
-     */
     public function addAnnotation(StudentAnnotation $annotation): self
     {
         $this->annotations->add($annotation);
@@ -190,27 +161,16 @@ class Student
         return $this;
     }
 
-    /**
-     * @param StudentAnnotation $annotation
-     */
     public function removeAnnotation(StudentAnnotation $annotation): void
     {
         $this->annotations->removeElement($annotation);
     }
 
-    /**
-     * @return ArrayCollection
-     */
     public function getAnnotations(): ArrayCollection
     {
         return $this->annotations;
     }
 
-    /**
-     * @param string $accountNumber
-     *
-     * @return self
-     */
     public function setAccountNumber(string $accountNumber): self
     {
         $this->accountNumber = $accountNumber;
@@ -218,17 +178,11 @@ class Student
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getAccountNumber(): string
     {
         return $this->accountNumber;
     }
 
-    /**
-     * @return string
-     */
     public function getFullName(): string
     {
         return $this->getUser()->getName() . ' ' . $this->getUser()->getLastname();

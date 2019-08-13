@@ -37,10 +37,6 @@ class RoomController extends AbstractController
     /**
      * @Route("/show/{id}", name="danceschool_room_show")
      *
-     * @param int $id
-     *
-     * @return Response
-     *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
      */

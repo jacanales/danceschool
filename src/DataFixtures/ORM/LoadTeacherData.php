@@ -2,8 +2,8 @@
 
 namespace App\DataFixtures\ORM;
 
-use App\School\Domain\Entity\Teacher;
 use App\Entity\User;
+use App\School\Domain\Entity\Teacher;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 
 class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
-    const MAX_TEACHERS = 5;
+    public const MAX_TEACHERS = 5;
 
     /**
      * @var ObjectManager
@@ -102,7 +102,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
             ->get('security.password_encoder')
         ;
 
-        $password = substr(str_shuffle(sha1(microtime())), 0, 20);
+        $password = \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
 
         return $encoder->encodePassword($user, $password);
     }

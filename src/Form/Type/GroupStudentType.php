@@ -17,23 +17,20 @@ class GroupStudentType extends AbstractType
     {
         $builder
             ->add('student', EntityType::class, [
-                'class'              => Student::class,
-                'choice_label'       => 'getFullName',
-                'label'              => 'form.label.student',
+                'class'        => Student::class,
+                'choice_label' => 'getFullName',
+                'label'        => 'form.label.student',
             ])
             ->add('is_reinforcing', CheckboxType::class, [
-                'required'           => false,
-                'label'              => 'form.label.is_reinforcing',
+                'required' => false,
+                'label'    => 'form.label.is_reinforcing',
             ])
             ->add('save', SubmitType::class, [
-                'label'              => 'form.label.save',
+                'label' => 'form.label.save',
             ])
             ->getForm();
     }
 
-    /**
-     * @param OptionsResolver $resolver
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
@@ -42,9 +39,6 @@ class GroupStudentType extends AbstractType
         ]);
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->getBlockPrefix();

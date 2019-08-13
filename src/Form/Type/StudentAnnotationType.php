@@ -23,18 +23,14 @@ class StudentAnnotationType extends AbstractType
         $this->edit = $edit;
     }
 
-    /**
-     * @param FormBuilderInterface $builder
-     * @param array                $options
-     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('message', TextType::class, [
-                'label'              => 'form.label.message',
+                'label' => 'form.label.message',
             ])
             ->add('save', SubmitType::class, [
-                'label'              => 'form.label.save',
+                'label' => 'form.label.save',
             ])
         ;
 
@@ -48,8 +44,6 @@ class StudentAnnotationType extends AbstractType
     }
 
     /**
-     * @param OptionsResolver $resolver
-     *
      * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
      */
     public function configureOptions(OptionsResolver $resolver): void
@@ -60,17 +54,11 @@ class StudentAnnotationType extends AbstractType
         ]);
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->getBlockPrefix();
     }
 
-    /**
-     * @return string
-     */
     public function getBlockPrefix(): string
     {
         return 'studentannotation';

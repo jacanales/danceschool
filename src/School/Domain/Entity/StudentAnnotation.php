@@ -48,8 +48,6 @@ class StudentAnnotation
     }
 
     /**
-     * @param string $message
-     *
      * @return StudentAnnotation
      */
     public function setMessage(string $message): self
@@ -68,8 +66,6 @@ class StudentAnnotation
     }
 
     /**
-     * @param \DateTime $created
-     *
      * @return StudentAnnotation
      */
     public function setCreated(\DateTime $created): self
@@ -79,17 +75,12 @@ class StudentAnnotation
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
     public function getCreated(): \DateTime
     {
         return $this->created;
     }
 
     /**
-     * @param \DateTime $modified
-     *
      * @return StudentAnnotation
      */
     public function setModified(\DateTime $modified): self
@@ -99,17 +90,12 @@ class StudentAnnotation
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
     public function getModified(): \DateTime
     {
         return $this->modified;
     }
 
     /**
-     * @param Student $student
-     *
      * @return StudentAnnotation
      */
     public function setStudent(Student $student): self

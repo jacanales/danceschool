@@ -17,8 +17,6 @@ class CourseController extends AbstractController
     /**
      * @Route("/", name="danceschool_course_index")
      *
-     * @return Response
-     *
      * @throws \LogicException
      */
     public function index(): Response
@@ -39,10 +37,6 @@ class CourseController extends AbstractController
 
     /**
      * @Route("/show/{id}", name="danceschool_course_show")
-     *
-     * @param int $id
-     *
-     * @return Response
      *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException

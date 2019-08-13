@@ -13,10 +13,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class StudentType extends AbstractType
 {
-    /**
-     * @param FormBuilderInterface $builder
-     * @param array                $options
-     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -29,29 +25,27 @@ class StudentType extends AbstractType
                     'form.captation.offer'       => 1,
                     'form.captation.other'       => 2,
                 ],
-                'label'              => 'form.label.captation_method',
+                'label' => 'form.label.captation_method',
             ])
             ->add('member', null, [
-                'label'              => 'form.label.member',
+                'label' => 'form.label.member',
             ])
             ->add('contract_expiration', DateType::class, [
-                'label'              => 'form.label.contract_expiration',
-                'widget'             => 'single_text',
-                'placeholder'        => 'DD/MM/YYYY',
+                'label'       => 'form.label.contract_expiration',
+                'widget'      => 'single_text',
+                'placeholder' => 'DD/MM/YYYY',
             ])
             ->add('comment', TextareaType::class, [
-                'label'              => 'form.label.comment',
-                'required'           => false,
+                'label'    => 'form.label.comment',
+                'required' => false,
             ])
             ->add('save', SubmitType::class, [
-                'label'              => 'form.label.save',
+                'label' => 'form.label.save',
             ])
             ->getForm();
     }
 
     /**
-     * @param OptionsResolver $resolver
-     *
      * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
      */
     public function configureOptions(OptionsResolver $resolver): void
@@ -62,17 +56,11 @@ class StudentType extends AbstractType
         ]);
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->getBlockPrefix();
     }
 
-    /**
-     * @return string
-     */
     public function getBlockPrefix(): string
     {
         return 'student';

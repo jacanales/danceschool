@@ -17,60 +17,54 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class GroupType extends AbstractType
 {
-    /**
-     * @param FormBuilderInterface $builder
-     * @param array                $options
-     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('name', TextType::class, [
-                'label'              => 'form.label.name',
+                'label' => 'form.label.name',
             ])
             ->add('weekday', WeekdayType::class, [
-                'label'              => 'form.label.weekday',
+                'label' => 'form.label.weekday',
             ])
             ->add('hour', TimeType::class, [
-                'widget'             => 'single_text',
-                'label'              => 'form.label.hour',
+                'widget' => 'single_text',
+                'label'  => 'form.label.hour',
             ])
             ->add('start_date', DateType::class, [
-                'widget'             => 'single_text',
-                'placeholder'        => 'DD/MM/YYYY',
-                 'label'             => 'form.label.start_date',
+                'widget'      => 'single_text',
+                'placeholder' => 'DD/MM/YYYY',
+                 'label'      => 'form.label.start_date',
             ])
             ->add('end_date', DateType::class, [
-                'widget'             => 'single_text',
-                'placeholder'        => 'DD/MM/YYYY',
-                'label'              => 'form.label.end_date',
+                'widget'      => 'single_text',
+                'placeholder' => 'DD/MM/YYYY',
+                'label'       => 'form.label.end_date',
             ])
             ->add('course', EntityType::class, [
-                'class'              => Course::class,
-                'choice_label'       => 'name',
-                'label'              => 'form.label.course',
+                'class'        => Course::class,
+                'choice_label' => 'name',
+                'label'        => 'form.label.course',
             ])
             ->add('room', EntityType::class, [
-                'class'              => Room::class,
-                'choice_label'       => 'name',
-                'label'              => 'form.label.room',
+                'class'        => Room::class,
+                'choice_label' => 'name',
+                'label'        => 'form.label.room',
             ])
             ->add('teacher', EntityType::class, [
-                'class'              => Teacher::class,
-                'choice_label'       => 'getFullName',
-                'label'              => 'form.label.teacher',
+                'class'        => Teacher::class,
+                'choice_label' => 'getFullName',
+                'label'        => 'form.label.teacher',
             ])
             ->add('whatsapp_group', TextType::class, [
-                'label'              => 'form.label.whatsapp_group',
+                'label' => 'form.label.whatsapp_group',
             ])
             ->add('add', SubmitType::class, [
-                'label'              => 'form.label.save',
+                'label' => 'form.label.save',
             ])
             ->getForm();
     }
 
     /**
-     * @param OptionsResolver $resolver
-     *
      * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
      */
     public function configureOptions(OptionsResolver $resolver): void
@@ -80,17 +74,11 @@ class GroupType extends AbstractType
         ]);
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->getBlockPrefix();
     }
 
-    /**
-     * @return string
-     */
     public function getBlockPrefix(): string
     {
         return 'group';

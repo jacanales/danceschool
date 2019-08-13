@@ -10,25 +10,19 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CourseType extends AbstractType
 {
-    /**
-     * @param FormBuilderInterface $builder
-     * @param array                $options
-     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('name', TextType::class, [
-                'label'              => 'form.label.name',
+                'label' => 'form.label.name',
             ])
             ->add('price', TextType::class, [
-                'label'              => 'form.label.price',
+                'label' => 'form.label.price',
             ])
         ;
     }
 
     /**
-     * @param OptionsResolver $resolver
-     *
      * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
      */
     public function configureOptions(OptionsResolver $resolver): void
@@ -38,17 +32,11 @@ class CourseType extends AbstractType
         ]);
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->getBlockPrefix();
     }
 
-    /**
-     * @return string
-     */
     public function getBlockPrefix(): string
     {
         return 'course';

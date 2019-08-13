@@ -2,10 +2,10 @@
 
 namespace App\School\UI\Http\Controller;
 
-use App\School\Domain\Entity\Student;
-use App\School\Domain\Entity\StudentAnnotation;
 use App\Form\Type\StudentAnnotationType;
 use App\Form\Type\StudentType;
+use App\School\Domain\Entity\Student;
+use App\School\Domain\Entity\StudentAnnotation;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,10 +41,6 @@ class StudentController extends AbstractController
     /**
      * @Route("/show/{id}", name="danceschool_student_show", methods={"GET"})
      *
-     * @param int $id
-     *
-     * @return Response
-     *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \UnexpectedValueException
      * @throws \LogicException
@@ -79,10 +75,6 @@ class StudentController extends AbstractController
     /**
      * @Route("/add", name="danceschool_student_add", methods={"GET", "POST"})
      *
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @throws \LogicException
      */
     public function add(Request $request): Response
@@ -109,10 +101,7 @@ class StudentController extends AbstractController
     /**
      * @Route("/edit/{id}", name="danceschool_student_edit", methods={"GET", "POST"})
      *
-     * @param Request $request
-     * @param         $id
-     *
-     * @return Response
+     * @param $id
      *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
@@ -153,8 +142,6 @@ class StudentController extends AbstractController
      *
      * @param $id
      *
-     * @return Response
-     *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
@@ -179,17 +166,14 @@ class StudentController extends AbstractController
     /**
      * @Route("/{studentId}/annotations/add", name="danceschool_student_annotation_add", methods={"GET", "POST"})
      *
-     * @param Request $request
-     * @param         $studentId
-     *
-     * @return Response
+     * @param $studentId
      *
      * @throws \LogicException
      */
     public function addAnnotation(Request $request, int $studentId): Response
     {
         $form = $this->createForm(StudentAnnotationType::class, new StudentAnnotation(), [
-            'label'              => 'title.add_annotation',
+            'label' => 'title.add_annotation',
         ]);
 
         $form->handleRequest($request);
@@ -218,12 +202,6 @@ class StudentController extends AbstractController
     /**
      * @Route("/{studentId}/annotations/edit/{annotationId}", name="danceschool_student_annotation_edit", methods={"GET", "POST"})
      *
-     * @param Request $request
-     * @param int     $studentId
-     * @param int     $annotationId
-     *
-     * @return Response
-     *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
@@ -234,8 +212,8 @@ class StudentController extends AbstractController
         $annotation = $em->getRepository(':StudentAnnotation')->find($annotationId);
 
         $form = $this->createForm(StudentAnnotationType::class, $annotation, [
-            'label'              => 'title.edit_annotation',
-            'edit'               => true,
+            'label' => 'title.edit_annotation',
+            'edit'  => true,
         ]);
 
         $form->handleRequest($request);
@@ -264,11 +242,6 @@ class StudentController extends AbstractController
 
     /**
      * @Route("/{studentId}/annotations/remove/{annotationId}", name="danceschool_student_annotation_remove", methods={"GET", "POST"})
-     *
-     * @param int $studentId
-     * @param int $annotationId
-     *
-     * @return Response
      *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException

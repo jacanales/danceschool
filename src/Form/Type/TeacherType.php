@@ -11,10 +11,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TeacherType extends AbstractType
 {
-    /**
-     * @param FormBuilderInterface $builder
-     * @param array                $options
-     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         parent::buildForm($builder, $options);
@@ -25,18 +21,16 @@ class TeacherType extends AbstractType
                 'edit'        => $options['edit'],
             ])
             ->add('wage', IntegerType::class, [
-                'label'              => 'form.label.wage',
-                'attr'               => ['value' => 0],
+                'label' => 'form.label.wage',
+                'attr'  => ['value' => 0],
             ])
             ->add('comment', TextareaType::class, [
-                'label'              => 'form.label.comment',
-                'required'           => false,
+                'label'    => 'form.label.comment',
+                'required' => false,
             ]);
     }
 
     /**
-     * @param OptionsResolver $resolver
-     *
      * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
      */
     public function configureOptions(OptionsResolver $resolver): void
@@ -48,17 +42,11 @@ class TeacherType extends AbstractType
         ]);
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->getBlockPrefix();
     }
 
-    /**
-     * @return string
-     */
     public function getBlockPrefix(): string
     {
         return 'teacher';

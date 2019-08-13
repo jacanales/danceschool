@@ -68,8 +68,6 @@ class Group
 
     /**
      * @param int $id
-     *
-     * @return self
      */
     public function setId($id): self
     {
@@ -131,7 +129,7 @@ class Group
      */
     public function getWeekdayText(): ?string
     {
-        return date('l', strtotime("Sunday +{$this->getWeekday()} days"));
+        return \date('l', \strtotime("Sunday +{$this->getWeekday()} days"));
     }
 
     /**
@@ -154,11 +152,6 @@ class Group
         return $this->hour;
     }
 
-    /**
-     * @param \DateTime $startDate
-     *
-     * @return self
-     */
     public function setStartDate(\DateTime $startDate): self
     {
         $this->startDate = $startDate;
@@ -175,8 +168,6 @@ class Group
     }
 
     /**
-     * @param \DateTime $endDate
-     *
      * @return Group
      */
     public function setEndDate(\DateTime $endDate): self
@@ -195,8 +186,6 @@ class Group
     }
 
     /**
-     * @param string $whatsappGroup
-     *
      * @return Group
      */
     public function setWhatsappGroup(string $whatsappGroup): self
@@ -215,8 +204,6 @@ class Group
     }
 
     /**
-     * @param Course $course
-     *
      * @return Group
      */
     public function setCourse(Course $course): self
@@ -235,8 +222,6 @@ class Group
     }
 
     /**
-     * @param Room $room
-     *
      * @return Group
      */
     public function setRoom(Room $room): self
@@ -255,8 +240,6 @@ class Group
     }
 
     /**
-     * @param Teacher $teacher
-     *
      * @return Group
      */
     public function setTeacher(Teacher $teacher): self

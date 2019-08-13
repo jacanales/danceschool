@@ -19,33 +19,31 @@ class RoomType extends AbstractType
         $builder
             ->add('id', HiddenType::class)
             ->add('name', TextType::class, [
-                'label'              => 'form.label.name',
+                'label' => 'form.label.name',
             ])
             ->add('description', TextareaType::class, [
-                'label'              => 'form.label.description',
+                'label' => 'form.label.description',
             ])
             ->add('price', TextType::class, [
-                'label'              => 'form.label.price',
+                'label' => 'form.label.price',
             ])
             ->add('phone', PhoneNumberType::class, [
-                'default_region'     => 'ES',
-                'format'             => PhoneNumberFormat::NATIONAL,
-                'label'              => 'form.label.phone',
+                'default_region' => 'ES',
+                'format'         => PhoneNumberFormat::NATIONAL,
+                'label'          => 'form.label.phone',
             ])
             ->add('address', TextareaType::class, [
-                'label'              => 'form.label.address',
+                'label' => 'form.label.address',
             ])
             ->add('city', TextType::class, [
-                'label'              => 'form.label.city',
+                'label' => 'form.label.city',
             ])
             ->add('postal_code', TextType::class, [
-                'label'              => 'form.label.postal_code',
+                'label' => 'form.label.postal_code',
             ]);
     }
 
     /**
-     * @param OptionsResolver $resolver
-     *
      * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
      */
     public function configureOptions(OptionsResolver $resolver): void
@@ -56,9 +54,6 @@ class RoomType extends AbstractType
         ]);
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->getBlockPrefix();

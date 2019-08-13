@@ -2,8 +2,8 @@
 
 namespace spec\App\School\Domain\Entity;
 
-use App\School\Domain\Entity\Teacher;
 use App\Entity\User;
+use App\School\Domain\Entity\Teacher;
 use PhpSpec\ObjectBehavior;
 
 class TeacherSpec extends ObjectBehavior

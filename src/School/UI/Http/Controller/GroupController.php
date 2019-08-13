@@ -2,10 +2,10 @@
 
 namespace App\School\UI\Http\Controller;
 
-use App\School\Domain\Entity\Group;
-use App\School\Domain\Entity\GroupStudent;
 use App\Form\Type\GroupStudentType;
 use App\Form\Type\GroupType;
+use App\School\Domain\Entity\Group;
+use App\School\Domain\Entity\GroupStudent;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,8 +44,6 @@ class GroupController extends AbstractController
      *
      * @param $id
      *
-     * @return Response
-     *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \UnexpectedValueException
      * @throws \LogicException
@@ -80,17 +78,13 @@ class GroupController extends AbstractController
     /**
      * @Route("/add", name="danceschool_group_add")
      *
-     * @param Request $request
-     *
-     * @return Response
-     *
      * @throws \LogicException
      */
     public function add(Request $request): Response
     {
         $form = $this->createForm(GroupType::class, new Group(), [
-            'show_legend'        => true,
-            'label'              => 'title.add_group',
+            'show_legend' => true,
+            'label'       => 'title.add_group',
         ]);
 
         $form->handleRequest($request);
@@ -114,11 +108,6 @@ class GroupController extends AbstractController
     /**
      * @Route("/edit/{id}", name="danceschool_group_edit")
      *
-     * @param Request $request
-     * @param int     $id
-     *
-     * @return Response
-     *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
@@ -129,8 +118,8 @@ class GroupController extends AbstractController
         $group = $em->getRepository(Group::class)->find($id);
 
         $form = $this->createForm(GroupType::class, $group, [
-            'show_legend'        => true,
-            'label'              => 'title.edit_group',
+            'show_legend' => true,
+            'label'       => 'title.edit_group',
         ]);
 
         $form->handleRequest($request);
@@ -159,10 +148,6 @@ class GroupController extends AbstractController
     /**
      * @Route("/remove/{id}", name="danceschool_group_remove")
      *
-     * @param int $id
-     *
-     * @return RedirectResponse
-     *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
@@ -187,18 +172,13 @@ class GroupController extends AbstractController
     /**
      * @Route("/{id}/student/add", name="danceschool_group_add_student")
      *
-     * @param Request $request
-     * @param int     $id
-     *
-     * @return Response
-     *
      * @throws \LogicException
      */
     public function addStudent(Request $request, int $id): Response
     {
         $form = $this->createForm(GroupStudentType::class, new GroupStudent(), [
-            'show_legend'        => true,
-            'label'              => 'title.add_student',
+            'show_legend' => true,
+            'label'       => 'title.add_student',
         ]);
 
         $form->handleRequest($request);
@@ -229,12 +209,6 @@ class GroupController extends AbstractController
     /**
      * @Route("/{id}/student/edit/{studentId}", name="danceschool_group_edit_student")
      *
-     * @param Request $request
-     * @param int     $id
-     * @param int     $studentId
-     *
-     * @return Response
-     *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
@@ -248,8 +222,8 @@ class GroupController extends AbstractController
         ]);
 
         $form = $this->createForm(GroupStudentType::class, $student, [
-            'show_legend'        => true,
-            'label'              => 'title.edit_group',
+            'show_legend' => true,
+            'label'       => 'title.edit_group',
         ]);
 
         $form->handleRequest($request);
@@ -278,11 +252,6 @@ class GroupController extends AbstractController
 
     /**
      * @Route("/{id}/student/remove/{studentId}", name="danceschool_group_remove_student")
-     *
-     * @param int $id
-     * @param int $studentId
-     *
-     * @return RedirectResponse
      *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException

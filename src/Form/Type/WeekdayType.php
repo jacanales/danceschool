@@ -21,7 +21,7 @@ class WeekdayType extends AbstractType
     {
         $this->transformer = $transformer;
 
-        $numDays = range(date('N', strtotime('monday')), date('N', strtotime('sunday')));
+        $numDays = \range(\date('N', \strtotime('monday')), \date('N', \strtotime('sunday')));
 
         foreach ($numDays as $numDay) {
             $this->weekdays['date.weekday.' . $numDay] = $numDay;
@@ -38,7 +38,7 @@ class WeekdayType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'choices'           => $this->weekdays,
+            'choices' => $this->weekdays,
         ]);
     }
 
@@ -47,9 +47,6 @@ class WeekdayType extends AbstractType
         return ChoiceType::class;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->getBlockPrefix();

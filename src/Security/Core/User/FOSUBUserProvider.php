@@ -21,7 +21,7 @@ class FOSUBUserProvider extends BaseUserProvider
         //on connect - get the access token and the user ID
         $service = $response->getResourceOwner()->getName();
 
-        $setter       = 'set' . ucfirst($service);
+        $setter       = 'set' . \ucfirst($service);
         $setter_id    = $setter . 'Id';
         $setter_token = $setter . 'AccessToken';
 
@@ -63,7 +63,7 @@ class FOSUBUserProvider extends BaseUserProvider
 
                 $user->setUsername($email);
                 $user->setEmail($email);
-                $user->setPlainPassword(md5(uniqid('', false)));
+                $user->setPlainPassword(\md5(\uniqid('', false)));
             }
 
             $user->setName($response->getFirstName());

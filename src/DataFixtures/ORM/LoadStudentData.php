@@ -2,8 +2,8 @@
 
 namespace App\DataFixtures\ORM;
 
-use App\School\Domain\Entity\Student;
 use App\Entity\User;
+use App\School\Domain\Entity\Student;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -87,7 +87,7 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
             ->get('security.password_encoder')
         ;
 
-        $password = substr(str_shuffle(sha1(microtime())), 0, 20);
+        $password = \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
 
         return $encoder->encodePassword($user, $password);
     }

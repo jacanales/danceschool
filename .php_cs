@@ -7,24 +7,47 @@ $dirs = [
 ];
 
 $finder = PhpCsFixer\Finder::create()
-    ->in($dirs)
-;
+    ->in($dirs);
 
 return PhpCsFixer\Config::create()
-    ->setRules([
-        '@Symfony' => true,
-        'concat_space' => [
-            'spacing' => 'one',
-        ],
-        'array_syntax' => [
-            'syntax' => 'short',
-        ],
-        'binary_operator_spaces' => [
-            'align_double_arrow' => true,
-            'align_equals' => true,
-        ],
-        'ordered_imports' => true,
-    ])
+    ->setRules(
+        [
+            '@Symfony'                              => true,
+            '@PSR1'                                 => true,
+            '@PSR2'                                 => true,
+            '@PHP71Migration'                       => true,
+            //'@PHP73Migration'        => true,
+            'concat_space'                          => ['spacing' => 'one'],
+            'array_syntax'                          => ['syntax' => 'short'],
+            'binary_operator_spaces'                => [
+                'default' => 'align_single_space_minimal',
+            ],
+            'combine_consecutive_unsets'            => true,
+            'ordered_imports'                       => true,
+            'yoda_style'                            => true,
+            'native_function_invocation'            => true,
+            'no_superfluous_phpdoc_tags'            => true,
+            'no_superfluous_elseif'                 => true,
+            'no_unreachable_default_argument_value' => true,
+            'no_useless_else'                       => true,
+            'no_useless_return'                     => true,
+            'modernize_types_casting'               => true,
+            'random_api_migration'                  => true,
+            'mb_str_functions'                      => true,
+            // Doctrine
+            'doctrine_annotation_braces'            => true,
+            'doctrine_annotation_indentation'       => true,
+            'doctrine_annotation_spaces'            => true,
+        ]
+    )
     ->setFinder($finder)
-    ->setUsingCache(true)
-;
+    ->setUsingCache(true);
+
+return PhpCsFixer\Config::create()
+    ->setRules(
+        [
+
+        ]
+    )
+    ->setFinder($finder)
+    ->setRiskyAllowed(true);

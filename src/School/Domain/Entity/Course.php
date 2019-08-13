@@ -47,11 +47,6 @@ class Course
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     *
-     * @return self
-     */
     public function setId(int $id): self
     {
         $this->id = $id;
@@ -67,11 +62,6 @@ class Course
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return self
-     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -87,11 +77,6 @@ class Course
         return $this->price;
     }
 
-    /**
-     * @param float $price
-     *
-     * @return self
-     */
     public function setPrice(float $price): self
     {
         $this->price = $price;
@@ -109,8 +94,6 @@ class Course
 
     /**
      * @param Group[] $groups
-     *
-     * @return self
      */
     public function setGroups(array $groups): self
     {
