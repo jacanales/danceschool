@@ -23,6 +23,7 @@ return PhpCsFixer\Config::create()
                 'default' => 'align_single_space_minimal',
             ],
             'combine_consecutive_unsets'            => true,
+            'ordered_class_elements'                => true,
             'ordered_imports'                       => true,
             'yoda_style'                            => true,
             'native_function_invocation'            => true,

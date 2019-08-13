@@ -40,6 +40,11 @@ class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
         $manager->flush();
     }
 
+    public function getOrder(): int
+    {
+        return 4;
+    }
+
     private function addCourse(string $name, float $price = 75): void
     {
         $course = new Course();
@@ -47,10 +52,5 @@ class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
             ->setPrice($price);
 
         $this->manager->persist($course);
-    }
-
-    public function getOrder(): int
-    {
-        return 4;
     }
 }

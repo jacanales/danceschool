@@ -42,6 +42,11 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $manager->flush();
     }
 
+    public function getOrder(): int
+    {
+        return 1;
+    }
+
     private function addUser(string $userName, string $email, string $role = User::ROLE_DEFAULT, string $password = null): void
     {
         $user = $this->manager->getRepository(User::class)->findOneByEmail($email);
@@ -69,10 +74,5 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         }
 
         return \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
-    }
-
-    public function getOrder(): int
-    {
-        return 1;
     }
 }

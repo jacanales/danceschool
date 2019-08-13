@@ -39,6 +39,11 @@ class Builder
         return $menu;
     }
 
+    public function invalidMethod(): \stdClass
+    {
+        return new \stdClass();
+    }
+
     private function addRoomMenu(ItemInterface $menu): void
     {
         // Create a dropdown with a caret
@@ -103,10 +108,5 @@ class Builder
         $group->addChild('title.groups', ['dropdown-header' => true]);
         $group->addChild('title.list_groups', ['route' => 'danceschool_group_index', 'dropdown-header' => false]);
         $group->addChild('title.add_group', ['route' => 'danceschool_group_add', 'dropdown-header' => false]);
-    }
-
-    public function invalidMethod(): \stdClass
-    {
-        return new \stdClass();
     }
 }

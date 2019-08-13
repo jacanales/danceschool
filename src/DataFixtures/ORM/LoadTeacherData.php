@@ -93,6 +93,11 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
         $this->manager->flush();
     }
 
+    public function getOrder(): int
+    {
+        return 2;
+    }
+
     private function generatePassword(User $user): string
     {
         /**
@@ -105,10 +110,5 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
         $password = \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
 
         return $encoder->encodePassword($user, $password);
-    }
-
-    public function getOrder(): int
-    {
-        return 2;
     }
 }

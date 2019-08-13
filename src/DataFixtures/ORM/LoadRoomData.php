@@ -63,6 +63,11 @@ class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface, C
         $this->manager->flush();
     }
 
+    public function getOrder(): int
+    {
+        return 3;
+    }
+
     private function addRoom(
         string $name,
         string $description,
@@ -85,10 +90,5 @@ class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface, C
             ->setPhone($phoneNumber);
 
         $this->manager->persist($room);
-    }
-
-    public function getOrder(): int
-    {
-        return 3;
     }
 }
