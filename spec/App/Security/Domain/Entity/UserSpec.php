@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace spec\App\Entity;
+namespace spec\App\Security\Domain\Entity;
 
-use App\Entity\User;
+use App\Security\Domain\Entity\User;
 use PhpSpec\ObjectBehavior;
 
 class UserSpec extends ObjectBehavior

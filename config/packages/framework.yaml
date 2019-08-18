@@ -13,7 +13,7 @@ framework:
     #esi:             ~
     #fragments:       true
     php_errors:
-        log: true
+        log: false
 
     profiler: { only_exceptions: false }
 

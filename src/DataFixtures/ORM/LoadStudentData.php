@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\DataFixtures\ORM;
 
-use App\Entity\User;
+use App\Security\Domain\Entity\User;
 use App\School\Domain\Entity\Student;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

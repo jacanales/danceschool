@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\School\Domain\Entity;
 
-use App\Entity\User;
+use App\Security\Domain\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Teacher

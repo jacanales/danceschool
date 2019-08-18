@@ -12,7 +12,7 @@
                nullable="true" />
         <field name="comment" type="text" column="comment" nullable="true" />
         <field name="accountNumber" column="account_number" length="255" nullable="true" />
-        <one-to-one field="user" target-entity="App\Entity\User">
+        <one-to-one field="user" target-entity="App\Security\Domain\Entity\User">
             <cascade>
                 <cascade-persist />
             </cascade>

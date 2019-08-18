@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Security\Core\User;
 
-use App\Entity\User;
+use App\Security\Domain\Entity\User;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider as BaseUserProvider;
 use Symfony\Component\Security\Core\User\UserChecker;

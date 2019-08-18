@@ -8,7 +8,7 @@
         </id>
         <field name="wage" type="float" column="wage" precision="10" scale="0" />
         <field name="comment" type="text" column="comment" nullable="true" />
-        <one-to-one field="user" target-entity="App\Entity\User">
+        <one-to-one field="user" target-entity="App\Security\Domain\Entity\User">
             <cascade>
                 <cascade-persist />
             </cascade>

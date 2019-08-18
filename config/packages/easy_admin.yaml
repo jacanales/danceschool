@@ -1,7 +1,7 @@
 easy_admin:
     site_name: 'Dance School project'
     entities:
-        User: App\Entity\User
+        User: App\Security\Domain\Entity\User
         Course:
             class: App\Entity\Course
             list:
