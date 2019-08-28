@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-require_once dirname(__FILE__).'/../var/SymfonyRequirements.php';
+require_once __DIR__.'/../var/SymfonyRequirements.php';
 
 $lineSize = 70;
 $symfonyRequirements = new SymfonyRequirements();
@@ -20,7 +20,7 @@ echo PHP_EOL.PHP_EOL;
 
 echo '> Checking Symfony requirements:'.PHP_EOL.'  ';
 
-$messages = array();
+$messages = [];
 foreach ($symfonyRequirements->getRequirements() as $req) {
     if ($helpText = get_error_message($req, $lineSize)) {
         echo_style('red', 'E');

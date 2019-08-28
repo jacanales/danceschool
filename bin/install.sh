@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-php ../app/console
-php ../app/console cache:clear --env=prod
-php ../app/console assets:install --env=prod
-php ../app/console assetic:dump --env=prod
-php ../app/console doctrine:schema:update --dump-sql
+php ../bin/console
+php ../bin/console cache:clear --env=prod
+php ../bin/console assets:install --env=prod
+php ../bin/console assetic:dump --env=prod
+php ../bin/console doctrine:schema:update --dump-sql
