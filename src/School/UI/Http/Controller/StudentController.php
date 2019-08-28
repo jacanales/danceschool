@@ -35,7 +35,7 @@ class StudentController extends AbstractController
                          ->findAll();
 
         return $this->render(
-            ':Student:index.html.twig',
+            'Student/index.html.twig',
             ['students' => $students]
         );
     }
@@ -66,7 +66,7 @@ class StudentController extends AbstractController
         }
 
         return $this->render(
-            ':Student:show.html.twig',
+            'Student/show.html.twig',
             [
                 'student'     => $student,
                 'annotations' => $annotations,
@@ -93,7 +93,7 @@ class StudentController extends AbstractController
         }
 
         return $this->render(
-            ':Student:add.html.twig',
+            'Student/add.html.twig',
             [
                 'form' => $form->createView(),
             ]
@@ -131,7 +131,7 @@ class StudentController extends AbstractController
         }
 
         return $this->render(
-            ':Student:edit.html.twig',
+            'Student/edit.html.twig',
             [
                 'form'    => $form->createView(),
                 'student' => $student,
@@ -193,7 +193,7 @@ class StudentController extends AbstractController
         }
 
         return $this->render(
-            ':Student:add_annotation.html.twig',
+            'Student/add_annotation.html.twig',
             [
                 'form'      => $form->createView(),
                 'studentId' => $studentId,
@@ -233,7 +233,7 @@ class StudentController extends AbstractController
         }
 
         return $this->render(
-            ':Student:edit_annotation.html.twig',
+            'Student/edit_annotation.html.twig',
             [
                 'form'       => $form->createView(),
                 'annotation' => $annotation,

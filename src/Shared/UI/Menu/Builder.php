@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Menu;
+namespace App\Shared\UI\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;

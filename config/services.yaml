@@ -31,7 +31,7 @@ services:
     App\Security\Core\User\FOSUBUserProvider:
         arguments: ['@fos_user.user_manager', {facebook: facebookId}]
 
-    App\Menu\Builder:
+    App\Shared\UI\Menu\Builder:
         arguments: ["@knp_menu.factory"]
         tags:
             - { name: knp_menu.menu_builder, method: createMainMenu, alias: main_menu }

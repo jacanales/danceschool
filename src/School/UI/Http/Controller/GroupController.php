@@ -36,7 +36,7 @@ class GroupController extends AbstractController
                       ->findAll();
 
         return $this->render(
-            ':Group:index.html.twig',
+            'Group/index.html.twig',
             ['groups' => $groups]
         );
     }
@@ -69,7 +69,7 @@ class GroupController extends AbstractController
         }
 
         return $this->render(
-            ':Group:show.html.twig',
+            'Group/show.html.twig',
             [
                 'group'    => $group,
                 'students' => $students,
@@ -100,7 +100,7 @@ class GroupController extends AbstractController
         }
 
         return $this->render(
-            ':Group:add.html.twig',
+            'Group/add.html.twig',
             [
                 'form' => $form->createView(),
             ]
@@ -139,7 +139,7 @@ class GroupController extends AbstractController
         }
 
         return $this->render(
-            ':Group:edit.html.twig',
+            'Group/edit.html.twig',
             [
                 'form'  => $form->createView(),
                 'group' => $group,
@@ -200,7 +200,7 @@ class GroupController extends AbstractController
         }
 
         return $this->render(
-            ':Group:add_student.html.twig',
+            'Group/add_student.html.twig',
             [
                 'form' => $form->createView(),
                 'id'   => $id,
@@ -243,7 +243,7 @@ class GroupController extends AbstractController
         }
 
         return $this->render(
-            ':Group:edit_student.html.twig',
+            'Group/edit_student.html.twig',
             [
                 'form'    => $form->createView(),
                 'student' => $student,
