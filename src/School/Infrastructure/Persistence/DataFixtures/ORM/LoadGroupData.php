@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DataFixtures\ORM;
+namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
 use App\School\Domain\Entity\Course;
 use App\School\Domain\Entity\Group;
@@ -15,7 +15,7 @@ use Faker\Factory;
 
 class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
 {
-    private const MAX_GROUPS = 10;
+    private const MAX_GROUPS = 15;
 
     /**
      * @var ObjectManager

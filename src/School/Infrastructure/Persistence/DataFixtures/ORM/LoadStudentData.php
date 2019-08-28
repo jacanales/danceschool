@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DataFixtures\ORM;
+namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
 use App\Security\Domain\Entity\User;
 use App\School\Domain\Entity\Student;
@@ -16,7 +16,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 
 class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
-    private const MAX_STUDENTS = 20;
+    private const MAX_STUDENTS = 500;
 
     /**
      * @var ObjectManager
@@ -49,8 +49,8 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
             $user = new User();
 
             $user
-                ->setUsername($faker->userName)
-                ->setEmail($faker->email)
+                ->setUsername($faker->userName . $i)
+                ->setEmail($i . $faker->email)
                 ->setPassword($this->generatePassword($user))
                 ->addRole(User::ROLE_DEFAULT);
 
@@ -59,7 +59,7 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
                 ->setLastname($faker->lastName)
                 ->setGender('m')
                 ->setPhone($faker->phoneNumber)
-                ->setIdentityNumber($faker->randomNumber(8))
+                ->setIdentityNumber((string) $faker->randomNumber(8))
                 ->setAddress($faker->address)
                 ->setCity($faker->city)
                 ->setCountry($faker->countryCode)

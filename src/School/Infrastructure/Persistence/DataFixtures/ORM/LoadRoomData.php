@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DataFixtures\ORM;
+namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
 use App\School\Domain\Entity\Room;
 use Doctrine\Common\DataFixtures\AbstractFixture;

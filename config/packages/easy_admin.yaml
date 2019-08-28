@@ -3,7 +3,7 @@ easy_admin:
     entities:
         User: App\Security\Domain\Entity\User
         Course:
-            class: App\Entity\Course
+            class: App\School\Domain\Entity\Course
             list:
                 fields:
                     - { property: 'name', label: 'form.label.name' }

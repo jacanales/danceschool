@@ -22,8 +22,8 @@ services:
         resource: '../src/School/UI/Http/Controller'
         tags: ['controller.service_arguments']
 
-    App\DataFixtures\:
-        resource: '../src/DataFixtures'
+    App\School\Infrastructure\Persistence\DataFixtures\:
+        resource: '../src/School/Infrastructure/Persistence/DataFixtures'
         tags: [doctrine.fixture.orm]
 
     # add more service definitions when explicit configuration is needed

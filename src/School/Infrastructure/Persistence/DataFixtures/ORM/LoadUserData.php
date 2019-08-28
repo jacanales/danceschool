@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DataFixtures\ORM;
+namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
 use App\Security\Domain\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -40,7 +40,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
     {
         $this->manager = $manager;
         $this->addUser('admin', 'admin@zonadev.es', User::ROLE_SUPER_ADMIN, 'admin');
-        $this->addUser('user', 'user@zonadev.es', User::ROLE_DEFAULT, 'user');
         $manager->flush();
     }
 

@@ -8,8 +8,7 @@
         </id>
         <field name="captationMethod" type="smallint" column="captation_method" nullable="true" />
         <field name="member" type="boolean" column="member" />
-        <field name="contractExpiration" type="date" column="contract_expiration" column-definition="DATE"
-               nullable="true" />
+        <field name="contractExpiration" type="date" column="contract_expiration" column-definition="DATE" nullable="true" />
         <field name="comment" type="text" column="comment" nullable="true" />
         <field name="accountNumber" column="account_number" length="255" nullable="true" />
         <one-to-one field="user" target-entity="App\Security\Domain\Entity\User">

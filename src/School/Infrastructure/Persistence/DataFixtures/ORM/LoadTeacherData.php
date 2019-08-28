@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DataFixtures\ORM;
+namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
 use App\Security\Domain\Entity\User;
 use App\School\Domain\Entity\Teacher;
@@ -52,6 +52,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
              ->setName('Carlos')
              ->setLastname('DlS')
              ->setGender('m')
+             ->setIdentityNumber((string) $faker->unique()->randomDigit)
              ->setPassword($this->generatePassword($user))
              ->addRole(User::ROLE_SUPER_ADMIN)
              ->setPhone($faker->phoneNumber);
@@ -77,7 +78,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
                 ->setLastname($faker->lastName)
                 ->setGender('m')
                 ->setPhone($faker->phoneNumber)
-                ->setIdentityNumber($faker->unique()->randomDigit)
+                ->setIdentityNumber((string) $faker->unique()->randomDigit)
                 ->setAddress($faker->address)
                 ->setCity($faker->city)
                 ->setCountry($faker->countryCode)
