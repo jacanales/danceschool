@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\School\Application\Admin;
 
-use App\Form\Type\TeacherType;
+use App\School\UI\Form\Type\TeacherType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;

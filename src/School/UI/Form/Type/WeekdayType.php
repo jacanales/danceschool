@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Form\Type;
+namespace App\School\UI\Form\Type;
 
-use App\Form\DataTransformer\WeekdayTransformer;
+use App\School\UI\Form\DataTransformer\WeekdayTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;

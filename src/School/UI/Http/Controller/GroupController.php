@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\School\UI\Http\Controller;
 
-use App\Form\Type\GroupStudentType;
-use App\Form\Type\GroupType;
+use App\School\UI\Form\Type\GroupStudentType;
+use App\School\UI\Form\Type\GroupType;
 use App\School\Domain\Entity\Group;
 use App\School\Domain\Entity\GroupStudent;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

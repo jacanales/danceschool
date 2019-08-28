@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Form\Type;
+namespace App\School\UI\Form\Type;
 
 use App\School\Domain\Entity\Course;
 use Symfony\Component\Form\AbstractType;

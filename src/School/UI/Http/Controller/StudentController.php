@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\School\UI\Http\Controller;
 
-use App\Form\Type\StudentAnnotationType;
-use App\Form\Type\StudentType;
+use App\School\UI\Form\Type\StudentAnnotationType;
+use App\School\UI\Form\Type\StudentType;
 use App\School\Domain\Entity\Student;
 use App\School\Domain\Entity\StudentAnnotation;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

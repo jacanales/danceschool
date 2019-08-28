@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\School\Application\Admin;
 
-use App\Form\Type\RoomType;
+use App\School\UI\Form\Type\RoomType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;

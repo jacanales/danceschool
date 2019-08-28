@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace spec\App\Form\Type;
+namespace spec\App\School\UI\Form\Type;
 
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\Form\AbstractType;

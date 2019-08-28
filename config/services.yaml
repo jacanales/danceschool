@@ -36,14 +36,14 @@ services:
         tags:
             - { name: knp_menu.menu_builder, method: createMainMenu, alias: main_menu }
 
-    App\Form\Type\GenderType:
+    App\School\UI\Form\Type\GenderType:
         tags:
             - { name: form.type, alias: gender }
 
-    App\Form\Type\WeekdayType:
+    App\School\UI\Form\Type\WeekdayType:
         arguments:
-            - '@App\Form\DataTransformer\WeekdayTransformer'
+            - '@App\School\UI\Form\DataTransformer\WeekdayTransformer'
         tags:
             - { name: form.type, alias: weekday }
 
-    App\Form\DataTransformer\WeekdayTransformer: ~
+    App\School\UI\Form\DataTransformer\WeekdayTransformer: ~
