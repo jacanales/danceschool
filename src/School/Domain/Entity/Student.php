@@ -60,6 +60,11 @@ class Student
         $this->groupStudent = new ArrayCollection();
     }
 
+    public function getStudent(): self
+    {
+        return $this;
+    }
+    
     /**
      * @return int
      */
