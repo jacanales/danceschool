@@ -1,6 +1,8 @@
 # Twig Configuration
 twig:
-    paths: ['%kernel.project_dir%/templates']
+    paths:
+      '%kernel.project_dir%/templates': ~
+      '%kernel.project_dir%/vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/views': 'MopaBootstrapBundle'
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     form_themes:

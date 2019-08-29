@@ -1,6 +1,0 @@
-framework:
-    templating:
-        form:
-            resources:
-                - ':Form'
-        engines: ['twig']
