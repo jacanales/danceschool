@@ -25,6 +25,8 @@ services:
     php:
         build: .docker/php
         image: zonadev/php:danceschool
+        env_file:
+          - .env.docker
         restart: always
         links:
             - mysql

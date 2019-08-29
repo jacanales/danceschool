@@ -5,7 +5,7 @@ server:
 
 database-update:
 	php bin/console doctrine:schema:update --force
-	php bin/console doctrine:fixtures:load
+	php bin/console doctrine:fixtures:load -n
 
 cs-fix:
 	bin/php-cs-fixer fix -vv
