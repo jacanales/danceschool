@@ -23,21 +23,14 @@ class FOSUBUserProvider extends BaseUserProvider
         //on connect - get the access token and the user ID
         $service = $response->getResourceOwner()->getName();
 
-        $setter       = 'set' . \ucfirst($service);
-        $setter_id    = $setter . 'Id';
-        $setter_token = $setter . 'AccessToken';
-
         //we "disconnect" previously connected users
         if (null !== $previousUser = $this->userManager->findUserBy([$property => $username])) {
-            $previousUser->$setter_id(null);
-            $previousUser->$setter_token(null);
+            $this->prepareUser($previousUser, $service);
             $this->userManager->updateUser($previousUser);
         }
 
-        //we connect current user
-        $user->$setter_id($username);
-        $user->$setter_token($response->getAccessToken());
-        $user->setEnabled(true);
+        $this->prepareUser($user, $service, $username, $response->getAccessToken());
+        $this->enableUser($user);
 
         $this->userManager->updateUser($user);
     }
@@ -45,7 +38,7 @@ class FOSUBUserProvider extends BaseUserProvider
     /**
      * {@inheritdoc}
      */
-    public function loadUserByOAuthUserResponse(UserResponseInterface $response)
+    public function loadUserByOAuthUserResponse(UserResponseInterface $response): UserInterface
     {
         $username = $response->getUsername();
         $user     = $this->userManager->findUserBy([$this->getProperty($response) => $username]);
@@ -87,5 +80,21 @@ class FOSUBUserProvider extends BaseUserProvider
         }
 
         return $user;
+    }
+
+    private function prepareUser(UserInterface $user, string $service, string $username = null, string $accessToken = null): void
+    {
+        $setter       = 'set' . \ucfirst($service);
+        $setter_id    = $setter . 'Id';
+        $setter_token = $setter . 'AccessToken';
+
+        //we connect current user
+        $user->$setter_id($username);
+        $user->$setter_token($accessToken);
+    }
+
+    private function enableUser(\FOS\UserBundle\Model\User $user): void
+    {
+        $user->setEnabled(true);
     }
 }

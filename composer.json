@@ -9,7 +9,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "Tests\\": "tests",
+            "spec\\": "spec"
         }
     },
     "repositories":[
@@ -26,36 +27,36 @@
         "php": "^7.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "craue/formflow-bundle": "~3.1",
-        "doctrine/dbal": "~2.9.2",
-        "doctrine/doctrine-bundle": "~1.10",
-        "doctrine/doctrine-fixtures-bundle": "^3.1",
-        "doctrine/orm": "~2.6.3",
-        "easycorp/easyadmin-bundle": "~2.1",
+        "craue/formflow-bundle": "~3.2",
+        "doctrine/dbal": "~2.9",
+        "doctrine/doctrine-bundle": "~1.11",
+        "doctrine/doctrine-fixtures-bundle": "^3.2",
+        "doctrine/orm": "~2.6",
+        "easycorp/easyadmin-bundle": "~2.3",
         "friendsofsymfony/user-bundle": "dev-master@dev",
         "hwi/oauth-bundle": "dev-master@dev",
         "knplabs/knp-menu": "~2.5",
-        "knplabs/knp-menu-bundle": "~2.2.0",
+        "knplabs/knp-menu-bundle": "~2.2",
         "knplabs/knp-paginator-bundle": "~4.0",
         "misd/phone-number-bundle": "dev-master@dev",
         "mopa/bootstrap-bundle": "~3.3",
         "php-http/guzzle6-adapter": "~2.0",
-        "php-http/httplug-bundle": "~1.8",
+        "php-http/httplug-bundle": "~1.16",
         "sonata-project/admin-bundle": "^3.52",
         "sonata-project/doctrine-orm-admin-bundle": "^3.10",
         "symfony/browser-kit": "~4.3",
         "symfony/console": "~4.3",
-        "symfony/css-selector": "4.3.*",
+        "symfony/css-selector": "~4.3",
         "symfony/dotenv": "~4.3",
-        "symfony/flex": "^1.2",
+        "symfony/flex": "^1.4",
         "symfony/framework-bundle": "~4.3",
         "symfony/monolog-bundle": "~3.4",
         "symfony/security-acl": "~3.0",
         "symfony/security-core": "~4.3",
-        "symfony/swiftmailer-bundle": "~3.2.6",
+        "symfony/swiftmailer-bundle": "~3.2",
         "symfony/yaml": "~4.3",
-        "twbs/bootstrap-sass": "~3.4.1",
-        "twig/extensions": "~1.5.1"
+        "twbs/bootstrap-sass": "~3.4",
+        "twig/extensions": "~1.5"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master@dev",
@@ -64,12 +65,18 @@
         "symfony/requirements-checker": "~1.1",
         "symfony/maker-bundle": "^1.11",
 
-        "fzaninotto/faker": "~1.8.0",
-        "friendsofphp/php-cs-fixer": "~2.15",
         "matthiasnoback/symfony-dependency-injection-test": "~4.0",
+        "fzaninotto/faker": "~1.8",
+
         "phpspec/phpspec": "~5.1",
+
         "phpunit/php-code-coverage": "~7.0",
         "phpunit/phpunit": "~8.3",
+        "phpunit/phpcov": "~6.0",
+
+        "friendsofphp/php-cs-fixer": "~2.15",
+        "phpstan/phpstan": "~0.11",
+        "jangregor/phpstan-prophecy": "~0.4",
 
         "phpmetrics/phpmetrics": "~2.4",
         "phpbench/phpbench": "~0.16",

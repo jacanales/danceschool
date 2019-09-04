@@ -1,0 +1,36 @@
+parameters:
+    ignoreErrors:
+
+        # We should remove it once most of our code is strictly typed
+        - "#Casting to int something that's already int.#"
+        - "#Casting to string something that's already string.#"
+
+        # We can't cast object to specific class in php
+        - '#.*does not accept object.#'
+        # probably a bug in phpstan when using a member assigned from an object (even if member typed in its phpdoc)
+        - '#.* constructor expects .* object given.#'
+
+#PHPSPEC
+        # Ignore phpspec magic (anyway, so far phpspec tests skipped due to https://github.com/phpstan/phpstan/issues/706)
+        - '#Cannot call method (willReturn|shouldBeCalled|shouldBeCalledTimes|shouldBeCalledOnce|shouldNotBeCalled)\(\) on .*.#'
+        - '#Call to an undefined method spec.*#'
+        - '#Call to an undefined static method spec.*#'
+        - '#Call to an undefined method .*::(willReturn|duringGet|during[\w]+|getWrappedObject|shouldBeCalled|willThrow|shouldBeCalled)\(\)#'
+
+#MOCKERY
+        # ignore Mockery magic methods
+        - '#Call to an undefined method Mockery\\ExpectationInterface|Mockery\\HigherOrderMessage#'
+
+        # ignore Mockery magic
+        - '#Call to an undefined method .*::(shouldHaveReceived|shouldReceive|shouldNotReceive|shouldIgnoreMissing)\(\).#'
+        - '#.*Mockery\\MockInterface.*#'
+
+#PHP
+        - '#Argument of an invalid type stdClass supplied for foreach, only iterables are supported.#'
+        - "#Parameter .* of function call_user_func expects callable().*#"
+
+#Prophecy
+        - '#.*Prophecy\\Argument\\Token\\AnyValueToken given.*#'
+
+includes:
+	- ../../vendor/jangregor/phpstan-prophecy/src/extension.neon

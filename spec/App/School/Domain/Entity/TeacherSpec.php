@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace spec\App\School\Domain\Entity;
 
-use App\Security\Domain\Entity\User;
 use App\School\Domain\Entity\Teacher;
+use App\Security\Domain\Entity\User;
 use PhpSpec\ObjectBehavior;
 
 class TeacherSpec extends ObjectBehavior

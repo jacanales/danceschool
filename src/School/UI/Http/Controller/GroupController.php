@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\School\UI\Http\Controller;
 
-use App\School\UI\Form\Type\GroupStudentType;
-use App\School\UI\Form\Type\GroupType;
 use App\School\Domain\Entity\Group;
 use App\School\Domain\Entity\GroupStudent;
+use App\School\UI\Form\Type\GroupStudentType;
+use App\School\UI\Form\Type\GroupType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;

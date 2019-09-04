@@ -86,7 +86,7 @@ class User extends BaseUser
 
     public function setUpdatedAt(): void
     {
-        if (\is_null($this->name)) {
+        if (null === $this->name) {
             $this->name = $this->getUsername();
         }
 
