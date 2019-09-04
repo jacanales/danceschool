@@ -24,3 +24,16 @@ test:phpspec:
   stage: test
   script:
   - docker-compose run php bash `make phpspec`
+
+#test:phpunit:
+#    tags:
+#        - docker
+#    stage: test
+#    script:
+#        - make phpunit
+#test:cs:
+#    tags:
+#        - docker
+#    stage: test
+#    script:
+#        - make cs-fix-dry-run
