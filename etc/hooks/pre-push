@@ -3,7 +3,5 @@
 set -e
 
 # Check namespaces are compliant with PSR-4 autoloader
-PHP_PATH=.
-php ${PHP_PATH}/bin/autoload-checker
-
+make autoload-check
 exit 0

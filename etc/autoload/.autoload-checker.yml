@@ -1,0 +1,6 @@
+src:  ~
+spec: ~
+tests:
+- fixtures/Configuration
+- functional/SP/Common/Library/Cache/Scale/controller.tpl.php
+- bootstrap.php

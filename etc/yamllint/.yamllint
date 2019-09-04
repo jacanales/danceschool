@@ -1,6 +1,5 @@
 ---
 ignore: |
-        app/config/analytics/*.yml
 
 rules:
   braces:
@@ -35,7 +34,7 @@ rules:
   hyphens: enable
   indentation:
     spaces: 2
-    indent-sequences: true
+    indent-sequences: false
   key-duplicates: enable
   key-ordering: disable
   line-length: disable

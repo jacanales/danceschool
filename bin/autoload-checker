@@ -1,0 +1,193 @@
+#!/usr/bin/env php
+<?php
+
+use Composer\Autoload\ClassLoader;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\Yaml\Yaml;
+
+foreach ([__DIR__ . '/../../../..', __DIR__ . '/..'] as $path) {
+    if (file_exists($path . '/vendor/autoload.php')) {
+        $rootDir =  $path;
+        $autoload = require $path . '/vendor/autoload.php';
+        break;
+    }
+}
+
+if(empty($autoload)){
+    echo 'Autoload not found';
+    exit(1);
+}
+
+class AutoloadChecker extends Command
+{
+    public const CMD = 'autoload-checker';
+
+    /** @var ClassLoader */
+    private $autoload;
+
+    /** @var string */
+    private $rootDir;
+
+    public function __construct(ClassLoader $autoload, string $rootDir)
+    {
+        parent::__construct(self::CMD);
+
+        $this->autoload = $autoload;
+        $this->rootDir  = $rootDir;
+    }
+
+    protected function configure()
+    {
+        $this->addOption(
+        'config',
+        null,
+        InputOption::VALUE_OPTIONAL,
+    'Config to be used',
+        '.autoload-checker.yml'
+        );
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $configFile = $input->getOption('config');
+
+        if (!file_exists($configFile)) {
+            $output->writeln(sprintf('Config file %s not found', $configFile));
+
+            return 1;
+        }
+
+        $directories = Yaml::parseFile($configFile);
+
+        foreach ($directories as $directory => $excludedDirectories) {
+            $finder = new Finder();
+            $finder->files()->name('/\.php$/')->in($this->rootDir . DIRECTORY_SEPARATOR . $directory);
+
+            if (is_iterable($excludedDirectories)) {
+                foreach ($excludedDirectories as $excludedDirectory) {
+                    $finder->notPath($excludedDirectory);
+                }
+            }
+
+            $output->writeln('');
+            $output->writeln(sprintf('Processing files in %s', $directory));
+
+            $progressBar = new ProgressBar($output, count($finder));
+            $progressBar->start();
+
+            $errors = [];
+            foreach ($finder as $file) {
+                $fileError = $this->checkFile($file);
+                if (!empty($fileError)) {
+                    $errors[] = $fileError;
+                }
+
+                $progressBar->advance();
+            }
+
+            $progressBar->finish();
+
+            $output->writeln('');
+            $output->writeln('');
+
+            if (!empty($errors)) {
+                $output->writeln(sprintf('There are %d ERRORS:', count($errors)));
+                $output->writeln('');
+                foreach ($errors as $error) {
+                    $output->writeln($error[0]);
+                    $output->writeln(sprintf('    %s', $error[1]));
+                    $output->writeln('');
+                }
+
+                return 1;
+            }
+        }
+
+        return 0;
+    }
+
+    private function checkFile(SplFileInfo $file): array
+    {
+        $content = $file->getContents();
+
+        $className = $this->getFQN($content);
+
+        $autoloadedFilename = $this->autoload->findFile($className);
+        if ($autoloadedFilename === false) {
+            return [
+                sprintf('Error loading class "%s" of file "%s"', $className, $file->getRealPath()),
+                'Composer Autoload couldn\'t find a file following the class name',
+            ];
+        }
+
+        $autoloadedRealFilename = realpath($autoloadedFilename);
+
+        if ($autoloadedRealFilename !== $file->getRealPath()) {
+            return [
+                sprintf('Error loading class "%s" of file "%s"', $className, $file->getRealPath()),
+                'Composer Autoload found a different file following the class name',
+            ];
+        }
+
+        return [];
+    }
+
+    private function getFQN(string $content): string
+    {
+        //Start with a blank namespace and class
+        $namespace = $class = '';
+
+        //Set helper values to know that we have found the namespace/class token and need to collect the string values after them
+        $getting_namespace = $getting_class = false;
+
+        //Go through each token and evaluate it as necessary
+        foreach (token_get_all($content) as $token) {
+            //If this token is the namespace declaring, then flag that the next tokens will be the namespace name
+            if (is_array($token) && $token[0] == T_NAMESPACE) {
+                $getting_namespace = true;
+            }
+
+            //If this token is the class declaring, then flag that the next tokens will be the class name
+            if (is_array($token) && ($token[0] == T_CLASS || $token[0] == T_INTERFACE || $token[0] == T_TRAIT)) {
+                $getting_class = true;
+            }
+
+            //While we're grabbing the namespace name...
+            if ($getting_namespace === true) {
+                //If the token is a string or the namespace separator...
+                if (is_array($token) && in_array($token[0], [T_STRING, T_NS_SEPARATOR])) {
+                    //Append the token's value to the name of the namespace
+                    $namespace .= $token[1];
+                } elseif ($token === ';') {
+                    //If the token is the semicolon, then we're done with the namespace declaration
+                    $getting_namespace = false;
+                }
+            }
+
+            //While we're grabbing the class name...
+            if ($getting_class === true) {
+                //If the token is a string, it's the name of the class
+                if (is_array($token) && $token[0] == T_STRING) {
+                    //Store the token's value as the class name
+                    $class = $token[1];
+
+                    //Got what we need, stope here
+                    break;
+                }
+            }
+        }
+
+        return $namespace . '\\' . $class;
+    }
+}
+
+$application = new Application();
+$application->add(new AutoloadChecker($autoload, $rootDir));
+$application->setDefaultCommand(AutoloadChecker::CMD);
+$application->run();

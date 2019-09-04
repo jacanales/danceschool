@@ -1,52 +1,104 @@
-PHP_CS_FIXER?=vendor/bin/php-cs-fixer --config=${PWD}/etc/php_cs_fixer/.php_cs --allow-risky=yes -n
+PHP_CS_FIXER?=vendor/bin/php-cs-fixer --config=${PWD}/etc/php_cs_fixer/.php_cs --cache-file=${PWD}/etc/php_cs_fixer/.php_cs.cache --allow-risky=yes -n
 PHP_STAN?=vendor/bin/phpstan analyse src/ --memory-limit=-1 -l max -c ${PWD}/etc/phpstan/phpstan.neon --no-progress --no-interaction
+YAML_LINT?=yamllint -c ${PWD}/etc/yamllint/.yamllint
+AUTOLOAD_CHECKER?=bin/autoload-checker --config=${PWD}/etc/autoload/.autoload-checker.yml
+DOCKER_FILE?=etc/docker/docker-compose.yml
+DOCKER?=docker-compose -f $(DOCKER_FILE)
+EXEC?=$(DOCKER) exec $(SERVICE)
 
-.PHONY: database-update cs-fix cs-fix-dry-run phpmetrics
+########################################################################################################################
+# Container operations
+########################################################################################################################
+up:
+	$(MAKE) build
+	$(DOCKER) up -d
+	$(MAKE) database-update
+.PHONY: up
 
+build:
+	$(DOCKER) build --parallel
+.PHONY: build
+
+down:
+	$(DOCKER) down -v
+.PHONY: down
+
+reload:
+	$(MAKE) down
+	sleep 1
+	$(MAKE) up
+.PHONY: reload
+
+xdebug-off:
+	$(EXEC) phpdismod xdebug
+.PHONY: xdebug-off
+
+xdebug-on:
+	$(EXEC) phpenmod xdebug
+.PHONY: xdebug-on
+
+########################################################################################################################
+# Configure Application
+########################################################################################################################
 server:
 	php -S localhost:8080 -t web web/index.php
+.PHONY: server
 
 database-update:
-	php bin/console doctrine:schema:update --force
-	php bin/console doctrine:fixtures:load -n
+	bin/console doctrine:schema:update --force
+	bin/console doctrine:fixtures:load -n
+.PHONY: database-update
 
+########################################################################################################################
+# Code Quality
+########################################################################################################################
 cs-fix:
 	$(PHP_CS_FIXER) fix -vv
+.PHONY: cs-fix
 
 cs-fix-dry-run:
 	$(PHP_CS_FIXER) fix --dry-run -vv
+.PHONY:cs-fix-dry-run
 
 cs-fix-test:
 	$(PHP_CS_FIXER) fix ${FILES_TO_CHECK}
+.PHONY: cs-fix-test
 
 phpstan-check:
 	$(PHP_STAN) ${FILES_TO_CHECK}
 
+autoload-check:
+	$(AUTOLOAD_CHECKER)
+
+yamllint-check:
+	$(YAML_LINT) ${FILES_TO_CHECK}
+.PHONY: yamllint-check
+
 phpmetrics:
-	bin/phpmetrics --plugins=./vendor/phpmetrics/symfony-extension/SymfonyExtension.php --git --report-html=web/phpmetrics src/
-	bin/phpmetrics --report-violations="./build/violations.xml" src/
+	vendor/bin/phpmetrics --plugins=./vendor/phpmetrics/symfony-extension/SymfonyExtension.php --git --report-html=web/phpmetrics src/
+	vendor/bin/phpmetrics --report-violations="./build/violations.xml" src/
 
 phpunit:
-	./bin/phpunit --exclude-group config
+	vendor/bin/phpunit --exclude-group config
 
 phpunit-debug:
-	./bin/phpunit --debug
+	vendor/bin/phpunit --debug
 
 phpspec:
-	bin/phpspec run -fdot -vvv
+	vendor/bin/phpspec run -fdot -vvv
 
 phpspec-unattended:
-	bin/phpspec run -fdot --no-interaction
+	vendor/bin/phpspec run -fdot --no-interaction
 
 test-coverage:
 	mkdir -p build
 	make clean-build
-	./phpunit --coverage-php=build/coverage_tests.cov -c app/
-	bin/phpspec run -fdot -c "phpspec-coverage.yml"
+	vendor/bin/phpunit --coverage-php=build/coverage_tests.cov -c app/
+	vendor/bin/phpspec run -fdot -c "phpspec-coverage.yml"
 
 test-coverage-html:
 	make test-coverage
-	bin/phpcov merge --html build/coverage build
+	vendor/bin/phpcov merge --html build/coverage build
 
 clean-build:
 	rm -rf build/*
@@ -58,9 +110,6 @@ composer-install:
 	docker run --rm --interactive --tty \
         --volume $PWD:/code \
         composer install
-up:
-	docker-compose up -d
-
 k8s-up:
 	kubectl create -f infra/k8s/namespace.yaml || echo 'Already exists'
 	kubectl config set-context danceschool --namespace=danceschool \
