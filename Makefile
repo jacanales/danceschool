@@ -5,6 +5,7 @@ AUTOLOAD_CHECKER?=bin/autoload-checker --config=${PWD}/etc/autoload/.autoload-ch
 DOCKER_FILE?=etc/docker/docker-compose.yml
 DOCKER?=docker-compose -f $(DOCKER_FILE)
 EXEC?=$(DOCKER) exec $(SERVICE)
+RUN?=$(DOCKER) run $(SERVICE)
 
 ########################################################################################################################
 # Container operations
@@ -13,6 +14,7 @@ up:
 	$(MAKE) build
 	$(DOCKER) up -d
 	$(MAKE) database-update
+	$(RUN) composer bash `bin/composer.phar install`
 .PHONY: up
 
 build:
