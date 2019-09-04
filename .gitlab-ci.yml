@@ -10,7 +10,7 @@ before_script:
 - apk add --no-cache --update curl make
 - apk add --no-cache py-pip python-dev libffi-dev openssl-dev gcc libc-dev make
 - pip install docker-compose
-- make up
+- make up-ci
 
 stages:
 - test
