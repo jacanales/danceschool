@@ -17,6 +17,11 @@ up:
 	$(RUN) composer bash `bin/composer.phar install`
 .PHONY: up
 
+up-ci:
+	DOCKER_FILE=etc/docker/docker-compose-ci.yml
+	$(MAKE) up
+.PHONY: up
+
 build:
 	$(DOCKER) build --parallel
 .PHONY: build

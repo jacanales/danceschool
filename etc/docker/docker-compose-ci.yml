@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  php:
+    build:       .docker/php
+    image:       zonadev/php:danceschool
+    env_file:
+    - ../../.env.docker
+    restart:     always
+    links:
+    - mysql
+    depends_on:
+    - mysql
+    volumes:
+    - ../../:/code
+    networks:
+    - code-network
+    ports:
+    - "9001:9000"
+    working_dir: /code
+    environment:
+    - DOCKER_HOST_IP=${DOCKER_HOST_IP}
+    - XDEBUG_REMOTE_HOST=192.168.99.1
+    - XDEBUG_CONFIG="remote_host=192.168.99.1"
+    - MYSQL_HOST=mysql
+    - MYSQL_DATABASE=danceschool
+    - MYSQL_USER=danceschool
+    - MYSQL_PASSWORD=danceschool
+    - PHP_IDE_CONFIG="serverName=app_docker"
+  mysql:
+    image:   percona:latest
+    restart: always
+    networks:
+    - code-network
+    ports:
+    - "3307:3306"
+    volumes:
+    - mysql_data:/var/lib/mysql
+    environment:
+    - MYSQL_USER=danceschool
+    - MYSQL_DATABASE=danceschool
+    - MYSQL_PASSWORD=danceschool
+    - MYSQL_ROOT_PASSWORD=danceschool
+
+volumes:
+  mysql_data:
+
+networks:
+  code-network:
+    driver: bridge
