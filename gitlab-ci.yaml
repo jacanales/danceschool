@@ -1,6 +1,26 @@
+image: docker:latest
+
+variables:
+  DOCKER_DRIVER: overlay
+
+services:
+- docker:dind
+
 before_script:
 - apk add --no-cache py-pip
 - pip install docker-compose
 - make up
 
 stages:
+- test
+
+cache:
+  paths:
+  - vendor/
+
+test:phpspec:
+  tags:
+  - docker
+  stage: test
+  script:
+  - docker-compose run php bash `make phpspec`
