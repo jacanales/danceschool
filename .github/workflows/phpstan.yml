@@ -1,0 +1,30 @@
+name: PHPStan static analysis
+
+on:   pull_request
+
+jobs:
+  analyze:
+    name:    PHPStan analysis
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Prepare environment
+      run:  |
+            docker-compose -f etc/docker/docker-compose-ci.yml up -d
+            make composer-install
+    - uses: actions/checkout@v1
+      with:
+        ref: ${{ github.base_ref }}
+    - name: Prepare PHPStan source
+      env:
+        BUILD_FOLDER: /tmp/build/phpstan
+        CACHE_FILE:   ${BUILD_FOLDER}/phpstan.result.cache
+      run:  |
+            PHPSTAN_RESULT_FILE=$CACHE_FILE make phpstan-result
+    - uses: actions/checkout@v1
+      with:
+        ref: ${{ github.ref }}
+    - name: Run PHPStan Analysis
+      run:  |
+            ${PWD}/bin/phpstan-analysis.sh
