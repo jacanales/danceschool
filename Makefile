@@ -1,5 +1,5 @@
 PHP_CS_FIXER?=vendor/bin/php-cs-fixer --config=${PWD}/etc/php_cs_fixer/.php_cs --cache-file=${PWD}/etc/php_cs_fixer/.php_cs.cache --allow-risky=yes -n
-PHP_STAN?=vendor/bin/phpstan analyse src/ --memory-limit=-1 -l max -c ${PWD}/etc/phpstan/phpstan.neon --no-progress --no-interaction
+PHP_STAN?=vendor/bin/phpstan analyse --memory-limit=-1 -l max -c ${PWD}/etc/phpstan/phpstan.neon --no-progress --no-interaction
 YAML_LINT?=yamllint -c ${PWD}/etc/yamllint/.yamllint
 AUTOLOAD_CHECKER?=bin/autoload-checker --config=${PWD}/etc/autoload/.autoload-checker.yml
 DOCKER_FILE?=etc/docker/docker-compose.yml
@@ -72,6 +72,9 @@ cs-fix-test:
 .PHONY: cs-fix-test
 
 phpstan-check:
+ifndef FILES_TO_CHECK
+override FILES_TO_CHECK = src
+endif
 	$(PHP_STAN) ${FILES_TO_CHECK}
 
 autoload-check:
