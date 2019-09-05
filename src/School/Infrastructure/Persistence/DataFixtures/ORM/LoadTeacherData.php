@@ -45,25 +45,6 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
 
         $faker = Factory::create();
 
-        $user = new User();
-
-        $user->setUsername('carlos.dls')
-             ->setEmail('infodanceschool@gmail.com')
-             ->setName('Carlos')
-             ->setLastname('DlS')
-             ->setGender('m')
-             ->setIdentityNumber((string) $faker->unique()->randomDigit)
-             ->setPassword($this->generatePassword($user))
-             ->addRole(User::ROLE_SUPER_ADMIN)
-             ->setPhone($faker->phoneNumber);
-
-        $teacher = new Teacher();
-        $teacher->setUser($user);
-        $teacher->setWage(0);
-        $teacher->setComment('Owner');
-
-        $this->manager->persist($teacher);
-
         for ($i = 1; $i <= self::MAX_TEACHERS; ++$i) {
             $user = new User();
 

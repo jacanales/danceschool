@@ -23,7 +23,6 @@ class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
     {
         $this->manager = $manager;
 
-        $this->addCourse('MAMA FIT');
         $this->addCourse('ZUMBA KIDS');
         $this->addCourse('ZUMBA');
         $this->addCourse('SALSA INICIO');
