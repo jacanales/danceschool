@@ -16,7 +16,7 @@ return PhpCsFixer\Config::create()
             '@PSR1'                                 => true,
             '@PSR2'                                 => true,
             '@PHP71Migration'                       => true,
-            //'@PHP73Migration'        => true,
+            '@PHP73Migration'                       => true,
             'concat_space'                          => ['spacing' => 'one'],
             'array_syntax'                          => ['syntax' => 'short'],
             'binary_operator_spaces'                => [
@@ -45,12 +45,3 @@ return PhpCsFixer\Config::create()
     )
     ->setFinder($finder)
     ->setUsingCache(true);
-
-return PhpCsFixer\Config::create()
-    ->setRules(
-        [
-
-        ]
-    )
-    ->setFinder($finder)
-    ->setRiskyAllowed(true);
