@@ -4,33 +4,18 @@ declare(strict_types=1);
 
 namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
-use App\School\Domain\Entity\Room;
+use App\School\Domain\Model\Room;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use libphonenumber\PhoneNumberUtil;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
+class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface
 {
     /**
      * @var ObjectManager
      */
     private $manager;
-
-    /**
-     * @var ContainerInterface
-     */
-    private $container;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setContainer(ContainerInterface $container = null): void
-    {
-        $this->container = $container;
-    }
 
     /**
      * {@inheritdoc}
@@ -74,22 +59,24 @@ class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface, C
         string $name,
         string $description,
         int $price = 0,
-        string $address = null,
-        string $city = null,
-        string $postal_code = null,
+        string $address = '',
+        string $city = '',
+        string $postal_code = '',
         string $phone = null
     ): void {
         $room = new Room();
-
-        $phoneNumber = PhoneNumberUtil::getInstance()->parse($phone, PhoneNumberUtil::UNKNOWN_REGION);
 
         $room->setName($name)
             ->setDescription($description)
             ->setPrice($price)
             ->setAddress($address)
             ->setCity($city)
-            ->setPostalCode($postal_code)
-            ->setPhone($phoneNumber);
+            ->setPostalCode($postal_code);
+
+        if ($phone) {
+            $phoneNumber = PhoneNumberUtil::getInstance()->parse($phone, PhoneNumberUtil::UNKNOWN_REGION);
+            $room->setPhone($phoneNumber);
+        }
 
         $this->manager->persist($room);
     }

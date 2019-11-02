@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace spec\App\School\Domain\Entity;
+namespace spec\App\School\Domain\Model;
 
-use App\School\Domain\Entity\Room;
+use App\School\Domain\Model\Room;
 use libphonenumber\PhoneNumber;
 use PhpSpec\ObjectBehavior;
 

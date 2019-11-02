@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
-use App\School\Domain\Entity\Student;
+use App\School\Domain\Model\Student;
 use App\Security\Domain\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -23,9 +23,6 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
      */
     private $manager;
 
-    /**
-     * @var ContainerInterface
-     */
     private $container;
 
     /**
@@ -86,6 +83,10 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
 
     private function generatePassword(User $user): string
     {
+        if (null === $this->container) {
+            throw new \LogicException('Container is not yet initialized');
+        }
+
         /**
          * @var UserPasswordEncoder
          */

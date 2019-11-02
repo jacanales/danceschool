@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
-use App\School\Domain\Entity\Course;
-use App\School\Domain\Entity\Group;
-use App\School\Domain\Entity\Room;
-use App\School\Domain\Entity\Teacher;
+use App\School\Domain\Model\Course;
+use App\School\Domain\Model\Group;
+use App\School\Domain\Model\Room;
+use App\School\Domain\Model\Teacher;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -33,8 +33,13 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
 
         $faker = Factory::create();
 
-        $courses  = $this->manager->getRepository(Course::class)->findAll();
-        $rooms    = $this->manager->getRepository(Room::class)->findAll();
+        /** @var Course[] $courses */
+        $courses = $this->manager->getRepository(Course::class)->findAll();
+
+        /** @var Room[] $rooms */
+        $rooms = $this->manager->getRepository(Room::class)->findAll();
+
+        /** @var Teacher[] $teachers */
         $teachers = $this->manager->getRepository(Teacher::class)->findAll();
 
         for ($i = 1; $i <= self::MAX_GROUPS; ++$i) {
@@ -42,9 +47,10 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
             $group->setName($faker->text(20));
             $group->setWeekday($faker->numberBetween(1, 7));
             $group->setHour(new \DateTime($faker->time('H:i')));
-            $group->setStartDate($faker->dateTimeThisMonth);
 
-            $group->setEndDate($group->getStartDate()->add(new \DateInterval('P3M')));
+            $startDate = $faker->dateTimeThisMonth;
+            $group->setStartDate($startDate);
+            $group->setEndDate($startDate->add(new \DateInterval('P3M')));
             $group->setWhatsappGroup($faker->text(15));
 
             $courseIndex = \array_rand($courses);

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace spec\App\School\Domain\Entity;
+namespace spec\App\School\Domain\Model;
 
-use App\School\Domain\Entity\Student;
-use App\School\Domain\Entity\StudentAnnotation;
+use App\School\Domain\Model\Student;
+use App\School\Domain\Model\StudentAnnotation;
 use App\Security\Domain\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use PhpSpec\ObjectBehavior;

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\School\UI\Http\Controller;
 
-use App\School\Domain\Entity\Group;
-use App\School\Domain\Entity\GroupStudent;
+use App\School\Domain\Model\Group;
+use App\School\Domain\Model\GroupStudent;
 use App\School\UI\Form\Type\GroupStudentType;
 use App\School\UI\Form\Type\GroupType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,8 +43,6 @@ class GroupController extends AbstractController
 
     /**
      * @Route("/show/{id}", name="danceschool_group_show")
-     *
-     * @param $id
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \UnexpectedValueException

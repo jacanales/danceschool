@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace spec\App\School\UI\Http\Controller;
 
-use App\School\Domain\Entity\Room;
+use App\School\Domain\Model\Room;
 use App\School\UI\Http\Controller\RoomController;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\ObjectManager;

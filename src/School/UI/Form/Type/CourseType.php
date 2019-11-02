@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\School\UI\Form\Type;
 
-use App\School\Domain\Entity\Course;
+use App\School\Domain\Model\Course;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;

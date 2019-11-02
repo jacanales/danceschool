@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="App\School\Domain\Entity\Student" table="students">
+    <entity name="App\School\Domain\Model\Student" table="students">
         <id name="id" type="integer" column="id">
             <generator strategy="IDENTITY" />
         </id>
@@ -19,7 +19,7 @@
                 <join-column name="user_id" />
             </join-columns>
         </one-to-one>
-        <one-to-many field="groupStudent" target-entity="App\School\Domain\Entity\GroupStudent" mapped-by="student" />
-        <one-to-many field="annotations" target-entity="App\School\Domain\Entity\StudentAnnotation" mapped-by="student" />
+        <one-to-many field="groupStudent" target-entity="App\School\Domain\Model\GroupStudent" mapped-by="student" />
+        <one-to-many field="annotations" target-entity="App\School\Domain\Model\StudentAnnotation" mapped-by="student" />
     </entity>
 </doctrine-mapping>

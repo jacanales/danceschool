@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
-use App\School\Domain\Entity\Course;
+use App\School\Domain\Model\Course;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -46,7 +46,7 @@ class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
         return 4;
     }
 
-    private function addCourse(string $name, float $price = 75): void
+    private function addCourse(string $name, float $price = 75.0): void
     {
         $course = new Course();
         $course->setName($name)

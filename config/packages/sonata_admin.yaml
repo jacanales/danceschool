@@ -1,35 +1,35 @@
 services:
-    _defaults:
-        autowire: true
-        autoconfigure: true
-        public: false
+  _defaults:
+    autowire:      true
+    autoconfigure: true
+    public:        false
 
-    App\School\Application\Admin\CourseAdmin:
-        arguments: [~, App\School\Domain\Entity\Course, ~]
-        public: true
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Course }
+  App\School\Application\Admin\CourseAdmin:
+    arguments: [~, App\School\Domain\Model\Course, ~]
+    public: true
+    tags:
+    - { name: sonata.admin, manager_type: orm, label: Course }
 
-    App\School\Application\Admin\GroupAdmin:
-        arguments: [~, App\School\Domain\Entity\Group, ~]
-        public: true
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Group, group: default }
+  App\School\Application\Admin\GroupAdmin:
+    arguments: [~, App\School\Domain\Model\Group, ~]
+    public: true
+    tags:
+    - { name: sonata.admin, manager_type: orm, label: Group, group: default }
 
-    App\School\Application\Admin\RoomAdmin:
-        arguments: [~, App\School\Domain\Entity\Room, ~]
-        public: true
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Room }
+  App\School\Application\Admin\RoomAdmin:
+    arguments: [~, App\School\Domain\Model\Room, ~]
+    public: true
+    tags:
+    - { name: sonata.admin, manager_type: orm, label: Room }
 
-    App\School\Application\Admin\TeacherAdmin:
-        arguments: [~, App\School\Domain\Entity\Teacher, ~]
-        public: true
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Teacher }
+  App\School\Application\Admin\TeacherAdmin:
+    arguments: [~, App\School\Domain\Model\Teacher, ~]
+    public: true
+    tags:
+    - { name: sonata.admin, manager_type: orm, label: Teacher }
 
-    App\School\Application\Admin\StudentAdmin:
-      arguments: [~, App\School\Domain\Entity\Student, ~]
-      public: true
-      tags:
-      - { name: sonata.admin, manager_type: orm, label: Student }
+  App\School\Application\Admin\StudentAdmin:
+    arguments: [~, App\School\Domain\Model\Student, ~]
+    public: true
+    tags:
+    - { name: sonata.admin, manager_type: orm, label: Student }

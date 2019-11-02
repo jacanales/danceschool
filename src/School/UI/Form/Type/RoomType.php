@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\School\UI\Form\Type;
 
-use App\School\Domain\Entity\Room;
+use App\School\Domain\Model\Room;
 use libphonenumber\PhoneNumberFormat;
 use Misd\PhoneNumberBundle\Form\Type\PhoneNumberType;
 use Symfony\Component\Form\AbstractType;

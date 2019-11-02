@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\School\UI\Http\Controller;
 
-use App\School\Domain\Entity\Course;
+use App\School\Domain\Model\Course;
+use App\School\Infrastructure\Repository\CourseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -46,6 +47,7 @@ class CourseController extends AbstractController
      */
     public function show(int $id): Response
     {
+        /** @var CourseRepository $repository */
         $repository = $this
             ->getDoctrine()
             ->getManager()

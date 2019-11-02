@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\School\Domain\Entity;
+namespace App\School\Domain\Model;
 
 use libphonenumber\PhoneNumber;
 

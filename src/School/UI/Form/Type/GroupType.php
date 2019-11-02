@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\School\UI\Form\Type;
 
-use App\School\Domain\Entity\Course;
-use App\School\Domain\Entity\Group;
-use App\School\Domain\Entity\Room;
-use App\School\Domain\Entity\Teacher;
+use App\School\Domain\Model\Course;
+use App\School\Domain\Model\Group;
+use App\School\Domain\Model\Room;
+use App\School\Domain\Model\Teacher;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;

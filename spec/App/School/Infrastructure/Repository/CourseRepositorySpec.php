@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace spec\App\School\Infrastructure\Repository;
 
-use App\School\Domain\Entity\Course;
-use App\School\Domain\Entity\Group;
+use App\School\Domain\Model\Course;
+use App\School\Domain\Model\Group;
 use App\School\Infrastructure\Repository\CourseRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
 
 class CourseRepositorySpec extends ObjectBehavior
 {
@@ -31,7 +32,7 @@ class CourseRepositorySpec extends ObjectBehavior
         $course = new Course();
         $group  = new Group();
 
-        $entityManager->find(null, 1, null, null)->shouldBeCalled()->willReturn($course);
+        $entityManager->find(Argument::any(), 1, null, null)->shouldBeCalled()->willReturn($course);
 
         $entityRepository->findBy(['course' => 1])->shouldBeCalled()->willReturn([$group]);
         $entityManager->getRepository(Group::class)->willReturn($entityRepository);

@@ -1,17 +1,17 @@
 easy_admin:
-    site_name: 'Dance School project'
-    entities:
-        User: App\Security\Domain\Entity\User
-        Course:
-            class: App\School\Domain\Entity\Course
-            list:
-                fields:
-                    - { property: 'name', label: 'form.label.name' }
-                    - { property: 'price', label: 'form.label.price' }
-        Group: App\School\Domain\Entity\Group
-        Room: App\School\Domain\Entity\Room
-        Student: App\School\Domain\Entity\Student
-        Teacher: App\School\Domain\Entity\Teacher
-    user:
-        display_name: true
-        display_avatar: true
+  site_name: 'Dance School project'
+  entities:
+    User:    App\Security\Domain\Entity\User
+    Course:
+      class: App\School\Domain\Model\Course
+      list:
+        fields:
+        - { property: 'name', label: 'form.label.name' }
+        - { property: 'price', label: 'form.label.price' }
+    Group:   App\School\Domain\Model\Group
+    Room:    App\School\Domain\Model\Room
+    Student: App\School\Domain\Model\Student
+    Teacher: App\School\Domain\Model\Teacher
+  user:
+    display_name:   true
+    display_avatar: true

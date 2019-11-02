@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\School\Application\Admin;
 
-use App\School\Domain\Entity\Course;
-use App\School\Domain\Entity\Room;
-use App\School\Domain\Entity\Teacher;
+use App\School\Domain\Model\Course;
+use App\School\Domain\Model\Room;
+use App\School\Domain\Model\Teacher;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;

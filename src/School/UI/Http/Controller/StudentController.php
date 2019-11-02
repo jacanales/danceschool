@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\School\UI\Http\Controller;
 
-use App\School\Domain\Entity\Student;
-use App\School\Domain\Entity\StudentAnnotation;
+use App\School\Domain\Model\Student;
+use App\School\Domain\Model\StudentAnnotation;
 use App\School\UI\Form\Type\StudentAnnotationType;
 use App\School\UI\Form\Type\StudentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -103,8 +103,6 @@ class StudentController extends AbstractController
     /**
      * @Route("/edit/{id}", name="danceschool_student_edit", methods={"GET", "POST"})
      *
-     * @param $id
-     *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
@@ -142,8 +140,6 @@ class StudentController extends AbstractController
     /**
      * @Route("/remove/{id}", name="danceschool_student_remove", methods={"GET", "POST"})
      *
-     * @param $id
-     *
      * @throws \InvalidArgumentException
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \LogicException
@@ -167,8 +163,6 @@ class StudentController extends AbstractController
 
     /**
      * @Route("/{studentId}/annotations/add", name="danceschool_student_annotation_add", methods={"GET", "POST"})
-     *
-     * @param $studentId
      *
      * @throws \LogicException
      */

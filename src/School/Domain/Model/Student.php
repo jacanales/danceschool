@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\School\Domain\Entity;
+namespace App\School\Domain\Model;
 
 use App\Security\Domain\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;

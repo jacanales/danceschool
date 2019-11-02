@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="App\School\Domain\Entity\GroupStudent" table="group_students">
+    <entity name="App\School\Domain\Model\GroupStudent" table="group_students">
         <id name="group" association-key="true" />
         <id name="student" association-key="true" />
         <field name="is_reinforcing" type="boolean" column="is_reinforcing">
@@ -10,12 +10,12 @@
                 <option name="default">0</option>
             </options>
         </field>
-        <many-to-one field="group" target-entity="App\School\Domain\Entity\Group" inversed-by="groupStudent">
+        <many-to-one field="group" target-entity="App\School\Domain\Model\Group" inversed-by="groupStudent">
             <join-columns>
                 <join-column name="group_id" />
             </join-columns>
         </many-to-one>
-        <many-to-one field="student" target-entity="App\School\Domain\Entity\Student" inversed-by="groupStudent">
+        <many-to-one field="student" target-entity="App\School\Domain\Model\Student" inversed-by="groupStudent">
             <join-columns>
                 <join-column name="student_id" />
             </join-columns>

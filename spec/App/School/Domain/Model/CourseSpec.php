@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace spec\App\School\Domain\Entity;
+namespace spec\App\School\Domain\Model;
 
-use App\School\Domain\Entity\Course;
-use App\School\Domain\Entity\Group;
+use App\School\Domain\Model\Course;
+use App\School\Domain\Model\Group;
 use PhpSpec\ObjectBehavior;
 
 class CourseSpec extends ObjectBehavior

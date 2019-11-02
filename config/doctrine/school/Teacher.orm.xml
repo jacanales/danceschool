@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="App\School\Domain\Entity\Teacher" table="teachers">
+    <entity name="App\School\Domain\Model\Teacher" table="teachers">
         <id name="id" type="integer" column="id">
             <generator strategy="IDENTITY" />
         </id>
@@ -16,6 +16,6 @@
                 <join-column name="user_id" on-delete="CASCADE" />
             </join-columns>
         </one-to-one>
-        <one-to-many field="groups" target-entity="App\School\Domain\Entity\Group" mapped-by="teacher" />
+        <one-to-many field="groups" target-entity="App\School\Domain\Model\Group" mapped-by="teacher" />
     </entity>
 </doctrine-mapping>
