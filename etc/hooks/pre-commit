@@ -32,7 +32,7 @@ if [[ "$updated_phps" != "" ]]; then
 fi
 
 if [[ "$updated_phps" != "" ]]; then
-    FILES_TO_CHECK=${updated_phps} make phpstan-check
+    FILES_TO_CHECK=${updated_phps} make phpstan
 
     # Static analyser phpstan
     if [[ $? != 0 ]]; then

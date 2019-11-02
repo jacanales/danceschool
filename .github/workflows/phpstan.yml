@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install vendors
       run:  |
-            composer --prefer-dist --no-interaction --ignore-platform-reqs install
+            composer --no-scripts --prefer-dist --no-interaction --ignore-platform-reqs install
     - uses: actions/checkout@v1
       with:
         ref: ${{ github.base_ref }}
@@ -20,7 +20,7 @@ jobs:
         BUILD_FOLDER: /tmp/build/phpstan
         CACHE_FILE:   ${BUILD_FOLDER}/phpstan.result.cache
       run:  |
-            PHPSTAN_RESULT_FILE=$CACHE_FILE make phpstan-result
+            vendor/bin/phpstan analyse --memory-limit=-1 -l max -c ${PWD}/etc/phpstan/phpstan.neon --no-progress --no-interaction src > /tmp/build/phpstan/phpstan.result.cache >/dev/null 2>&1 || true
     - uses: actions/checkout@v1
       with:
         ref: ${{ github.ref }}
