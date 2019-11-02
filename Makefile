@@ -90,13 +90,10 @@ cs-fix-test:
 	$(PHP_CS_FIXER) fix ${FILES_TO_CHECK}
 
 phpstan:
-ifndef FILES_TO_CHECK
-override FILES_TO_CHECK = src
-endif
-	$(PHPSTAN) ${FILES_TO_CHECK}
+	$(PHPSTAN) src
 
 phpstan-result:
-	mkdir -p ${PHPSTAN_BUILD_FOLDER}
+	mkdir -p /tmp/build/phpstan
 	$(PHPSTAN) src > ${PHPSTAN_RESULT_FILE} >/dev/null 2>&1 || true
 
 autoload-check:
