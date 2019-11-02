@@ -9,10 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Prepare environment
+    - name: Install vendors
       run:  |
-            docker-compose -f etc/docker/docker-compose-ci.yml up -d
-            make composer-install
+            composer --prefer-dist --no-interaction --ignore-platform-reqs install
     - uses: actions/checkout@v1
       with:
         ref: ${{ github.base_ref }}

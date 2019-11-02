@@ -27,7 +27,7 @@
         "php": "^7.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "ext-intl": "*",,
+        "ext-intl": "*",
         "craue/formflow-bundle": "~3.2",
         "doctrine/dbal": "~2.9",
         "doctrine/doctrine-bundle": "~1.11",
