@@ -12,6 +12,8 @@ RUN?=$(DOCKER) run $(SERVICE)
 RUN-WITH-XDEBUG?=$(DOCKER) run -e ENABLE_XDEBUG=1 $(SERVICE)
 RUN-WITH-PHPDBG?=$(DOCKER) run $(SERVICE) phpdbg -qrr
 
+default: phpunit phpspec
+
 ########################################################################################################################
 # Project actions
 ########################################################################################################################
@@ -29,100 +31,84 @@ up:
 	$(DOCKER) up -d
 	$(MAKE) database-update
 	$(RUN) composer bash `bin/composer.phar install`
-.PHONY: up
 
 up-ci:
 	DOCKER_FILE=etc/docker/docker-compose-ci.yml
 	$(MAKE) up
-.PHONY: up-ci
 
 provision:
 	$(MAKE) database-provision
 
 build:
 	$(DOCKER) build --parallel
-.PHONY: build
 
 down:
 	$(DOCKER) down -v
-.PHONY: down
 
 reload:
 	$(MAKE) down
 	sleep 1
 	$(MAKE) up
-.PHONY: reload
 
 xdebug-off:
 	$(EXEC) phpdismod xdebug
-.PHONY: xdebug-off
 
 xdebug-on:
 	$(EXEC) phpenmod xdebug
-.PHONY: xdebug-on
 
 composer-install:
 	docker run --rm --interactive --tty \
         --volume $PWD:/code \
         composer install
-.PHONY: composer-install
+.PHONY: up up-ci down reload provision build composer-install xdebug-on xdebug-off
 
 ########################################################################################################################
 # Configure Application
 ########################################################################################################################
 server:
 	php -S localhost:8080 -t web web/index.php
-.PHONY: server
 
 database-update:
 	bin/console doctrine:schema:update --force
-.PHONY: database-update
 
 database-provision:
 	bin/console doctrine:fixtures:load -n
 
 compile-assets:
 	./node_modules/.bin/encore dev --context .
-.PHONY: compile-assets
-
+.PHONY: server database-update database-provision compile-assets
 ########################################################################################################################
 # Code Quality
 ########################################################################################################################
 cs-fix:
 	$(PHP_CS_FIXER) fix -vv
-.PHONY: cs-fix
 
 cs-fix-dry-run:
 	$(PHP_CS_FIXER) fix --dry-run -vv
-.PHONY:cs-fix-dry-run
 
 cs-fix-test:
 	$(PHP_CS_FIXER) fix ${FILES_TO_CHECK}
-.PHONY: cs-fix-test
 
-phpstan-check:
+phpstan:
 ifndef FILES_TO_CHECK
 override FILES_TO_CHECK = src
 endif
 	$(PHPSTAN) ${FILES_TO_CHECK}
-.PHONY: phpstan-check
 
 phpstan-result:
 	mkdir -p ${PHPSTAN_BUILD_FOLDER}
-	$(MAKE) phpstan-check > ${PHPSTAN_RESULT_FILE} >/dev/null 2>&1 || true
-.PHONY: phpstan-result
+	$(PHPSTAN) src > ${PHPSTAN_RESULT_FILE} >/dev/null 2>&1 || true
 
 autoload-check:
 	$(AUTOLOAD_CHECKER)
 
 yamllint-check:
 	$(YAML_LINT) ${FILES_TO_CHECK}
-.PHONY: yamllint-check
 
 phpmetrics:
 	vendor/bin/phpmetrics --plugins=./vendor/phpmetrics/symfony-extension/SymfonyExtension.php --git --report-html=web/phpmetrics src/
 	vendor/bin/phpmetrics --report-violations="./build/violations.xml" src/
-
+.PHONY: cs-fix cs-fix-dry-run cs-fix-test phpstan phpstan-result phpmetrics yamllint-check
 ########################################################################################################################
 # Tests
 ########################################################################################################################
@@ -154,7 +140,7 @@ test-coverage-ci:
 
 test-coverage-codecov: test-coverage
 	$(RUN) vendor/bin/phpcov merge --clover build/codecov/coverage.xml build
-
+.PHONY: phpunit phpunit-debug phpspec phpspec-unattended test-coverage test-coverage-html test-coverage-ci test-coverage-codecov
 ########################################################################################################################
 # Kubernetes
 ########################################################################################################################
@@ -167,3 +153,4 @@ k8s-up:
 
 k8s-down:
 	kubectl delete namespace danceschool
+.PHONY: k8s-up k8s-down
