@@ -92,7 +92,7 @@ phpstan:
 
 phpstan-result:
 	mkdir -p /tmp/build/phpstan
-	$(PHPSTAN) src > /tmp/build/phpstan/phpstan.result.cache >/dev/null 2>&1 || true
+	$(PHPSTAN) src > ${PHPSTAN_RESULT_FILE} >/dev/null 2>&1 || true
 
 autoload-check:
 	$(AUTOLOAD_CHECKER)

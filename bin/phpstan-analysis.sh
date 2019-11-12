@@ -6,7 +6,7 @@ CACHE_FILE=${BUILD_FOLDER}/phpstan.result.cache
 
 mkdir -p ${BUILD_FOLDER}
 
-make phpstan-result
+PHPSTAN_RESULT_FILE=${RESULT_FILE} make phpstan-result
 
 if [[ ! -r ${CACHE_FILE} ]]
 then
