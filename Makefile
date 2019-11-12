@@ -27,16 +27,14 @@ git-hooks:
 # Container operations
 ########################################################################################################################
 up:
-	$(MAKE) build
 	$(DOCKER) up -d
-	$(MAKE) database-update
-	$(RUN) composer bash `bin/composer.phar install`
 
 up-ci:
 	DOCKER_FILE=etc/docker/docker-compose-ci.yml
 	$(MAKE) up
 
 provision:
+	$(MAKE) database-update
 	$(MAKE) database-provision
 
 build:
@@ -94,6 +92,7 @@ phpstan:
 
 phpstan-result:
 	mkdir -p /tmp/build/phpstan
+	$(PHPSTAN) src > /tmp/build/phpstan/phpstan.result.cache >/dev/null 2>&1 || true
 
 autoload-check:
 	$(AUTOLOAD_CHECKER)
