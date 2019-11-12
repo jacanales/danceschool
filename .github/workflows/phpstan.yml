@@ -20,7 +20,8 @@ jobs:
         BUILD_FOLDER: /tmp/build/phpstan
         CACHE_FILE:   ${BUILD_FOLDER}/phpstan.result.cache
       run:  |
-            PHPSTAN_BUILD_FOLDER=$BUILD_FOLDER PHPSTAN_RESULT_FILE=$CACHE_FILE make phpstan-result
+            mkdir -p /tmp/build/phpstan
+            vendor/bin/phpstan analyse --memory-limit=-1 -l max -c ${PWD}/etc/phpstan/phpstan.neon --no-progress --no-interaction src > /tmp/build/phpstan/phpstan.result.cache >/dev/null 2>&1 || true
     - uses: actions/checkout@v1
       with:
         ref: ${{ github.ref }}
