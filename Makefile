@@ -55,7 +55,7 @@ xdebug-on:
 	$(EXEC) phpenmod xdebug
 
 composer-install:
-	$(RUN) composer install
+	$(RUN) composer install --no-scripts
 .PHONY: up up-ci down reload provision build composer-install xdebug-on xdebug-off
 
 ########################################################################################################################
