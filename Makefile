@@ -55,9 +55,7 @@ xdebug-on:
 	$(EXEC) phpenmod xdebug
 
 composer-install:
-	docker run --rm --interactive --tty \
-        --volume $PWD:/code \
-        composer install
+	$(RUN) composer install
 .PHONY: up up-ci down reload provision build composer-install xdebug-on xdebug-off
 
 ########################################################################################################################

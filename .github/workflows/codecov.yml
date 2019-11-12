@@ -16,6 +16,7 @@ jobs:
     - name: Build the stack
       run:  |
             make up-ci
+            make composer-install
     - name: Run Coverage
       run:  |
             make test-coverage-codecov
