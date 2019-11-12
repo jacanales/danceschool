@@ -7,8 +7,8 @@ AUTOLOAD_CHECKER?=bin/autoload-checker --config=${PWD}/etc/autoload/.autoload-ch
 DOCKER_FILE?=etc/docker/docker-compose.yml
 DOCKER?=docker-compose -f $(DOCKER_FILE)
 SERVICE?=php
-EXEC?=$(DOCKER) exec $(SERVICE)
 RUN?=$(DOCKER) run $(SERVICE)
+EXEC?=$(DOCKER) exec $(SERVICE)
 RUN-WITH-XDEBUG?=$(DOCKER) run -e ENABLE_XDEBUG=1 $(SERVICE)
 RUN-WITH-PHPDBG?=$(DOCKER) run $(SERVICE) phpdbg -qrr
 
