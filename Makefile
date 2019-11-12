@@ -4,7 +4,7 @@ PHPSTAN_BUILD_FOLDER?=/tmp/build/phpstan
 PHPSTAN_RESULT_FILE?=${PHPSTAN_BUILD_FOLDER}/phpstan.result
 YAML_LINT?=yamllint -c ${PWD}/etc/yamllint/.yamllint
 AUTOLOAD_CHECKER?=bin/autoload-checker --config=${PWD}/etc/autoload/.autoload-checker.yml
-SERVICE?=fpm
+SERVICE?=php
 DOCKER_FILE?=etc/docker/docker-compose.yml
 DOCKER?=docker-compose -f $(DOCKER_FILE)
 EXEC?=$(DOCKER) exec $(SERVICE)
