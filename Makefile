@@ -4,9 +4,9 @@ PHPSTAN_BUILD_FOLDER?=/tmp/build/phpstan
 PHPSTAN_RESULT_FILE?=${PHPSTAN_BUILD_FOLDER}/phpstan.result
 YAML_LINT?=yamllint -c ${PWD}/etc/yamllint/.yamllint
 AUTOLOAD_CHECKER?=bin/autoload-checker --config=${PWD}/etc/autoload/.autoload-checker.yml
-SERVICE?=php
 DOCKER_FILE?=etc/docker/docker-compose.yml
 DOCKER?=docker-compose -f $(DOCKER_FILE)
+SERVICE?=php
 EXEC?=$(DOCKER) exec $(SERVICE)
 RUN?=$(DOCKER) run $(SERVICE)
 RUN-WITH-XDEBUG?=$(DOCKER) run -e ENABLE_XDEBUG=1 $(SERVICE)
