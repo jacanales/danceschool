@@ -30,7 +30,6 @@ up:
 	$(DOCKER) up -d
 
 up-ci:
-	docker login docker.pkg.github.com --username jacanales -p ${GITHUB_ACCESS_TOKEN}
 	DOCKER_FILE=etc/docker/docker-compose-ci.yml
 	$(MAKE) up
 
