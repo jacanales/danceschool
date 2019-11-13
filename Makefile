@@ -132,7 +132,7 @@ test-coverage-ci:
 	$(RUN-WITH-PHPDBG) vendor/bin/phpspec run -c "ci/phpspec-coverage.yml"
 
 test-coverage-codecov: test-coverage-ci
-	$(RUN) vendor/bin/phpcov merge --clover build/codecov/coverage.xml build
+	$(RUN-WITH-PHPDBG) vendor/bin/phpcov merge --clover build/codecov/coverage.xml build
 .PHONY: phpunit phpunit-debug phpspec phpspec-unattended test-coverage test-coverage-html test-coverage-ci test-coverage-codecov
 ########################################################################################################################
 # Kubernetes
