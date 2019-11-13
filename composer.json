@@ -69,6 +69,7 @@
         "fzaninotto/faker": "~1.8",
 
         "phpspec/phpspec": "~5.1",
+        "friends-of-phpspec/phpspec-code-coverage": "~4.3",
 
         "phpunit/php-code-coverage": "~7.0",
         "phpunit/phpunit": "~8.4",
@@ -101,7 +102,7 @@
         "raulfraile/ladybug-bundle": "~1.0",
         "egulias/listeners-debug-command-bundle": "~3.0.0",
 
-        "henrikbjorn/phpspec-code-coverage": "~3.0",
+        "leanphp/phpspec-code-coverage": "~4.2",
         "phpunit/phpcov": ">=2.0,<3",
         "mockery/mockery": "~0.9",
         "mybuilder/phpunit-accelerator": "~1.0",

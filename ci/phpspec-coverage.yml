@@ -1,5 +1,5 @@
 extensions:
-- PhpSpec\Extension\CodeCoverageExtension
+  FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension: ~
 
 code_coverage:
   output: build/coverage/phpspec.cov

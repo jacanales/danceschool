@@ -30,6 +30,9 @@
     "egulias/email-validator": {
         "version": "2.1.11"
     },
+    "friends-of-phpspec/phpspec-code-coverage": {
+        "version": "v4.3.2"
+    },
     "jangregor/phpstan-prophecy": {
         "version": "0.4.2"
     },

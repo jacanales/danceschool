@@ -3,6 +3,7 @@
 /app/config/parameters_local.yml
 /node_modules/
 /phpunit.xml
+typescript
 /var/
 !var/cache/.gitkeep
 !var/logs/.gitkeep
