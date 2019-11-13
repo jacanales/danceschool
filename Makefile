@@ -120,7 +120,7 @@ phpspec-unattended:
 test-coverage:
 	mkdir -p build
 	make clean-build
-	vendor/bin/phpunit --coverage-php=build/coverage_tests.cov -c app/
+	vendor/bin/phpunit --coverage-php=build/coverage_tests.cov
 	vendor/bin/phpspec run -fdot -c "ci/phpspec-coverage.yml"
 
 test-coverage-html:
