@@ -15,7 +15,7 @@ Encore
     .enableSassLoader()
 
     // allow legacy applications to use $/jQuery as a global variable
-    .autoProvidejQuery()
+    //.autoProvidejQuery()
 
     .enableSourceMaps(!Encore.isProduction())
 
@@ -24,6 +24,7 @@ Encore
 
     // show OS notifications when builds finish/fail
     .enableBuildNotifications()
+    .enableSingleRuntimeChunk()
 
 // create hashed filenames (e.g. app.abc123.css)
 // .enableVersioning()

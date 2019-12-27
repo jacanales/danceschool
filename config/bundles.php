@@ -29,4 +29,5 @@ return [
     Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle::class         => ['all' => true],
     Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle::class    => ['all' => true],
     Sonata\DatagridBundle\SonataDatagridBundle::class                 => ['all' => true],
+    Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class            => ['all' => true],
 ];

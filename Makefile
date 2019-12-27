@@ -147,3 +147,6 @@ k8s-up:
 k8s-down:
 	kubectl delete namespace danceschool
 .PHONY: k8s-up k8s-down
+
+docker-login:
+	docker login -u jacanales -p ${GITHUB_PACKAGES} docker.pkg.github.com
