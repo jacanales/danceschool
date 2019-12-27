@@ -49,9 +49,7 @@ class TeacherController extends AbstractController
                      ->find($id);
 
         if (!$teacher) {
-            throw $this->createNotFoundException(
-                'No teacher found for id ' . $id
-            );
+            throw $this->createNotFoundException('No teacher found for id ' . $id);
         }
 
         return $this->render(

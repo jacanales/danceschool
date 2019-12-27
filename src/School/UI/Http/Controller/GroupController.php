@@ -61,9 +61,7 @@ class GroupController extends AbstractController
             ]);
 
         if (!$group) {
-            throw $this->createNotFoundException(
-                'No room found for id ' . $id
-            );
+            throw $this->createNotFoundException('No room found for id ' . $id);
         }
 
         return $this->render(
@@ -126,9 +124,7 @@ class GroupController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$group) {
-                throw $this->createNotFoundException(
-                    'No product found for id ' . $id
-                );
+                throw $this->createNotFoundException('No product found for id ' . $id);
             }
 
             $em->flush();
@@ -158,9 +154,7 @@ class GroupController extends AbstractController
         $group = $em->getRepository(Group::class)->find($id);
 
         if (!$group) {
-            throw $this->createNotFoundException(
-                'No product found for id ' . $id
-            );
+            throw $this->createNotFoundException('No product found for id ' . $id);
         }
 
         $em->remove($group);
@@ -230,9 +224,7 @@ class GroupController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$student) {
-                throw $this->createNotFoundException(
-                    'No product found for id ' . $id
-                );
+                throw $this->createNotFoundException('No product found for id ' . $id);
             }
 
             $em->flush();
@@ -266,9 +258,7 @@ class GroupController extends AbstractController
         ]);
 
         if (!$student) {
-            throw $this->createNotFoundException(
-                'No product found for id ' . $studentId
-            );
+            throw $this->createNotFoundException('No product found for id ' . $studentId);
         }
 
         $em->remove($student);

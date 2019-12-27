@@ -57,9 +57,7 @@ class CourseController extends AbstractController
             ->findWithGroups($id);
 
         if (!$course) {
-            throw $this->createNotFoundException(
-                'No course found for id ' . $id
-            );
+            throw $this->createNotFoundException('No course found for id ' . $id);
         }
 
         return $this->render(

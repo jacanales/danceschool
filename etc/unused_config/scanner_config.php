@@ -3,7 +3,7 @@
 declare(strict_types=1);
 /**
  *  Set $projectPath = getcwd(); if your put it under project root.
-**/
+ **/
 $projectPath = __DIR__ . '/../..';
 
 /**

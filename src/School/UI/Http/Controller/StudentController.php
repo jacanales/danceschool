@@ -60,9 +60,7 @@ class StudentController extends AbstractController
             ]);
 
         if (!$student) {
-            throw $this->createNotFoundException(
-                'No student found for id ' . $id
-            );
+            throw $this->createNotFoundException('No student found for id ' . $id);
         }
 
         return $this->render(
@@ -118,9 +116,7 @@ class StudentController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$student) {
-                throw $this->createNotFoundException(
-                    'No product found for id ' . $id
-                );
+                throw $this->createNotFoundException('No product found for id ' . $id);
             }
 
             $em->flush();
@@ -150,9 +146,7 @@ class StudentController extends AbstractController
         $student = $em->getRepository(Student::class)->find($id);
 
         if (!$student) {
-            throw $this->createNotFoundException(
-                'No product found for id ' . $id
-            );
+            throw $this->createNotFoundException('No product found for id ' . $id);
         }
 
         $em->remove($student);
@@ -216,9 +210,7 @@ class StudentController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$annotation) {
-                throw $this->createNotFoundException(
-                    'No product found for id ' . $annotationId
-                );
+                throw $this->createNotFoundException('No product found for id ' . $annotationId);
             }
 
             $em->flush();
@@ -249,9 +241,7 @@ class StudentController extends AbstractController
         $annotation = $em->getRepository(StudentAnnotation::class)->find($annotationId);
 
         if (!$annotation) {
-            throw $this->createNotFoundException(
-                'No product found for id ' . $annotationId
-            );
+            throw $this->createNotFoundException('No product found for id ' . $annotationId);
         }
 
         $em->remove($annotation);
