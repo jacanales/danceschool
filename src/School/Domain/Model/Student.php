@@ -22,7 +22,7 @@ class Student
     /**
      * @var bool
      */
-    protected $member;
+    protected $isMember;
 
     /**
      * @var string
@@ -98,9 +98,9 @@ class Student
         return $this->captationMethod;
     }
 
-    public function setMember(bool $member): self
+    public function setIsMember(bool $isMember): self
     {
-        $this->member = $member;
+        $this->isMember = $isMember;
 
         return $this;
     }
@@ -108,9 +108,9 @@ class Student
     /**
      * @return bool
      */
-    public function getMember(): ?bool
+    public function getIsMember(): ?bool
     {
-        return $this->member;
+        return $this->isMember;
     }
 
     public function setContractExpiration(\DateTime $contractExpiration): self

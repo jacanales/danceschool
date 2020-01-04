@@ -33,9 +33,9 @@ class StudentSpec extends ObjectBehavior
 
     public function it_sets_member(): void
     {
-        $this->setMember(true)->shouldHaveType(Student::class);
+        $this->setIsMember(true)->shouldHaveType(Student::class);
 
-        $this->getMember()->shouldReturn(true);
+        $this->getIsMember()->shouldReturn(true);
     }
 
     public function it_sets_contract_expiration(): void

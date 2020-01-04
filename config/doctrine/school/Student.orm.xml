@@ -7,7 +7,7 @@
             <generator strategy="IDENTITY" />
         </id>
         <field name="captationMethod" type="smallint" column="captation_method" nullable="true" />
-        <field name="member" type="boolean" column="member" />
+        <field name="isMember" type="boolean" column="is_member" />
         <field name="contractExpiration" type="date" column="contract_expiration" column-definition="DATE" nullable="true" />
         <field name="comment" type="text" column="comment" nullable="true" />
         <field name="accountNumber" column="account_number" length="255" nullable="true" />
