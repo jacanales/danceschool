@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block head_style %}
+    {{ parent() }}
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('build/login.css') }}" rel="stylesheet">
+{% endblock head_style %}
+
+{% block page_header %}
+{% endblock page_header %}
+
+{% block flashes %}
+    {% if error %}
+        <div class="alert alert-danger" style="margin-top: 20px;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+{% endblock flashes%}
+
+{% block fos_user_content %}
+    <!-- container -->
+    <section id="content" class="container">
+        <form class="form-signin omb_loginForm" action="{{ path("fos_user_security_check") }}" method="post">
+            <h2 class="form-signin-heading">{{ 'layout.login'|trans }}</h2>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <label for="username" class="sr-only">{{ 'security.login.username'|trans }}</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="form-control" placeholder="{{ 'form.login.placeholder.username'|trans({}, 'messages') }}" autofocus="autofocus" />
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <label for="password" class="sr-only">{{ 'security.login.password'|trans }}</label>
+                <input type="password" id="password" name="_password" class="form-control" placeholder="{{ 'form.login.placeholder.password'|trans({}, 'messages') }}" required="required" />
+            </div>
+
+            <div class="input-group checkbox">
+                <label>
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" /> {{ 'security.login.remember_me'|trans }}
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" id="_submit" name="_submit" type="submit">{{ 'security.login.submit'|trans }}</button>
+        </form>
+        <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" style="display: none;">
+            <span>Facebook</span>
+        </a>
+    </section>
+    <!-- /container -->
+{% endblock fos_user_content %}

@@ -1,5 +1,21 @@
 @import "~bootstrap/scss/bootstrap";
 
+// variables
+$icon-font-path: "../../fonts/bootstrap/" !default;
+$line-height-computed:    floor(($font-size-base * $line-height-base))rem !default; // ~20px
+
+// Main bootstrap.sass entry point
+//@import "~bootstrap/scss";
+
+// The Paginator less for MopaBootstrapBundle
+@import "paginator.scss";
+
+// Collection support for MopaBootstrapBundle
+@import "collections.scss";
+
+// FormFlow support for MopaBootstrapBundle
+@import "form_flow.scss";
+
 body {
     padding-top: 40px;
     padding-bottom: 40px;

@@ -11,6 +11,13 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('login', './assets/js/login.js')
 
+    // will copy assets into public folder
+    .copyFiles({
+        from: './assets/login',
+        to: 'public/login/',
+    })
+    .copy
+
     // allow sass/scss files to be processed
     .enableSassLoader()
 
