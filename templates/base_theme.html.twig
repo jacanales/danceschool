@@ -16,10 +16,10 @@
 {% block foot_script %}
     {{ parent() }}
     <script type="text/javascript">
-        $(document).ready(function () {
+        /*$(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
             $('[data-toggle="popover"]').popover();
-        });
+        });*/
     </script>
 {% endblock foot_script %}
 
@@ -51,14 +51,10 @@
                 <div class="row">
                     {% block content %}
                         <div class="col-sm-9">
-                            {% block content_content %}
-                                <strong>Lorem ipsum... </strong>
-                            {% endblock content_content %}
+                            {% block content_content %}{% endblock %}
                         </div>
                         <div class="col-sm-3">
-                            {% block content_sidebar %}
-                                <h2>Sidebar</h2>
-                            {% endblock content_sidebar %}
+                            {% block content_sidebar %}{% endblock %}
                         </div>
                     {% endblock content %}
                 </div>

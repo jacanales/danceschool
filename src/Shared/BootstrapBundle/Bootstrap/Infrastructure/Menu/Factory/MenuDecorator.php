@@ -26,7 +26,7 @@ class MenuDecorator
     public function buildItem(ItemInterface $item, array $options)
     {
         if ($options['navbar']) {
-            $item->setChildrenAttribute('class', 'nav navbar-nav' . ($options['navbar-right'] ? ' navbar-right' : ''));
+            $item->setChildrenAttribute('class', 'navbar-nav mr-auto' . ($options['navbar-right'] ? ' navbar-right' : ''));
         }
 
         if ($options['pills']) {

@@ -1,11 +1,8 @@
-@import "~bootstrap/scss/bootstrap";
-
 // variables
 $icon-font-path: "../../fonts/bootstrap/" !default;
-$line-height-computed:    floor(($font-size-base * $line-height-base))rem !default; // ~20px
 
 // Main bootstrap.sass entry point
-//@import "~bootstrap/scss";
+@import "~bootstrap/scss/bootstrap";
 
 // Bootstrap overrides, such as the asset-url(..) function.
 @import "theme";
@@ -20,7 +17,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base))rem !defau
 @import "form_flow.scss";
 
 body {
-    padding-top: 40px;
+    padding-top: 0px;
     padding-bottom: 40px;
     background-color: #eee;
 }
