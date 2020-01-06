@@ -7,6 +7,9 @@ $line-height-computed:    floor(($font-size-base * $line-height-base))rem !defau
 // Main bootstrap.sass entry point
 //@import "~bootstrap/scss";
 
+// Bootstrap overrides, such as the asset-url(..) function.
+@import "theme";
+
 // The Paginator less for MopaBootstrapBundle
 @import "paginator.scss";
 

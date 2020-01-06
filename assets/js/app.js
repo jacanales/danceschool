@@ -1,11 +1,12 @@
-import $ from 'jquery';
+import 'jquery';
 
+// CSS
+require('../css/layout/layout.scss')
+
+// JS
 require('bootstrap');
-
-import '../css/layout/layout.scss';
-
 (function() {
-    $('h1').tooltip()
+
 })();
 
 // CSS

@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 {% endblock meta %}
 
-{% block stylesheets %}
+{% block head_style %}
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="{{ asset('login/images/icons/favicon.ico') }}"/>
 <!--===============================================================================================-->
@@ -26,7 +26,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('login/css/util.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('login/css/main.css') }}">
 <!--===============================================================================================-->
-{% endblock stylesheets %}
+{% endblock head_style %}
 
 {% block body %}
 	<section class="limiter">
@@ -92,7 +92,7 @@
 	</section>
 {% endblock body %}
 
-{% block javascripts %}
+{% block foot_script %}
 	
 <!--===============================================================================================-->	
 	<script src="{{ asset('login/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
@@ -103,4 +103,4 @@
 	<script src="{{ asset('login/vendor/select2/select2.min.js') }}"></script>
 <!--===============================================================================================-->
 	<script src="{{ asset('login/js/main.js') }}"></script>
-{% endblock javascripts %}
+{% endblock foot_script %}

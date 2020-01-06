@@ -1,0 +1,112 @@
+<?php
+
+declare(strict_types=1);
+
+/*
+ * This file is part of the MopaBootstrapBundle.
+ *
+ * (c) Philipp A. Mohrenweiser <phiamo@googlemail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Zonadev\BootstrapBundle\Bootstrap\Infrastructure\Form\Extension;
+
+use Symfony\Component\Form\AbstractTypeExtension;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
+/**
+ * Extension for Date type.
+ *
+ * @author phiamo <phiamo@googlemail.com>
+ */
+class DateTypeExtension extends AbstractTypeExtension
+{
+    /**
+     * @var array
+     */
+    protected $options;
+
+    /**
+     * Constructor.
+     */
+    public function __construct(array $options)
+    {
+        $this->options = $options;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function finishView(FormView $view, FormInterface $form, array $options)
+    {
+        if ('single_text' === $options['widget']) {
+            if (isset($options['datepicker'])) {
+                $view->vars['datepicker'] = $options['datepicker'];
+            }
+            if (isset($options['widget_reset_icon'])) {
+                $view->vars['widget_reset_icon'] = $options['widget_reset_icon'];
+            }
+        }
+
+        $view->vars['date_wrapper_class'] = $options['date_wrapper_class'];
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @deprecated Remove it when bumping requirements to SF 2.7+
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $this->configureOptions($resolver);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        if (\method_exists($resolver, 'setDefined')) {
+            $resolver->setDefined([
+                'datepicker',
+                'widget_reset_icon',
+            ]);
+        } else { // Symfony <2.6 BC
+            $resolver->setOptional([
+                'datepicker',
+                'widget_reset_icon',
+            ]);
+        }
+
+        $resolver->setDefaults([
+            'date_wrapper_class' => $this->options['date_wrapper_class'],
+        ]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getExtendedType()
+    {
+        return \method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix')
+            ? DateType::class
+            : 'date' // SF <2.8 BC
+;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function getExtendedTypes()
+    {
+        return [
+            DateType::class,
+        ];
+    }
+}
