@@ -5,16 +5,16 @@ $icon-font-path: "../../fonts/bootstrap/" !default;
 @import "~bootstrap/scss/bootstrap";
 
 // Bootstrap overrides, such as the asset-url(..) function.
-@import "theme";
+//@import "theme";
 
 // The Paginator less for MopaBootstrapBundle
-@import "paginator.scss";
+//@import "paginator.scss";
 
 // Collection support for MopaBootstrapBundle
-@import "collections.scss";
+//@import "collections.scss";
 
 // FormFlow support for MopaBootstrapBundle
-@import "form_flow.scss";
+//@import "form_flow.scss";
 
 body {
     padding-top: 0px;
