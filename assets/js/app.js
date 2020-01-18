@@ -4,5 +4,7 @@ import 'jquery';
 import 'bootstrap/dist/js/bootstrap';
 
 // CSS
-require('../css/layout/layout.scss')
+import '../css/layout/layout.scss'
 
+import 'webpack-icons-installer/font-awesome';
+import 'webpack-icons-installer/bootstrap';
