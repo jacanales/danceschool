@@ -20,10 +20,9 @@ html, body {
     height: 100%;
 }
 
-body {
-    //padding-top: 0px;
-    //padding-bottom: 40px;
-    //background-color: #eee;
+body {    
+    background: lightgray;
+    background: linear-gradient(to top, lightgray, white);
     display: flex;
     flex-direction: column;
 }
@@ -34,6 +33,10 @@ body {
 
 footer {
     flex-shrink: none;
+}
+
+footer p {
+    margin-bottom: 0;
 }
 
 footer.page-footer .footer-copyright {
