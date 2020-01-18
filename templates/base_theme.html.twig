@@ -3,11 +3,12 @@
 {% from 'Theme/flash.html.twig' import session_flash %}
 
 {% block head_script %}
-    <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  {{ encore_entry_script_tags('app') }}
 {% endblock head_script %}
 
 {% block head_style %}
-    <link href="{{ asset('build/app.css') }}" type="text/css" rel="stylesheet" media="screen" />
+    {{ encore_entry_link_tags('app') }}
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css') }}" type="text/css" rel="stylesheet" media="screen" />
