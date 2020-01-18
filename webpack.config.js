@@ -39,6 +39,4 @@ Encore
 // export the final configuration
 var config = Encore.getWebpackConfig();
 
-console.log(config)
-
 module.exports = config
