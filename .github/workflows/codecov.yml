@@ -15,9 +15,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build the stack
       env:
-        TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+        GITHUB_PACKAGES: ${{ secrets.GITHUB_PACKAGES }}
       run:  |
-            docker login docker.pkg.github.com --username jacanales -p ${TOKEN}
+            make docker-login
             make up-ci
             make composer-install
     - name: Run Coverage
