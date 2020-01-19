@@ -24,7 +24,8 @@ class FOSUBUserProvider extends BaseUserProvider
         $service = $response->getResourceOwner()->getName();
 
         //we "disconnect" previously connected users
-        if (null !== $previousUser = $this->userManager->findUserBy([$property => $username])) {
+        $previousUser = $this->userManager->findUserBy([$property => $username]);
+        if (null !== $previousUser) {
             $this->prepareUser($previousUser, $service);
             $this->userManager->updateUser($previousUser);
         }
