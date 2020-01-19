@@ -7,17 +7,17 @@
 
 @font-face {
   font-family: Montserrat-Regular;
-  src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
+  src: url('https://fonts.googleapis.com/css?family=Montserrat&display=swap'); 
 }
 
 @font-face {
   font-family: Montserrat-ExtraBold;
-  src: url('../fonts/montserrat/Montserrat-ExtraBold.ttf'); 
+  src: url('https://fonts.googleapis.com/css?family=Montserrat:800&display=swap'); 
 }
 
 @font-face {
   font-family: Montserrat-Bold;
-  src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
+  src: url('https://fonts.googleapis.com/css?family=Montserrat:700&display=swap'); 
 }
 
 

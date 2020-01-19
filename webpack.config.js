@@ -9,7 +9,7 @@ Encore
 
     // will create public/build/app.js and public/build/app.css
     .addEntry('app', './assets/js/app.js')
-    //.addEntry('login', './assets/js/login.js')
+    .addEntry('login', './assets/js/login.js')
 
     // will copy assets into public folder
     /*.copyFiles({
