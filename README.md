@@ -26,8 +26,8 @@ gem install bundler
 
 ** Execute commands **
 ```
-php app/console doctrine:schema:create --dump-sql
-php app/console assetic:dump
+php bin/console doctrine:schema:create --dump-sql
+php bin/console assets:install
 ```
 
 ** Dev utilities **

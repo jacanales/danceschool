@@ -1,10 +1,10 @@
-// CSS
-require('../../vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/sass/mopabootstrapbundle-3.2.scss')
-require('../css/layout/layout.css');
-
+// JS
 import 'jquery';
-// JavaScript
-//require('../js/jquery/jquery-2.1.4.min.js');
-require('../../vendor/twbs/bootstrap-sass/assets/javascripts/bootstrap.js');
-require('../../public/bundles/mopabootstrap/js/mopabootstrap-collection.js');
-require('../../public/bundles/mopabootstrap/js/mopabootstrap-subnav.js');
+//require('jquery');
+import 'bootstrap/dist/js/bootstrap';
+
+// CSS
+import '../css/layout/layout.scss'
+
+import 'webpack-icons-installer/font-awesome';
+import 'webpack-icons-installer/bootstrap';

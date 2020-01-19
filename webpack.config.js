@@ -11,11 +11,17 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('login', './assets/js/login.js')
 
+    // will copy assets into public folder
+    /*.copyFiles({
+        from: './assets/login',
+        to: 'login/',
+    })*/
+
     // allow sass/scss files to be processed
     .enableSassLoader()
 
     // allow legacy applications to use $/jQuery as a global variable
-    .autoProvidejQuery()
+    //.autoProvidejQuery()
 
     .enableSourceMaps(!Encore.isProduction())
 
@@ -24,10 +30,13 @@ Encore
 
     // show OS notifications when builds finish/fail
     .enableBuildNotifications()
+    .enableSingleRuntimeChunk()
 
 // create hashed filenames (e.g. app.abc123.css)
 // .enableVersioning()
 ;
 
 // export the final configuration
-module.exports = Encore.getWebpackConfig();
+var config = Encore.getWebpackConfig();
+
+module.exports = config

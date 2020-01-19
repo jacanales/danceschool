@@ -1,12 +1,54 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+{% block html_tag %}
+<html lang="{{ app.request.locale }}">
+{% endblock html_tag %}
+{% block head %}
+<head>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta charset="{{ _charset }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta %}{% endblock %}
+    {% block head_style %}{% endblock %}
+    {% block head_script %}{% endblock %}
+    {% block favicon %}<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />{% endblock %}
+    {% block head_bottom %}{% endblock %}
+</head>
+{% endblock head %}
+
+{% block body_tag %}
+<body>
+{% endblock body_tag %}
+    {% block body_start %}{% endblock %}
+
+    {% block body %}
+        <!-- NAVBAR -->
+        {% block navbar %}{% endblock %}
+        {% block body_end_before_js %}{% endblock %}
+        <!-- /NAVBAR -->
+
+        <!-- CONTAINER -->
+        {% block container %}
+            {% block header %}{% endblock %}
+        {% endblock container %}
+        <!-- /CONTAINER -->
+
+        <!-- FOOTER -->
+        {% block footer_tag_start %}
+            <footer>
+        {% endblock footer_tag_start %}
+
+        {% block footer %}{% endblock %}
+
+        {% block footer_tag_end %}
+            </footer>
+        {% endblock footer_tag_end %}
+        <!-- /FOOTER -->
+    {% endblock body%}
+
+    {% block foot_script %}
+        {% block foot_script_assetic %}{% endblock %}
+    {% endblock foot_script %}
+
+    {% block body_end %}{% endblock %}
+</body>
 </html>

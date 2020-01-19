@@ -1,0 +1,56 @@
+// variables
+//$icon-font-path: "../../fonts/bootstrap/" !default;
+
+// Main bootstrap.sass entry point
+@import "~bootstrap/scss/bootstrap";
+
+// Bootstrap overrides, such as the asset-url(..) function.
+//@import "theme";
+
+// The Paginator less for MopaBootstrapBundle
+//@import "paginator.scss";
+
+// Collection support for MopaBootstrapBundle
+//@import "collections.scss";
+
+// FormFlow support for MopaBootstrapBundle
+//@import "form_flow.scss";
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: lightgray;
+    background: linear-gradient(to top, lightgray, white);
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: none;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+footer.page-footer .footer-copyright {
+  overflow: hidden;
+  color: rgba(255,255,255,0.6);
+  background-color: rgba(0,0,0,0.7);
+}
+
+footer.page-footer a {
+  color: #fff;
+}
+
+.label,.glyphicon { margin-right:5px; }
+
+.dl-horizontal dt {
+    text-align: left;
+}

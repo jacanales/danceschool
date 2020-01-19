@@ -16,7 +16,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 
 class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
-    private const MAX_STUDENTS = 50;
+    private const MAX_STUDENTS = 10;
 
     /**
      * @var ObjectManager
@@ -64,11 +64,11 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
 
             $student = new Student();
             $student->setUser($user);
-            $student->setComment($faker->text(50));
-            $student->setCaptationMethod(0);
-            $student->setContractExpiration($faker->dateTimeThisYear);
-            $student->setMember($faker->boolean());
-            $student->setAccountNumber($faker->bankAccountNumber);
+            //$student->setComment($faker->text(50));
+            //$student->setCaptationMethod(0);
+            //$student->setContractExpiration($faker->dateTimeThisYear);
+            $student->setIsMember($faker->boolean());
+            //$student->setAccountNumber($faker->bankAccountNumber);
 
             $this->manager->persist($student);
         }
