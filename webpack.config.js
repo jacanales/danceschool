@@ -11,6 +11,15 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('login', './assets/js/login.js')
 
+    .addLoader({
+        test: /\.font\.js/,
+        loader: 'webfonts-loader',
+        options: {
+            publicPath: '/fonts/'
+            
+        }
+    })
+
     // will copy assets into public folder
     /*.copyFiles({
         from: './assets/login',
