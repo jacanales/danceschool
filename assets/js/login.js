@@ -5,8 +5,7 @@ import 'jquery';
 import 'bootstrap/dist/js/bootstrap';
 
 // CSS
-import '../css/login/main.css'
-import '../css/login/util.css'
+import '../css/login/login.scss'
 
 import 'webpack-icons-installer/font-awesome';
 import 'webpack-icons-installer/bootstrap';
