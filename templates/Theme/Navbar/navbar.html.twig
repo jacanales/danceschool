@@ -20,32 +20,32 @@
                             Inicio
                         </a>
                     </li>
-                    <li class="nav-item active dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sala</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="/admin/room/">Listado de salas</a>
                         </div>                    
                     </li>
-                    <li class="nav-item active dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Curso</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="/admin/course/">Listado de cursos</a>
                         </div> 
                     </li>
-                    <li class="nav-item active dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profesor</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="/admin/teacher/">Listado de profesores</a>
                         </div>
                     </li>
-                    <li class="nav-item active dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alumno</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/admin/student/">Listado de salas</a>
+                            <a class="dropdown-item" href="/admin/student/">Listado de alumnos</a>
                             <a class="dropdown-item" href="/admin/student/add">Añadir alumno</a>
                         </div>
                     </li>
-                    <li class="nav-item active dropdown last">
+                    <li class="nav-item dropdown last">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Grupo</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="/admin/group/">Listado de grupos</a>
@@ -63,9 +63,9 @@
                         <a class="nav-link" href="/admin">Admin</a>
                     </li>
                     {% endif %}
-                    <li class="nav-item active dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="glyphicon glyphicon-user"></span>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} <b class="caret"></b>
+                            <span class="glyphicon glyphicon-user"></span>{{ app.user.username }} <b class="caret"></b>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="loginDropdown">
                             <div role="presentation" class="dropdown-header first">

@@ -54,3 +54,15 @@ footer.page-footer a {
 .dl-horizontal dt {
     text-align: left;
 }
+
+table.table {
+    font-size: 0.8rem;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.table-sm th[scope=row] {
+    vertical-align: middle;
+}
