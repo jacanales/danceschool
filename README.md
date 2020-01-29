@@ -12,7 +12,7 @@ A Symfony scaffolding project.
 Installation
 ============
 
-** Install Compass **
+**Install Compass**
 ```
 gem update --system
 gem install compass
@@ -24,17 +24,17 @@ gem install bundler
 ```
 
 
-** Execute commands **
+**Execute commands**
 ```
 php bin/console doctrine:schema:create --dump-sql
 php bin/console assets:install
 ```
 
-** Dev utilities **
+**Dev utilities**
 ```
 npm install grunt --save-dev
 npm install grunt-contrib-jshint --save-dev
 ```
 
-** Extended **
+**Extended**
 - See SonataAadmin documentation: https://sonata-project.org/bundles/admin/3-x/doc/getting_started/the_list_view.html
