@@ -4,8 +4,9 @@ on:
   push:
     branches:
     - master
-    - task/addActions
-
+  pull_request:
+    branches:
+    - master
 jobs:
   analyze:
     name:    PHP Code Coverage

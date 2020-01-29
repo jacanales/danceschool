@@ -1,7 +1,0 @@
-ignore:
-- ".github"
-- "bin"
-- "exception"
-- "spec"
-- "tests"
-- "vendor"
