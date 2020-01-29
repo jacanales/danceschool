@@ -1,8 +1,8 @@
 CI Status Badges
 =============
-| CircleCI | Codefactor.io | Codacy | PHPSpec Coverage | PHPUnit Coverage 
+| CircleCI | Codefactor.io | Codacy | Sonarcloud Quality | Bugs
 | ------ | :-------- | :-------- | :-------- | :-------- 
-| [![CircleCI](https://circleci.com/gh/jacanales/danceschool.svg?style=svg)](https://circleci.com/gh/jacanales/danceschool) | [![CodeFactor](https://www.codefactor.io/repository/github/jacanales/danceschool/badge)](https://www.codefactor.io/repository/github/jacanales/danceschool) | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e3e5fc28bf1346cdb365136ac765a892)](https://www.codacy.com?utm_source=git@bitbucket.org&amp;utm_medium=referral&amp;utm_content=jacanales/danceschool&amp;utm_campaign=Badge_Grade) | N/A | N/A 
+| [![CircleCI](https://circleci.com/gh/jacanales/danceschool.svg?style=svg)](https://circleci.com/gh/jacanales/danceschool) | [![CodeFactor](https://www.codefactor.io/repository/github/jacanales/danceschool/badge)](https://www.codefactor.io/repository/github/jacanales/danceschool) | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e3e5fc28bf1346cdb365136ac765a892)](https://www.codacy.com?utm_source=git@bitbucket.org&amp;utm_medium=referral&amp;utm_content=jacanales/danceschool&amp;utm_campaign=Badge_Grade) | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jacanales_danceschool&metric=alert_status)](https://sonarcloud.io/dashboard?id=jacanales_danceschool) | [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=jacanales_danceschool&metric=bugs)](https://sonarcloud.io/dashboard?id=jacanales_danceschool)
 
 danceschool
 =======
