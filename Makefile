@@ -4,7 +4,7 @@ PHPSTAN_BUILD_FOLDER?=/tmp/build/phpstan
 PHPSTAN_RESULT_FILE?=${PHPSTAN_BUILD_FOLDER}/phpstan.result
 YAML_LINT?=yamllint -c ${PWD}/etc/yamllint/.yamllint
 AUTOLOAD_CHECKER?=bin/autoload-checker --config=${PWD}/etc/autoload/.autoload-checker.yml
-DOCKER_FILE?=etc/docker/docker-compose.yml
+DOCKER_FILE?=docker-compose.yml
 DOCKER?=docker-compose -f $(DOCKER_FILE)
 SERVICE?=php
 RUN?=$(DOCKER) run $(SERVICE)
@@ -71,7 +71,7 @@ database-provision:
 	bin/console doctrine:fixtures:load -n
 
 compile-assets:
-	./node_modules/.bin/encore dev --context .
+	yarn run encore dev
 .PHONY: server database-update database-provision compile-assets
 ########################################################################################################################
 # Code Quality
