@@ -1,4 +1,6 @@
-{% extends "base.html.twig" %}
+{% extends 'base_theme.html.twig' %}
+
+{% block headline %}{% endblock headline %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
@@ -8,8 +10,8 @@
 {% endblock meta %}
 
 {% block head_style %}
+	{{ parent() }}
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="{{ asset('login/images/icons/favicon.ico') }}"/>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800&display=swap" rel="stylesheet" type="text/css">
 <!--===============================================================================================-->
 	{{ encore_entry_link_tags('login') }}
@@ -22,19 +24,28 @@
 	{{ encore_entry_script_tags('login') }}
 {% endblock foot_script %}
 
-{% block body %}
+{% block navbar %}
+	{% embed 'Theme/Navbar/navbar.html.twig' with { fixedTop: true, staticTop: true, inverse: true, id: 'navbar-body' } %}
+		{% block brand %}
+			<a class="navbar-brand" href="#">
+				<img class="navbar-brand" height="25" style="padding:0" src="{{ asset('images/logo.png') }}" />
+				Dance School
+			</a>
+
+		{% endblock %}
+		{% block menu_container %}{% endblock %}
+	{% endembed %}
+{% endblock navbar %}
+
+{% block container %}
 	<section class="limiter">
 		{% if error %}
 			<div class="alert alert-danger" style="margin-top: 20px;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 		{% endif %}
 		<div class="container-login100" style="">
-			<div class="wrap-login100 p-t-190 p-b-30">
+			<div class="wrap-login100 p-b-30">
 				<form class="login100-form validate-form" action="{{ path("fos_user_security_check") }}" method="post">
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-
-					<div class="login100-form-avatar">
-						<img src="">
-					</div>
 
 					<span class="login100-form-title p-t-20 p-b-45">
 						Welcome!
@@ -68,7 +79,7 @@
 						</button>
 					</div>
 
-					<div class="text-center w-full p-t-25 p-b-230">
+					<div class="text-center w-full p-t-25 p-b-80">
 						<a href="#" class="txt1">
 							Forgot Username / Password?
 						</a>
@@ -84,5 +95,4 @@
 			</div>
 		</div>
 	</section>
-{% endblock body %}
-
+{% endblock %}
