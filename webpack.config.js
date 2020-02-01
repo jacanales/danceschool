@@ -18,7 +18,15 @@ Encore
     })*/
 
     // allow sass/scss files to be processed
-    .enableSassLoader()
+    //.enableSassLoader()
+    .enableSassLoader((options) => {
+        options.sourceMap = true;
+        options.sassOptions = {
+            outputStyle: options.outputStyle,
+            sourceComments: !Encore.isProduction(),
+        };
+        delete options.outputStyle;
+    }, {})
 
     // allow legacy applications to use $/jQuery as a global variable
     //.autoProvidejQuery()
