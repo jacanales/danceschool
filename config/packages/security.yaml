@@ -2,15 +2,7 @@
 # http://symfony.com/doc/current/book/security.html
 security:
     # http://symfony.com/doc/current/book/security.html#encoding-the-user-s-password
-    encoders:
-        FOS\UserBundle\Model\UserInterface:
-            algorithm: auto
-            cost: 12
-
-    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
-    providers:
-        fos_userbundle:
-            id: fos_user.user_provider.username_email
+    #encoders: ~
 
     # the main part of the security, where you can set up firewalls
     # for specific sections of your app
@@ -23,20 +15,20 @@ security:
             pattern:    ^/
             # Turn on anonymous for testings need.
             anonymous: true
-            form_login:
-                provider: fos_userbundle
-                csrf_token_generator: security.csrf.token_manager
-                login_path: /login
-                check_path: /login_check
-            oauth:
-                resource_owners:
-                    facebook:      "/login/check-facebook"
-                login_path:        /login
-                failure_path:      /login
-                use_forward:       false
-                oauth_user_provider:
-                    #service: hwi_oauth.user.provider.fosub_bridge
-                    service: App\Security\Core\User\FOSUBUserProvider
+            #form_login:
+            #    provider: fos_userbundle
+            #    csrf_token_generator: security.csrf.token_manager
+            #    login_path: /login
+            #    check_path: /login_check
+            #oauth:
+            #    resource_owners:
+            #        facebook:      "/login/check-facebook"
+            #    login_path:        /login
+            #    failure_path:      /login
+            #    use_forward:       false
+            #    oauth_user_provider:
+            #        #service: hwi_oauth.user.provider.fosub_bridge
+            #        service: App\Security\Core\User\FOSUBUserProvider
             logout:
                 path: /logout
 

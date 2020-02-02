@@ -1,3 +1,3 @@
 controllers:
-    resource: ../src/School/UI/Http/Controller/
+    resource: ../../src/School/UI/Http/Controller/
     type:     annotation
