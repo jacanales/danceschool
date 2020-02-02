@@ -16,7 +16,7 @@
         <field name="password" column="password" />
 
         <field name="name" column="name" length="255" />
-        <field name="lastname" column="lastname" length="255" nullable="true" />
+        <field name="surname" column="surname" length="255" nullable="true" />
         <field name="gender" column="gender" length="1" nullable="true" />
         <field name="birthday" type="date" column="birthday" column-definition="DATE" nullable="true" />
         <field name="phone" column="phone" length="30" nullable="true" />

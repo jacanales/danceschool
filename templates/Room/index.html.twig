@@ -28,7 +28,7 @@
                 <td>{{ room.address }}</td>
                 <td>{{ room.city }}</td>
                 <td>{{ room.postalCode }}</td>
-                <td>{% if room.phone %}{{ room.phone|phone_number_format('NATIONAL') }}{% endif %}</td>
+                <!-- td>{% if room.phone %}{{ room.phone|phone_number_format('NATIONAL') }}{% endif %}</td-->
                 <td class="info"><a href="{{ path('danceschool_room_show', {'id': room.getId()}) }}" class="btn btn-primary btn-sm" role="button">{{ 'button.view'|trans() }}</a></td>
             </tr>
         {% endfor %}

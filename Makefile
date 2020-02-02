@@ -33,8 +33,7 @@ up-ci:
 	DOCKER_FILE=etc/docker/docker-compose-ci.yml
 	$(MAKE) up
 
-provision:
-	$(MAKE) database-update
+provision: database-update
 	$(MAKE) database-provision
 
 build:

@@ -12,8 +12,6 @@ doctrine:
     driver:         'pdo_mysql'
     server_version: '8.0'
     charset:        utf8mb4
-    #types:
-      #phone_number: Misd\PhoneNumberBundle\Doctrine\DBAL\Types\PhoneNumberType
 
     # With Symfony 3.3, remove the `resolve:` prefix
     url:            '%env(DATABASE_URL)%'
