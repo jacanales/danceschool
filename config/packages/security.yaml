@@ -4,6 +4,10 @@ security:
     # http://symfony.com/doc/current/book/security.html#encoding-the-user-s-password
     #encoders: ~
 
+    encoders:
+        App\Security\Domain\Entity\User:
+            algorithm: auto
+
     # the main part of the security, where you can set up firewalls
     # for specific sections of your app
     firewalls:
@@ -15,11 +19,14 @@ security:
             pattern:    ^/
             # Turn on anonymous for testings need.
             anonymous: true
-            #form_login:
-            #    provider: fos_userbundle
-            #    csrf_token_generator: security.csrf.token_manager
-            #    login_path: /login
-            #    check_path: /login_check
+            form_login:
+                provider: app_user_provider
+                csrf_token_generator: security.csrf.token_manager
+                login_path: /login
+                check_path: /login_check
+                default_target_path: homepage
+                always_use_default_target_path: true
+                failure_path_parameter: /login
             #oauth:
             #    resource_owners:
             #        facebook:      "/login/check-facebook"
@@ -49,3 +56,9 @@ security:
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Security\Domain\Entity\User
+                property: username

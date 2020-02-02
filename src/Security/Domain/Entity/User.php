@@ -4,73 +4,29 @@ declare(strict_types=1);
 
 namespace App\Security\Domain\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-class User extends BaseUser
+class User implements UserInterface
 {
     public const ROLE_ADMIN = 'ROLE_ADMIN';
-
-    /**
-     * @var string
-     */
-    protected $name = '';
-
-    /**
-     * @var string
-     */
-    protected $lastname = '';
-
-    /**
-     * @var string
-     */
-    protected $gender = '';
-
-    /**
-     * @var \DateTime
-     */
+    protected $surname      = '';
+    protected $gender       = '';
     protected $birthday;
-
-    /**
-     * @var string
-     */
-    protected $phone = '';
-
-    /**
-     * @var string
-     */
-    protected $address = '';
-
-    /**
-     * @var string
-     */
-    protected $city = '';
-
-    /**
-     * @var string
-     */
-    protected $country = '';
-
-    /**
-     * @var string
-     */
-    protected $postalCode = '';
-
-    /**
-     * @var string
-     */
+    protected $phone          = '';
+    protected $address        = '';
+    protected $city           = '';
+    protected $country        = '';
+    protected $postalCode     = '';
     protected $identityNumber = '';
-
-    /**
-     * @var \DateTime
-     */
     protected $created;
-
-    /**
-     * @var \DateTime
-     */
     protected $modified;
 
-    protected $facebookId;
+    private $id;
+    private $username;
+    private $roles;
+    private $password;
+
+    private $name = '';
 
     public function __construct()
     {
@@ -81,7 +37,7 @@ class User extends BaseUser
 
     public function setCreatedAt(): void
     {
-        $this->setCreated(new \DateTime('now'));
+        $this->createdAt(new \DateTimeImmutable('now'));
     }
 
     public function setUpdatedAt(): void
@@ -90,191 +46,79 @@ class User extends BaseUser
             $this->name = $this->getUsername();
         }
 
-        $this->setModified(new \DateTime('now'));
+        $this->modified(new \DateTime('now'));
     }
 
-    public function setName(string $name): self
+    public function getId(): ?int
     {
-        $this->name = $name;
-
-        return $this;
+        return $this->id;
     }
 
-    public function getName(): string
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUsername(): string
     {
-        return $this->name;
+        return (string) $this->username;
     }
 
-    public function setLastname(string $lastname): self
+    public function setUsername(string $username): self
     {
-        $this->lastname = $lastname;
+        $this->username = $username;
 
         return $this;
     }
 
     /**
-     * @return string
+     * @see UserInterface
      */
-    public function getLastname(): ?string
+    public function getRoles(): array
     {
-        return $this->lastname;
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return \array_unique($roles);
     }
 
-    public function setGender(string $gender): self
+    public function setRoles(array $roles): self
     {
-        $this->gender = $gender;
-
-        return $this;
-    }
-
-    public function getGender(): string
-    {
-        return $this->gender;
-    }
-
-    public function setBirthday(\DateTime $birthday): self
-    {
-        $this->birthday = $birthday;
+        $this->roles = $roles;
 
         return $this;
     }
 
     /**
-     * @return \DateTime
+     * @see UserInterface
      */
-    public function getBirthday(): ?\DateTime
+    public function getPassword(): string
     {
-        return $this->birthday;
+        return (string) $this->password;
     }
 
-    public function setPhone(string $phone): self
+    public function setPassword(string $password): self
     {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    public function getPhone(): string
-    {
-        return $this->phone;
-    }
-
-    public function setAddress(string $address): self
-    {
-        $this->address = $address;
+        $this->password = $password;
 
         return $this;
     }
 
     /**
-     * @return string
+     * @see UserInterface
      */
-    public function getAddress(): ?string
+    public function getSalt()
     {
-        return $this->address;
-    }
-
-    public function setCity(string $city): self
-    {
-        $this->city = $city;
-
-        return $this;
+        // not needed when using the "bcrypt" algorithm in security.yaml
     }
 
     /**
-     * @return string
+     * @see UserInterface
      */
-    public function getCity(): ?string
+    public function eraseCredentials()
     {
-        return $this->city;
-    }
-
-    public function setCountry(string $country): self
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCountry(): ?string
-    {
-        return $this->country;
-    }
-
-    public function setPostalCode(string $postalCode): self
-    {
-        $this->postalCode = $postalCode;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPostalCode(): ?string
-    {
-        return $this->postalCode;
-    }
-
-    public function setIdentityNumber(string $identityNumber): self
-    {
-        $this->identityNumber = $identityNumber;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getIdentityNumber(): ?string
-    {
-        return $this->identityNumber;
-    }
-
-    public function setCreated(\DateTime $created): self
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreated(): ?\DateTime
-    {
-        return $this->created;
-    }
-
-    public function setModified(\DateTime $modified): self
-    {
-        $this->modified = $modified;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getModified(): ?\DateTime
-    {
-        return $this->modified;
-    }
-
-    public function setFacebookId(string $facebookId): void
-    {
-        $this->facebookId = $facebookId;
-        $this->salt       = '';
-    }
-
-    /**
-     * @return string
-     */
-    public function getFacebookId(): ?string
-    {
-        return $this->facebookId;
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 }
