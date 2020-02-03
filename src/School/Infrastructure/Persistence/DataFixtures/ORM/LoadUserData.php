@@ -7,7 +7,7 @@ namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 use App\Security\Domain\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -48,7 +48,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         return 1;
     }
 
-    private function addUser(string $userName, string $email, string $role = User::ROLE_DEFAULT, string $password = null): void
+    private function addUser(string $userName, string $email, string $role = User::ROLE_USER, string $password = null): void
     {
         $user = $this->manager->getRepository(User::class)->findOneByEmail($email);
 
@@ -56,16 +56,15 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             return;
         }
 
-        $userManager = $this->container->get('fos_user.user_manager');
-        $user        = $userManager->createUser();
+        $user = new User();
 
         $user->setUsername($userName)
-            ->setPlainPassword($this->generatePassword($password))
+            ->setPassword($this->generatePassword($password))
             ->setEmail($email)
-            ->setEnabled(true)
             ->addRole($role);
 
-        $userManager->updateUser($user, true);
+        $this->manager->persist($user);
+        $this->manager->flush();
     }
 
     private function generatePassword(string $password = null): string

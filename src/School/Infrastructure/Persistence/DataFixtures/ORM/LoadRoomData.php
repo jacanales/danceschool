@@ -7,8 +7,7 @@ namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 use App\School\Domain\Model\Room;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
-use libphonenumber\PhoneNumberUtil;
+use Doctrine\Persistence\ObjectManager;
 
 class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -71,12 +70,8 @@ class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface
             ->setPrice($price)
             ->setAddress($address)
             ->setCity($city)
-            ->setPostalCode($postal_code);
-
-        if ($phone) {
-            $phoneNumber = PhoneNumberUtil::getInstance()->parse($phone, PhoneNumberUtil::UNKNOWN_REGION);
-            $room->setPhone($phoneNumber);
-        }
+            ->setPostalCode($postal_code)
+            ->setPhone($phone);
 
         $this->manager->persist($room);
     }

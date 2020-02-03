@@ -10,7 +10,7 @@ use App\School\Domain\Model\Room;
 use App\School\Domain\Model\Teacher;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
 class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface

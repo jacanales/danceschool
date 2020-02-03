@@ -4,48 +4,15 @@ declare(strict_types=1);
 
 namespace App\School\Domain\Model;
 
-use libphonenumber\PhoneNumber;
-
 class Room
 {
-    /**
-     * @var int
-     */
     protected $id;
-
-    /**
-     * @var string
-     */
     protected $name;
-
-    /**
-     * @var string
-     */
     protected $description;
-
-    /**
-     * @var float
-     */
     protected $price;
-
-    /**
-     * @var string
-     */
     protected $address;
-
-    /**
-     * @var string
-     */
     protected $city;
-
-    /**
-     * @var string
-     */
     protected $postalCode;
-
-    /**
-     * @var PhoneNumber
-     */
     protected $phone;
 
     public function getRoom(): self
@@ -53,9 +20,6 @@ class Room
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getId(): ?int
     {
         return $this->id;
@@ -68,9 +32,6 @@ class Room
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): ?string
     {
         return $this->name;
@@ -83,9 +44,6 @@ class Room
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getDescription(): ?string
     {
         return $this->description;
@@ -98,9 +56,6 @@ class Room
         return $this;
     }
 
-    /**
-     * @return float
-     */
     public function getPrice(): ?float
     {
         return $this->price;
@@ -128,9 +83,6 @@ class Room
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getCity(): ?string
     {
         return $this->city;
@@ -143,9 +95,6 @@ class Room
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getPostalCode(): ?string
     {
         return $this->postalCode;
@@ -158,15 +107,12 @@ class Room
         return $this;
     }
 
-    /**
-     * @return PhoneNumber
-     */
-    public function getPhone(): ?PhoneNumber
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(PhoneNumber $phone): self
+    public function setPhone(string $phone): self
     {
         $this->phone = $phone;
 

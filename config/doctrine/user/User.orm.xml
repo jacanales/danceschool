@@ -2,16 +2,17 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="App\Security\Domain\Entity\User" table="users" repository-class="App\Security\Domain\Repository\UserRepository">
+    <entity name="App\Security\Domain\Entity\User" table="users" repository-class="App\Security\Infrastructure\Repository\UserRepository">
         <unique-constraints>
-            <unique-constraint name="UNIQ_1483A5E992FC23A8" columns="username_canonical" />
-            <unique-constraint name="UNIQ_1483A5E9A0D96FBF" columns="email_canonical" />
+            <unique-constraint name="UNIQ_1483A5E992FC23A8" columns="username" />
+            <unique-constraint name="UNIQ_1483A5E9A0D96FBF" columns="email" />
             <unique-constraint name="UNIQ_1483A5E92BC7B602" columns="identity_number" />
         </unique-constraints>
         <id name="id" type="integer" column="id">
             <generator strategy="IDENTITY" />
         </id>
         <field name="username" column="username" unique="true" length="180" />
+        <field name="email" column="email" unique="true" length="180" />
         <field name="roles" column="roles" type="json" />
         <field name="password" column="password" />
 

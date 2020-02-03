@@ -8,67 +8,36 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class User implements UserInterface
 {
-    public const ROLE_ADMIN = 'ROLE_ADMIN';
-    protected $surname      = '';
-    protected $gender       = '';
-    protected $birthday;
-    protected $phone          = '';
-    protected $address        = '';
-    protected $city           = '';
-    protected $country        = '';
-    protected $postalCode     = '';
-    protected $identityNumber = '';
-    protected $created;
-    protected $modified;
+    public const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
+    public const ROLE_ADMIN       = 'ROLE_ADMIN';
+    public const ROLE_USER        = 'ROLE_USER';
 
     private $id;
     private $username;
-    private $roles;
+    private $email;
+    private $roles = [];
     private $password;
-
-    private $name = '';
+    private $name    = '';
+    private $surname = '';
+    private $gender  = '';
+    private $birthday;
+    private $phone          = '';
+    private $address        = '';
+    private $city           = '';
+    private $country        = '';
+    private $postalCode     = '';
+    private $identityNumber = '';
+    private $created;
+    private $modified;
 
     public function __construct()
     {
-        parent::__construct();
-
         $this->setCreatedAt();
-    }
-
-    public function setCreatedAt(): void
-    {
-        $this->createdAt(new \DateTimeImmutable('now'));
-    }
-
-    public function setUpdatedAt(): void
-    {
-        if (null === $this->name) {
-            $this->name = $this->getUsername();
-        }
-
-        $this->modified(new \DateTime('now'));
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
-    public function getUsername(): string
-    {
-        return (string) $this->username;
-    }
-
-    public function setUsername(string $username): self
-    {
-        $this->username = $username;
-
-        return $this;
     }
 
     /**
@@ -78,14 +47,14 @@ class User implements UserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        $roles[] = self::ROLE_USER;
 
         return \array_unique($roles);
     }
 
-    public function setRoles(array $roles): self
+    public function addRole(string $role): self
     {
-        $this->roles = $roles;
+        \array_push($this->roles, $role);
 
         return $this;
     }
@@ -105,20 +74,110 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @see UserInterface
-     */
     public function getSalt()
     {
-        // not needed when using the "bcrypt" algorithm in security.yaml
     }
 
-    /**
-     * @see UserInterface
-     */
     public function eraseCredentials()
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function setCreatedAt(): void
+    {
+        $this->created = new \DateTimeImmutable('now');
+    }
+
+    public function setUpdatedAt(): void
+    {
+        $this->modified = new \DateTimeImmutable('now');
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function setSurname(string $surname): self
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    public function setGender(string $gender): self
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+
+        return $this;
+    }
+
+    public function setPhone(string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function setAddress(string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function setCountry(string $country): self
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    public function setPostalCode(string $postalCode): self
+    {
+        $this->postalCode = $postalCode;
+
+        return $this;
+    }
+
+    public function setIdentityNumber(string $identityNumber): self
+    {
+        $this->identityNumber = $identityNumber;
+
+        return $this;
     }
 }
