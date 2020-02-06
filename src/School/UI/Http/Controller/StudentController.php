@@ -199,7 +199,7 @@ class StudentController extends AbstractController
     public function editAnnotation(Request $request, int $studentId, int $annotationId): Response
     {
         $em         = $this->getDoctrine()->getManager();
-        $annotation = $em->getRepository(':StudentAnnotation')->find($annotationId);
+        $annotation = $em->getRepository(StudentAnnotation::class)->find($annotationId);
 
         $form = $this->createForm(StudentAnnotationType::class, $annotation, [
             'label' => 'title.edit_annotation',

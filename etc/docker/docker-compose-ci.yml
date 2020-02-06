@@ -2,7 +2,7 @@ version: '3'
 
 services:
   php:
-    image:       docker.pkg.github.com/jacanales/danceschool/php:7.3
+    image:       docker.pkg.github.com/jacanales/danceschool/php:7.4
     env_file:
     - ../../.env.docker
     restart:     always

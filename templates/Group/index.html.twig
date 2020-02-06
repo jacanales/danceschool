@@ -29,7 +29,7 @@
         <tbody>
         {% for group in groups %}
             <tr class="tr-class-1">
-                <th scope="row" class="info">{{ group.id }}</td>
+                <th scope="row" class="info">{{ group.id }}</th>
                 <td>{{ group.name }}</td>
                 <td>{{ ('date.weekday.'~ group.weekday)|trans() }}</td>
                 <td>{{ group.hour|date("H:i") }}</td>

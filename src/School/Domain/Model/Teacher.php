@@ -6,45 +6,20 @@ namespace App\School\Domain\Model;
 
 use App\Security\Domain\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class Teacher
 {
-    /**
-     * @var int
-     */
-    protected $id;
-
-    /**
-     * @var User
-     */
-    protected $user;
-
-    /**
-     * @var float
-     */
-    protected $wage;
-
-    /**
-     * @var string
-     */
-    protected $comment;
-
-    /**
-     * @var Group[]
-     */
-    protected $groups;
+    private int $id;
+    private User $user;
+    private float $wage;
+    private string $comment;
+    /** @var Collection<int, Group> */
+    private Collection $groups;
 
     public function __construct()
     {
         $this->groups = new ArrayCollection();
-    }
-
-    /**
-     * @return Teacher
-     */
-    public function getTeacher(): self
-    {
-        return $this;
     }
 
     public function setId(int $id): self
@@ -54,9 +29,6 @@ class Teacher
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getId(): ?int
     {
         return $this->id;
@@ -69,9 +41,6 @@ class Teacher
         return $this;
     }
 
-    /**
-     * @return float
-     */
     public function getWage(): ?float
     {
         return $this->wage;
@@ -84,34 +53,25 @@ class Teacher
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getComment(): ?string
     {
         return $this->comment;
     }
 
-    /**
-     * @param User $user
-     */
-    public function setUser(User $user = null): self
+    public function setUser(User $user): self
     {
         $this->user = $user;
 
         return $this;
     }
 
-    /**
-     * @return User
-     */
-    public function getUser(): ?User
+    public function getUser(): User
     {
         return $this->user;
     }
 
     public function getFullName(): string
     {
-        return $this->getUser()->getName() . ' ' . $this->getUser()->getLastname();
+        return $this->getUser()->getName() . ' ' . $this->getUser()->getSurname();
     }
 }

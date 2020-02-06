@@ -7,7 +7,7 @@ namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 use App\School\Domain\Model\Course;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 
 class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
 {

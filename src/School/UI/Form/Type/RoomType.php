@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace App\School\UI\Form\Type;
 
 use App\School\Domain\Model\Room;
-use libphonenumber\PhoneNumberFormat;
-use Misd\PhoneNumberBundle\Form\Type\PhoneNumberType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -16,6 +14,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RoomType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface<FormBuilderInterface> $builder
+     * @param array<string>                              $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -29,9 +31,8 @@ class RoomType extends AbstractType
             ->add('price', TextType::class, [
                 'label' => 'form.label.price',
             ])
-            ->add('phone', PhoneNumberType::class, [
+            ->add('phone', TextType::class, [
                 'default_region' => 'ES',
-                'format'         => PhoneNumberFormat::NATIONAL,
                 'label'          => 'form.label.phone',
             ])
             ->add('address', TextareaType::class, [

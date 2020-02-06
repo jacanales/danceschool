@@ -4,98 +4,91 @@ declare(strict_types=1);
 
 namespace App\Security\Domain\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
+use DateTimeImmutable;
+use DateTimeInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-class User extends BaseUser
+class User implements UserInterface
 {
-    public const ROLE_ADMIN = 'ROLE_ADMIN';
+    public const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
+    public const ROLE_USER        = 'ROLE_USER';
 
-    /**
-     * @var string
-     */
-    protected $name = '';
+    private int $id;
+    private string $username = '';
+    private string $email    = '';
 
-    /**
-     * @var string
-     */
-    protected $lastname = '';
-
-    /**
-     * @var string
-     */
-    protected $gender = '';
-
-    /**
-     * @var \DateTime
-     */
-    protected $birthday;
-
-    /**
-     * @var string
-     */
-    protected $phone = '';
-
-    /**
-     * @var string
-     */
-    protected $address = '';
-
-    /**
-     * @var string
-     */
-    protected $city = '';
-
-    /**
-     * @var string
-     */
-    protected $country = '';
-
-    /**
-     * @var string
-     */
-    protected $postalCode = '';
-
-    /**
-     * @var string
-     */
-    protected $identityNumber = '';
-
-    /**
-     * @var \DateTime
-     */
-    protected $created;
-
-    /**
-     * @var \DateTime
-     */
-    protected $modified;
-
-    protected $facebookId;
+    /** @var string[] */
+    private array $roles                 = [];
+    private string $password             = '';
+    private string $name                 = '';
+    private string $surname              = '';
+    private string $gender               = '';
+    private ?DateTimeInterface $birthday = null;
+    private string $phone                = '';
+    private string $address              = '';
+    private string $city                 = '';
+    private string $country              = '';
+    private string $postalCode           = '';
+    private string $identityNumber       = '';
+    private DateTimeInterface $created;
+    private DateTimeInterface $modified;
 
     public function __construct()
     {
-        parent::__construct();
-
         $this->setCreatedAt();
+        $this->modified = $this->created;
     }
 
-    public function setCreatedAt(): void
+    /**
+     * @return string[] The user roles
+     *
+     * @see UserInterface
+     */
+    public function getRoles(): array
     {
-        $this->setCreated(new \DateTime('now'));
+        // guarantee every user at least has ROLE_USER
+        $this->roles[] = self::ROLE_USER;
+
+        return \array_unique($this->roles);
     }
 
-    public function setUpdatedAt(): void
+    /**
+     * @see UserInterface
+     */
+    public function getPassword(): ?string
     {
-        if (null === $this->name) {
-            $this->name = $this->getUsername();
-        }
-
-        $this->setModified(new \DateTime('now'));
+        return (string) $this->password;
     }
 
-    public function setName(string $name): self
+    public function setPassword(string $password): self
     {
-        $this->name = $name;
+        $this->password = $password;
+
+        return $this;
+    }
+
+    public function getSalt(): ?string
+    {
+        return null;
+    }
+
+    public function eraseCredentials(): void
+    {
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function addRole(string $role): self
+    {
+        \array_push($this->roles, $role);
 
         return $this;
     }
@@ -105,19 +98,52 @@ class User extends BaseUser
         return $this->name;
     }
 
-    public function setLastname(string $lastname): self
+    public function getSurname(): string
     {
-        $this->lastname = $lastname;
+        return $this->surname;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getLastname(): ?string
+    public function setCreatedAt(): void
     {
-        return $this->lastname;
+        $this->created = new DateTimeImmutable('now');
+    }
+
+    public function setUpdatedAt(): void
+    {
+        $this->modified = new DateTimeImmutable('now');
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function setSurname(string $surname): self
+    {
+        $this->surname = $surname;
+
+        return $this;
     }
 
     public function setGender(string $gender): self
@@ -132,17 +158,14 @@ class User extends BaseUser
         return $this->gender;
     }
 
-    public function setBirthday(\DateTime $birthday): self
+    public function setBirthday(DateTimeInterface $birthday): self
     {
         $this->birthday = $birthday;
 
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getBirthday(): ?\DateTime
+    public function getBirthday(): ?DateTimeInterface
     {
         return $this->birthday;
     }
@@ -166,27 +189,11 @@ class User extends BaseUser
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
-
     public function setCity(string $city): self
     {
         $this->city = $city;
 
         return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCity(): ?string
-    {
-        return $this->city;
     }
 
     public function setCountry(string $country): self
@@ -196,27 +203,11 @@ class User extends BaseUser
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getCountry(): ?string
-    {
-        return $this->country;
-    }
-
     public function setPostalCode(string $postalCode): self
     {
         $this->postalCode = $postalCode;
 
         return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPostalCode(): ?string
-    {
-        return $this->postalCode;
     }
 
     public function setIdentityNumber(string $identityNumber): self
@@ -226,55 +217,38 @@ class User extends BaseUser
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getIdentityNumber(): ?string
+    public function getIdentityNumber(): string
     {
         return $this->identityNumber;
     }
 
-    public function setCreated(\DateTime $created): self
+    public function getAddress(): string
     {
-        $this->created = $created;
-
-        return $this;
+        return $this->address;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getCreated(): ?\DateTime
+    public function getCity(): string
+    {
+        return $this->city;
+    }
+
+    public function getCountry(): string
+    {
+        return $this->country;
+    }
+
+    public function getPostalCode(): string
+    {
+        return $this->postalCode;
+    }
+
+    public function getCreated(): DateTimeInterface
     {
         return $this->created;
     }
 
-    public function setModified(\DateTime $modified): self
-    {
-        $this->modified = $modified;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getModified(): ?\DateTime
+    public function getModified(): DateTimeInterface
     {
         return $this->modified;
-    }
-
-    public function setFacebookId(string $facebookId): void
-    {
-        $this->facebookId = $facebookId;
-        $this->salt       = '';
-    }
-
-    /**
-     * @return string
-     */
-    public function getFacebookId(): ?string
-    {
-        return $this->facebookId;
     }
 }

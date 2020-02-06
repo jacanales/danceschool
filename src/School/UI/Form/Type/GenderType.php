@@ -10,7 +10,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class GenderType extends AbstractType
 {
-    private $genders;
+    /**
+     * @var array<string, string>
+     */
+    private array $genders;
 
     public function __construct()
     {

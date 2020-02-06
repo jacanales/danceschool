@@ -12,6 +12,6 @@
         <field name="address" type="text" column="address" nullable="true" />
         <field name="city" column="city" length="15" nullable="true" />
         <field name="postalCode" column="postal_code" length="15" nullable="true" />
-        <field name="phone" type="phone_number" column="phone" nullable="true" />
+        <field name="phone" column="phone" nullable="true" />
     </entity>
 </doctrine-mapping>

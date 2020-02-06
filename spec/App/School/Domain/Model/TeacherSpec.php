@@ -44,14 +44,4 @@ class TeacherSpec extends ObjectBehavior
 
         $this->getUser()->shouldReturn($user);
     }
-
-    public function it_returns_full_name(User $user): void
-    {
-        $user->getName()->shouldBeCalled()->willReturn('name');
-        $user->getLastname()->shouldBeCalled()->willReturn('lastname');
-
-        $this->setUser($user);
-
-        $this->getFullName()->shouldReturn('name lastname');
-    }
 }

@@ -35,7 +35,7 @@ class StudentSpec extends ObjectBehavior
     {
         $this->setIsMember(true)->shouldHaveType(Student::class);
 
-        $this->getIsMember()->shouldReturn(true);
+        $this->isMember()->shouldReturn(true);
     }
 
     public function it_sets_contract_expiration(): void
@@ -96,15 +96,5 @@ class StudentSpec extends ObjectBehavior
         $this->setAccountNumber('account_number')->shouldHaveType(Student::class);
 
         $this->getAccountNumber()->shouldReturn('account_number');
-    }
-
-    public function it_returns_full_name(User $user): void
-    {
-        $user->getName()->shouldBeCalled()->willReturn('name');
-        $user->getLastname()->shouldBeCalled()->willReturn('lastname');
-
-        $this->setUser($user);
-
-        $this->getFullName()->shouldReturn('name lastname');
     }
 }

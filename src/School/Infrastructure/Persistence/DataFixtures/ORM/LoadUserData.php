@@ -7,21 +7,22 @@ namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 use App\Security\Domain\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
-    /**
-     * @var ObjectManager
-     */
-    private $manager;
+    private ObjectManager $manager;
+    private ?ContainerInterface $container;
+    private UserPasswordEncoderInterface $passwordEncoder;
 
-    /**
-     * @var ContainerInterface
-     */
-    private $container;
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+    }
 
     /**
      * Sets the container.
@@ -33,12 +34,10 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $this->container = $container;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function load(ObjectManager $manager): void
     {
         $this->manager = $manager;
+
         $this->addUser('admin', 'admin@zonadev.es', User::ROLE_SUPER_ADMIN, 'admin');
         $manager->flush();
     }
@@ -48,32 +47,25 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         return 1;
     }
 
-    private function addUser(string $userName, string $email, string $role = User::ROLE_DEFAULT, string $password = null): void
+    private function addUser(string $userName, string $email, string $role = User::ROLE_USER, string $password = null): void
     {
-        $user = $this->manager->getRepository(User::class)->findOneByEmail($email);
-
-        if ($user) {
-            return;
-        }
-
-        $userManager = $this->container->get('fos_user.user_manager');
-        $user        = $userManager->createUser();
+        $user = new User();
 
         $user->setUsername($userName)
-            ->setPlainPassword($this->generatePassword($password))
+            ->setPassword($this->generatePassword($user, $password))
             ->setEmail($email)
-            ->setEnabled(true)
             ->addRole($role);
 
-        $userManager->updateUser($user, true);
+        $this->manager->persist($user);
+        $this->manager->flush();
     }
 
-    private function generatePassword(string $password = null): string
+    private function generatePassword(UserInterface $user, string $password = null): string
     {
-        if ($password) {
-            return $password;
+        if (!$password) {
+            $password = \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
         }
 
-        return \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
+        return $this->passwordEncoder->encodePassword($user, $password);
     }
 }

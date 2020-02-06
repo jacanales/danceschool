@@ -10,7 +10,7 @@ use App\School\Domain\Model\Room;
 use App\School\Domain\Model\Teacher;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
 class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
@@ -51,7 +51,7 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
             $startDate = $faker->dateTimeThisMonth;
             $group->setStartDate($startDate);
             $group->setEndDate($startDate->add(new \DateInterval('P3M')));
-            $group->setWhatsappGroup($faker->text(15));
+            $group->setWhatsAppGroup($faker->text(15));
 
             $courseIndex = \array_rand($courses);
             $group->setCourse($courses[$courseIndex]);

@@ -118,3 +118,8 @@ date:
         6: "Sábado"
         7: "Domingo"
 
+security:
+    login:
+        username: 'Nombre de usuario'
+        password: 'Contraseña'
+        submit: 'Iniciar sesión'

@@ -4,210 +4,119 @@ declare(strict_types=1);
 
 namespace App\School\Domain\Model;
 
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class Group
 {
-    /**
-     * @var int
-     */
-    protected $id;
-
-    /**
-     * @var Course
-     */
-    protected $course;
-
-    /**
-     * @var Room
-     */
-    protected $room;
-
-    /**
-     * @var Teacher
-     */
-    protected $teacher;
-
-    /**
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * @var int
-     */
-    protected $weekday;
-
-    /**
-     * @var \DateTime
-     */
-    protected $hour;
-
-    /**
-     * @var \DateTime
-     */
-    protected $startDate;
-
-    /**
-     * @var \DateTime
-     */
-    protected $endDate;
-
-    /**
-     * @var string
-     */
-    protected $whatsappGroup;
-
-    /**
-     * @var int
-     */
-    protected $groupStudent;
+    private int $id;
+    private Course $course;
+    private Room $room;
+    private Teacher $teacher;
+    private string $name;
+    private int $weekday;
+    private DateTimeInterface $hour;
+    private DateTimeInterface $startDate;
+    private DateTimeInterface $endDate;
+    private string $whatsAppGroup;
+    /** @var Collection<int, GroupStudent> */
+    private Collection $groupStudent;
 
     public function __construct()
     {
         $this->groupStudent = new ArrayCollection();
     }
 
-    /**
-     * @param int $id
-     */
-    public function setId($id): self
+    public function setId(int $id): self
     {
         $this->id = $id;
 
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return Group
-     */
-    public function setName($name): self
+    public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param int $weekday
-     *
-     * @return Group
-     */
-    public function setWeekday($weekday): self
+    public function setWeekday(int $weekday): self
     {
         $this->weekday = $weekday;
 
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getWeekday(): ?int
     {
         return $this->weekday;
     }
 
-    /**
-     * @return string
-     */
     public function getWeekdayText(): ?string
     {
-        return \date('l', \strtotime("Sunday +{$this->getWeekday()} days"));
+        return \date('l', (int) \strtotime("Sunday +{$this->getWeekday()} days"));
     }
 
-    /**
-     * @param \DateTime $hour
-     *
-     * @return Group
-     */
-    public function setHour($hour): self
+    public function setHour(DateTimeInterface $hour): self
     {
         $this->hour = $hour;
 
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getHour(): ?\DateTime
+    public function getHour(): ?DateTimeInterface
     {
         return $this->hour;
     }
 
-    public function setStartDate(\DateTime $startDate): self
+    public function setStartDate(DateTimeInterface $startDate): self
     {
         $this->startDate = $startDate;
 
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getStartDate(): ?\DateTime
+    public function getStartDate(): ?DateTimeInterface
     {
         return $this->startDate;
     }
 
-    /**
-     * @return Group
-     */
-    public function setEndDate(\DateTime $endDate): self
+    public function setEndDate(DateTimeInterface $endDate): self
     {
         $this->endDate = $endDate;
 
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getEndDate(): ?\DateTime
+    public function getEndDate(): ?DateTimeInterface
     {
         return $this->endDate;
     }
 
-    /**
-     * @return Group
-     */
-    public function setWhatsappGroup(string $whatsappGroup): self
+    public function setWhatsAppGroup(string $whatsAppGroup): self
     {
-        $this->whatsappGroup = $whatsappGroup;
+        $this->whatsAppGroup = $whatsAppGroup;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getWhatsappGroup(): ?string
+    public function getWhatsAppGroup(): ?string
     {
-        return $this->whatsappGroup;
+        return $this->whatsAppGroup;
     }
 
-    /**
-     * @return Group
-     */
     public function setCourse(Course $course): self
     {
         $this->course = $course;
@@ -215,17 +124,11 @@ class Group
         return $this;
     }
 
-    /**
-     * @return Course
-     */
     public function getCourse(): ?Course
     {
         return $this->course;
     }
 
-    /**
-     * @return Group
-     */
     public function setRoom(Room $room): self
     {
         $this->room = $room;
@@ -233,17 +136,11 @@ class Group
         return $this;
     }
 
-    /**
-     * @return Room
-     */
     public function getRoom(): ?Room
     {
         return $this->room;
     }
 
-    /**
-     * @return Group
-     */
     public function setTeacher(Teacher $teacher): self
     {
         $this->teacher = $teacher;
@@ -251,9 +148,6 @@ class Group
         return $this;
     }
 
-    /**
-     * @return Teacher
-     */
     public function getTeacher(): ?Teacher
     {
         return $this->teacher;

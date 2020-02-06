@@ -8,8 +8,9 @@ use App\School\Domain\Model\Student;
 use App\Security\Domain\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
+use LogicException;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
@@ -18,12 +19,8 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
 {
     private const MAX_STUDENTS = 10;
 
-    /**
-     * @var ObjectManager
-     */
-    private $manager;
-
-    private $container;
+    private ObjectManager $manager;
+    private ?ContainerInterface $container;
 
     /**
      * {@inheritdoc}
@@ -49,13 +46,12 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
                 ->setUsername($faker->userName . $i)
                 ->setEmail($i . $faker->email)
                 ->setPassword($this->generatePassword($user))
-                ->addRole(User::ROLE_DEFAULT);
+                ->addRole(User::ROLE_USER);
 
             $user
                 ->setName($faker->name)
-                ->setLastname($faker->lastName)
+                ->setSurname($faker->lastName)
                 ->setGender('m')
-                ->setPhone($faker->phoneNumber)
                 ->setIdentityNumber((string) $faker->randomNumber(8))
                 ->setAddress($faker->address)
                 ->setCity($faker->city)
@@ -84,7 +80,7 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
     private function generatePassword(User $user): string
     {
         if (null === $this->container) {
-            throw new \LogicException('Container is not yet initialized');
+            throw new LogicException('Container is not yet initialized');
         }
 
         /**

@@ -15,7 +15,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class StudentAnnotationType extends AbstractType
 {
-    private $edit;
+    private bool $edit;
 
     /**
      * @param bool $edit
@@ -25,6 +25,10 @@ class StudentAnnotationType extends AbstractType
         $this->edit = $edit;
     }
 
+    /**
+     * @param FormBuilderInterface<FormBuilderInterface> $builder
+     * @param array<string>                              $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
