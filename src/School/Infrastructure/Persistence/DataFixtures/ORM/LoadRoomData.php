@@ -57,11 +57,11 @@ class LoadRoomData extends AbstractFixture implements OrderedFixtureInterface
     private function addRoom(
         string $name,
         string $description,
-        int $price = 0,
-        string $address = '',
-        string $city = '',
-        string $postal_code = '',
-        string $phone = null
+        float $price,
+        string $address,
+        string $city,
+        string $postal_code,
+        string $phone
     ): void {
         $room = new Room();
 

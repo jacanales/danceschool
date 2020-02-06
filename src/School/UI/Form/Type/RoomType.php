@@ -14,6 +14,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RoomType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface<FormBuilderInterface> $builder
+     * @param array<string>                              $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -29,7 +33,6 @@ class RoomType extends AbstractType
             ])
             ->add('phone', TextType::class, [
                 'default_region' => 'ES',
-                'format'         => TextType::NATIONAL,
                 'label'          => 'form.label.phone',
             ])
             ->add('address', TextareaType::class, [

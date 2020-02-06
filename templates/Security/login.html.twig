@@ -39,6 +39,11 @@
 	{% if error %}
 		<div class="alert alert-danger" style="margin-top: 20px;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 	{% endif %}
+	{% if app.user %}
+		<div class="mb-3">
+			You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+		</div>
+	{% endif %}
 {% endblock flashes%}
 
 {% block container %}
@@ -48,7 +53,10 @@
 		{% endif %}
 		<div class="container-login100" style="">
 			<div class="wrap-login100 p-b-30">
-				<form class="login100-form validate-form" action="{{ path("login") }}" method="post">
+				<form class="login100-form validate-form" method="post">
+					{% if error %}
+						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+					{% endif %}
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
 
 					<span class="login100-form-title p-t-20 p-b-45">
@@ -56,7 +64,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
-						<input class="input100" type="text" name="_username" placeholder="{{ 'security.login.username'|trans }}" value="{{ last_username }}" required="required" autocomplete="username">
+						<input type="text" name="username" id="inputUsername" placeholder="{{ 'security.login.username'|trans }}" value="{{ last_username }}" class="form-control input100" required autofocus autocomplete="username">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user"></i>
@@ -64,25 +72,31 @@
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
-						<input class="input100" type="password" name="_password" placeholder="{{ 'security.login.password'|trans }}" required="required" autocomplete="current-password"> 
+						<input type="password" name="password" id="inputPassword" placeholder="{{ 'security.login.password'|trans }}" class="form-control input100" required autocomplete="current-password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock"></i>
 						</span>
 					</div>
 
+					{#
+					Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+					See https://symfony.com/doc/current/security/remember_me.html
+
 					<div class="wrap-input100 text-center">
 						<label class="txt1">
 							<input type="checkbox" id="remember_me" name="_remember_me" value="on" /> {{ 'security.login.remember_me'|trans }}
 						</label>
 					</div>
+					#}
 
 					<div class="container-login100-form-btn p-t-10">
-						<button class="login100-form-btn" id="_submit" name="_submit">
+						<button class="login100-form-btn" type="submit" id="_submit" name="_submit">
 							{{ 'security.login.submit'|trans }}
 						</button>
 					</div>
 
+					{#
 					<div class="text-center w-full p-t-25 p-b-80">
 						<a href="#" class="txt1">
 							Forgot Username / Password?
@@ -92,9 +106,10 @@
 					<div class="text-center w-full">
 						<a class="txt1" href="#">
 							Create new account
-							<i class="fa fa-long-arrow-right"></i>						
+							<i class="fa fa-long-arrow-right"></i>
 						</a>
 					</div>
+					#}
 				</form>
 			</div>
 		</div>

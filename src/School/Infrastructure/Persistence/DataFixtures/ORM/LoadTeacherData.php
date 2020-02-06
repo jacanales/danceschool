@@ -10,6 +10,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
+use LogicException;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
@@ -18,12 +19,9 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
 {
     public const MAX_TEACHERS = 5;
 
-    /**
-     * @var ObjectManager
-     */
-    private $manager;
+    private ObjectManager $manager;
 
-    private $container;
+    private ?ContainerInterface $container;
 
     /**
      * {@inheritdoc}
@@ -80,7 +78,7 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
     private function generatePassword(User $user): string
     {
         if (null === $this->container) {
-            throw new \LogicException('Container is not yet initialized');
+            throw new LogicException('Container is not yet initialized');
         }
 
         /**

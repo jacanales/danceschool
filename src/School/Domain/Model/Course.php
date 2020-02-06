@@ -8,42 +8,17 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class Course
 {
-    /**
-     * @var int
-     */
-    protected $id;
-
-    /**
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * @var float
-     */
-    protected $price;
-
-    /**
-     * @var Group[]
-     */
-    protected $groups;
+    private int $id;
+    private string $name;
+    private float $price;
+    /** @var ArrayCollection<int, Group> */
+    private ArrayCollection $groups;
 
     public function __construct()
     {
         $this->groups = new ArrayCollection();
     }
 
-    /**
-     * @return Course
-     */
-    public function getCourse(): self
-    {
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
     public function getId(): ?int
     {
         return $this->id;
@@ -56,9 +31,6 @@ class Course
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): ?string
     {
         return $this->name;
@@ -71,9 +43,6 @@ class Course
         return $this;
     }
 
-    /**
-     * @return float
-     */
     public function getPrice(): ?float
     {
         return $this->price;
@@ -96,6 +65,8 @@ class Course
 
     /**
      * @param Group[] $groups
+     *
+     * @return Course
      */
     public function setGroups(array $groups): self
     {

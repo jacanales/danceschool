@@ -51,7 +51,7 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
             $startDate = $faker->dateTimeThisMonth;
             $group->setStartDate($startDate);
             $group->setEndDate($startDate->add(new \DateInterval('P3M')));
-            $group->setWhatsappGroup($faker->text(15));
+            $group->setWhatsAppGroup($faker->text(15));
 
             $courseIndex = \array_rand($courses);
             $group->setCourse($courses[$courseIndex]);

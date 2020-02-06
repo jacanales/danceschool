@@ -9,39 +9,37 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class User implements UserInterface
 {
     public const ROLE_SUPER_ADMIN = 'ROLE_SUPER_ADMIN';
-    public const ROLE_ADMIN       = 'ROLE_ADMIN';
     public const ROLE_USER        = 'ROLE_USER';
 
-    private $id;
-    private $username;
-    private $email;
-    private $roles = [];
-    private $password;
-    private $name    = '';
-    private $surname = '';
-    private $gender  = '';
-    private $birthday;
-    private $phone          = '';
-    private $address        = '';
-    private $city           = '';
-    private $country        = '';
-    private $postalCode     = '';
-    private $identityNumber = '';
-    private $created;
-    private $modified;
+    private int $id;
+    private string $username;
+    private string $email;
+
+    /** @var string[] */
+    private array $roles = [];
+    private string $password;
+    private string $name    = '';
+    private string $surname = '';
+    private string $gender  = '';
+    private \DateTimeInterface $birthday;
+    private string $phone          = '';
+    private string $address        = '';
+    private string $city           = '';
+    private string $country        = '';
+    private string $postalCode     = '';
+    private string $identityNumber = '';
+    private \DateTimeInterface $created;
+    private \DateTimeInterface $modified;
 
     public function __construct()
     {
         $this->setCreatedAt();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     /**
      * @see UserInterface
+     *
+     * @return string[] The user roles
      */
     public function getRoles(): array
     {
@@ -52,17 +50,10 @@ class User implements UserInterface
         return \array_unique($roles);
     }
 
-    public function addRole(string $role): self
-    {
-        \array_push($this->roles, $role);
-
-        return $this;
-    }
-
     /**
      * @see UserInterface
      */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return (string) $this->password;
     }
@@ -74,17 +65,40 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getSalt()
+    public function getSalt(): ?string
     {
+        return null;
     }
 
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
     }
 
     public function getUsername()
     {
         return $this->username;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function addRole(string $role): self
+    {
+        \array_push($this->roles, $role);
+
+        return $this;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getSurname(): string
+    {
+        return $this->surname;
     }
 
     public function setUsername(string $username): self
@@ -132,7 +146,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function setBirthday($birthday)
+    public function setBirthday(\DateTimeInterface $birthday): self
     {
         $this->birthday = $birthday;
 

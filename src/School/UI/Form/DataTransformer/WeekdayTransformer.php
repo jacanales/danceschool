@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\School\UI\Form\DataTransformer;
 
+use function date;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
 
@@ -38,7 +39,7 @@ class WeekdayTransformer implements DataTransformerInterface
      */
     public function transform($value)
     {
-        return \date('l', \strtotime("Sunday +{$value} days"));
+        return \date('l', (int) \strtotime("Sunday +{$value} days"));
     }
 
     /**

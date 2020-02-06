@@ -15,6 +15,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class GroupStudentType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface<FormBuilderInterface> $builder
+     * @param array<string>                              $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder

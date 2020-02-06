@@ -15,20 +15,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
-    /**
-     * @var ObjectManager
-     */
-    private $manager;
-
-    /**
-     * @var ContainerInterface
-     */
-    private $container;
-
-    /**
-     * @var UserPasswordEncoderInterface
-     */
-    private $passwordEncoder;
+    private ObjectManager $manager;
+    private ?ContainerInterface $container;
+    private UserPasswordEncoderInterface $passwordEncoder;
 
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {
@@ -45,9 +34,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $this->container = $container;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function load(ObjectManager $manager): void
     {
         $this->manager = $manager;
@@ -63,11 +49,13 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 
     private function addUser(string $userName, string $email, string $role = User::ROLE_USER, string $password = null): void
     {
+        /*
         $user = $this->manager->getRepository(User::class)->findOneByEmail($email);
 
         if ($user) {
             return;
         }
+        */
 
         $user = new User();
 

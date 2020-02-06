@@ -37,6 +37,12 @@ class GroupSpec extends ObjectBehavior
         $this->getWeekday()->shouldReturn(1);
     }
 
+    public function it_returns_weekday_text(): void
+    {
+        $this->setWeekday(1);
+        $this->getWeekdayText()->shouldReturn('Monday');
+    }
+
     public function it_sets_hour(): void
     {
         $time = \DateTime::createFromFormat('H:i', '15:00');
@@ -69,8 +75,8 @@ class GroupSpec extends ObjectBehavior
 
     public function it_sets_whatsapp_group(): void
     {
-        $this->setWhatsappGroup('whatsapp')->shouldHaveType(Group::class);
-        $this->getWhatsappGroup()->shouldReturn('whatsapp');
+        $this->setWhatsAppGroup('whatsapp')->shouldHaveType(Group::class);
+        $this->getWhatsAppGroup()->shouldReturn('whatsapp');
     }
 
     public function it_sets_course(): void

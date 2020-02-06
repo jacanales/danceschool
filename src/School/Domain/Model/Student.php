@@ -5,54 +5,22 @@ declare(strict_types=1);
 namespace App\School\Domain\Model;
 
 use App\Security\Domain\Entity\User;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Student
 {
-    /**
-     * @var int
-     */
-    protected $id;
-
-    /**
-     * @var int
-     */
-    protected $captationMethod;
-
-    /**
-     * @var bool
-     */
-    protected $isMember;
-
-    /**
-     * @var string
-     */
-    protected $accountNumber;
-
-    /**
-     * @var \DateTime
-     */
-    protected $contractExpiration;
-
-    /**
-     * @var string
-     */
-    protected $comment;
-
-    /**
-     * @var User
-     */
-    protected $user;
-
-    /**
-     * @var GroupStudent
-     */
-    protected $groupStudent;
-
-    /**
-     * @var StudentAnnotation
-     */
-    protected $annotations;
+    private int $id;
+    private int $captationMethod;
+    private bool $isMember;
+    private string $accountNumber;
+    private DateTimeInterface $contractExpiration;
+    private string $comment;
+    private User $user;
+    /** @var ArrayCollection<int, GroupStudent> */
+    private ArrayCollection $groupStudent;
+    /** @var ArrayCollection<int, StudentAnnotation> */
+    private ArrayCollection $annotations;
 
     public function __construct()
     {
@@ -60,14 +28,6 @@ class Student
         $this->groupStudent = new ArrayCollection();
     }
 
-    public function getStudent(): self
-    {
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
     public function getId(): ?int
     {
         return $this->id;
@@ -80,9 +40,6 @@ class Student
         return $this;
     }
 
-    /**
-     * @return Student
-     */
     public function setCaptationMethod(int $captationMethod): self
     {
         $this->captationMethod = $captationMethod;
@@ -90,9 +47,6 @@ class Student
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getCaptationMethod(): ?int
     {
         return $this->captationMethod;
@@ -105,25 +59,19 @@ class Student
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function getIsMember(): ?bool
     {
         return $this->isMember;
     }
 
-    public function setContractExpiration(\DateTime $contractExpiration): self
+    public function setContractExpiration(DateTimeInterface $contractExpiration): self
     {
         $this->contractExpiration = $contractExpiration;
 
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getContractExpiration(): ?\DateTime
+    public function getContractExpiration(): ?DateTimeInterface
     {
         return $this->contractExpiration;
     }
@@ -135,28 +83,19 @@ class Student
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getComment(): ?string
     {
         return $this->comment;
     }
 
-    /**
-     * @param User $user
-     */
-    public function setUser(User $user = null): self
+    public function setUser(User $user): self
     {
         $this->user = $user;
 
         return $this;
     }
 
-    /**
-     * @return User
-     */
-    public function getUser(): ?User
+    public function getUser(): User
     {
         return $this->user;
     }
@@ -173,6 +112,9 @@ class Student
         $this->annotations->removeElement($annotation);
     }
 
+    /**
+     * @return ArrayCollection<int, StudentAnnotation>
+     */
     public function getAnnotations(): ArrayCollection
     {
         return $this->annotations;
@@ -192,6 +134,6 @@ class Student
 
     public function getFullName(): string
     {
-        return $this->getUser()->getName() . ' ' . $this->getUser()->getLastname();
+        return $this->getUser()->getName() . ' ' . $this->getUser()->getSurname();
     }
 }

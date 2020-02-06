@@ -6,19 +6,14 @@ namespace App\School\Domain\Model;
 
 class Room
 {
-    protected $id;
-    protected $name;
-    protected $description;
-    protected $price;
-    protected $address;
-    protected $city;
-    protected $postalCode;
-    protected $phone;
-
-    public function getRoom(): self
-    {
-        return $this;
-    }
+    private int $id;
+    private string $name;
+    private string $description;
+    private float $price;
+    private string $address;
+    private string $city;
+    private string $postalCode;
+    private string $phone;
 
     public function getId(): ?int
     {
@@ -68,9 +63,6 @@ class Room
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getAddress(): ?string
     {
         return $this->address;

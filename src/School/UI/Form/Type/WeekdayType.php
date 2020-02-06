@@ -12,25 +12,26 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class WeekdayType extends AbstractType
 {
-    private $weekdays;
-
-    /**
-     * @var WeekdayTransformer
-     */
-    private $transformer;
+    /** @var array<string, float|int> */
+    private array $weekdays;
+    private WeekdayTransformer $transformer;
 
     public function __construct(WeekdayTransformer $transformer)
     {
         $this->transformer = $transformer;
 
-        $numDays = \range(\date('N', \strtotime('monday')), \date('N', \strtotime('sunday')));
+        $numDays = \range(\date('N', (int) \strtotime('monday')), \date('N', (int) \strtotime('sunday')));
 
         foreach ($numDays as $numDay) {
             $this->weekdays['date.weekday.' . $numDay] = $numDay;
         }
     }
 
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    /**
+     * @param FormBuilderInterface<FormBuilderInterface> $builder
+     * @param array<string>                              $options
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         parent::buildForm($builder, $options);
 
