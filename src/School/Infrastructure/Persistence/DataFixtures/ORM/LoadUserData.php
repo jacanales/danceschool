@@ -10,6 +10,8 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
@@ -22,6 +24,16 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
      * @var ContainerInterface
      */
     private $container;
+
+    /**
+     * @var UserPasswordEncoderInterface
+     */
+    private $passwordEncoder;
+
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+    }
 
     /**
      * Sets the container.
@@ -39,6 +51,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
     public function load(ObjectManager $manager): void
     {
         $this->manager = $manager;
+
         $this->addUser('admin', 'admin@zonadev.es', User::ROLE_SUPER_ADMIN, 'admin');
         $manager->flush();
     }
@@ -59,7 +72,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user = new User();
 
         $user->setUsername($userName)
-            ->setPassword($this->generatePassword($password))
+            ->setPassword($this->generatePassword($user, $password))
             ->setEmail($email)
             ->addRole($role);
 
@@ -67,12 +80,12 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $this->manager->flush();
     }
 
-    private function generatePassword(string $password = null): string
+    private function generatePassword(UserInterface $user, string $password = null): string
     {
-        if ($password) {
-            return $password;
+        if (!$password) {
+            $password = \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
         }
 
-        return \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
+        return $this->passwordEncoder->encodePassword($user, $password);
     }
 }

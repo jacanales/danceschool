@@ -35,6 +35,12 @@
 	{% endembed %}
 {% endblock navbar %}
 
+{% block flashes %}
+	{% if error %}
+		<div class="alert alert-danger" style="margin-top: 20px;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+	{% endif %}
+{% endblock flashes%}
+
 {% block container %}
 	<section class="limiter">
 		{% if error %}
