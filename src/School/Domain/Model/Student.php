@@ -138,12 +138,6 @@ class Student
 
     public function getFullName(): string
     {
-        $user = $this->getUser();
-
-        if (!$user instanceof User) {
-            return '';
-        }
-
-        return $user->getName() . ' ' . $user->getSurname();
+        return $this->user->getName() . ' ' . $this->user->getSurname();
     }
 }

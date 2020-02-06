@@ -26,6 +26,9 @@ use Symfony\Component\Security\Http\Util\TargetPathTrait;
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
     use TargetPathTrait;
+    private const USERNAME_FIELD = 'username';
+    private const PASSWORD_FIELD = 'password';
+    private const TOKEN_FIELD    = '_csrf_token';
 
     private EntityManagerInterface $entityManager;
     private UrlGeneratorInterface $urlGenerator;
@@ -49,9 +52,9 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     public function getCredentials(Request $request)
     {
         $credentials = [
-            'username'   => $request->request->get('username'),
-            'password'   => $request->request->get('password'),
-            'csrf_token' => $request->request->get('_csrf_token'),
+            'username'   => $request->request->get(self::USERNAME_FIELD),
+            'password'   => $request->request->get(self::PASSWORD_FIELD),
+            'csrf_token' => $request->request->get(self::TOKEN_FIELD),
         ];
         $request->getSession()->set(
             Security::LAST_USERNAME,
