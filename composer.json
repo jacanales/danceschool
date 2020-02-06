@@ -39,7 +39,7 @@
     },
     "require-dev": {
         "friends-of-phpspec/phpspec-code-coverage": "~4.3",
-        "friendsofphp/php-cs-fixer": "~2.15",
+        "friendsofphp/php-cs-fixer": "~2.16",
         "fzaninotto/faker": "~1.8",
         "jangregor/phpstan-prophecy": "~0.4",
         "matthiasnoback/symfony-dependency-injection-test": "~4.0",
