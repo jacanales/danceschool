@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace spec\App\School\Domain\Model;
 
 use App\School\Domain\Model\Room;
-use libphonenumber\PhoneNumber;
 use PhpSpec\ObjectBehavior;
 
 class RoomSpec extends ObjectBehavior
@@ -62,12 +61,5 @@ class RoomSpec extends ObjectBehavior
         $this->setPostalCode('postcode')->shouldHaveType(Room::class);
 
         $this->getPostalCode()->shouldReturn('postcode');
-    }
-
-    public function it_sets_phone(PhoneNumber $phoneNumber): void
-    {
-        $this->setPhone($phoneNumber)->shouldHaveType(Room::class);
-
-        $this->getPhone()->shouldReturn($phoneNumber);
     }
 }

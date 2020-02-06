@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace App\School\UI\Http\Controller;
 
 use App\School\Domain\Model\Room;
+use Doctrine\ORM\EntityManager;
+use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Route preffix affects only new (not overloaded) actions or if route name matches.
+ * Route prefix affects only new (not overloaded) actions or if route name matches.
  *
  * @Route("/admin/room")
  */
@@ -19,12 +22,12 @@ class RoomController extends AbstractController
     /**
      * @Route("/", name="danceschool_room_index")
      *
-     * @throws \LogicException
+     * @throws LogicException
      */
     public function index(): Response
     {
         /**
-         * @var \Doctrine\ORM\EntityManager
+         * @var EntityManager
          */
         $rooms = $this->getDoctrine()
                       ->getRepository(Room::class)
@@ -39,8 +42,8 @@ class RoomController extends AbstractController
     /**
      * @Route("/show/{id}", name="danceschool_room_show")
      *
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     * @throws \LogicException
+     * @throws NotFoundHttpException
+     * @throws LogicException
      */
     public function show(int $id): Response
     {
