@@ -26,9 +26,10 @@ use Symfony\Component\Security\Http\Util\TargetPathTrait;
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
     use TargetPathTrait;
-    private const USERNAME_FIELD = 'username';
-    private const PASSWORD_FIELD = 'password';
-    private const TOKEN_FIELD    = '_csrf_token';
+    private const USERNAME    = 'username';
+    private const PASSWORD    = 'password';
+    private const TOKEN       = 'csrf_token';
+    private const TOKEN_FIELD = '_csrf_token';
 
     private EntityManagerInterface $entityManager;
     private UrlGeneratorInterface $urlGenerator;
@@ -46,19 +47,19 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     public function supports(Request $request)
     {
         return 'login' === $request->attributes->get('_route')
-            && $request->isMethod('POST');
+               && $request->isMethod('POST');
     }
 
     public function getCredentials(Request $request)
     {
         $credentials = [
-            'username'   => $request->request->get(self::USERNAME_FIELD),
-            'password'   => $request->request->get(self::PASSWORD_FIELD),
-            'csrf_token' => $request->request->get(self::TOKEN_FIELD),
+            self::USERNAME => $request->request->get(self::USERNAME),
+            self::PASSWORD => $request->request->get(self::PASSWORD),
+            self::TOKEN    => $request->request->get(self::TOKEN_FIELD),
         ];
         $request->getSession()->set(
             Security::LAST_USERNAME,
-            $credentials['username']
+            $credentials[self::USERNAME]
         );
 
         return $credentials;
@@ -66,12 +67,12 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
     public function getUser($credentials, UserProviderInterface $userProvider): User
     {
-        $token = new CsrfToken('authenticate', $credentials['csrf_token']);
+        $token = new CsrfToken('authenticate', $credentials[self::TOKEN]);
         if (!$this->csrfTokenManager->isTokenValid($token)) {
             throw new InvalidCsrfTokenException();
         }
 
-        $user = $this->entityManager->getRepository(User::class)->findOneBy(['username' => $credentials['username']]);
+        $user = $this->entityManager->getRepository(User::class)->findOneBy([self::USERNAME => $credentials[self::USERNAME]]);
 
         if (!$user instanceof User) {
             // fail authentication with a custom error
@@ -83,12 +84,12 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-        return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
+        return $this->passwordEncoder->isPasswordValid($user, $credentials[self::PASSWORD]);
     }
 
     public function getPassword($credentials): ?string
     {
-        return $credentials['password'];
+        return $credentials[self::PASSWORD];
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey): Response
