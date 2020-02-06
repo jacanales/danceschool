@@ -89,7 +89,7 @@ class Student
 
     public function getComment(): string
     {
-        return $this->comment = '';
+        return $this->comment;
     }
 
     public function setUser(User $user): self
