@@ -5,14 +5,15 @@ declare(strict_types=1);
 namespace App\School\Domain\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class Course
 {
     private int $id;
     private string $name;
     private float $price;
-    /** @var ArrayCollection<int, Group> */
-    private ArrayCollection $groups;
+    /** @var Collection<int, Group> */
+    private Collection $groups;
 
     public function __construct()
     {

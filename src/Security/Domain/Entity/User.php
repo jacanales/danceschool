@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Security\Domain\Entity;
 
+use DateTimeImmutable;
+use DateTimeInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class User implements UserInterface
@@ -12,34 +14,35 @@ class User implements UserInterface
     public const ROLE_USER        = 'ROLE_USER';
 
     private int $id;
-    private string $username;
-    private string $email;
+    private string $username = '';
+    private string $email    = '';
 
     /** @var string[] */
-    private array $roles = [];
-    private string $password;
-    private string $name    = '';
-    private string $surname = '';
-    private string $gender  = '';
-    private \DateTimeInterface $birthday;
-    private string $phone          = '';
-    private string $address        = '';
-    private string $city           = '';
-    private string $country        = '';
-    private string $postalCode     = '';
-    private string $identityNumber = '';
-    private \DateTimeInterface $created;
-    private \DateTimeInterface $modified;
+    private array $roles                 = [];
+    private string $password             = '';
+    private string $name                 = '';
+    private string $surname              = '';
+    private string $gender               = '';
+    private ?DateTimeInterface $birthday = null;
+    private string $phone                = '';
+    private string $address              = '';
+    private string $city                 = '';
+    private string $country              = '';
+    private string $postalCode           = '';
+    private string $identityNumber       = '';
+    private DateTimeInterface $created;
+    private DateTimeInterface $modified;
 
     public function __construct()
     {
         $this->setCreatedAt();
+        $this->modified = $this->created;
     }
 
     /**
-     * @see UserInterface
-     *
      * @return string[] The user roles
+     *
+     * @see UserInterface
      */
     public function getRoles(): array
     {
@@ -101,6 +104,11 @@ class User implements UserInterface
         return $this->surname;
     }
 
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
     public function setUsername(string $username): self
     {
         $this->username = $username;
@@ -110,12 +118,12 @@ class User implements UserInterface
 
     public function setCreatedAt(): void
     {
-        $this->created = new \DateTimeImmutable('now');
+        $this->created = new DateTimeImmutable('now');
     }
 
     public function setUpdatedAt(): void
     {
-        $this->modified = new \DateTimeImmutable('now');
+        $this->modified = new DateTimeImmutable('now');
     }
 
     public function setEmail(string $email): self
@@ -146,11 +154,21 @@ class User implements UserInterface
         return $this;
     }
 
-    public function setBirthday(\DateTimeInterface $birthday): self
+    public function getGender(): string
+    {
+        return $this->gender;
+    }
+
+    public function setBirthday(DateTimeInterface $birthday): self
     {
         $this->birthday = $birthday;
 
         return $this;
+    }
+
+    public function getBirthday(): ?DateTimeInterface
+    {
+        return $this->birthday;
     }
 
     public function setPhone(string $phone): self
@@ -158,6 +176,11 @@ class User implements UserInterface
         $this->phone = $phone;
 
         return $this;
+    }
+
+    public function getPhone(): string
+    {
+        return $this->phone;
     }
 
     public function setAddress(string $address): self
@@ -193,5 +216,40 @@ class User implements UserInterface
         $this->identityNumber = $identityNumber;
 
         return $this;
+    }
+
+    public function getIdentityNumber(): string
+    {
+        return $this->identityNumber;
+    }
+
+    public function getAddress(): string
+    {
+        return $this->address;
+    }
+
+    public function getCity(): string
+    {
+        return $this->city;
+    }
+
+    public function getCountry(): string
+    {
+        return $this->country;
+    }
+
+    public function getPostalCode(): string
+    {
+        return $this->postalCode;
+    }
+
+    public function getCreated(): DateTimeInterface
+    {
+        return $this->created;
+    }
+
+    public function getModified(): DateTimeInterface
+    {
+        return $this->modified;
     }
 }

@@ -6,6 +6,7 @@ namespace App\School\Domain\Model;
 
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class Group
 {
@@ -19,8 +20,8 @@ class Group
     private DateTimeInterface $startDate;
     private DateTimeInterface $endDate;
     private string $whatsAppGroup;
-    /** @var ArrayCollection<int, GroupStudent> */
-    private ArrayCollection $groupStudent;
+    /** @var Collection<int, GroupStudent> */
+    private Collection $groupStudent;
 
     public function __construct()
     {

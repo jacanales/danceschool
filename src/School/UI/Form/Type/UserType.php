@@ -36,7 +36,7 @@ class UserType extends AbstractType
             ->add('name', null, [
                 'label' => 'form.label.name',
             ])
-            ->add('lastname', null, [
+            ->add('surname', null, [
                 'label' => 'form.label.lastname',
             ])
             ->add('username', HiddenType::class, [
@@ -79,7 +79,7 @@ class UserType extends AbstractType
         if (!$options['edit']) {
             $builder
                 ->add(
-                    'plainPassword',
+                    'password',
                     RepeatedType::class,
                     [
                     'type'            => HiddenType::class,

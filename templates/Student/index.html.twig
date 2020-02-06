@@ -26,9 +26,9 @@
         <tbody>
         {% for student in students %}
             <tr class="tr-class-1">
-                <th scope="row" class="info">{{ student.id }}</td>
+                <th scope="row" class="info">{{ student.id }}</th>
                 <td>{{ student.user.name }}</td>
-                <td>{{ student.user.lastname }}</td>
+                <td>{{ student.user.surname }}</td>
                 <td>{{ student.user.email }}</td>
                 <td>{{ student.comment }}</td>
                 <td class="info"><a href="{{ path('danceschool_student_show', {'id': student.id }) }}" class="btn btn-primary btn-sm" role="button">{{ 'button.view'|trans({}) }}</a></td>

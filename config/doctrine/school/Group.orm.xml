@@ -16,7 +16,7 @@
         <field name="hour" type="time" column="hour" />
         <field name="startDate" type="date" column="start_date" nullable="true" />
         <field name="endDate" type="date" column="end_date" nullable="true" />
-        <field name="whatsappGroup" column="whatsapp_group" length="255" nullable="true" />
+        <field name="whatsAppGroup" column="whatsapp_group" length="255" nullable="true" />
         <one-to-many field="groupStudent" target-entity="App\School\Domain\Model\GroupStudent" mapped-by="group" />
         <many-to-one field="course" target-entity="App\School\Domain\Model\Course" inversed-by="groups">
             <join-columns>

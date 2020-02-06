@@ -6,6 +6,7 @@ namespace App\School\Domain\Model;
 
 use App\Security\Domain\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class Teacher
 {
@@ -13,8 +14,8 @@ class Teacher
     private User $user;
     private float $wage;
     private string $comment;
-    /** @var ArrayCollection<int, Group> */
-    private ArrayCollection $groups;
+    /** @var Collection<int, Group> */
+    private Collection $groups;
 
     public function __construct()
     {

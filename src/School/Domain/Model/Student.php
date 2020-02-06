@@ -7,23 +7,27 @@ namespace App\School\Domain\Model;
 use App\Security\Domain\Entity\User;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class Student
 {
+    private const DEFAULT_CAPTATION_METHOD = 0;
+
     private int $id;
-    private int $captationMethod;
-    private bool $isMember;
-    private string $accountNumber;
-    private DateTimeInterface $contractExpiration;
-    private string $comment;
+    private int $captationMethod                   = self::DEFAULT_CAPTATION_METHOD;
+    private bool $isMember                         = false;
+    private string $accountNumber                  = '';
+    private ?DateTimeInterface $contractExpiration = null;
+    private string $comment                        = '';
     private User $user;
-    /** @var ArrayCollection<int, GroupStudent> */
-    private ArrayCollection $groupStudent;
-    /** @var ArrayCollection<int, StudentAnnotation> */
-    private ArrayCollection $annotations;
+    /** @var Collection<int, GroupStudent> */
+    private Collection $groupStudent;
+    /** @var Collection<int, StudentAnnotation> */
+    private Collection $annotations;
 
     public function __construct()
     {
+        $this->user         = new User();
         $this->annotations  = new ArrayCollection();
         $this->groupStudent = new ArrayCollection();
     }
@@ -47,9 +51,9 @@ class Student
         return $this;
     }
 
-    public function getCaptationMethod(): ?int
+    public function getCaptationMethod(): int
     {
-        return $this->captationMethod;
+        return $this->captationMethod ?? self::DEFAULT_CAPTATION_METHOD;
     }
 
     public function setIsMember(bool $isMember): self
@@ -59,7 +63,7 @@ class Student
         return $this;
     }
 
-    public function getIsMember(): ?bool
+    public function isMember(): ?bool
     {
         return $this->isMember;
     }
@@ -83,9 +87,9 @@ class Student
         return $this;
     }
 
-    public function getComment(): ?string
+    public function getComment(): string
     {
-        return $this->comment;
+        return $this->comment = '';
     }
 
     public function setUser(User $user): self
@@ -95,7 +99,7 @@ class Student
         return $this;
     }
 
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }
@@ -113,9 +117,9 @@ class Student
     }
 
     /**
-     * @return ArrayCollection<int, StudentAnnotation>
+     * @return Collection<int, StudentAnnotation>
      */
-    public function getAnnotations(): ArrayCollection
+    public function getAnnotations(): Collection
     {
         return $this->annotations;
     }
@@ -134,6 +138,12 @@ class Student
 
     public function getFullName(): string
     {
-        return $this->getUser()->getName() . ' ' . $this->getUser()->getSurname();
+        $user = $this->getUser();
+
+        if (!$user instanceof User) {
+            return '';
+        }
+
+        return $user->getName() . ' ' . $user->getSurname();
     }
 }
