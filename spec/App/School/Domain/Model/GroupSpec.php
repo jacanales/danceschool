@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace spec\App\School\Domain\Model;
 
-use App\School\Domain\Model\Course;
 use App\School\Domain\Model\Group;
-use App\School\Domain\Model\Room;
-use App\School\Domain\Model\Teacher;
 use PhpSpec\ObjectBehavior;
 
 class GroupSpec extends ObjectBehavior
@@ -24,88 +21,9 @@ class GroupSpec extends ObjectBehavior
         $this->getId()->shouldReturn(1);
     }
 
-    public function it_sets_name(): void
-    {
-        $this->setName('name')->shouldHaveType(Group::class);
-
-        $this->getName()->shouldReturn('name');
-    }
-
-    public function it_sets_weekday(): void
-    {
-        $this->setWeekday(1)->shouldHaveType(Group::class);
-        $this->getWeekday()->shouldReturn(1);
-    }
-
     public function it_returns_weekday_text(): void
     {
-        $this->setWeekday(1);
+        $this->weekday = 1;
         $this->getWeekdayText()->shouldReturn('Monday');
-    }
-
-    public function it_sets_hour(): void
-    {
-        $time = \DateTime::createFromFormat('H:i', '15:00');
-
-        $this->setHour($time)->shouldHaveType(Group::class);
-
-        $this->getHour()->shouldReturn($time);
-        $this->getHour()->shouldHaveType(\DateTime::class);
-    }
-
-    public function it_sets_start_date(): void
-    {
-        $datetime = new \DateTime();
-
-        $this->setStartDate($datetime)->shouldHaveType(Group::class);
-
-        $this->getStartDate()->shouldReturn($datetime);
-        $this->getStartDate()->shouldHaveType(\DateTime::class);
-    }
-
-    public function it_sets_end_date(): void
-    {
-        $datetime = new \DateTime();
-
-        $this->setEndDate($datetime)->shouldHaveType(Group::class);
-
-        $this->getEndDate()->shouldReturn($datetime);
-        $this->getEndDate()->shouldHaveType(\DateTime::class);
-    }
-
-    public function it_sets_whatsapp_group(): void
-    {
-        $this->setWhatsAppGroup('whatsapp')->shouldHaveType(Group::class);
-        $this->getWhatsAppGroup()->shouldReturn('whatsapp');
-    }
-
-    public function it_sets_course(): void
-    {
-        $course = new Course();
-
-        $this->setCourse($course)->shouldHaveType(Group::class);
-
-        $this->getCourse()->shouldReturn($course);
-        $this->getCourse()->shouldHaveType(Course::class);
-    }
-
-    public function it_sets_room(): void
-    {
-        $course = new Room();
-
-        $this->setRoom($course)->shouldHaveType(Group::class);
-
-        $this->getRoom()->shouldReturn($course);
-        $this->getRoom()->shouldHaveType(Room::class);
-    }
-
-    public function it_sets_teacher(): void
-    {
-        $course = new Teacher();
-
-        $this->setTeacher($course)->shouldHaveType(Group::class);
-
-        $this->getTeacher()->shouldReturn($course);
-        $this->getTeacher()->shouldHaveType(Teacher::class);
     }
 }

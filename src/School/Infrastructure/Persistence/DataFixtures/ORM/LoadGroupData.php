@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
+use App\School\Domain\Builder\GroupBuilder;
 use App\School\Domain\Model\Course;
-use App\School\Domain\Model\Group;
 use App\School\Domain\Model\Room;
 use App\School\Domain\Model\Teacher;
+use DateInterval;
+use DateTime;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -17,10 +19,13 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
 {
     private const MAX_GROUPS = 15;
 
-    /**
-     * @var ObjectManager
-     */
-    private $manager;
+    private ObjectManager $manager;
+    private GroupBuilder $factory;
+
+    public function __construct(GroupBuilder $factory)
+    {
+        $this->factory = $factory;
+    }
 
     /**
      * {@inheritdoc}
@@ -43,24 +48,20 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
         $teachers = $this->manager->getRepository(Teacher::class)->findAll();
 
         for ($i = 1; $i <= self::MAX_GROUPS; ++$i) {
-            $group = new Group();
-            $group->setName($faker->text(20));
-            $group->setWeekday($faker->numberBetween(1, 7));
-            $group->setHour(new \DateTime($faker->time('H:i')));
+            $date = $faker->dateTimeThisMonth;
 
-            $startDate = $faker->dateTimeThisMonth;
-            $group->setStartDate($startDate);
-            $group->setEndDate($startDate->add(new \DateInterval('P3M')));
-            $group->setWhatsAppGroup($faker->text(15));
-
-            $courseIndex = \array_rand($courses);
-            $group->setCourse($courses[$courseIndex]);
-
-            $teacherIndex = \array_rand($teachers);
-            $group->setTeacher($teachers[$teacherIndex]);
-
-            $roomIndex = \array_rand($rooms);
-            $group->setRoom($rooms[$roomIndex]);
+            $group = $this->factory
+                ->create()
+                ->withName($faker->text(20))
+                ->withWeekday($faker->numberBetween(1, 7))
+                ->withHour(new DateTime($faker->time('H:i')))
+                ->withStartDate($date)
+                ->withEndDate($date->add(new DateInterval('P3M')))
+                ->withWhatsAppGroup($faker->text(15))
+                ->withCourse($courses[\array_rand($courses)])
+                ->withTeacher($teachers[\array_rand($teachers)])
+                ->withRoom($rooms[\array_rand($rooms)])
+                ->build();
 
             $this->manager->persist($group);
         }
