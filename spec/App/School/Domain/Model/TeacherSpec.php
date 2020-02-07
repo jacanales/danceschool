@@ -22,20 +22,6 @@ class TeacherSpec extends ObjectBehavior
         $this->getId()->shouldReturn(1);
     }
 
-    public function it_sets_wage(): void
-    {
-        $this->setWage(30.0)->shouldHaveType(Teacher::class);
-
-        $this->getWage()->shouldReturn(30.0);
-    }
-
-    public function it_sets_comment(): void
-    {
-        $this->setComment('comment')->shouldHaveType(Teacher::class);
-
-        $this->getComment()->shouldReturn('comment');
-    }
-
     public function it_sets_user(): void
     {
         $user = new User();

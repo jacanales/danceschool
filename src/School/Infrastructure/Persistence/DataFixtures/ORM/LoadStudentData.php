@@ -4,30 +4,32 @@ declare(strict_types=1);
 
 namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
-use App\School\Domain\Model\Student;
+use App\School\Domain\Builder\StudentBuilder;
+use App\Security\Domain\Builder\UserBuilder;
 use App\Security\Domain\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
-use LogicException;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Faker\Generator;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
+class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
 {
     private const MAX_STUDENTS = 10;
 
     private ObjectManager $manager;
-    private ?ContainerInterface $container;
+    private UserBuilder $userBuilder;
+    private Generator $faker;
+    private UserPasswordEncoderInterface $encoder;
+    private StudentBuilder $studentBuilder;
 
-    /**
-     * {@inheritdoc}
-     */
-    public function setContainer(ContainerInterface $container = null): void
+    public function __construct(UserBuilder $userBuilder, StudentBuilder $studentBuilder, UserPasswordEncoderInterface $encoder)
     {
-        $this->container = $container;
+        $this->userBuilder    = $userBuilder;
+        $this->studentBuilder = $studentBuilder;
+        $this->faker          = Factory::create();
+        $this->encoder        = $encoder;
     }
 
     /**
@@ -37,30 +39,31 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
     {
         $this->manager = $manager;
 
-        $faker = Factory::create();
-
         for ($i = 1; $i <= self::MAX_STUDENTS; ++$i) {
-            $user = new User();
+            $gender = User::GENDERS[\array_rand(User::GENDERS)];
 
-            $user
-                ->setUsername($faker->userName . $i)
-                ->setEmail($i . $faker->email)
-                ->setPassword($this->generatePassword($user))
-                ->addRole(User::ROLE_USER);
+            $user = $this->userBuilder
+                ->create()
+                ->withUserName($this->faker->unique()->userName)
+                ->withEmail($this->faker->unique()->email)
+                ->withPassword($this->faker->password, $this->encoder)
+                ->withRole(User::ROLE_USER)
+                ->withName($this->faker->name($gender))
+                ->withSurname($this->faker->lastName)
+                ->withGender($gender)
+                ->withIdentityNumber((string) $this->faker->unique()->sha1)
+                ->withAddress($this->faker->address)
+                ->withCity($this->faker->city)
+                ->withCountry($this->faker->countryCode)
+                ->withPostalCode($this->faker->postcode)
+                ->build();
 
-            $user
-                ->setName($faker->name)
-                ->setSurname($faker->lastName)
-                ->setGender('m')
-                ->setIdentityNumber((string) $faker->randomNumber(8))
-                ->setAddress($faker->address)
-                ->setCity($faker->city)
-                ->setCountry($faker->countryCode)
-                ->setPostalCode($faker->postcode);
-
-            $student = new Student();
-            $student->setUser($user);
-            $student->setIsMember($faker->boolean());
+            $student = $this->studentBuilder
+                ->create()
+                ->withMembership($this->faker->boolean())
+                ->withComment($this->faker->text)
+                ->withUser($user)
+                ->build();
 
             $this->manager->persist($student);
         }
@@ -71,26 +74,5 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
     public function getOrder(): int
     {
         return 5;
-    }
-
-    private function generatePassword(User $user): string
-    {
-        if (null === $this->container) {
-            throw new LogicException('Container is not yet initialized');
-        }
-
-        /**
-         * @var UserPasswordEncoderInterface
-         */
-        $encoder = $this->container
-            ->get('security.password_encoder');
-
-        $password = \hash_hmac('sha256', \uniqid(), 'secret');
-
-        if (!$encoder instanceof UserPasswordEncoderInterface) {
-            return $password;
-        }
-
-        return $encoder->encodePassword($user, $password);
     }
 }

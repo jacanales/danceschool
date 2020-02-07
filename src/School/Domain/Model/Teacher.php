@@ -10,10 +10,11 @@ use Doctrine\Common\Collections\Collection;
 
 class Teacher
 {
+    public ?float $wage;
+    public string $comment = '';
+
     private int $id;
     private User $user;
-    private float $wage;
-    private string $comment;
     /** @var Collection<int, Group> */
     private Collection $groups;
 
@@ -34,30 +35,6 @@ class Teacher
         return $this->id;
     }
 
-    public function setWage(float $wage): self
-    {
-        $this->wage = $wage;
-
-        return $this;
-    }
-
-    public function getWage(): ?float
-    {
-        return $this->wage;
-    }
-
-    public function setComment(string $comment): self
-    {
-        $this->comment = $comment;
-
-        return $this;
-    }
-
-    public function getComment(): ?string
-    {
-        return $this->comment;
-    }
-
     public function setUser(User $user): self
     {
         $this->user = $user;
@@ -72,6 +49,6 @@ class Teacher
 
     public function getFullName(): string
     {
-        return $this->getUser()->getName() . ' ' . $this->getUser()->getSurname();
+        return $this->user->getFullName();
     }
 }

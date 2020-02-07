@@ -4,31 +4,39 @@ declare(strict_types=1);
 
 namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
-use App\School\Domain\Model\Teacher;
+use App\School\Domain\Builder\TeacherBuilder;
+use App\Security\Domain\Builder\UserBuilder;
 use App\Security\Domain\Entity\User;
+use App\Security\Infrastructure\Repository\UserRepository;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
-use LogicException;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
+use Faker\Generator;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
+class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
 {
     public const MAX_TEACHERS = 5;
 
     private ObjectManager $manager;
+    private UserPasswordEncoderInterface $passwordEncoder;
+    private UserBuilder $userBuilder;
+    private Generator $faker;
+    private TeacherBuilder $teacherBuilder;
+    private UserRepository $userRepository;
 
-    private ?ContainerInterface $container;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setContainer(ContainerInterface $container = null): void
-    {
-        $this->container = $container;
+    public function __construct(
+        UserPasswordEncoderInterface $passwordEncoder,
+        UserBuilder $userBuilder,
+        TeacherBuilder $teacherBuilder,
+        UserRepository $userRepository
+    ) {
+        $this->passwordEncoder = $passwordEncoder;
+        $this->userBuilder     = $userBuilder;
+        $this->teacherBuilder  = $teacherBuilder;
+        $this->faker           = Factory::create();
+        $this->userRepository  = $userRepository;
     }
 
     /**
@@ -38,31 +46,31 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
     {
         $this->manager = $manager;
 
-        $faker = Factory::create();
-
         for ($i = 1; $i <= self::MAX_TEACHERS; ++$i) {
-            $user = new User();
+            $gender = User::GENDERS[\array_rand(User::GENDERS)];
 
-            $user
-                ->setUsername($faker->userName)
-                ->setEmail($faker->email)
-                ->setPassword($this->generatePassword($user))
-                ->addRole(User::ROLE_USER);
+            $user = $this->userBuilder
+                ->create()
+                ->withUserName($this->faker->unique()->userName)
+                ->withEmail($this->faker->unique()->email)
+                ->withPassword($this->faker->password, $this->passwordEncoder)
+                ->withRole(User::ROLE_USER)
+                ->withName($this->faker->name($gender))
+                ->withSurname($this->faker->lastName)
+                ->withGender($gender)
+                ->withIdentityNumber((string) $this->faker->unique()->randomDigit)
+                ->withAddress($this->faker->address)
+                ->withCity($this->faker->city)
+                ->withCountry($this->faker->countryCode)
+                ->withPostalCode($this->faker->postcode)
+                ->build();
 
-            $user
-                ->setName($faker->name)
-                ->setSurname($faker->lastName)
-                ->setGender('m')
-                ->setIdentityNumber((string) $faker->unique()->randomDigit)
-                ->setAddress($faker->address)
-                ->setCity($faker->city)
-                ->setCountry($faker->countryCode)
-                ->setPostalCode($faker->postcode);
-
-            $teacher = new Teacher();
-            $teacher->setUser($user);
-            $teacher->setWage(60.00);
-            $teacher->setComment($faker->text(50));
+            $teacher = $this->teacherBuilder
+                ->create()
+                ->withWage($this->faker->randomFloat(2))
+                ->withComment($this->faker->text)
+                ->withUser($user)
+                ->build();
 
             $this->manager->persist($teacher);
         }
@@ -73,21 +81,5 @@ class LoadTeacherData extends AbstractFixture implements OrderedFixtureInterface
     public function getOrder(): int
     {
         return 2;
-    }
-
-    private function generatePassword(User $user): string
-    {
-        if (null === $this->container) {
-            throw new LogicException('Container is not yet initialized');
-        }
-
-        /**
-         * @var UserPasswordEncoder
-         */
-        $encoder = $this->container->get('security.password_encoder');
-
-        $password = \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
-
-        return $encoder->encodePassword($user, $password);
     }
 }

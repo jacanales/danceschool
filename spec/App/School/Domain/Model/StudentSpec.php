@@ -24,36 +24,6 @@ class StudentSpec extends ObjectBehavior
         $this->getId()->shouldReturn(1);
     }
 
-    public function it_sets_captation_method(): void
-    {
-        $this->setCaptationMethod(1)->shouldHaveType(Student::class);
-
-        $this->getCaptationMethod()->shouldReturn(1);
-    }
-
-    public function it_sets_member(): void
-    {
-        $this->setIsMember(true)->shouldHaveType(Student::class);
-
-        $this->isMember()->shouldReturn(true);
-    }
-
-    public function it_sets_contract_expiration(): void
-    {
-        $date = new \DateTime();
-
-        $this->setContractExpiration($date)->shouldHaveType(Student::class);
-
-        $this->getContractExpiration()->shouldReturn($date);
-    }
-
-    public function it_sets_comment(): void
-    {
-        $this->setComment('comment')->shouldHaveType(Student::class);
-
-        $this->getComment()->shouldReturn('comment');
-    }
-
     public function it_sets_user(): void
     {
         $user = new User();
@@ -89,12 +59,5 @@ class StudentSpec extends ObjectBehavior
         $this->removeAnnotation($annotation);
 
         $annotations->toArray()->shouldReturn([]);
-    }
-
-    public function it_sets_account_number(): void
-    {
-        $this->setAccountNumber('account_number')->shouldHaveType(Student::class);
-
-        $this->getAccountNumber()->shouldReturn('account_number');
     }
 }
