@@ -105,7 +105,7 @@ phpmetrics:
 # Tests
 ########################################################################################################################
 phpunit:
-	vendor/bin/phpunit --exclude-group config
+	vendor/bin/phpunit --stop-on-error --stop-on-failure --stop-on-risky --fail-on-risk
 
 phpunit-debug:
 	vendor/bin/phpunit --debug

@@ -22,7 +22,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class GroupController extends AbstractController
 {
-    public const ROUTE_GROUP_SHOW = 'danceschool_group_show';
+    private const ROUTE_GROUP_SHOW = 'danceschool_group_show';
 
     /**
      * @Route("/", name="danceschool_group_index")
@@ -45,7 +45,7 @@ class GroupController extends AbstractController
     }
 
     /**
-     * @Route("/show/{id}", name=self::ROUTE_GROUP_SHOW)
+     * @Route("/show/{id}", name="danceschool_group_show")
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @throws \UnexpectedValueException
