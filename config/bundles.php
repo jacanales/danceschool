@@ -9,7 +9,6 @@ return [
     Doctrine\Bundle\DoctrineBundle\DoctrineBundle::class         => ['all' => true],
     Symfony\Bundle\MonologBundle\MonologBundle::class            => ['all' => true],
     Http\HttplugBundle\HttplugBundle::class                      => ['all' => true],
-    Craue\FormFlowBundle\CraueFormFlowBundle::class              => ['all' => true],
     EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle::class       => ['all' => true],
     Symfony\Bundle\DebugBundle\DebugBundle::class                => ['dev' => true],
     Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class    => ['dev' => true],

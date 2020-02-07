@@ -13,7 +13,6 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
 
-        "craue/formflow-bundle": "~3.2",
         "doctrine/dbal": "~2.9",
         "doctrine/doctrine-bundle": "~2.0",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
@@ -110,8 +109,9 @@
         }
     },
     "suggest": {
-        "egulias/listeners-debug-command-bundle": "~3.0.0",
-
-        "league/csv": "@stable"
+        "craue/formflow-bundle": "Create Multi-step forms",
+        "doctrine/cache": "Provides an interface for caching data with implementations for some of the most popular caching data stores",
+        "league/csv": "CSV parsing, writing and filtering",
+        "symfony/property-access": "Provides function to read and write from/to an object or array using a simple string notation"
     }
 }
