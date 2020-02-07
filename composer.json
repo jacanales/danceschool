@@ -111,7 +111,12 @@
     "suggest": {
         "craue/formflow-bundle": "Create Multi-step forms",
         "doctrine/cache": "Provides an interface for caching data with implementations for some of the most popular caching data stores",
+        "galbar/jsonpath-php": "JsonPath library",
+        "justinrainbow/json-schema": "~4.0.1",
+        "peekmo/jsonpath": "dev-master",
         "league/csv": "CSV parsing, writing and filtering",
+        "phpunit/phpcov": "PHP Coverage tool",
+        "swaggest/php-json-schema": "PHP Json schema validation",
         "symfony/property-access": "Provides function to read and write from/to an object or array using a simple string notation"
     }
 }
