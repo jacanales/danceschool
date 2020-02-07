@@ -13,7 +13,7 @@ use Faker\Factory;
 use LogicException;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
@@ -60,11 +60,7 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
 
             $student = new Student();
             $student->setUser($user);
-            //$student->setComment($faker->text(50));
-            //$student->setCaptationMethod(0);
-            //$student->setContractExpiration($faker->dateTimeThisYear);
             $student->setIsMember($faker->boolean());
-            //$student->setAccountNumber($faker->bankAccountNumber);
 
             $this->manager->persist($student);
         }
@@ -84,12 +80,16 @@ class LoadStudentData extends AbstractFixture implements OrderedFixtureInterface
         }
 
         /**
-         * @var UserPasswordEncoder
+         * @var UserPasswordEncoderInterface
          */
         $encoder = $this->container
             ->get('security.password_encoder');
 
-        $password = \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
+        $password = \hash_hmac('sha256', \uniqid(), 'secret');
+
+        if (!$encoder instanceof UserPasswordEncoderInterface) {
+            return $password;
+        }
 
         return $encoder->encodePassword($user, $password);
     }

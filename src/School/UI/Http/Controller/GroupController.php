@@ -22,7 +22,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class GroupController extends AbstractController
 {
-    private const ROUTE_GROUP_SHOW = 'danceschool_group_show';
+    private const ROUTE_GROUP_INDEX = 'danceschool_group_index';
+    private const ROUTE_GROUP_SHOW  = 'danceschool_group_show';
 
     /**
      * @Route("/", name="danceschool_group_index")
@@ -95,7 +96,7 @@ class GroupController extends AbstractController
             $em->persist($form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('danceschool_group_index');
+            return $this->redirectToRoute(self::ROUTE_GROUP_INDEX);
         }
 
         return $this->render(
@@ -132,7 +133,7 @@ class GroupController extends AbstractController
 
             $em->flush();
 
-            return $this->redirectToRoute('danceschool_group_index');
+            return $this->redirectToRoute(self::ROUTE_GROUP_INDEX);
         }
 
         return $this->render(
@@ -163,7 +164,7 @@ class GroupController extends AbstractController
         $em->remove($group);
         $em->flush();
 
-        return $this->redirectToRoute('danceschool_group_index');
+        return $this->redirectToRoute(self::ROUTE_GROUP_INDEX);
     }
 
     /**

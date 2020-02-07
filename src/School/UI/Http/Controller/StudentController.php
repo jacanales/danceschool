@@ -20,6 +20,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class StudentController extends AbstractController
 {
+    private const ROUTE_STUDENT_SHOW  = 'danceschool_student_show';
+    private const ROUTE_STUDENT_INDEX = 'danceschool_student_index';
+
     /**
      * @Route("/", name="danceschool_student_index", methods={"GET"})
      *
@@ -56,11 +59,11 @@ class StudentController extends AbstractController
         $annotations = $this->getDoctrine()
             ->getRepository(StudentAnnotation::class)
             ->findBy([
-                'student' => $id,
+                Student::NAME => $id,
             ]);
 
         if (!$student) {
-            throw $this->createNotFoundException('No student found for id ' . $id);
+            throw $this->createNotFoundException();
         }
 
         return $this->render(
@@ -87,7 +90,7 @@ class StudentController extends AbstractController
             $em->persist($form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('danceschool_student_index');
+            return $this->redirectToRoute(self::ROUTE_STUDENT_INDEX);
         }
 
         return $this->render(
@@ -116,12 +119,12 @@ class StudentController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$student) {
-                throw $this->createNotFoundException('No product found for id ' . $id);
+                throw $this->createNotFoundException();
             }
 
             $em->flush();
 
-            return $this->redirectToRoute('danceschool_student_index');
+            return $this->redirectToRoute(self::ROUTE_STUDENT_INDEX);
         }
 
         return $this->render(
@@ -146,13 +149,13 @@ class StudentController extends AbstractController
         $student = $em->getRepository(Student::class)->find($id);
 
         if (!$student) {
-            throw $this->createNotFoundException('No product found for id ' . $id);
+            throw $this->createNotFoundException();
         }
 
         $em->remove($student);
         $em->flush();
 
-        return $this->redirectToRoute('danceschool_student_index');
+        return $this->redirectToRoute(self::ROUTE_STUDENT_INDEX);
     }
 
     /**
@@ -177,7 +180,7 @@ class StudentController extends AbstractController
             $em->persist($form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('danceschool_student_show', ['id' => $studentId]);
+            return $this->redirectToRoute(self::ROUTE_STUDENT_SHOW, ['id' => $studentId]);
         }
 
         return $this->render(
@@ -210,7 +213,7 @@ class StudentController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$annotation) {
-                throw $this->createNotFoundException('No product found for id ' . $annotationId);
+                throw $this->createNotFoundException();
             }
 
             $em->flush();
@@ -241,12 +244,12 @@ class StudentController extends AbstractController
         $annotation = $em->getRepository(StudentAnnotation::class)->find($annotationId);
 
         if (!$annotation) {
-            throw $this->createNotFoundException('No product found for id ' . $annotationId);
+            throw $this->createNotFoundException();
         }
 
         $em->remove($annotation);
         $em->flush();
 
-        return $this->redirectToRoute('danceschool_student_show', ['id' => $studentId]);
+        return $this->redirectToRoute(self::ROUTE_STUDENT_SHOW, ['id' => $studentId]);
     }
 }
