@@ -128,7 +128,7 @@ test-coverage-html:
 
 test-coverage-ci:
 	$(RUN-WITH-PHPDBG) vendor/bin/phpunit --coverage-php=build/coverage/phpunit.cov
-	$(RUN-WITH-PHPDBG) vendor/bin/phpspec run -c "ci/phpspec-coverage.yml"
+	$(RUN-WITH-PHPDBG) vendor/bin/phpspec run -fdot -c "ci/phpspec-coverage.yml"
 
 test-coverage-codecov: test-coverage-ci
 	$(RUN-WITH-PHPDBG) vendor/bin/phpcov merge --clover build/codecov/coverage.xml build
