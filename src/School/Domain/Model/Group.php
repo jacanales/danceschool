@@ -10,6 +10,9 @@ use Doctrine\Common\Collections\Collection;
 
 class Group
 {
+    public const NAME      = 'group';
+    public const JOIN_NAME = 'groups';
+
     private int $id;
     private Course $course;
     private Room $room;

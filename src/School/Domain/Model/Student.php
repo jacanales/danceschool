@@ -11,6 +11,8 @@ use Doctrine\Common\Collections\Collection;
 
 class Student
 {
+    public const NAME                      = 'student';
+    public const JOIN_NAME                 = 'students';
     private const DEFAULT_CAPTATION_METHOD = 0;
 
     private int $id;
