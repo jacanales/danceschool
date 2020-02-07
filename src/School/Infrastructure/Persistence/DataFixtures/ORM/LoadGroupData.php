@@ -14,17 +14,20 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
+use Faker\Generator;
 
 class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
 {
     private const MAX_GROUPS = 15;
 
     private ObjectManager $manager;
-    private GroupBuilder $factory;
+    private GroupBuilder $builder;
+    private Generator $faker;
 
     public function __construct(GroupBuilder $factory)
     {
-        $this->factory = $factory;
+        $this->builder = $factory;
+        $this->faker   = Factory::create();
     }
 
     /**
@@ -36,8 +39,6 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
     {
         $this->manager = $manager;
 
-        $faker = Factory::create();
-
         /** @var Course[] $courses */
         $courses = $this->manager->getRepository(Course::class)->findAll();
 
@@ -48,16 +49,16 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
         $teachers = $this->manager->getRepository(Teacher::class)->findAll();
 
         for ($i = 1; $i <= self::MAX_GROUPS; ++$i) {
-            $date = $faker->dateTimeThisMonth;
+            $date = $this->faker->dateTimeThisMonth;
 
-            $group = $this->factory
+            $group = $this->builder
                 ->create()
-                ->withName($faker->text(20))
-                ->withWeekday($faker->numberBetween(1, 7))
-                ->withHour(new DateTime($faker->time('H:i')))
+                ->withName($this->faker->text(20))
+                ->withWeekday($this->faker->numberBetween(1, 7))
+                ->withHour(new DateTime($this->faker->time('H:i')))
                 ->withStartDate($date)
                 ->withEndDate($date->add(new DateInterval('P3M')))
-                ->withWhatsAppGroup($faker->text(15))
+                ->withWhatsAppGroup($this->faker->text(15))
                 ->withCourse($courses[\array_rand($courses)])
                 ->withTeacher($teachers[\array_rand($teachers)])
                 ->withRoom($rooms[\array_rand($rooms)])

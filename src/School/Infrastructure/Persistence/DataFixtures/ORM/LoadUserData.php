@@ -4,41 +4,31 @@ declare(strict_types=1);
 
 namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
+use App\Security\Domain\Builder\UserBuilder;
 use App\Security\Domain\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Faker\Factory;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 
-class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
 {
     private ObjectManager $manager;
-    private ?ContainerInterface $container;
     private UserPasswordEncoderInterface $passwordEncoder;
+    private UserBuilder $builder;
 
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, UserBuilder $builder)
     {
         $this->passwordEncoder = $passwordEncoder;
-    }
-
-    /**
-     * Sets the container.
-     *
-     * @param ContainerInterface|null $container A ContainerInterface instance or null
-     */
-    public function setContainer(ContainerInterface $container = null): void
-    {
-        $this->container = $container;
+        $this->builder         = $builder;
     }
 
     public function load(ObjectManager $manager): void
     {
         $this->manager = $manager;
 
-        $this->addUser('admin', 'admin@zonadev.es', User::ROLE_SUPER_ADMIN, 'admin');
+        $this->addUser('admin', 'jcanales@zonadev.es', User::ROLE_SUPER_ADMIN, 'admin');
         $manager->flush();
     }
 
@@ -47,25 +37,21 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         return 1;
     }
 
-    private function addUser(string $userName, string $email, string $role = User::ROLE_USER, string $password = null): void
+    private function addUser(string $username, string $email, string $role = User::ROLE_USER, string $password = null): void
     {
-        $user = new User();
+        if (!$password) {
+            $password = Factory::create()->password;
+        }
 
-        $user->setUsername($userName)
-            ->setPassword($this->generatePassword($user, $password))
-            ->setEmail($email)
-            ->addRole($role);
+        $user = $this->builder
+            ->create()
+            ->withUserName($username)
+            ->withPassword($password, $this->passwordEncoder)
+            ->withEmail($email)
+            ->withRole($role)
+            ->build();
 
         $this->manager->persist($user);
         $this->manager->flush();
-    }
-
-    private function generatePassword(UserInterface $user, string $password = null): string
-    {
-        if (!$password) {
-            $password = \mb_substr(\str_shuffle(\sha1(\microtime())), 0, 20);
-        }
-
-        return $this->passwordEncoder->encodePassword($user, $password);
     }
 }
