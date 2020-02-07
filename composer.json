@@ -112,7 +112,6 @@
     "suggest": {
         "egulias/listeners-debug-command-bundle": "~3.0.0",
 
-        "league/csv": "@stable",
-
+        "league/csv": "@stable"
     }
 }
