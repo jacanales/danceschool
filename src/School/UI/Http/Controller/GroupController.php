@@ -6,6 +6,7 @@ namespace App\School\UI\Http\Controller;
 
 use App\School\Domain\Model\Group;
 use App\School\Domain\Model\GroupStudent;
+use App\School\Domain\Model\Student;
 use App\School\UI\Form\Type\GroupStudentType;
 use App\School\UI\Form\Type\GroupType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,6 +22,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class GroupController extends AbstractController
 {
+    private const ROUTE_GROUP_SHOW = 'danceschool_group_show';
+
     /**
      * @Route("/", name="danceschool_group_index")
      *
@@ -37,7 +40,7 @@ class GroupController extends AbstractController
 
         return $this->render(
             'Group/index.html.twig',
-            ['groups' => $groups]
+            [Group::JOIN_NAME => $groups]
         );
     }
 
@@ -57,11 +60,11 @@ class GroupController extends AbstractController
         $students = $this->getDoctrine()
             ->getRepository(GroupStudent::class)
             ->findBy([
-                'group' => $id,
+                Group::NAME => $id,
             ]);
 
         if (!$group) {
-            throw $this->createNotFoundException('No room found for id ' . $id);
+            throw $this->createNotFoundException();
         }
 
         return $this->render(
@@ -124,7 +127,7 @@ class GroupController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$group) {
-                throw $this->createNotFoundException('No product found for id ' . $id);
+                throw $this->createNotFoundException();
             }
 
             $em->flush();
@@ -135,8 +138,8 @@ class GroupController extends AbstractController
         return $this->render(
             'Group/edit.html.twig',
             [
-                'form'  => $form->createView(),
-                'group' => $group,
+                'form'   => $form->createView(),
+                'groups' => $group,
             ]
         );
     }
@@ -154,7 +157,7 @@ class GroupController extends AbstractController
         $group = $em->getRepository(Group::class)->find($id);
 
         if (!$group) {
-            throw $this->createNotFoundException('No product found for id ' . $id);
+            throw $this->createNotFoundException();
         }
 
         $em->remove($group);
@@ -188,7 +191,7 @@ class GroupController extends AbstractController
             $em->persist($formData);
             $em->flush();
 
-            return $this->redirectToRoute('danceschool_group_show', ['id' => $id]);
+            return $this->redirectToRoute(self::ROUTE_GROUP_SHOW, ['id' => $id]);
         }
 
         return $this->render(
@@ -211,8 +214,8 @@ class GroupController extends AbstractController
     {
         $em      = $this->getDoctrine()->getManager();
         $student = $em->getRepository(GroupStudent::class)->findOneBy([
-            'group'   => $id,
-            'student' => $studentId,
+            Group::NAME   => $id,
+            Student::NAME => $studentId,
         ]);
 
         $form = $this->createForm(GroupStudentType::class, $student, [
@@ -224,12 +227,12 @@ class GroupController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$student) {
-                throw $this->createNotFoundException('No product found for id ' . $id);
+                throw $this->createNotFoundException();
             }
 
             $em->flush();
 
-            return $this->redirectToRoute('danceschool_group_show', ['id' => $id]);
+            return $this->redirectToRoute(self::ROUTE_GROUP_SHOW, ['id' => $id]);
         }
 
         return $this->render(
@@ -253,17 +256,17 @@ class GroupController extends AbstractController
     {
         $em      = $this->getDoctrine()->getManager();
         $student = $em->getRepository(GroupStudent::class)->findOneBy([
-            'group'   => $id,
-            'student' => $studentId,
+            Group::NAME   => $id,
+            Student::NAME => $studentId,
         ]);
 
         if (!$student) {
-            throw $this->createNotFoundException('No product found for id ' . $studentId);
+            throw $this->createNotFoundException();
         }
 
         $em->remove($student);
         $em->flush();
 
-        return $this->redirectToRoute('danceschool_group_show', ['id' => $id]);
+        return $this->redirectToRoute(self::ROUTE_GROUP_SHOW, ['id' => $id]);
     }
 }

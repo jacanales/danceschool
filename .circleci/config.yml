@@ -19,3 +19,5 @@ jobs:
             - vendor
       - run: make cs-fix-dry-run
       - run: make phpspec-unattended
+      - run: make phpunit
+      - run: make autoload-check
