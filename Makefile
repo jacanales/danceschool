@@ -81,6 +81,9 @@ cs-fix:
 cs-fix-dry-run:
 	$(PHP_CS_FIXER) fix --dry-run -vv
 
+cs-fix-dry-run-all:
+	$(PHP_CS_FIXER) fix --dry-run -vv --using-cache=no
+
 cs-fix-test:
 	$(PHP_CS_FIXER) fix ${FILES_TO_CHECK}
 
