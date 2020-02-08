@@ -5,8 +5,10 @@ LABEL maintainer = "Jesús Antonio Canales Diez <jcanales@zonadev.es>"
 
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
-        git
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+    git \
+    zip \
+    unzip \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 RUN composer global require "hirak/prestissimo"
@@ -17,9 +19,7 @@ RUN echo "\nexport TERM=xterm" >> /etc/bash.bashrc
 
 RUN pecl install apcu
 RUN pecl install redis
-RUN pecl install xdebug
 
 COPY config/php.ini /usr/local/etc/php/conf.d/10-php.ini
-COPY config/xdebug.ini /usr/local/etc/php/conf.d/20-xdebug.ini
 
 WORKDIR /code

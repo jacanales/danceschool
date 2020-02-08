@@ -28,4 +28,6 @@ jobs:
       env:
         TOKEN: ${{ secrets.CODECOV_UPLOAD_TOKEN }}
       run:  |
-            bash <(curl -s https://codecov.io/bash) -t ${TOKEN} -s build/codecov/
+            bash <(curl -s https://codecov.io/bash) -t ${TOKEN} -s ${PWD}/build/codecov/
+            bash <(curl -s https://codecov.io/bash) -t ${TOKEN} -s ${PWD}/../build/codecov/
+            bash <(curl -s https://codecov.io/bash) -t ${TOKEN} -s ${PWD}/../../build/codecov/

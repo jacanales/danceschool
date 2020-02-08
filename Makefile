@@ -30,8 +30,7 @@ up:
 	$(DOCKER) up -d
 
 up-ci:
-	DOCKER_FILE=etc/docker/docker-compose-ci.yml
-	$(MAKE) up
+	DOCKER_FILE=etc/docker/docker-compose-ci.yml $(MAKE) up
 
 provision: database-update
 	$(MAKE) database-provision
@@ -54,7 +53,7 @@ xdebug-on:
 	$(EXEC) phpenmod xdebug
 
 composer-install:
-	$(RUN) composer install --no-scripts
+	docker-compose -f etc/docker/docker-compose-ci.yml run $(SERVICE) composer install --no-scripts
 .PHONY: up up-ci down reload provision build composer-install xdebug-on xdebug-off
 
 ########################################################################################################################
@@ -130,11 +129,12 @@ test-coverage-html:
 	vendor/bin/phpcov merge --html build/coverage build
 
 test-coverage-ci:
-	$(RUN-WITH-PHPDBG) vendor/bin/phpunit --coverage-php=build/coverage/phpunit.cov
-	$(RUN-WITH-PHPDBG) vendor/bin/phpspec run -fdot -c "ci/phpspec-coverage.yml"
+	docker-compose -f etc/docker/docker-compose-ci.yml run $(SERVICE) phpdbg -qrr vendor/bin/phpunit --coverage-php=build/coverage/phpunit.cov
+	docker-compose -f etc/docker/docker-compose-ci.yml run $(SERVICE) phpdbg -qrr vendor/bin/phpspec run -fdot -c "ci/phpspec-coverage.yml"
 
-test-coverage-codecov: test-coverage-ci
-	$(RUN-WITH-PHPDBG) vendor/bin/phpcov merge --clover build/codecov/coverage.xml build
+test-coverage-codecov:
+	docker-compose -f etc/docker/docker-compose-ci.yml run $(SERVICE) phpdbg -qrr vendor/bin/phpunit --coverage-xml=build/codecov/phpunit.cov
+	docker-compose -f etc/docker/docker-compose-ci.yml run $(SERVICE) phpdbg -qrr vendor/bin/phpspec run -fdot -c "ci/phpspec-coverage.yml"
 .PHONY: phpunit phpunit-debug phpspec phpspec-unattended test-coverage test-coverage-html test-coverage-ci test-coverage-codecov
 ########################################################################################################################
 # Kubernetes & Docker
