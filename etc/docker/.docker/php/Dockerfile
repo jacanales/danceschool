@@ -6,7 +6,7 @@ LABEL maintainer = "Jesús Antonio Canales Diez <jcanales@zonadev.es>"
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
         git
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 RUN composer global require "hirak/prestissimo"
