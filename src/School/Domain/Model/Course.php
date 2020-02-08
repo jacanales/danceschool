@@ -9,9 +9,9 @@ use Doctrine\Common\Collections\Collection;
 
 class Course
 {
+    public string $name;
+    public float $price;
     private int $id;
-    private string $name;
-    private float $price;
     /** @var Collection<int, Group> */
     private Collection $groups;
 
@@ -28,30 +28,6 @@ class Course
     public function setId(int $id): self
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getPrice(): ?float
-    {
-        return $this->price;
-    }
-
-    public function setPrice(float $price): self
-    {
-        $this->price = $price;
 
         return $this;
     }

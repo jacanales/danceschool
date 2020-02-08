@@ -4,17 +4,24 @@ declare(strict_types=1);
 
 namespace App\School\Infrastructure\Persistence\DataFixtures\ORM;
 
-use App\School\Domain\Model\Course;
+use App\School\Domain\Builder\CourseBuilder;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use Faker\Factory;
+use Faker\Generator;
 
 class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
 {
-    /**
-     * @var ObjectManager
-     */
-    private $manager;
+    private ObjectManager $manager;
+    private CourseBuilder $builder;
+    private Generator $faker;
+
+    public function __construct(CourseBuilder $builder)
+    {
+        $this->builder = $builder;
+        $this->faker   = Factory::create();
+    }
 
     /**
      * {@inheritdoc}
@@ -46,11 +53,13 @@ class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
         return 4;
     }
 
-    private function addCourse(string $name, float $price = 75.0): void
+    private function addCourse(string $name): void
     {
-        $course = new Course();
-        $course->setName($name)
-            ->setPrice($price);
+        $course = $this->builder
+            ->create()
+            ->withName($name)
+            ->withPrice($this->faker->randomFloat(50, 80))
+            ->build();
 
         $this->manager->persist($course);
     }

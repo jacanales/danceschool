@@ -22,13 +22,6 @@ class CourseSpec extends ObjectBehavior
         $this->getId()->shouldReturn(1);
     }
 
-    public function it_sets_price(): void
-    {
-        $this->setPrice(1.1)->shouldHaveType(Course::class);
-
-        $this->getPrice()->shouldReturn(1.1);
-    }
-
     public function it_sets_groups(): void
     {
         $group = new Group();
