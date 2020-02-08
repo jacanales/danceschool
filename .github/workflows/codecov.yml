@@ -8,24 +8,39 @@ on:
     branches:
     - master
 jobs:
-  analyze:
-    name:    PHP Code Coverage
+  run:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Build the stack
-      env:
-        GITHUB_PACKAGES: ${{ secrets.GITHUB_PACKAGES }}
-      run:  |
-            make docker-login
-            make up-ci
-            make composer-install
-    - name: Run Coverage
-      run:  |
-            make test-coverage-codecov
-    - name: Send Coverage
-      env:
-        TOKEN: ${{ secrets.CODECOV_UPLOAD_TOKEN }}
-      run:  |
-            bash <(curl -s https://codecov.io/bash) -t ${TOKEN} -s build/codecov/
+      - uses: actions/checkout@v1
+      - name: Build the stack
+        env:
+          GITHUB_PACKAGES: ${{ secrets.GITHUB_PACKAGES }}
+        run:  |
+          make docker-login
+          make up-ci
+          make composer-install
+      - name: Run Coverage
+        run:  |
+          make test-coverage-codecov
+      - name: Upload coverage to Codecov
+        env:
+          TOKEN: ${{ secrets.CODECOV_UPLOAD_TOKEN }}
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_UPLOAD_TOKEN }}
+          file: ./build/codecov/phpunit.xml
+          flags: phpunit
+          name: codecov-umbrella
+          yml: ./codecov.yml
+          fail_ci_if_error: true
+      - name: Upload coverage to Codecov
+        env:
+          TOKEN: ${{ secrets.CODECOV_UPLOAD_TOKEN }}
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_UPLOAD_TOKEN }}
+          file: ./build/coverage/phpspec.xml
+          flags: phpspec
+          name: codecov-umbrella
+          yml: ./codecov.yml
+          fail_ci_if_error: true
