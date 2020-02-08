@@ -9,8 +9,8 @@ use Doctrine\Common\Collections\Collection;
 
 class Course
 {
-    public string $name;
-    public float $price;
+    public string $name = '';
+    public float $price = 0;
     private int $id;
     /** @var Collection<int, Group> */
     private Collection $groups;

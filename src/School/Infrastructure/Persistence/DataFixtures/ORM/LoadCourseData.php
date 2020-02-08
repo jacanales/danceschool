@@ -56,7 +56,6 @@ class LoadCourseData extends AbstractFixture implements OrderedFixtureInterface
     private function addCourse(string $name): void
     {
         $course = $this->builder
-            ->create()
             ->withName($name)
             ->withPrice($this->faker->randomFloat(50, 80))
             ->build();
