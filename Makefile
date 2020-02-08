@@ -133,7 +133,7 @@ test-coverage-ci:
 	docker-compose -f etc/docker/docker-compose-ci.yml run $(SERVICE) phpdbg -qrr vendor/bin/phpspec run -fdot -c "ci/phpspec-coverage.yml"
 
 test-coverage-codecov:
-	docker-compose -f etc/docker/docker-compose-ci.yml run $(SERVICE) phpdbg -qrr vendor/bin/phpunit --coverage-xml=build/codecov/phpunit.cov
+	docker-compose -f etc/docker/docker-compose-ci.yml run $(SERVICE) phpdbg -qrr vendor/bin/phpunit --coverage-clover=build/codecov/phpunit.xml
 	docker-compose -f etc/docker/docker-compose-ci.yml run $(SERVICE) phpdbg -qrr vendor/bin/phpspec run -fdot -c "ci/phpspec-coverage.yml"
 .PHONY: phpunit phpunit-debug phpspec phpspec-unattended test-coverage test-coverage-html test-coverage-ci test-coverage-codecov
 ########################################################################################################################

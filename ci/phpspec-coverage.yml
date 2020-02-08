@@ -2,8 +2,8 @@ extensions:
   FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension: ~
 
 code_coverage:
-  output: build/coverage/phpspec.cov
-  format: php
+  output: build/coverage/phpspec.xml
+  format: clover
   whitelist: [src]
   blacklist:
   - tests
