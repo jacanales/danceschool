@@ -1,10 +1,10 @@
-FROM composer:latest AS composer
+FROM composer:1.9.3 AS composer
 FROM php:7.4-fpm
 
 LABEL maintainer = "Jesús Antonio Canales Diez <jcanales@zonadev.es>"
 
-RUN apt update
-RUN apt install -y --no-install-recommends \
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends \
         git
 RUN rm -rf /var/lib/apt/lists/*
 
