@@ -10,11 +10,9 @@ class CourseBuilder
 {
     private Course $course;
 
-    public function create(): self
+    public function __construct()
     {
         $this->course = new Course();
-
-        return $this;
     }
 
     public function withName(string $name): self

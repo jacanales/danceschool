@@ -32,6 +32,7 @@
 
     <filter>
         <whitelist>
+            <directory suffix=".php">src</directory>
             <directory>vendor</directory>
             <exclude>
                 <directory>vendor/*</directory>
