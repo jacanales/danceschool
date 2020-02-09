@@ -30,8 +30,7 @@ class CourseBuilderTest extends TestCase
 
     public function testBuildEmptyCourse(): void
     {
-        $course = $this->builder
-            ->build();
+        $course = $this->builder->build();
 
         $this->assertEmpty($course->name);
         $this->assertEquals(0, $course->price);

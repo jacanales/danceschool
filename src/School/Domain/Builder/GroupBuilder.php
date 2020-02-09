@@ -13,11 +13,9 @@ class GroupBuilder
 {
     private Group $group;
 
-    public function create(): self
+    public function __construct()
     {
         $this->group = new Group();
-
-        return $this;
     }
 
     public function withName(string $name): self
