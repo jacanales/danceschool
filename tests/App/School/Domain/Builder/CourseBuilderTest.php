@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\School\Domain\Builder;
+namespace Tests\App\School\Domain\Builder;
 
 use App\School\Domain\Builder\CourseBuilder;
 use PHPUnit\Framework\TestCase;
@@ -30,8 +30,7 @@ class CourseBuilderTest extends TestCase
 
     public function testBuildEmptyCourse(): void
     {
-        $course = $this->builder
-            ->build();
+        $course = $this->builder->build();
 
         $this->assertEmpty($course->name);
         $this->assertEquals(0, $course->price);

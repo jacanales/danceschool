@@ -52,7 +52,6 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
             $date = $this->faker->dateTimeThisMonth;
 
             $group = $this->builder
-                ->create()
                 ->withName($this->faker->text(20))
                 ->withWeekday($this->faker->numberBetween(1, 7))
                 ->withHour(new DateTime($this->faker->time('H:i')))

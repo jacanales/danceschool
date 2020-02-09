@@ -1,4 +1,4 @@
-PHP_CS_FIXER?=vendor/bin/php-cs-fixer --cache-file=${PWD}/etc/php_cs_fixer/.php_cs.cache --allow-risky=yes -n
+PHP_CS_FIXER?=vendor/bin/php-cs-fixer --config=${PWD}/.php_cs.dist --cache-file=${PWD}/etc/php_cs_fixer/.php_cs.cache --allow-risky=yes -n
 PHPSTAN?=vendor/bin/phpstan analyse --memory-limit=-1 -l max -c ${PWD}/etc/phpstan/phpstan.neon --no-progress --no-interaction
 PHPSTAN_BUILD_FOLDER?=/tmp/build/phpstan
 PHPSTAN_RESULT_FILE?=${PHPSTAN_BUILD_FOLDER}/phpstan.result

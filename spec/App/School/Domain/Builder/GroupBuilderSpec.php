@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace spec\School\Domain\Factory;
+namespace spec\App\School\Domain\Builder;
 
 use App\School\Domain\Builder\GroupBuilder;
 use App\School\Domain\Model\Course;
@@ -15,9 +15,6 @@ use Faker\Generator;
 use PhpSpec\Exception\Example\FailureException;
 use PhpSpec\ObjectBehavior;
 
-/**
- * @mixin GroupBuilder|ObjectBehavior
- */
 class GroupBuilderSpec extends ObjectBehavior
 {
     private Generator $faker;
@@ -26,7 +23,6 @@ class GroupBuilderSpec extends ObjectBehavior
     {
         $this->beAnInstanceOf(GroupBuilder::class);
 
-        $this->create();
         $this->faker = Factory::create();
     }
 

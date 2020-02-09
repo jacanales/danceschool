@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\School\UI\Http\Controller;
+namespace Tests\App\School\UI\Http\Controller;
 
 use App\School\UI\Http\Controller\DefaultController;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class DefaultControllerTest extends WebTestCase
 {
-    public function testIndex()
+    public function testIndex(): void
     {
         $client = static::createClient();
 
