@@ -1,53 +1,68 @@
 <?php
 
 $dirs = [
-    __DIR__ . '/../../spec',
-    __DIR__ . '/../../src',
-    __DIR__ . '/../../tests',
+    __DIR__.'/spec',
+    __DIR__.'/src',
+    __DIR__.'/tests',
 ];
 
 $finder = PhpCsFixer\Finder::create()
-    ->in($dirs)
-    ->exclude('var')
-;
+                           ->in($dirs)
+                           ->exclude('var');
 
 return PhpCsFixer\Config::create()
-    ->setRules(
-        [
-            '@Symfony'                              => true,
-            '@PSR1'                                 => true,
-            '@PSR2'                                 => true,
-            '@PSR4'                                 => true,
-            '@PHP71Migration'                       => true,
-            '@PHP73Migration'                       => true,
-            '@PhpCsFixer'                           => true,
-            'concat_space'                          => ['spacing' => 'one'],
-            'array_syntax'                          => ['syntax' => 'short'],
-            'binary_operator_spaces'                => [
-                'default' => 'align_single_space_minimal',
-            ],
-            'combine_consecutive_unsets'            => true,
-            'declare_strict_types'                  => true,
-            'ordered_class_elements'                => true,
-            'ordered_imports'                       => true,
-            'yoda_style'                            => true,
-            'modernize_types_casting'               => true,
-            'no_multiline_whitespace_before_semicolons' => true,
-            'native_function_invocation'            => true,
-            'no_superfluous_phpdoc_tags'            => true,
-            'no_superfluous_elseif'                 => true,
-            'no_unreachable_default_argument_value' => true,
-            'no_useless_else'                       => true,
-            'no_useless_return'                     => true,
-            'random_api_migration'                  => true,
-            'mb_str_functions'                      => true,
-            // Doctrine
-            'doctrine_annotation_braces'            => true,
-            'doctrine_annotation_indentation'       => true,
-            'doctrine_annotation_spaces'            => true,
-            'no_null_property_initialization'       => true,
-            'self_static_accessor'                  => true,
-        ]
-    )
-    ->setFinder($finder)
-    ->setUsingCache(true);
+                        ->setRules(
+                            [
+                                '@Symfony'                                  => true,
+                                '@PSR1'                                     => true,
+                                '@PSR2'                                     => true,
+                                '@PHP71Migration'                           => true,
+                                '@PHP73Migration'                           => true,
+                                'array_syntax'                              => ['syntax' => 'short'],
+                                'binary_operator_spaces'                    => [
+                                    'default' => 'align_single_space_minimal',
+                                ],
+                                'blank_line_after_opening_tag'              => true,
+                                'combine_consecutive_unsets'                => true,
+                                'cast_spaces'                               => ['space' => 'single'],
+                                'concat_space'                              => ['spacing' => 'one'],
+                                'declare_equal_normalize'                   => ['space' => 'none'],
+                                'declare_strict_types'                      => true,
+                                'dir_constant'                              => true,
+                                // Doctrine
+                                'doctrine_annotation_braces'                => true,
+                                'doctrine_annotation_indentation'           => true,
+                                'doctrine_annotation_spaces'                => true,
+                                'function_typehint_space'                   => true,
+                                'hash_to_slash_comment'                     => true,
+                                'lowercase_cast'                            => true,
+                                'mb_str_functions'                          => true,
+                                'modernize_types_casting'                   => true,
+                                'native_function_casing'                    => true,
+                                'native_function_invocation'                => true,
+                                'no_alias_functions'                        => true,
+                                'no_blank_lines_after_phpdoc'               => true,
+                                'no_empty_statement'                        => true,
+                                'no_extra_consecutive_blank_lines'          => true,
+                                'no_leading_namespace_whitespace'           => true,
+                                'no_multiline_whitespace_before_semicolons' => true,
+                                'no_null_property_initialization'           => true,
+                                'no_short_bool_cast'                        => true,
+                                'no_superfluous_elseif'                     => true,
+                                'no_superfluous_phpdoc_tags'                => true,
+                                'no_trailing_comma_in_singleline_array'     => true,
+                                'no_unneeded_control_parentheses'           => true,
+                                'no_unreachable_default_argument_value'     => true,
+                                'no_unused_imports'                         => true,
+                                'no_useless_else'                           => true,
+                                'no_useless_return'                         => true,
+                                'ordered_class_elements'                    => true,
+                                'ordered_imports'                           => true,
+                                'random_api_migration'                      => true,
+                                'return_type_declaration'                   => ['space_before' => 'none'],
+                                'self_static_accessor'                      => true,
+                                'yoda_style'                                => true,
+                            ]
+                        )
+                        ->setFinder($finder)
+                        ->setUsingCache(true);
