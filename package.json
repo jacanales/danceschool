@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "popper.js": "^1.16.1",
     "webfonts-loader": "^5.1.1",
     "webpack-icons-installer": "^2.0.0"
