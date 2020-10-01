@@ -12,7 +12,7 @@
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
-    "webfonts-loader": "^5.2.2",
+    "webfonts-loader": "^7.0.1",
     "webpack-icons-installer": "^2.0.0"
   }
 }
