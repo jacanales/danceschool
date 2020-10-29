@@ -1,5 +1,8 @@
-parameters:
-    ignoreErrors:
-
 includes:
 	- ../../vendor/jangregor/phpstan-prophecy/src/extension.neon
+	- ./vendor/spaze/phpstan-disallowed-calls/extension.neon
+
+parameters:
+    level: 8
+    ignoreErrors:
+

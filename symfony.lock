@@ -261,9 +261,6 @@
     "phpmetrics/phpmetrics": {
         "version": "v2.5.0"
     },
-    "phpmetrics/symfony-extension": {
-        "version": "dev-master"
-    },
     "phpspec/php-diff": {
         "version": "v1.1.0"
     },
@@ -644,18 +641,6 @@
     },
     "twbs/bootstrap-sass": {
         "version": "v3.4.1"
-    },
-    "twig/extensions": {
-        "version": "1.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "a86723ee8d8b2f9437c8ce60a5546a1c267da5ed"
-        },
-        "files": [
-            "config/packages/twig_extensions.yaml"
-        ]
     },
     "twig/twig": {
         "version": "v2.12.2"
