@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 jobs:
   build:
@@ -7,7 +7,9 @@ jobs:
     working_directory: ~/project
     steps:
       - checkout
-      - run: sudo composer self-update
+      - run:
+          name: Update composer
+          command: sudo composer self-update --2
       - restore_cache:
           keys:
             - composer-cache-{{ checksum "composer.lock" }}
