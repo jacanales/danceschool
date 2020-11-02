@@ -4,15 +4,15 @@ on:   pull_request
 
 jobs:
   analyze:
-    name:    PHPStan analysis
+    name: PHPStan analysis
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Install vendors
       run:  |
             composer --no-scripts --prefer-dist --no-interaction --ignore-platform-reqs install
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
       with:
         ref: ${{ github.base_ref }}
     - name: Prepare PHPStan source
@@ -22,7 +22,7 @@ jobs:
       run:  |
             mkdir -p /tmp/build/phpstan
             vendor/bin/phpstan analyse --memory-limit=-1 -l max -c ${PWD}/etc/phpstan/phpstan.neon --no-progress --no-interaction src > /tmp/build/phpstan/phpstan.result.cache >/dev/null 2>&1 || true
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
       with:
         ref: ${{ github.ref }}
     - name: Run PHPStan Analysis
