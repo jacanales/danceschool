@@ -49,7 +49,6 @@
         "spaze/phpstan-disallowed-calls": "^1.0",
         "phpunit/php-code-coverage": "~7.0",
         "phpunit/phpunit": "~8.5",
-        "roave/security-advisories": "dev-master@dev",
         "symfony/debug-bundle": "^5.0",
         "symfony/maker-bundle": "^1.11",
         "symfony/profiler-pack": "^1.0",
