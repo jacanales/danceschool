@@ -83,9 +83,6 @@
     "doctrine/persistence": {
         "version": "v1.1.0"
     },
-    "doctrine/reflection": {
-        "version": "v1.0.0"
-    },
     "easycorp/easyadmin-bundle": {
         "version": "2.0",
         "recipe": {
@@ -326,9 +323,6 @@
     },
     "ralouphie/getallheaders": {
         "version": "2.0.5"
-    },
-    "roave/security-advisories": {
-        "version": "dev-master"
     },
     "sebastian/code-unit-reverse-lookup": {
         "version": "1.0.1"
