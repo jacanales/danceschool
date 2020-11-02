@@ -4,9 +4,11 @@
   },
   "devDependencies": {
     "@symfony/webpack-encore": "^0.31.0",
-    "node-sass": "^5.0.0",
     "sass-loader": "^10.0.4",
     "webpack-notifier": "^1.6.0"
+  },
+  "peerDependencies": {
+    "node-sass": "^5.0.0"
   },
   "dependencies": {
     "bootstrap": "^4.5.3",
