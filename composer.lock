@@ -10077,27 +10077,27 @@
         },
         {
             "name": "spaze/phpstan-disallowed-calls",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spaze/phpstan-disallowed-calls.git",
-                "reference": "f5dab10c0d35a8232b6c0d8aee7100443ceb8b53"
+                "reference": "24feac6714a42e8e54735cfdfe22bfb42d759b78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spaze/phpstan-disallowed-calls/zipball/f5dab10c0d35a8232b6c0d8aee7100443ceb8b53",
-                "reference": "f5dab10c0d35a8232b6c0d8aee7100443ceb8b53",
+                "url": "https://api.github.com/repos/spaze/phpstan-disallowed-calls/zipball/24feac6714a42e8e54735cfdfe22bfb42d759b78",
+                "reference": "24feac6714a42e8e54735cfdfe22bfb42d759b78",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1",
+                "php": ">=7.1",
                 "phpstan/phpstan": "^0.12"
             },
             "require-dev": {
                 "php-parallel-lint/php-console-highlighter": "^0.5.0",
                 "php-parallel-lint/php-parallel-lint": "^1.2",
-                "phpunit/phpunit": "^7.0",
-                "spaze/coding-standard": "^0.0.3"
+                "phpunit/phpunit": "^7.0 || ^9.4.2",
+                "spaze/coding-standard": "^0.0.4"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -10124,7 +10124,7 @@
                 }
             ],
             "description": "Disallowed method and function calls plug-in for PHPStan",
-            "time": "2020-10-18T22:00:23+00:00"
+            "time": "2020-11-12T21:03:35+00:00"
         },
         {
             "name": "symfony/class-loader",
