@@ -1377,16 +1377,16 @@
         },
         {
             "name": "easycorp/easyadmin-bundle",
-            "version": "v3.1.6",
+            "version": "v3.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EasyCorp/EasyAdminBundle.git",
-                "reference": "1894c5901fd7d2b57c399f9a06c8b51422034949"
+                "reference": "43ef9306b62de6bbb5cec5c3e0d752cc7bbefce8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/1894c5901fd7d2b57c399f9a06c8b51422034949",
-                "reference": "1894c5901fd7d2b57c399f9a06c8b51422034949",
+                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/43ef9306b62de6bbb5cec5c3e0d752cc7bbefce8",
+                "reference": "43ef9306b62de6bbb5cec5c3e0d752cc7bbefce8",
                 "shasum": ""
             },
             "require": {
@@ -1462,7 +1462,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-09T17:50:20+00:00"
+            "time": "2020-11-14T11:39:35+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
