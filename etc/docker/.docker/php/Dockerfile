@@ -1,4 +1,3 @@
-FROM composer:1.9.3 AS composer
 FROM php:7.4-fpm
 
 LABEL maintainer = "Jesús Antonio Canales Diez <jcanales@zonadev.es>"
@@ -10,8 +9,7 @@ RUN apt-get install -y --no-install-recommends \
     unzip \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-COPY --from=composer /usr/bin/composer /usr/local/bin/composer
-RUN composer global require "hirak/prestissimo"
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 
 ENV XDEBUG_REMOTE_HOST 127.0.0.1
 
