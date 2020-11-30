@@ -10,7 +10,7 @@ RUN-WITH-PHPDBG?=$(DOCKER) run $(SERVICE) phpdbg -qrr
 # Building images
 ########################################################################################################################
 docker-login:
-	docker login -u jacanales -p ${GITHUB_PACKAGES} docker.pkg.github.com
+	echo ${PACKAGES} | docker login -u jacanales --password-stdin docker.pkg.github.com
 
 docker-build-php:
 	DOCKER_BUILDKIT=1 docker build etc/docker/.docker/php -t docker.pkg.github.com/jacanales/danceschool/php:7.4
