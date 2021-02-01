@@ -1366,16 +1366,16 @@
         },
         {
             "name": "easycorp/easyadmin-bundle",
-            "version": "v3.2.2",
+            "version": "v3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EasyCorp/EasyAdminBundle.git",
-                "reference": "5e9705606b9da59ee6ce37b876735fd712d2b416"
+                "reference": "3a7a27475ed780de94b6c74d09458b70b9eb9880"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/5e9705606b9da59ee6ce37b876735fd712d2b416",
-                "reference": "5e9705606b9da59ee6ce37b876735fd712d2b416",
+                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/3a7a27475ed780de94b6c74d09458b70b9eb9880",
+                "reference": "3a7a27475ed780de94b6c74d09458b70b9eb9880",
                 "shasum": ""
             },
             "require": {
@@ -1391,6 +1391,7 @@
                 "symfony/cache": "^4.4|^5.0",
                 "symfony/config": "^4.4|^5.0",
                 "symfony/dependency-injection": "^4.4|^5.0",
+                "symfony/deprecation-contracts": "^2.0",
                 "symfony/event-dispatcher": "^4.4|^5.0",
                 "symfony/filesystem": "^4.4|^5.0",
                 "symfony/form": "^4.4|^5.0",
@@ -1452,7 +1453,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-21T18:51:43+00:00"
+            "time": "2021-01-30T18:09:44+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2935,16 +2936,16 @@
         },
         {
             "name": "symfony/asset",
-            "version": "v5.2.1",
+            "version": "v5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/asset.git",
-                "reference": "d254631bc20fb82a5827602dc2fa84a3118ec3f5"
+                "reference": "54a42aa50f9359d1184bf7e954521b45ca3d5828"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/asset/zipball/d254631bc20fb82a5827602dc2fa84a3118ec3f5",
-                "reference": "d254631bc20fb82a5827602dc2fa84a3118ec3f5",
+                "url": "https://api.github.com/repos/symfony/asset/zipball/54a42aa50f9359d1184bf7e954521b45ca3d5828",
+                "reference": "54a42aa50f9359d1184bf7e954521b45ca3d5828",
                 "shasum": ""
             },
             "require": {
@@ -2981,7 +2982,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony Asset Component",
+            "description": "Manages URL generation and versioning of web assets such as CSS stylesheets, JavaScript files and image files",
             "homepage": "https://symfony.com",
             "funding": [
                 {
@@ -2997,7 +2998,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-14T07:03:02+00:00"
+            "time": "2021-01-27T10:01:46+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -4270,16 +4271,16 @@
         },
         {
             "name": "symfony/form",
-            "version": "v5.2.1",
+            "version": "v5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "27b1df421c73a2d219f9f5b203f0ec972f0b1de0"
+                "reference": "b9fc4092f5c138ec89604ee5faa9cb0c12e2b601"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/27b1df421c73a2d219f9f5b203f0ec972f0b1de0",
-                "reference": "27b1df421c73a2d219f9f5b203f0ec972f0b1de0",
+                "url": "https://api.github.com/repos/symfony/form/zipball/b9fc4092f5c138ec89604ee5faa9cb0c12e2b601",
+                "reference": "b9fc4092f5c138ec89604ee5faa9cb0c12e2b601",
                 "shasum": ""
             },
             "require": {
@@ -4348,7 +4349,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony Form Component",
+            "description": "Allows to easily create, process and reuse HTML forms",
             "homepage": "https://symfony.com",
             "funding": [
                 {
@@ -4364,7 +4365,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-18T08:03:05+00:00"
+            "time": "2021-01-27T12:56:27+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -4768,16 +4769,16 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v5.2.1",
+            "version": "v5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
-                "reference": "53927f98c9201fe5db3cfc4d574b1f4039020297"
+                "reference": "930f17689729cc47d2ce18be21ed403bcbeeb6a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/53927f98c9201fe5db3cfc4d574b1f4039020297",
-                "reference": "53927f98c9201fe5db3cfc4d574b1f4039020297",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/930f17689729cc47d2ce18be21ed403bcbeeb6a9",
+                "reference": "930f17689729cc47d2ce18be21ed403bcbeeb6a9",
                 "shasum": ""
             },
             "require": {
@@ -4825,7 +4826,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "A PHP replacement layer for the C intl extension that includes additional data from the ICU library.",
+            "description": "Provides a PHP replacement layer for the C intl extension that includes additional data from the ICU library",
             "homepage": "https://symfony.com",
             "keywords": [
                 "i18n",
@@ -4849,7 +4850,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-14T10:10:03+00:00"
+            "time": "2021-01-27T10:01:46+00:00"
         },
         {
             "name": "symfony/monolog-bridge",
@@ -5008,16 +5009,16 @@
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v5.2.1",
+            "version": "v5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "87a2a4a766244e796dd9cb9d6f58c123358cd986"
+                "reference": "5d0f633f9bbfcf7ec642a2b5037268e61b0a62ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/87a2a4a766244e796dd9cb9d6f58c123358cd986",
-                "reference": "87a2a4a766244e796dd9cb9d6f58c123358cd986",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/5d0f633f9bbfcf7ec642a2b5037268e61b0a62ce",
+                "reference": "5d0f633f9bbfcf7ec642a2b5037268e61b0a62ce",
                 "shasum": ""
             },
             "require": {
@@ -5049,7 +5050,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony OptionsResolver Component",
+            "description": "Provides an improved replacement for the array_replace PHP function",
             "homepage": "https://symfony.com",
             "keywords": [
                 "config",
@@ -5070,7 +5071,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-24T12:08:07+00:00"
+            "time": "2021-01-27T12:56:27+00:00"
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
@@ -6571,16 +6572,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v5.2.1",
+            "version": "v5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "a04209ba0d1391c828e5b2373181dac63c52ee70"
+                "reference": "c021864d4354ee55160ddcfd31dc477a1bc77949"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/a04209ba0d1391c828e5b2373181dac63c52ee70",
-                "reference": "a04209ba0d1391c828e5b2373181dac63c52ee70",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/c021864d4354ee55160ddcfd31dc477a1bc77949",
+                "reference": "c021864d4354ee55160ddcfd31dc477a1bc77949",
                 "shasum": ""
             },
             "require": {
@@ -6641,7 +6642,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony Translation Component",
+            "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "funding": [
                 {
@@ -6657,7 +6658,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-08T17:03:37+00:00"
+            "time": "2021-01-27T10:15:41+00:00"
         },
         {
             "name": "symfony/translation-contracts",
@@ -6936,16 +6937,16 @@
         },
         {
             "name": "symfony/uid",
-            "version": "v5.2.1",
+            "version": "v5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/uid.git",
-                "reference": "7085124d58b662d3fdfb1f7d2dde6c5659656aa4"
+                "reference": "cce30cee5d8e4a2d6d49ca6785bb70d29043d208"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/uid/zipball/7085124d58b662d3fdfb1f7d2dde6c5659656aa4",
-                "reference": "7085124d58b662d3fdfb1f7d2dde6c5659656aa4",
+                "url": "https://api.github.com/repos/symfony/uid/zipball/cce30cee5d8e4a2d6d49ca6785bb70d29043d208",
+                "reference": "cce30cee5d8e4a2d6d49ca6785bb70d29043d208",
                 "shasum": ""
             },
             "require": {
@@ -6979,7 +6980,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony Uid component",
+            "description": "Provides an object-oriented API to generate and represent UIDs",
             "homepage": "https://symfony.com",
             "keywords": [
                 "UID",
@@ -6999,7 +7000,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-15T09:12:47+00:00"
+            "time": "2021-01-25T13:54:05+00:00"
         },
         {
             "name": "symfony/validator",
