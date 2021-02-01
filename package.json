@@ -22,7 +22,7 @@
     "bootstrap": "^4.6.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
-    "webfonts-loader": "^7.1.0",
+    "webfonts-loader": "^7.1.1",
     "webpack-icons-installer": "^2.0.0"
   }
 }

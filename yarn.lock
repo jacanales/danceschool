@@ -3305,14 +3305,6 @@ git-raw-commits@^2.0.0:
     split2 "^2.0.0"
     through2 "^4.0.0"
 
-github-sponsors@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/github-sponsors/-/github-sponsors-1.0.1.tgz#e5d3199c1ca03ac02cf5ad96524c413643d1ebe9"
-  integrity sha512-e88pra5/QNBhLhl/GgI+NanCiPbfUkO67nkmrpuE/gNudX12XpZPOtpP3ljOvxw+L5kWLIXpBaDMQl+flqIbkA==
-  dependencies:
-    chalk "^2.4.2"
-    yaml "^1.6.0"
-
 glob-parent@^5.1.0, glob-parent@~5.1.0:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-5.1.1.tgz#b6c1ef417c4e5663ea498f1c45afac6916bbc229"
@@ -7092,13 +7084,12 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-webfonts-loader@^7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/webfonts-loader/-/webfonts-loader-7.1.0.tgz#30c82106dc9d83284b5969591bf1873e767de97f"
-  integrity sha512-cVdvFPLHmzHNLNEJpzDNu/iBj++AsPXfJ8NsYCl2zXx7Umdp2gd93yQOESoTQEFSK8lPQXT1CAisFDh3j/2rZg==
+webfonts-loader@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/webfonts-loader/-/webfonts-loader-7.1.1.tgz#9f1a2ed82981f1ba7ca42eface3368f7f73c1469"
+  integrity sha512-3xC3cvKQ5dQ1WbdkGfpyX/MFZ5Qbucgo5LQs3/noYWuFfzOKH5xMa1llNPCTbHj6ViYniG1mOAhpU0IjEaKLxw==
   dependencies:
     "@vusion/webfonts-generator" "^0.6.1"
-    github-sponsors "^1.0.1"
     glob "^7.1.6"
     loader-utils "^1.4.0"
 
@@ -7394,7 +7385,7 @@ yallist@^4.0.0:
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
-yaml@^1.10.0, yaml@^1.6.0:
+yaml@^1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.0.tgz#3b593add944876077d4d683fee01081bd9fff31e"
   integrity sha512-yr2icI4glYaNG+KWONODapy2/jDdMSDnrONSjblABjD9B4Z5LgiircSt8m8sRZFNi08kG9Sm0uSHtEmP3zaEGg==
