@@ -1366,16 +1366,16 @@
         },
         {
             "name": "easycorp/easyadmin-bundle",
-            "version": "v3.2.3",
+            "version": "v3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EasyCorp/EasyAdminBundle.git",
-                "reference": "3a7a27475ed780de94b6c74d09458b70b9eb9880"
+                "reference": "6ad8ced39c8a2118c8f408e4ddef56b4daf04e1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/3a7a27475ed780de94b6c74d09458b70b9eb9880",
-                "reference": "3a7a27475ed780de94b6c74d09458b70b9eb9880",
+                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/6ad8ced39c8a2118c8f408e4ddef56b4daf04e1d",
+                "reference": "6ad8ced39c8a2118c8f408e4ddef56b4daf04e1d",
                 "shasum": ""
             },
             "require": {
@@ -1453,7 +1453,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-30T18:09:44+00:00"
+            "time": "2021-02-11T18:36:34+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -4271,16 +4271,16 @@
         },
         {
             "name": "symfony/form",
-            "version": "v5.2.2",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "b9fc4092f5c138ec89604ee5faa9cb0c12e2b601"
+                "reference": "4f3069be5fe46e72f3ec233fc61ac2828ea5b301"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/b9fc4092f5c138ec89604ee5faa9cb0c12e2b601",
-                "reference": "b9fc4092f5c138ec89604ee5faa9cb0c12e2b601",
+                "url": "https://api.github.com/repos/symfony/form/zipball/4f3069be5fe46e72f3ec233fc61ac2828ea5b301",
+                "reference": "4f3069be5fe46e72f3ec233fc61ac2828ea5b301",
                 "shasum": ""
             },
             "require": {
@@ -4365,7 +4365,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-27T12:56:27+00:00"
+            "time": "2021-01-28T22:06:19+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -4769,7 +4769,7 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v5.2.2",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
@@ -5009,7 +5009,7 @@
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v5.2.2",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -6572,7 +6572,7 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v5.2.2",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
@@ -6937,16 +6937,16 @@
         },
         {
             "name": "symfony/uid",
-            "version": "v5.2.2",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/uid.git",
-                "reference": "cce30cee5d8e4a2d6d49ca6785bb70d29043d208"
+                "reference": "959f69a8c0d68a37311eeabd630a0ef0979bc1d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/uid/zipball/cce30cee5d8e4a2d6d49ca6785bb70d29043d208",
-                "reference": "cce30cee5d8e4a2d6d49ca6785bb70d29043d208",
+                "url": "https://api.github.com/repos/symfony/uid/zipball/959f69a8c0d68a37311eeabd630a0ef0979bc1d0",
+                "reference": "959f69a8c0d68a37311eeabd630a0ef0979bc1d0",
                 "shasum": ""
             },
             "require": {
@@ -7000,7 +7000,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-25T13:54:05+00:00"
+            "time": "2021-01-27T20:50:00+00:00"
         },
         {
             "name": "symfony/validator",
@@ -7392,16 +7392,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.2.1",
+            "version": "v3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "f795ca686d38530045859b0350b5352f7d63447d"
+                "reference": "1f3b7e2c06cc05d42936a8ad508ff1db7975cdc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/f795ca686d38530045859b0350b5352f7d63447d",
-                "reference": "f795ca686d38530045859b0350b5352f7d63447d",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1f3b7e2c06cc05d42936a8ad508ff1db7975cdc5",
+                "reference": "1f3b7e2c06cc05d42936a8ad508ff1db7975cdc5",
                 "shasum": ""
             },
             "require": {
@@ -7416,7 +7416,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -7460,7 +7460,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-05T15:40:36+00:00"
+            "time": "2021-02-08T09:54:36+00:00"
         }
     ],
     "packages-dev": [
