@@ -12,7 +12,7 @@
     "@commitlint/cli": "^12.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "husky": "^5.1.1",
-    "pinst": "^2.1.4"
+    "pinst": "^2.1.6"
   },
   "peerDependencies": {
     "node-sass": "^5.0.0",
