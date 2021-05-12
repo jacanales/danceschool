@@ -24,7 +24,7 @@ jobs:
           password: ${{ secrets.PACKAGES }}
 
       - name: Push to Docker Hub
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v2.4.0
         with:
           context: etc/docker/.docker/php
           file: etc/docker/.docker/php/Dockerfile
