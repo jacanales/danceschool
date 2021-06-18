@@ -7204,16 +7204,16 @@
         },
         {
             "name": "symfony/validator",
-            "version": "v5.2.7",
+            "version": "v5.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "b0be0360bfbf15059308d815da7f4151bd448b37"
+                "reference": "87621b2503601673b7e76aeffac3234ada8e1bf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/b0be0360bfbf15059308d815da7f4151bd448b37",
-                "reference": "b0be0360bfbf15059308d815da7f4151bd448b37",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/87621b2503601673b7e76aeffac3234ada8e1bf2",
+                "reference": "87621b2503601673b7e76aeffac3234ada8e1bf2",
                 "shasum": ""
             },
             "require": {
@@ -7232,12 +7232,13 @@
                 "symfony/expression-language": "<5.1",
                 "symfony/http-kernel": "<4.4",
                 "symfony/intl": "<4.4",
+                "symfony/property-info": "<5.3",
                 "symfony/translation": "<4.4",
                 "symfony/yaml": "<4.4"
             },
             "require-dev": {
                 "doctrine/annotations": "^1.10.4",
-                "doctrine/cache": "~1.0",
+                "doctrine/cache": "^1.0|^2.0",
                 "egulias/email-validator": "^2.1.10|^3",
                 "symfony/cache": "^4.4|^5.0",
                 "symfony/config": "^4.4|^5.0",
@@ -7251,7 +7252,7 @@
                 "symfony/intl": "^4.4|^5.0",
                 "symfony/mime": "^4.4|^5.0",
                 "symfony/property-access": "^4.4|^5.0",
-                "symfony/property-info": "^4.4|^5.0",
+                "symfony/property-info": "^5.3",
                 "symfony/translation": "^4.4|^5.0",
                 "symfony/yaml": "^4.4|^5.0"
             },
@@ -7306,7 +7307,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-14T13:12:03+00:00"
+            "time": "2021-06-17T12:34:27+00:00"
         },
         {
             "name": "symfony/var-dumper",
