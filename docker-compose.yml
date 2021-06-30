@@ -62,7 +62,7 @@ services:
     - MYSQL_PASSWORD=danceschool
     - MYSQL_ROOT_PASSWORD=danceschool
 #  node:
-#    image: docker.pkg.github.com/jacanales/danceschool/node:latest
+#    image: ghcr.io/jacanales/danceschool/node:latest
 #    user: "node"
 #    volumes:
 #    - ./:/code

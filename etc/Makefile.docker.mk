@@ -10,19 +10,19 @@ RUN-WITH-PHPDBG?=$(DOCKER) run $(SERVICE) phpdbg -qrr
 # Building images
 ########################################################################################################################
 docker-login:
-	echo ${PACKAGES} | docker login -u jacanales --password-stdin docker.pkg.github.com
+	echo ${PACKAGES} | docker login ghcr.io -u jacanales --password-stdin 
 
 docker-build-php:
-	DOCKER_BUILDKIT=1 docker build etc/docker/.docker/php -t docker.pkg.github.com/jacanales/danceschool/php:7.4
+	DOCKER_BUILDKIT=1 docker build etc/docker/.docker/php -t ghcr.io/jacanales/danceschool/php:7.4
 
 docker-push-php: docker-login docker-build-php
-	docker push docker.pkg.github.com/jacanales/danceschool/php:7.4
+	docker push ghcr.io/jacanales/danceschool/php:7.4
 
 docker-build-nodejs:
-	DOCKER_BUILDKIT=1 docker build etc/docker/.docker/php -t docker.pkg.github.com/jacanales/danceschool/node:latest
+	DOCKER_BUILDKIT=1 docker build etc/docker/.docker/php -t ghcr.io/jacanales/danceschool/node:latest
 
 docker-push-nodejs: docker-login docker-build-nodejs
-	docker push docker.pkg.github.com/jacanales/danceschool/node:latest
+	docker push ghcr.io/jacanales/danceschool/node:latest
 
 ########################################################################################################################
 # Container operations
