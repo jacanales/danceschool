@@ -19,7 +19,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.PACKAGES }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the stack
         env:
           PACKAGES: ${{ secrets.PACKAGES }}
